@@ -87,7 +87,7 @@
     <Connector connectionTimeout="20000" maxParameterCount="1000" URIEncoding ="UTF-8" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
 ```
 
-   - 모든 URL에 대해 위의 Set Character Encoding Filter를 거치도록 설정
+   - 모든 URL에 대해 아래의 Set Character Encoding Filter를 거치도록 설정 (web.xml 내)
 ```jsp
   <!-- The mapping for the Set Character Encoding Filter -->
 <!-- -->
