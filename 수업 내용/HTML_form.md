@@ -237,7 +237,7 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 	/* Selector (선택자) : { css속성:값;css속성:값;..css속성:값; } */
 	/* 선택자에는 tag, .클래스명, #id명 가능 */
 	/* img { width:300px;height:200px; } img 태그를 선택해 너비를 100으로 일괄 적용 */
-	.c1 { width:200px;height:100px; } /* 클래스 c1인 요소에 대해 너비(width)와 높이(height)에 일괄 적용 */
+	.c1 { width:200px;height:100px; } /* 클래스 c1인 요소에 대해 너비(width)와 높이(height)에 일괄 적용하겠다는 의미며, 여기에서는 이미지에 대해 submit 역할을 하는 input 요소에 대해 조정 */
 	</style>
 </head>
 ```
@@ -246,6 +246,43 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 <img src="http://localhost:8081/webPro/imgs/submit-button.gif" alt="submit" title="submit image" class = "c1">
 <input type = "image" src="<%=request.getContextPath()%>/imgs/submit-button.gif" class = "c1">
 ```
+
+16. button
+- 단순한 푸시 버튼으로 렌더링
+- 이벤트 처리기 (주로 Click 이벤트)를 부착하여, 클릭 버튼 가능
+
+```html
+<!-- button 모양 추가하되, 이름은 click이고, onclick 기능으로 누르면 창이 뜨는데, 그 메세지가 안녕 출력 -->
+<input type = "button" value = "click" onclick = "alert('안녕');">
+```
+	- javaScript : onclick 이벤트는 버튼을 클릭했을 때 특정 기능을 수행하게 해줌
+ 	- javaScript : alert('표시내용') : alert창 (메세지 창)을 띄우되, 표시내용을 담은 창을 띄움
+
+<div align = "center">
+<img width="411" alt="20240226_161456" src="https://github.com/sooyounghan/Web/assets/34672301/ea119ed1-40fd-45bc-bf84-43c81de724a5">
+</div>   
+
+-----
+### button
+-----    
+ - button 요소 (submit 역할 수행)
+ - type : button (단어 그대로 button 역할) [input type = "button"과 동일, javaScript와 연동]
+
+     		javaScript와 연동해 처리할 수 있는 기능으로 많이 사용
+
+ - type : reset (입력한 값을 초기화) [input type = "reset"과 동일]
+ - type : submit (입력한 값을 웹 서버에 전송) [input type = "submit"과 동일]
+   
+```html
+<button type = "button">button (type = "button") 역할</button>
+<button type = "reset">reset (type = "reset") 역할</button>
+<button type = "submit">submit (type = "submit") 역할</button>
+```   
+
+<div align = "center">
+<img width="209" alt="20240226_161509" src="https://github.com/sooyounghan/Web/assets/34672301/ca26a7f8-b180-4eec-967d-6991d840e9eb">
+</div>   
+
 -----
 ### output
 -----    
