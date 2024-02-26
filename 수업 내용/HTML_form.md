@@ -4,22 +4,29 @@
 
 1. 사용자가 웹 브라우저를 통해 입력된 모든 데이터를 한 번에 웹 서버로 전송하는 양식
 2. 전송한 데이터는 웹 서버가 처리, 처리 결과에 따라 다른 웹 페이지를 보여줌
+3. 웹에서의 폼은 크게 사용자가 입력하는 부분과 입력한 내용을 서버로 전송하는 버튼 부분으로 나눠짐
 
 <div align = "center">
 <img width="308" alt="제목 없음" src="https://github.com/sooyounghan/JAVA/assets/34672301/94e10da8-3428-4978-a70f-a6bec097e9cf">
 </div>
 
-3. 사용자가 다양한 정보를 입력하고 서로 전달할 때 사용하는 태그
-4. 단독으로 쓰이지 않고, 사용자가 다양한 정보를 입력하는 양식을 포함하는 최상위 태그
+4. 사용자가 다양한 정보를 입력하고 서로 전달할 때 사용하는 태그
+5. 단독으로 쓰이지 않고, 사용자가 다양한 정보를 입력하는 양식을 포함하는 최상위 태그
 
 <div align = "center">
 <img width="306" alt="제목 없음" src="https://github.com/sooyounghan/JAVA/assets/34672301/25c9a004-9e7a-44af-86ac-c9f31ac5569c">
 </div>
 
-5. form 태그의 모든 속성은 필수가 아니라 선택적 사용, 속성을 이용해 데이터를 전송할 때 어디로, 어떻게 보낼지 설정
-6. name은 중복이 가능하므로, 주로 id를 사용
-7. action : 서버 측의 페이지로 전송 
-8. method 방식 : get 방식, post 방식 (기본값 : get 방식)
+6. form 태그의 모든 속성은 필수가 아니라 선택적 사용, 속성을 이용해 데이터를 전송할 때 어디로, 어떻게 보낼지 설정
+7. name은 중복이 가능하므로, 주로 id를 사용
+8. action : 서버 측의 페이지로 전송 
+9. method 방식 : get 방식, post 방식 (기본값 : get 방식)
+
+10. autocomplete 속성 : 자동 완성 기능 (기본값 : on)
+```html
+<form action = "register.html" autocomplete = "off">
+</form>
+```
 
 -----
 ### get, post 방식
@@ -65,18 +72,34 @@
 <img width="306" alt="제목 없음" src="https://github.com/sooyounghan/JAVA/assets/34672301/5bdca2a4-4a3f-49ee-aefd-9c77c7265b82">
 </div>
 
-8. input type 종류 참조 : https://www.w3schools.com/html/html_form_input_types.asp
-```html
-<li> color : <input type = "color" name = "color" id = "color"></li>
-```
-```html
-http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
-```
+-----
+### input type
+-----
+1. text = "line"
 
-	 %23 : #
-  	 00 / 00 / 00 : RGB 값 의미
+   - 한 줄 짜리 일반 텍스트를 입력하는 필드
 
-   - 시간 관련 속성 예시
+       		<input type = "text" [속성 = "속성 값"]>
+
+   - name 속성 : 텍스트 필드를 구별할 수 있도록 이름 부여
+   - size : 텍스트 필드의 길이 지정 (즉, 화면에 몇 글자가 보일지 결정)
+   - value : 텍스트 필드 요소가 화면에 표시될 때 텍스트 필드 부분에 표시될 내용
+   - maxlength : 텍스트 필드에 입력할 수 있는 최대 문자 개수
+
+2. text = "password"
+
+       		<input type = "password" [속성 = "속성 값"]>
+
+   - 비밀번호 입력란이며, value 속성이 없음
+
+
+3. input type 종류 참조 : https://www.w3schools.com/html/html_form_input_types.asp
+
+4. 시간 관련 속성 예시
+
+   - datetime-local : 날짜와 시간 모두 조절 가능
+   - time : 시간만 설정
+
 ```html
 <fieldset>
 	<legend> FieldSet </legend>
@@ -99,96 +122,22 @@ http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
 http://localhost:8081/webPro/html/ok.jsp?...date1=2024-02-26&date2=2024-02-27T12%3A18&month=2024-07&time=12%3A22&week=2024-W10
 ```
 
-9. email, tel, url 속성은 DB와 연동하여 유효성 검사 필요
-```html
-<fieldset> <!-- 유효성 검사 필요 -->
-	<legend> FieldSet </legend>
-		<ul>
-			<li> E-mail : <input type = "email" name = "email" id = "email"></li>
-			<li> tel : <input type = "tel" name = "tel" id = "tel"></li>
-			<li> URL : <input type = "url" name = "url" id = "url"></li>
-		</ul>
-</fieldset>
-```
-<div align = "center">
-<img width="744" alt="20240226_123738" src="https://github.com/sooyounghan/Web/assets/34672301/9a136e3e-6af1-4c16-8cd6-2d58cb876d22">
-</div>
-
-10. file
-    
-	- 파일이 전송되는 것이 아니라 파일명에 대한 문자열이 전송
- 	- 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
-
-		   * File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-date" 속성 값 설정
-    
-<div align = "center">
-<img width="148" alt="20240226_124413" src="https://github.com/sooyounghan/Web/assets/34672301/43c1d257-d388-40b3-9e33-4fca49bccda0">
-</div>  
-
-```html
-http://localhost:8081/webPro/html/ok.jsp?...file=1.txt&tel=&url= <!-- 1.txt 파일명이 문자열로 전송 -->
-```
-
-11. number
-- 숫자를 입력할 수 있는 입력 필드를 정의 (쿼리스트링에 의해 문자열 값으로 전달)
-- max : < input > 요소의 최댓값을 명시함
-- min : < input > 요소의 최솟값을 명시함
-- step : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
-- value : < input > 요소의 초깃값(value)을 명시함
-
-```html
-<form action="/examples/media/action_target.php" method="get">
-    1부터 20까지의 짝수 : <input type="number" name="even" value="1" min="2" max="20" step="2"><br>
-    <input type="submit">
-</form>
-```
-<div align = "center">
-<img width="182" alt="20240226_140906" src="https://github.com/sooyounghan/Web/assets/34672301/1f886979-bc9d-42bf-8ac5-61637270a561">
-</div>    
-
-12. range
-- 슬라이드 바를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드를 정의
-- 기본 범위 : 0 ~ 100까지이지만, 다음 요소와 함께 사용하면 그 범위 설정 가능 (기본 범위에서 벗어날 수 있음)
-- max : < input > 요소의 최댓값을 명시함
-- min : < input > 요소의 최솟값을 명시함
-- step : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
-- value : < input > 요소의 초깃값(value)을 명시함
-
-```html
-<form oninput="x.value=parseInt(a.value)" action="/examples/media/action_target.php" method="get">
-    여러분의 나이대를 골라보세요.<br>
-    Age : 0<input type="range" id="age" name="age" min="0" max="60" step="10" value = "10">60
-    <output name="x" for="a"></output><br>
-    <input type="submit">
-</form>
-```
-- 기본값은 0, 최저값은 10, 최댓값은 60, 간격은 10으로 설정
-- 범위 양끝단에 최저값과 최고값을 표기하면, 그 범위를 알 수 있음
-
-<div align = "center">
-<img width="179" alt="20240226_141917" src="https://github.com/sooyounghan/Web/assets/34672301/1348ba3e-e25a-4269-8a14-5da7d3dde1a0">
-</div>   
-
-13. search
-
-  - 검색어를 입력할 수 있는 텍스트 필드를 정의
-  - 검색 필드는 텍스트 필드와 기능적으로는 완전히 똑같지만, 브라우저에 의해 다르게 표현 가능
-  - 반드시 name 속성을 설정해야 하며, name 속성이 설정되어 있지 않으면 서버로 제출되지 않음
-  - name 속성값은 ‘q’
-
-```html
-<form action="/examples/media/action_target.php" method="get">
-    검색 <input type="search" name="q">
-    <input type="submit">
-</form>
-```
-
-14. hidden (중요)
+5. submit, reset
+   - reset : < input > 요소에 입력된 모든 정보를 재설정해 초기화 (value 속성을 사용해 버튼에 표시할 기본 내용 설정 가능)
+   - submit : 사용자가 폼에 입력한 정보를 서버로 전송 
+-----
+### input type 종류
+-----   
+1. hidden (중요)
 
    - 사용자에게는 보이지 않는 숨겨진 입력 필드를 정의
    - 숨겨진 입력 필드는 렌더링이 끝난 웹 페이지에서는 전혀 보이지 않으며, 페이지 콘텐츠 내에서 그것을 볼 수 있게 만드는 방법도 없음
    - 숨겨진 입력 필드는 폼 제출 시 사용자가 변경해서는 안 되는 데이터를 함께 보낼 때 유용하게 사용
    - 클라이언트에게 노출시키지 않아도 되는 중요 정보이나 개발자에게 반드시 필요한 정보를 사용할 때 사용
+
+```html
+<input type = "hidden" name = "이름" value = "서버로 넘길 값">
+```
 
 ```html
 <form method="get">
@@ -205,7 +154,120 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 
 			URL 주소 쿼리스트링에 hidden_name인 gameToken=200가 전달되어 전송 (데이터를 은밀하게 전송할 수 있음)   
 
-15. image
+2. number
+- 숫자를 입력할 수 있는 입력 필드를 정의 (쿼리스트링에 의해 문자열 값으로 전달)
+- 스핀 박스로 표시 (스핀 박스 : 입력 창 오른쪽 작은 화살표를 표시해 화살표 클릭에 따라 숫자 증감 가능)
+- max 속성 : < input > 요소의 최댓값을 명시함
+- min 속성 : < input > 요소의 최솟값을 명시함
+- step 속성 : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
+- value 속성 : < input > 요소의 초깃값(value)을 명시함
+ 
+```html
+<form action="/examples/media/action_target.php" method="get">
+    1부터 20까지의 짝수 : <input type="number" name="even" value="1" min="2" max="20" step="2"><br>
+    <input type="submit">
+</form>
+```
+<div align = "center">
+<img width="182" alt="20240226_140906" src="https://github.com/sooyounghan/Web/assets/34672301/1f886979-bc9d-42bf-8ac5-61637270a561">
+</div>    
+
+3. range
+- 슬라이드 막대를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드를 정의
+- 기본값 : 0 ~ 100까지이지만, 다음 요소와 함께 사용하면 그 범위 설정 가능 (기본 범위에서 벗어날 수 있음)
+- max 속성 : < input > 요소의 최댓값을 명시함
+- min 속성 : < input > 요소의 최솟값을 명시함
+- step 속성 : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
+- value 속성 : < input > 요소의 초깃값(value)을 명시함
+
+```html
+<form oninput="x.value=parseInt(a.value)" action="/examples/media/action_target.php" method="get">
+    여러분의 나이대를 골라보세요.<br>
+    Age : 0<input type="range" id="age" name="age" min="0" max="60" step="10" value = "10">60
+    <output name="x" for="a"></output><br>
+    <input type="submit">
+</form>
+```
+- 기본값은 0, 최저값은 10, 최댓값은 60, 간격은 10으로 설정
+- 범위 양끝단에 최저값과 최고값을 표기하면, 그 범위를 알 수 있음
+
+<div align = "center">
+<img width="179" alt="20240226_141917" src="https://github.com/sooyounghan/Web/assets/34672301/1348ba3e-e25a-4269-8a14-5da7d3dde1a0">
+</div>   
+
+4. radio, checkbox
+- radio : 두 개 이상의 선택 중 하나만 선택할 때 사용
+- checkbox : 두 개 이상 여러 가지를 선택해도 될 경우 사용
+- name 속성 : 서버 폼 프로그램에서 라디오 버튼이나 체크박스를 구분하기 위해 이름 지정
+- value 속성 : 선택한 라디오 버튼이나 체크박스를 서버로 알려줄 때 넘길 값 지정
+- checked 속성 : 처음 아무것도 선택되지 않은 상태로 화면에 표시, 기본으로 선택해놓은 항목이 있어야 한다면 사용
+
+5. color
+- 색상표에서 사용자가 색상을 선택할 수 있도록 제공
+
+```html
+<li> color : <input type = "color" name = "color" id = "color"></li>
+```
+```html
+http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
+```
+
+	 %23 : #
+  	 00 / 00 / 00 : RGB 값 의미
+
+
+-----
+### input type : 분화된 텍스트 필드
+-----   
+1. search
+
+  - 검색어를 입력할 수 있는 텍스트 필드를 정의
+  - 검색 필드는 텍스트 필드와 기능적으로는 완전히 똑같지만, 브라우저에 의해 다르게 표현 가능
+  - 반드시 name 속성을 설정해야 하며, name 속성이 설정되어 있지 않으면 서버로 제출되지 않음
+  - name 속성값은 ‘q’
+
+```html
+<input type = "search">
+<input type = "submit" value = "검색">
+```
+
+```html
+<form action="/examples/media/action_target.php" method="get">
+    검색 <input type="search" name="q">
+    <input type="submit">
+</form>
+```
+
+2. url
+
+ - 웹 주소도 텍스트 필드로 type으로 별도 지정 가능, URL 입력란 만들기
+ - 반드시 http://로 시작하는 사이트 주소를 입력
+
+3. e-mal
+
+ - 메일 주소 입력란 만들기
+
+4. tel
+
+ - 전화번호 입력란 만들기
+
+< email, tel, url 속성은 DB와 연동하여 유효성 검사 필요 >
+```html
+<fieldset> <!-- 유효성 검사 필요 -->
+	<legend> FieldSet </legend>
+		<ul>
+			<li> E-mail : <input type = "email" name = "email" id = "email"></li>
+			<li> tel : <input type = "tel" name = "tel" id = "tel"></li>
+			<li> URL : <input type = "url" name = "url" id = "url"></li>
+		</ul>
+</fieldset>
+```
+
+<div align = "center">
+<img width="744" alt="20240226_123738" src="https://github.com/sooyounghan/Web/assets/34672301/9a136e3e-6af1-4c16-8cd6-2d58cb876d22">
+</div>
+
+5. image
 - webapp/imgs에 저장
 - 제출 버튼(submit button)으로 사용될 이미지를 정의
 - 텍스트가 아닌 이미지 형태로 된 제출 버튼을 생성하며, 이때 해당 이미지의 경로는 src 속성에 명시
@@ -241,14 +303,30 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 	</style>
 </head>
 ```
-
 ```html
 <img src="http://localhost:8081/webPro/imgs/submit-button.gif" alt="submit" title="submit image" class = "c1">
 <input type = "image" src="<%=request.getContextPath()%>/imgs/submit-button.gif" class = "c1">
 ```
 
-16. button
-- 단순한 푸시 버튼으로 렌더링
+6. file
+    
+	- 파일이 전송되는 것이 아니라 파일명에 대한 문자열이 전송
+ 	- 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
+
+		   * File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-date" 속성 값 설정
+    
+<div align = "center">
+<img width="148" alt="20240226_124413" src="https://github.com/sooyounghan/Web/assets/34672301/43c1d257-d388-40b3-9e33-4fca49bccda0">
+</div>  
+
+```html
+http://localhost:8081/webPro/html/ok.jsp?...file=1.txt&tel=&url= <!-- 1.txt 파일명이 문자열로 전송 -->
+```
+
+7. button
+- 단순한 푸시 버튼으로 렌더링 (폼 안에 버튼 형태를 만듬)
+- submit이나 reset 같은 자체 기능이 없이 오직 버튼만 넣기 때문에 스크립트 함수 등을 연결해 사용
+- value 속성을 통해 버튼에 표시할 내용 지정
 - 이벤트 처리기 (주로 Click 이벤트)를 부착하여, 클릭 버튼 가능
 
 ```html
@@ -263,57 +341,51 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 </div>   
 
 -----
-### button
------    
- - button 요소 (submit 역할 수행)
- - type : button (단어 그대로 button 역할) [input type = "button"과 동일, javaScript와 연동]
+### input 태그의 다양한 속성
+-----   
+1. autofocus 속성
+	- 입력 커서를 표시하는 기능
+	- 페이지를 불러오자마자 폼의 요소 중에서 원하는 요소에 마우스 커서 표시 가능
 
-     		javaScript와 연동해 처리할 수 있는 기능으로 많이 사용
-
- - type : reset (입력한 값을 초기화) [input type = "reset"과 동일]
- - type : submit (입력한 값을 웹 서버에 전송) [input type = "submit"과 동일]
-   
 ```html
-<button type = "button">button (type = "button") 역할</button>
-<button type = "reset">reset (type = "reset") 역할</button>
-<button type = "submit">submit (type = "submit") 역할</button>
-```   
-
-<div align = "center">
-<img width="209" alt="20240226_161509" src="https://github.com/sooyounghan/Web/assets/34672301/ca26a7f8-b180-4eec-967d-6991d840e9eb">
-</div>   
-
------
-### output
------    
-
-- 스크립트 등에 의해 수행된 계산의 결과나 사용자의 액션에 의한 결과를 나타낼 때 사용
-```html
-<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
-  <input type="range" id="b" name="b" value="50" /> +
-  <input type="number" id="a" name="a" value="10" /> =
-  <output name="result" for="a b">60</output>
-  <!-- 60은 for에서 언급한 두 값에 대한 기본 value 값을 의미 -->
-</form>
+<input type = "text" id = "name" autofocus required>
 ```
-1. a.value : name 속성이 a인 요소의 값(value)을 정수화
-2. b.value : name 속성이 b인 요소의 값(value)을 정수화
-3. output oninput = "result.value = parseInt(a.value) + parseInt(b.value)" : a의 값과 b의 값을 더해서 output name 속성이 result인 속성에 저장
-4. out name = "이름" for = "output에서 사용할 변수들을 선언"
-   
-<div align = "center">
-<img width="294" alt="20240226_142312" src="https://github.com/sooyounghan/Web/assets/34672301/aa3491ba-8883-4649-99d3-b89864c0c398">
-</div>   
+
+2. readonly 속성
+   	- 읽기 전용 필드 만들기
+   	- 사용자에게 내용을 보여주기만 하고 입력은 받을 수 없음
+   	- true, false 값 중 하나만 사용
+
+```html
+<input type = "text" id = "subj" value = "오전 9시 ~ 11시" readonly>
+```
+
+3. required 속성
+   	- 필수 필드에 필요한 내용에 부여하여 필수 필드로 설정 가능
+   	- required = "required"
 
 -----
 ### label
 -----   
 
 1. 폼 요소에 이름표를 붙이기 위한 것
-2. <label> 요소는 for 속성을 사용하여 다른 요소와 결합
-3. <label> 요소의 for 속성값은 결합하고자 하는 요소의 id 속성값과 같아야 함
-4. 사용자가 마우스로 해당 텍스트를 클릭할 경우 <label> 요소와 연결된 요소를 곧바로 선택할 수 있어 사용자의 편의성을 높일 수 있음
+
+    	   - label이란 입력 창 옆의 붙여 놓은 텍스트를 의미
+   	   - 폼 요소와 레이블 텍스트가 서로 연결되어 있다는 것을 브라우저가 알 수 있음
+   	  
+3. <label> 요소는 for 속성을 사용하여 다른 요소와 결합
+
+   	    - 즉, id 속성을 이용해 서로 연결하는 것이며, id 속성 값을 <label> 태그의 for 속성에게 알려주는 방법
+   	    - <label> 태그와 <input> 소스가 떨어져 있더라도 둘 사이를 쉽게 연결할 수 있음
+   	
+5. <label> 요소의 for 속성값은 결합하고자 하는 요소의 id 속성값과 같아야 함
+
+     		< label [속성 = "값" ] > 레이블 < input .. >< /label >
+   		< label for = "id이름" > 레이블 < /label>
+   		< input id = "id이름" [ 속성 = "속성 값" ]>
    
+6. 사용자가 마우스로 해당 텍스트를 클릭할 경우 <label> 요소와 연결된 요소를 곧바로 선택할 수 있어 사용자의 편의성을 높일 수 있음
+
 ```html
 <li> 성별 : 
 	<input type = "radio" name = "male" id = "user_sex_male" checked = "checked" value = "남"><label for = "male"> 남 </label>
@@ -332,12 +404,20 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 -----
 ### select
 -----
-1. select Attribute : name, id, size, multiple
-2. 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의
-3. 요소 내부의 < option > ~ < /option > 요소는 드롭다운 리스트(drop-down list)에서 사용되는 각각의 옵션을 정의
-   - attribute : value
-4. 전송 값 : select name = value
 
+1. 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의
+2. 요소 내부의 < option > ~ < /option > 요소는 드롭다운 리스트(drop-down list)에서 사용되는 각각의 옵션을 정의
+   - attribute : value
+   - < select > 태그로 드롭 다운 목록의 시작과 끝을 표시하고 그 안에 < option > 태그를 사용해 원하는 항목 추가
+   - < option > 태그는 value 속성을 이용해 서버로 넘겨주기 위한 값을 지정
+3. 전송 값 : select name = value
+4. select Attribute : name, id, size, multiple
+   - size : 화면에 표시될 드롭다운 메뉴의 항목 개수 지정
+   - multiple : 여러 개의 옵션이 브라우저 화면에 함께 표시되어 여러 항목 선택 가능
+5. option Attribute : value, selected
+   - value : 옵션을 선택했을 때 서버로 넘겨질 값 지정
+   - selected : 화면에 표시될 때 기본적 선택되어있는 옵션 지정
+   
 < 단일 선택 >
 ```html
 <select name = "language", id = "select_language">
@@ -364,6 +444,23 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
   - multiple 속성으로 다중 선택 가능, size 속성으로 총 선택 가능한 수 지정 가능
   - 데이터 전송 값 : language=value1&language=value2
 
+6. optgroup 태그
+   - 드롭다운 목록에서 여러 항목들을 몇 가지 그룹으로 묶어야 할 경우 사용
+   - label 속성을 이용해 그룹의 제목을 붙임
+
+```html
+<selected id = "class">
+	<optgroup label = "공과대학">
+		<option value = "archi"> 건축공학과 </option>
+		<option value = "elec"> 전기전자공학과 </option>
+	</optgroup>
+	<optgroup label = "인문대학">
+		<option value = "lang"> 어문학부 </option>
+		<option value = "philo"> 철학과 </option>
+	</otpgroup>
+</select>
+```
+
 -----
 ### datalist
 -----   
@@ -371,6 +468,8 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 1. <input> 요소에서 사용하기 위한 옵션들의 리스트를 미리 정의할 때 사용
 2. 사용자가 <input> 요소에 데이터를 입력할 때 미리 정의된 옵션을 드롭다운 리스트로 보여줌으로써 자동완성 기능을 제공
 3. id 속성값을 명시하면, 해당 요소에서 미리 정의한 옵션들을 <input> 요소에서 사용
+4. 텍스트 필드와 함께 사용하기 때문에 < input > 태그를 함께 사용 (주로 type = "text")
+5. < datalist > ~ < /datalist >로 데이터 목록의 시작과 끝을 표시하고, 그 사이 < option > 태그로 각 데이터 옵션 표시
 
 ```html
 <form action="/examples/media/action_target.php" method="get">
@@ -410,8 +509,11 @@ http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=
 ### fieldset
 -----   
 
-1. HTML 양식 속에서 그룹을 만들 수 있음
-2. < legend > 요소로 그룹의 설명을 제공
+1. HTML 양식 속에서 그룹을 만들 수 있음, 즉 폼 요소를 그룹으로 묶는 것을 의미
+2. < legend > 요소로 그룹의 설명(이름)을 제공
+3. 즉, 하나의 폼 안에서 여러 구역을 나누어 표시하려고 할 때 < fieldset >, < legend > 태그 사용
+4. < fieldset > ~ < /fieldset > 태그 사이의 폼들을 하나의 영역으로 묶어 외곽선을 그려주고,
+   < legend > 태그는 < fieldset > 태그로 묶은 그룹에 제목을 붙여줌 
 
 ```html
 <form>
@@ -433,3 +535,52 @@ http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=
 <div align = "center">
 <img width="170" alt="20240226_121009" src="https://github.com/sooyounghan/Web/assets/34672301/de7eccb3-97e4-4af2-a9c5-81229fb9202e">
 </div>   
+
+-----
+### button
+-----    
+ - button 요소 (submit 역할 수행)
+ - type : button (단어 그대로 button 역할) [input type = "button"과 동일, javaScript와 연동]
+
+     		javaScript와 연동해 처리할 수 있는 기능으로 많이 사용
+
+ - type : reset (입력한 값을 초기화) [input type = "reset"과 동일]
+ - type : submit (입력한 값을 웹 서버에 전송) [input type = "submit"과 동일] (기본값)
+   
+```html
+<button type = "button">button (type = "button") 역할</button>
+<button type = "reset">reset (type = "reset") 역할</button>
+<button type = "submit">submit (type = "submit") 역할</button>
+```   
+
+<div align = "center">
+<img width="209" alt="20240226_161509" src="https://github.com/sooyounghan/Web/assets/34672301/ca26a7f8-b180-4eec-967d-6991d840e9eb">
+</div>   
+
+-----
+### output
+-----    
+
+- 입력하는 값이 계산 결과라는 것을 브라우저에게 알려줌
+- 스크립트 등에 의해 수행된 계산의 결과나 사용자의 액션에 의한 결과를 나타낼 때 사용
+- < output > 태그로 묶인 부분이 일반 텍스트가 아니라 계산의 결과값
+
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" id="b" name="b" value="50" /> +
+  <input type="number" id="a" name="a" value="10" /> =
+  <output name="result" for="a b"></output>
+</form>
+```
+1. a.value : name 속성이 a인 요소의 값(value)을 정수화
+2. b.value : name 속성이 b인 요소의 값(value)을 정수화
+3. output oninput = "result.value = parseInt(a.value) + parseInt(b.value)" : a의 값과 b의 값을 더해서 output name 속성이 result인 속성에 저장
+4. out name = "이름" for = "output에서 사용할 변수들을 선언"
+   
+<div align = "center">
+<img width="294" alt="20240226_142312" src="https://github.com/sooyounghan/Web/assets/34672301/aa3491ba-8883-4649-99d3-b89864c0c398">
+</div>   
+
+-----
+### 추가 정보 필요 : 표를 만드는 태그 / map 태그 / progress 태그 / meter 태그
+-----    
