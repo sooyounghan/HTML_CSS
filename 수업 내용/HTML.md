@@ -21,6 +21,11 @@
 ```
   - DOCTYPE : 선언된 페이지의 HTML 버전이 무엇인지 웹 브라우저에 알려주는 선언문
   - html : HTML의 루트 요소 정의 (다른 HTML 요소 포함을 위한 컨테이너이며, HTML 문서임을 알려줌)
+
+    		- lang 속성 : 문서에서 사용할 언어를 지정
+    		- 예) <html lang = "ko">
+    		- <meta> 태그 : 문자 세트 지정 등 사용 (<meta charset = "UTF-8">)
+    
   - head : 해당 문서에 대한 정보인 메타데이터의 집합 정의
 
         * <title>, <style>, <base>, <link>, <meta>, <script>, <noscript>(<body>요소에도 포함 가능)
@@ -125,7 +130,35 @@
 	</body>
 	</html>
 ```
+-----
+### strong, b
+-----
+1. < strong > 굵게 강조할 텍스트 < /strong >
+2. < b > 굵게 표시할 텍스트 < /b >
 
+-----
+### em, i
+-----
+1. < em > 이탤릭체로 표시할 텍스트 < /em >
+2. < i > 이탤릭체로 강조할 텍스트 < /i >
+
+-----
+### blockquote, q
+-----
+1. blockquote : 한 문단이나 내용 전체가 인용문일 때 사용
+2. q :  문장 내 들어가는 인용문에 대해 사용 (속성 : cite = "주소")
+
+-----
+### mark
+-----
+: 배경색이 노란색이 되며, 형광펜으로 그어 놓은 듯한 효과
+
+-----
+### span
+-----
+1. 텍스트 단락 안에서 줄 바꿈 없이 일부 텍스트만 묶어서 스타일 적용
+2. div : 단락 전체를 묶고 싶을 때 사용
+      
 -----
 ### hr
 ----
@@ -154,18 +187,28 @@
 -----
 1. ul  : unordered list(무순서 목록), 순서가 없는 목록 →  정렬되지 않은 목록을 나타내며, 보통 불릿으로 표현
 
+       * <ul type = ""> 명시 가능
        * <li type = "disc">( Default type ), <li type = "circle">(원),
          <li type = "square">(사각형) 등 type 지정 가능 
 2. ol : ordered list(순서 목록), 순서가 있는 목록 → 정렬된 목록을 나타내며,  보통 숫자 목록으로 표현현
 
+       * <ol type = ""> 명시 가능
        * <li type =  "1">(숫자)(Default type), <li type = "A">(대문자),
          <li type = "a">(소문자), <li type = "I">(로마자 대문자), <li type = "i">(로마자 소문자)  등 type 지정 가능 
        * <ol> 안에 또 다른 <ol> 삽입 가능
 
+	- start 속성 : 순서 목록은 기본적 1부터 시작하는데, start 속성 이용해 중간 번호부터 시작 가능
+ - 	- reversed 속성 : 항목을 역순으로 표시
+    
 3. li : 목록의 항목 
 
        * 반드시 정렬 목록(<ol>), 비정렬 목록(<ul>, 혹은 메뉴(<menu> (en-US)) 안에 위치
 
+4. dt, dl, dd
+   	- dl : 제목과 설명이 한 쌍인 설명 목록 (Description List)
+   	- dt : 제목 설명 부분
+   	- dd : 설명을 표시
+   	- 하나의 dt 태그 내 여러 개의 dd 가능, 여러 개의 dt도 가능
 ```html
 <!--  HTML5 Comment -->
 
@@ -228,7 +271,26 @@
 2. Attribute : href(클릭 시 이동할 경로)
 3. Attribute : target
    - target = "_blank"는 기본속성 중 하나로 클릭시 계속해서 새로운 창이 열리게 됨
-   - target = "blank" 는 클릭하면 한번 열린 탭에서(새로운 탭이 열리는 것 X) 계속 새로운 페이지가 열림
+   - target = "blank"(="_self") 는 클릭하면 한번 열린 탭에서(새로운 탭이 열리는 것 X) 계속 새로운 페이지가 열림 
+4. a 태그 뒤에 img 태그 삽입 가능
+
+```html
+<a href = "주소"><img src ="경로"> </a>
+```
+
+5. 앵커 기능
+```html
+<태그 id = "앵커 이름"> 텍스트 또는 이미지 </태그>
+<a href = "#앵커 이름"> 텍스트 또는 이미지 </a>
+```
+```html
+<ul id = "menu">
+	<li><a href = "#content1">메뉴1</a></li>
+</ul>
+
+<h2 id = "content1">내용1</h2>
+<p><a href = "#menu">[메뉴로]</a></p>
+```
 
 ```html
 <a href = "https://www.w3schools.com/html/html_forms.asp" target = "_blank"> form 참고 </a>
@@ -272,6 +334,33 @@
 		
 		<a href = "http://172.30.1.33:8081/webPro/cf/Map_Login.jsp"> Map_Login</a> // href에 지정한 주소로 이동하며, Map_Login에 링크가 걸림
 ```
+
+-----
+### img
+-----
+1. img 태그 : 웹 문서 상 이미지 삽입 (< img src = "경로" [속성 = 값] >
+2. src 속성 : 이미지 파일 경로 지정 (웹 문서 파일의 위치를 기준으로 시작)
+3. 웹 상의 이미지는 이미지 주소 복사로 가능
+4. alt 속성 : 이미지를 설명하는 대체 텍스트를 삽입할 때 사용
+	- 연결 속도가 느리거나 이미지가 제대로 표시가 되지 않는 상황에서 유용
+	- Bullet 이미지나 작은 아이콘의 경우는 alt =""로 지정
+5. width, height 속성 : 원하는 너비와 높이로 지정
+
+-----
+### figure
+-----
+1. figure 태그 : 설명 글을 붙일 대상 지정
+	- 웹 문서 안에서 한 단위가 되는 요소를 묶을 때 사용
+	- 한 단위가 되는 요소를 나타내기 위해 사용
+	- 설명 글을 사용하기 위해서는 < figure > 태그 안에 < figcaption > 태그로 설명 글 표시
+2. figcaption : 설명 글 붙이기
+
+```html
+<figure>
+	<img src = "/pic.jpg" alt = "사진">
+	<figcaption>사진</figcaption>
+</figur>
+
 -----
 ### Query String
 -----
