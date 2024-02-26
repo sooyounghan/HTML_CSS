@@ -226,7 +226,13 @@
 -----
 1. 하이퍼링크를 걸어주는 태그
 2. Attribute : href(클릭 시 이동할 경로)
+3. Attribute : target
+   - target = "_blank"는 기본속성 중 하나로 클릭시 계속해서 새로운 창이 열리게 됨
+   - target = "blank" 는 클릭하면 한번 열린 탭에서(새로운 탭이 열리는 것 X) 계속 새로운 페이지가 열림
 
+```html
+<a href = "https://www.w3schools.com/html/html_forms.asp" target = "_blank"> form 참고 </a>
+```
 ```html
 <html>
 
