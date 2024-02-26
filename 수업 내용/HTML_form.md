@@ -219,10 +219,33 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 
  < input type 형태 (submit 가능) >
  ```html
-<input type="image" src="http://localhost:8081/webPro/imgs/submit-button.gif" style="width:300px;height:100px">
+<input type = "image" src="<%=request.getContextPath()%>/imgs/submit-button.gif" style="width:300px;height:100px">
 ```
-	 img src와 동일하지만, 제출 기능이 추가적으로 존재   
-  
+	 img src와 동일하지만, 제출 기능이 추가적으로 존재하며, 상대경로로 표시  
+
+<div align = "center">
+<img width="338" alt="20240226_154130" src="https://github.com/sooyounghan/Web/assets/34672301/7d3b35f9-df7b-4993-bc25-3b6120cbc05c">
+</div>   
+
+- css 선택자(Collector) 이용
+```html
+<head>
+<meta charset="UTF-8">
+	<title> Form Example </title>
+	<style>
+	/* CSS 주석문 */
+	/* Selector (선택자) : { css속성:값;css속성:값;..css속성:값; } */
+	/* 선택자에는 tag, .클래스명, #id명 가능 */
+	/* img { width:300px;height:200px; } img 태그를 선택해 너비를 100으로 일괄 적용 */
+	.c1 { width:200px;height:100px; } /* 클래스 c1인 요소에 대해 너비(width)와 높이(height)에 일괄 적용 */
+	</style>
+</head>
+```
+
+```html
+<img src="http://localhost:8081/webPro/imgs/submit-button.gif" alt="submit" title="submit image" class = "c1">
+<input type = "image" src="<%=request.getContextPath()%>/imgs/submit-button.gif" class = "c1">
+```
 -----
 ### output
 -----    
