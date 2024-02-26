@@ -454,11 +454,16 @@ String strDate = sdf.format(today);
 ```
 -----
 ### 내장 객체
------
-1.JSP 페이지에서 사용할 수 있도록 JSP 컨테이너에 미리 정의된 객체
+-----   
+
+1. JSP 페이지에서 사용할 수 있도록 JSP 컨테이너에 미리 정의된 객체
+   
 2. JSP 페이지가 서블릿 프로그램으로 번역될 때 JSP가 자동으로 내장 객체를 멤버 변수, 메서드 매개변수 등의 각종 참조 변수(객체)로 포함
+
 3. 별도의 import문 없이 자유롭게 사용 가능
+   
 4. 스크립틀릿 태그나 표현문 태그 선언을 하거나 객체 생성하지 않고도 직접 호출 사용 가능
+   
 <div align = "center">
 <img width="389" alt="2134" src="https://github.com/sooyounghan/JAVA/assets/34672301/6796cfc6-ded0-4c5f-bedc-05ff15cbe2cd">
 </div>
@@ -521,6 +526,9 @@ String strDate = sdf.format(today);
    	B. 인터넷에 존재하는 각종 정보들의 유일한 이름이나 위치를 표시하는 식별자
 
    + URL (Uniform Resource Locator) : 웹주소로서, 컴퓨터 네트워크 상에서 리소스가 어디있는지 알려주기 위한 규약
+<div align = "center">
+<img src = "https://github.com/sooyounghan/JAVA/assets/34672301/54dd8839-e033-483c-9ba7-ce3b257ec224)">
+</div>   
 
 <div align = "center">
 <img src = "https://github.com/sooyounghan/JAVA/assets/34672301/13e6c5fc-bfbd-47ca-83ab-096df4cfe80c">
@@ -646,8 +654,9 @@ http://localhost:8081/pro/ch03/link.jsp
 -----
 1. 사용자가 폼 페이지에 데이터를 입력한 후 서버에 전송할 때 전달되는 폼 페이지의 입력된 정보 형태
 2. <name = value> 형식으로 웹 브라우저에서 서버의 JSP 페이지로 전달
+
 <div align = "center">
-<img src = "https://github.com/sooyounghan/JAVA/assets/34672301/54dd8839-e033-483c-9ba7-ce3b257ec224)">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/d507d626-efda-4b03-9d58-2b5e8adcd623">
 </div>
 
 -----
