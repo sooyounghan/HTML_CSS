@@ -480,7 +480,24 @@ http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
 
 			URL 주소 쿼리스트링에 hidden_name인 gameToken=200가 전달되어 전송 (데이터를 은밀하게 전송할 수 있음)   
 
+15. image
+- webapp/imgs에 저장
+- 제출 버튼(submit button)으로 사용될 이미지를 정의
+- 텍스트가 아닌 이미지 형태로 된 제출 버튼을 생성하며, 이때 해당 이미지의 경로는 src 속성에 명시
+- 강제 크기 조정 가능
+  
+< img src 형태 (순수 image) >
+```html
+<img src="http://localhost:8081/webPro/imgs/submit-button.gif" alt="submit" title="submit image" style="width:300px;height:100px">
+```
+	img의 src는 절대경로 또는 상대경로 가능 (절대경로는 위와 같이 명시해야함) / title은 그 image의 이름 / style 속성으로 너비, 크기 조정  
 
+ < input type 형태 (submit 가능) >
+ ```html
+<input type="image" src="http://localhost:8081/webPro/imgs/submit-button.gif" style="width:300px;height:100px">
+```
+	 img src와 동일하지만, 제출 기능이 추가적으로 존재   
+  
 -----
 ### output
 -----    
