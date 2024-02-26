@@ -64,18 +64,19 @@ public interface Servlet {
 -----
 <div align = "center">
 <img width="640" alt="다운로드 (5)" src="https://github.com/sooyounghan/JAVA/assets/34672301/90c48e0b-6531-4d3c-bf30-4acc35edf552">
-</div>
-  1. Web Server는 HTTP request를 Web Conatiner(Servlet Container)에게 위임
-    - web.xml 설정에서 어떤 URL과 매핑되는지 확인
-    - 클라이언트의 요청 URL를 보고 적절한 Servlet 실행
+</div>   
 
-  2. Web Container는 service() 메서드를 호출하기 전 Servlet 객체를 메모리에 올림
-    - A. Web Container는 적절한 Servlet 파일을 컴파일(*.class 파일 생성)
-    - B. .class 파일을 메모리에 올려 Servlet 객체를 만듬
-    - C. 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행
+1. Web Server는 HTTP request를 Web Conatiner(Servlet Container)에게 위임   
+  - web.xml 설정에서 어떤 URL과 매핑되는지 확인
+  - 클라이언트의 요청 URL를 보고 적절한 Servlet 실행
+   
+2. Web Container는 service() 메서드를 호출하기 전 Servlet 객체를 메모리에 올림
+   - A. Web Container는 적절한 Servlet 파일을 컴파일(*.class 파일 생성)
+   - B. .class 파일을 메모리에 올려 Servlet 객체를 만듬
+   - C. 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행
 
-  3. Web Container는 Request가 올 때마다 thread를 생성해 처리
-     (각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행)
+3. Web Container는 Request가 올 때마다 thread를 생성해 처리
+   (각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행)
 
 -----
 ### Servlet Life Cycle
