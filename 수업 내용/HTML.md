@@ -360,7 +360,7 @@
 	<img src = "/pic.jpg" alt = "사진">
 	<figcaption>사진</figcaption>
 </figure>
-
+```
 -----
 ### Query String
 -----
