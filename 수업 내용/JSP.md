@@ -78,6 +78,15 @@
               (http://ip주소:8081/webPro/파일.확장자)
               (Localhost = 나의 Host 주소 = 내 IP 주소)
 
+4. Port Number 및 URIEncoding 설정 (server.xml)
+```jsp
+    <!-- Port Number Change (8080 -> 8081) -->
+    <Connector connectionTimeout="20000" maxParameterCount="1000" URIEncoding ="UTF-8" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
+```
+
+   - URIEncoding : Tomcat의 server.xml의 커넥터 설정 중 URIEncoding를 UTF-8 설정 (한글 깨짐 문제)
+   - port : Tomcat의 server.xml의 커넥터 설정 중 Port Number를 변경
+   
 ```jsp
 <!-- page : 지시어(directive) // language, contentType, pageEncoding : 속성(Attribute) -->
 <%@page import="org.apache.naming.java.javaURLContextFactory"%>
