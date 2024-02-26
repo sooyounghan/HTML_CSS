@@ -340,6 +340,70 @@
 <img width="306" alt="제목 없음" src="https://github.com/sooyounghan/JAVA/assets/34672301/5bdca2a4-4a3f-49ee-aefd-9c77c7265b82">
 </div>
 
+8. input type 종류 참조 : https://www.w3schools.com/html/html_form_input_types.asp
+```html
+<li> color : <input type = "color" name = "color" id = "color"></li>
+```
+```html
+http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
+```
+
+	 %23 : #
+  	 00 / 00 / 00 : RGB 값 의미
+
+   - 시간 관련 속성 예시
+```html
+<fieldset>
+	<legend> FieldSet </legend>
+	<ul>
+		<li> color : <input type = "color" name = "color" id = "color"></li>
+		<li> date : <input type = "date" name = "date1" id = "date1"></li>
+		<li> datetime-local : <input type = "datetime-local" name = "date2" id = "date2"></li>
+		<li> month : <input type = "month" name = "month" id = "month"></li>
+		<li> time : <input type = "time" name = "time" id = "time"></li>
+		<li> week : <input type = "week" name = "week" id = "week"></li>
+	</ul>
+</fieldset>
+```
+<div align = "center">
+<img width="758" alt="20240226_122058" src="https://github.com/sooyounghan/Web/assets/34672301/dcb94480-9744-4dd1-be1b-2aebd9ba31b6">
+</div>
+
+```html
+<!-- %3A는 : 를 의미 -->
+http://localhost:8081/webPro/html/ok.jsp?...date1=2024-02-26&date2=2024-02-27T12%3A18&month=2024-07&time=12%3A22&week=2024-W10
+```
+
+9. email, tel, url 속성은 DB와 연동하여 유효성 검사 필요
+```html
+<fieldset> <!-- 유효성 검사 필요 -->
+	<legend> FieldSet </legend>
+		<ul>
+			<li> E-mail : <input type = "email" name = "email" id = "email"></li>
+			<li> tel : <input type = "tel" name = "tel" id = "tel"></li>
+			<li> URL : <input type = "url" name = "url" id = "url"></li>
+		</ul>
+</fieldset>
+```
+<div align = "center">
+<img width="744" alt="20240226_123738" src="https://github.com/sooyounghan/Web/assets/34672301/9a136e3e-6af1-4c16-8cd6-2d58cb876d22">
+</div>
+
+10. file
+    
+	- 파일이 전송되는 것이 아니라 파일명에 대한 문자열이 전송
+ 	- 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
+
+		   * File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-date" 속성 값 설정
+    
+<div align = "center">
+<img width="148" alt="20240226_124413" src="https://github.com/sooyounghan/Web/assets/34672301/43c1d257-d388-40b3-9e33-4fca49bccda0">
+</div>  
+
+```html
+http://localhost:8081/webPro/html/ok.jsp?...file=1.txt&tel=&url= <!-- 1.txt 파일명이 문자열로 전송 -->
+```
+
 -----
 ### label
 -----   
@@ -367,9 +431,9 @@
 -----
 ### select
 -----
-1. select Attribute : name, id, size
+1. select Attribute : name, id, size, multiple
 2. 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의
-3. 요소 내부의 <option>~</option> 요소는 드롭다운 리스트(drop-down list)에서 사용되는 각각의 옵션을 정의
+3. 요소 내부의 < option > ~ < /option > 요소는 드롭다운 리스트(drop-down list)에서 사용되는 각각의 옵션을 정의
    - attribute : value
 4. 전송 값 : select name = value
 
@@ -392,6 +456,9 @@
 	<option value = "japan">일본어</option>
 </select>
 ```
+<div align = "center">
+<img width="188" alt="20240226_123525" src="https://github.com/sooyounghan/Web/assets/34672301/55e9e465-92ea-442c-ac13-78d5c30f68a8">
+</div>   
 
   - multiple 속성으로 다중 선택 가능, size 속성으로 총 선택 가능한 수 지정 가능
   - 데이터 전송 값 : language=value1&language=value2
@@ -437,6 +504,35 @@
 ```html
 http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=12%0D%0A&user_submit=%EB%A1%9C%EA%B7%B8%EC%9D%B8
 ```
+
+-----
+### fieldset
+-----   
+
+1. HTML 양식 속에서 그룹을 만들 수 있음
+2. < legend > 요소로 그룹의 설명을 제공
+
+```html
+<form>
+  <fieldset>
+    <legend>Choose your favorite monster</legend>
+
+    <input type="radio" id="kraken" name="monster" value="K" />
+    <label for="kraken">Kraken</label><br />
+
+    <input type="radio" id="sasquatch" name="monster" value="S" />
+    <label for="sasquatch">Sasquatch</label><br />
+
+    <input type="radio" id="mothman" name="monster" value="M" />
+    <label for="mothman">Mothman</label>
+  </fieldset>
+</form>
+```
+- 결과 : 
+<div align = "center">
+<img width="170" alt="20240226_121009" src="https://github.com/sooyounghan/Web/assets/34672301/de7eccb3-97e4-4af2-a9c5-81229fb9202e">
+</div>   
+
 -----
 ### Query String
 -----
