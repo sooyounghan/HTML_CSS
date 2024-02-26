@@ -404,6 +404,105 @@ http://localhost:8081/webPro/html/ok.jsp?...date1=2024-02-26&date2=2024-02-27T12
 http://localhost:8081/webPro/html/ok.jsp?...file=1.txt&tel=&url= <!-- 1.txt 파일명이 문자열로 전송 -->
 ```
 
+11. number
+- 숫자를 입력할 수 있는 입력 필드를 정의 (쿼리스트링에 의해 문자열 값으로 전달)
+- max : < input > 요소의 최댓값을 명시함
+- min : < input > 요소의 최솟값을 명시함
+- step : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
+- value : < input > 요소의 초깃값(value)을 명시함
+
+```html
+<form action="/examples/media/action_target.php" method="get">
+    1부터 20까지의 짝수 : <input type="number" name="even" value="1" min="2" max="20" step="2"><br>
+    <input type="submit">
+</form>
+```
+<div align = "center">
+<img width="182" alt="20240226_140906" src="https://github.com/sooyounghan/Web/assets/34672301/1f886979-bc9d-42bf-8ac5-61637270a561">
+</div>    
+
+12. range
+- 슬라이드 바를 조정하여 범위 내의 숫자를 선택할 수 있는 입력 필드를 정의
+- 기본 범위 : 0 ~ 100까지이지만, 다음 요소와 함께 사용하면 그 범위 설정 가능 (기본 범위에서 벗어날 수 있음)
+- max : < input > 요소의 최댓값을 명시함
+- min : < input > 요소의 최솟값을 명시함
+- step : < input > 요소에 입력할 수 있는 숫자들 사이의 간격을 명시함
+- value : < input > 요소의 초깃값(value)을 명시함
+
+```html
+<form oninput="x.value=parseInt(a.value)" action="/examples/media/action_target.php" method="get">
+    여러분의 나이대를 골라보세요.<br>
+    Age : 0<input type="range" id="age" name="age" min="0" max="60" step="10" value = "10">60
+    <output name="x" for="a"></output><br>
+    <input type="submit">
+</form>
+```
+- 기본값은 0, 최저값은 10, 최댓값은 60, 간격은 10으로 설정
+- 범위 양끝단에 최저값과 최고값을 표기하면, 그 범위를 알 수 있음
+
+<div align = "center">
+<img width="179" alt="20240226_141917" src="https://github.com/sooyounghan/Web/assets/34672301/1348ba3e-e25a-4269-8a14-5da7d3dde1a0">
+</div>   
+
+13. search
+
+  - 검색어를 입력할 수 있는 텍스트 필드를 정의
+  - 검색 필드는 텍스트 필드와 기능적으로는 완전히 똑같지만, 브라우저에 의해 다르게 표현 가능
+  - 반드시 name 속성을 설정해야 하며, name 속성이 설정되어 있지 않으면 서버로 제출되지 않음
+  - name 속성값은 ‘q’
+
+```html
+<form action="/examples/media/action_target.php" method="get">
+    검색 <input type="search" name="q">
+    <input type="submit">
+</form>
+```
+
+14. hidden (중요)
+
+   - 사용자에게는 보이지 않는 숨겨진 입력 필드를 정의
+   - 숨겨진 입력 필드는 렌더링이 끝난 웹 페이지에서는 전혀 보이지 않으며, 페이지 콘텐츠 내에서 그것을 볼 수 있게 만드는 방법도 없음
+   - 숨겨진 입력 필드는 폼 제출 시 사용자가 변경해서는 안 되는 데이터를 함께 보낼 때 유용하게 사용
+   - 클라이언트에게 노출시키지 않아도 되는 중요 정보이나 개발자에게 반드시 필요한 정보를 사용할 때 사용
+
+```html
+<form method="get">
+    아이디 : <input type="text" name="user_id"><br>
+    비밀번호 : <input type="password" name="user_pw"><br>
+    <%!int game_token = 200;">
+    <input type="hidden" id="gameToken" name="game_token" value="<%=game_token%>">
+    <input type="submit">
+</form>
+```
+```html
+http://172.30.1.37:8081/webPro/html/formEx.jsp?user_id=&user_pw=&game_token=200
+```
+
+			URL 주소 쿼리스트링에 hidden_name인 gameToken=200가 전달되어 전송 (데이터를 은밀하게 전송할 수 있음)   
+
+
+-----
+### output
+-----    
+
+- 스크립트 등에 의해 수행된 계산의 결과나 사용자의 액션에 의한 결과를 나타낼 때 사용
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" id="b" name="b" value="50" /> +
+  <input type="number" id="a" name="a" value="10" /> =
+  <output name="result" for="a b">60</output>
+  <!-- 60은 for에서 언급한 두 값에 대한 기본 value 값을 의미 -->
+</form>
+```
+1. a.value : name 속성이 a인 요소의 값(value)을 정수화
+2. b.value : name 속성이 b인 요소의 값(value)을 정수화
+3. output oninput = "result.value = parseInt(a.value) + parseInt(b.value)" : a의 값과 b의 값을 더해서 output name 속성이 result인 속성에 저장
+4. out name = "이름" for = "output에서 사용할 변수들을 선언"
+   
+<div align = "center">
+<img width="294" alt="20240226_142312" src="https://github.com/sooyounghan/Web/assets/34672301/aa3491ba-8883-4649-99d3-b89864c0c398">
+</div>   
+
 -----
 ### label
 -----   
