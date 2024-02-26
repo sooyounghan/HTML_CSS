@@ -348,7 +348,12 @@
 ```html
 <li> 자기소개 : <textarea name = "my_self", id = "user_self"></textarea>
 ```
+3. textarea에 개행 후 입력하지 않고, 데이터를 전송하면 다음과 같이 my_self 파라미터에 다음과 같은 값이 등장
 
+   - %0D : 개행 (\n) / %0A : Carriage Return (\r)
+```html
+http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=12%0D%0A&user_submit=%EB%A1%9C%EA%B7%B8%EC%9D%B8
+```
 -----
 ### Query String
 -----
