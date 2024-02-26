@@ -13,7 +13,8 @@
 1. 동적 웹 페이지를 만들기 위해 사용되는 자바 기반의 웹 어플리케이션 기술
 2. 웹 기반 요청에 대한 동적 처리가 가능한 하나의 클래스
 3. 서블릿 구조 (인터페이스)
-```jsp
+   
+```java
 public interface Servlet {
 
     public void init(ServletConfig config) throws ServletException;
