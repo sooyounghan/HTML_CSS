@@ -319,8 +319,9 @@
          * radio는 단 하나 선택, checkbox는 다중 선택이 가능함
 
 3. checked 속성 : 페이지가 로드될 때 미리 선택될 <input> 요소를 명시 (하나를 선택해야 하는 경우에는 default 값에만 지정)
-
-4. ```html
+4. radio나 checkbox는 <> 설정 후 뒤에 그 항목을 표시할 수 있는 이름 표기
+   
+```html
    <!-- name에 snsYN을 중복 적용을 통해 수신 허용, 불허했는지에 대한 파라미터 값을 얻기 가능 // name은 중복 가능하지만. id는 중복 불가 -->
 		<input type = "radio" name = "snsYN" id = "snsY" value = "Y" checked = "checked"> 수신허용
 		<input type = "radio" name = "snsYN" id = "snsN" value = "N"> 수신불허
@@ -340,13 +341,95 @@
 </div>
 
 -----
+### label
+-----   
+
+1. 폼 요소에 이름표를 붙이기 위한 것
+2. <label> 요소는 for 속성을 사용하여 다른 요소와 결합
+3. <label> 요소의 for 속성값은 결합하고자 하는 요소의 id 속성값과 같아야 함
+4. 사용자가 마우스로 해당 텍스트를 클릭할 경우 <label> 요소와 연결된 요소를 곧바로 선택할 수 있어 사용자의 편의성을 높일 수 있음
+   
+```html
+<li> 성별 : 
+	<input type = "radio" name = "male" id = "user_sex_male" checked = "checked" value = "남"><label for = "male"> 남 </label>
+	<input type = "radio" name = "female" id = "user_sex_female" value = "여"><label for = "female"> 여 </label>
+</li>
+
+<li> 좋아하는 동물 :
+	<input type = "checkbox" name = "animal_cat" id = "cat" value = "cat" checked = "checked"><label for = "cat"> 고양이 </label>
+	<input type = "checkbox" name = "animal_dog" id = "dog" value = "dog"><label for = "dog"> 강아지 </label>
+	<input type = "checkbox" name = "animal_fish" id = "fish" value = "fish"><label for = "fish"> 물고기 </label>
+</li>
+```
+
+: radio나 checkbox 버튼을 누르지 않고, 텍스트를 누르면 곧바로 선택 가능
+
+-----
+### select
+-----
+1. select Attribute : name, id, size
+2. 옵션 메뉴를 제공하는 드롭다운 리스트(drop-down list)를 정의
+3. 요소 내부의 <option>~</option> 요소는 드롭다운 리스트(drop-down list)에서 사용되는 각각의 옵션을 정의
+   - attribute : value
+4. 전송 값 : select name = value
+
+< 단일 선택 >
+```html
+<select name = "language", id = "select_language">
+	<option value = "korean">한국어</option>
+	<option value = "english">영어</option>
+	<option value = "china">중국어</option>
+	<option value = "japan">일본어</option>
+</select>
+```
+
+< 다중 선택 (multiple) 및 크기 설정 (size) >
+```html
+<select name = "language", id = "select_language", size = "7" multiple = "multiple"> 
+	<option value = "korean">한국어</option>
+	<option value = "english">영어</option>
+	<option value = "china">중국어</option>
+	<option value = "japan">일본어</option>
+</select>
+```
+
+  - multiple 속성으로 다중 선택 가능, size 속성으로 총 선택 가능한 수 지정 가능
+  - 데이터 전송 값 : language=value1&language=value2
+
+-----
+### datalist
+-----   
+
+1. <input> 요소에서 사용하기 위한 옵션들의 리스트를 미리 정의할 때 사용
+2. 사용자가 <input> 요소에 데이터를 입력할 때 미리 정의된 옵션을 드롭다운 리스트로 보여줌으로써 자동완성 기능을 제공
+3. id 속성값을 명시하면, 해당 요소에서 미리 정의한 옵션들을 <input> 요소에서 사용
+
+```html
+<form action="/examples/media/action_target.php" method="get">
+    학과 : <input type="text" name="st_department" list="depList"><br>
+    이름 : <input type="text" name="st_name"><br><br>
+    <datalist id="depList">
+        <option value="컴퓨터공학과"></option>
+        <option value="영어영문과"></option>
+        <option value="경영학과"></option>
+        <option value="사회체육과"></option>
+    </datalist>
+    <button type="submit">제출하기</button>
+</form>
+```
+
+-----
 ### textarea
 -----
 1. 여러 줄의 데이터를 입력하고 싶을 때 사용
 2. 크기 조절 가능
+3. <textarea ...>기본값 설정</textarea> : textarea에 대한 기본값 설정
+4. 초기 크기 행의 수와 열의 글자수로 너비와 높이 지정 가능 (rows (= height), cols (= width) Attribute)
+5. style로 너비와 높이 지정 가능 (<textarea style = "속성명:값; 속성명:값" ("height:값; width:값")>)
    
 ```html
-<li> 자기소개 : <textarea name = "my_self", id = "user_self"></textarea>
+<textarea name = "my_self", id = "user_self" rows = "5" cols ="50">Text기본값</textarea>
+<textarea name = "my_self_1", id = "user_self_1" style = "height:80px; width:240px">Text기본값</textarea>
 ```
 3. textarea에 개행 후 입력하지 않고, 데이터를 전송하면 다음과 같이 my_self 파라미터에 다음과 같은 값이 등장
 
