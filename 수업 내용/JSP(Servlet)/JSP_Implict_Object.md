@@ -399,6 +399,68 @@ http://localhost:8081/pro/ch03/link.jsp
 ```
 
 	: 위 코드에서 1번은 일반적인 jsp 방식, 2번은 servlet 방식
+
+-----
+### forward 방식
+-----
+  - link_forward_actionTag.jsp에서 name과 age의 값을 전달 -> c.jsp -> forward d.jsp
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<a href = "c.jsp?name=a&age=20" target = "_self">c.jsp</a>
+	</body>
+</html>
+```
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<%
+		System.out.println("forwarding");
+		out.println("name = " + request.getParameter("name"));
+		out.println("age = " + request.getParameter("age"));
+		 %>
+		<jsp:forward page = "d.jsp" />
+	</body>
+</html>
+```
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<%
+		out.println(request.getParameter("name"));
+		out.println(request.getParameter("age"));
+		 %>
+	</body>
+</html>
+```
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/71d068e6-7df3-4f44-b906-65832ec4ac95">
+</div>
+
 -----
 ### 웹 브라우저에 헤더 정보 전송
 -----
