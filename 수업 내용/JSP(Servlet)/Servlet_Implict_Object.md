@@ -313,6 +313,64 @@ http://localhost:8081/pro/ch03/link.jsp
 </html>
 ```
 
+  - link_response_sendRedirect.jsp에서 name과 age의 값을 전달 -> a.jsp 전달하나 b.jsp에는 전달되지 못함
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="UTF-8">
+
+		<title>link_response_sendRedirect</title>
+		</head>
+
+		<body>
+			<a href = "a.jsp?name=a&age=20" target = "_self">a.jsp</a>
+		</body>
+</html>
+```
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+
+	<body>
+		<% 
+		System.out.println("redirecting");
+		System.out.println(request.getParameter("name"));
+		System.out.println(request.getParameter("age"));
+		response.sendRedirect("b.jsp");
+		<!-- a 20 -->
+		%>
+	</body>
+</html>
+```
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<%
+		System.out.println(request.getParameter("name"));
+		System.out.println(request.getParameter("age"));
+		<!-- null null -->
+		%>
+		<h3>b.jsp</h3>
+	</body>
+</html>
+```
 -----
 ### redirect 방법
 -----
