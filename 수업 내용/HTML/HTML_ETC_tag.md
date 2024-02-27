@@ -69,7 +69,7 @@
    - figcaption 태그 : figure 태그를 감싼 후 figcaption 태그를 이용해 제목이나 설명 글을 입력 (중앙에 정렬되지 않음)
 
            + table 태그보다 앞에 사용하면 표 위에 제목 표시
-           + /table ㅇ태그 다음에 추가하면 표 아래 제목 표시
+           + /table 태그 다음에 추가하면 표 아래 제목 표시
 ```html
 <figure>
 <figcaption>
