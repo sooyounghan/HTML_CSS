@@ -225,7 +225,3 @@ http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=
 ```html
 <iframe name = "inner" src = "http://www.daum.com">다음</iframe>
 ```
-
------
-### 추가 정보 필요 : 표를 만드는 태그 / map 태그 / progress 태그 / meter 태그
------    
