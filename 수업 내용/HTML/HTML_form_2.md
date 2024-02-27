@@ -216,5 +216,16 @@ http://localhost:8081/webPro/html/ok.jsp?user_name=ID&user_pwd=Password&my_self=
 </div>   
 
 -----
+### iframe
+-----    
+1. inline frame의 약자로써 해당 웹 페이지 안에 다른 html 파일을 불러와서 삽입할 수 있는 기능을 제공
+2. iframe 태그 src 속성에 삽입할 웹 문서의 경로를 작성
+3. width, height 속성을 통해 iframe의 크기를 조절 가능
+
+```html
+<iframe name = "inner" src = "http://www.daum.com">다음</iframe>
+```
+
+-----
 ### 추가 정보 필요 : 표를 만드는 태그 / map 태그 / progress 태그 / meter 태그
 -----    
