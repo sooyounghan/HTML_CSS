@@ -262,7 +262,7 @@ http://localhost:8081/pro/ch03/link.jsp
 1. html
 ```html
    <a href = "URL" target = "_self">URL</a>
-   <a href = "URL" target = "_blank>URL</a>
+   <a href = "URL" target = "_blank">URL</a>
 ```
 
 2. javaScript
