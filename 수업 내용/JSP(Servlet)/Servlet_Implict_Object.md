@@ -276,6 +276,8 @@ http://localhost:8081/pro/ch03/link.jsp
 - requestDispatcher rd = request.getRequestDispatcher("URL");
   rd.forward(reqeust, resopnse);
 ```
+
+	: 위 코드에서 1번은 일반적인 jsp 방식, 2번은 servlet 방식
 -----
 ### 웹 브라우저에 헤더 정보 전송
 -----
