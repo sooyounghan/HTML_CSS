@@ -256,6 +256,63 @@ http://localhost:8081/pro/ch03/link.jsp
 	%>
 ```
 
+3. 예제 (link_response_sendRedirect.jsp -> a.jsp -> b.jsp)
+
+   		- link_response_sendRedirect.jsp
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="UTF-8">
+
+		<title>link_response_sendRedirect</title>
+		</head>
+
+		<body>
+			<a href = "a.jsp" target = "_self">a.jsp</a>
+		</body>
+</html>
+```
+
+   		- a.jsp
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+
+	<body>
+		<% 
+		System.out.print("redirecting");
+		response.sendRedirect("b.jsp"); 
+		%>
+	</body>
+</html>
+```
+
+		- b.jsp
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+		<h3>b.jsp</h3>
+	</body>
+</html>
+```
+
 -----
 ### redirect 방법
 -----
