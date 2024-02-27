@@ -83,7 +83,7 @@
    - label 속성을 이용해 그룹의 제목을 붙임
 
 ```html
-<selected id = "class">
+<select id = "class">
 	<optgroup label = "공과대학">
 		<option value = "archi"> 건축공학과 </option>
 		<option value = "elec"> 전기전자공학과 </option>
