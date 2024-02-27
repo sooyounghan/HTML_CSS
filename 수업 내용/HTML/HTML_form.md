@@ -313,7 +313,7 @@ http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
 	- 파일이 전송되는 것이 아니라 파일명에 대한 문자열이 전송
  	- 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
 
-		   * File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-date" 속성 값 설정
+		   * File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-data" 속성 값 설정
     
 <div align = "center">
 <img width="148" alt="20240226_124413" src="https://github.com/sooyounghan/Web/assets/34672301/43c1d257-d388-40b3-9e33-4fca49bccda0">
