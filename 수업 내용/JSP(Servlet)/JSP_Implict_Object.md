@@ -371,6 +371,12 @@ http://localhost:8081/pro/ch03/link.jsp
 	</body>
 </html>
 ```
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/836839ae-c4e2-47d8-8c69-5507a5e58926">
+</div>
+
+
 -----
 ### redirect 방법
 -----
