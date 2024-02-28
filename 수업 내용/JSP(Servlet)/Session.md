@@ -61,3 +61,174 @@
 4. 세션 유효 시간이 음수이면, 세션 유효 시간이 없는 상태
    (세션 삭제했을 때, session.invalidate()를 호출하지 않으면, 세션 속성이 웹 서버에서 제거 되지 않고 유지)
 5. session.invaildate() 메서드를 명시적으로 실행하지 않으면, 이 세션 떄문에 메모리 부족현상 발생 가능
+
+-----
+### 로그인 간단 구현
+-----
+1. Login Form
+```jsp
+<%@ page language="java" co7ntentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> 로그인 </title>
+	</head>
+
+	<body>
+		<a href = "<%=request.getContextPath()%>/index.jsp">Index</a>
+		<!--  Model 내용 : ${errMSG} --> <br>
+		<%
+		if(request.getAttribute("errMSG") != null) {
+			out.print((String)request.getAttribute("errMSG"));
+			out.print("<br>");			
+		}
+		 %>
+		<fieldset style = "width:400px;height:150px">
+		<legend> Login </legend>
+		<form action = "loginOk.jsp" method = "post" id = "loginForm" name = "loginForm">
+		
+		<div>
+			<div>
+			아이디 <input type = "text" id = "id" name = "id" value = "">
+			</div>
+			<div>
+			비밀번호 : <input type = "password" id = "password" name = "password">
+			</div>		
+			<div>
+			<input type = "submit" name = "submit" value = "Login">
+			<input type = "reset" name = "reset" value = "Cancel">
+			</div>
+			
+		</form>
+		</fieldset> 
+	</body>
+</html>
+```
+
+2. LoginOk
+```jsp
+<%@ page import = "java.util.*, java.text.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<a href = "<%=request.getContextPath()%>/index.jsp">Index</a>
+		<h4> Client가 보낸 ID, PW을 받아 처리하는 Server 측 페이지 </h4>
+		<%
+			// MVC 패턴 : Client - 요청(Request) - Sever (Server는 요청에 따라 Business Logic 수행) : Controller 호출
+			// Controller의 역할
+			//	1. getParameter
+			String id = (String)request.getParameter("id");
+			String pwd = (String)request.getParameter("password");
+			//  2. 비즈니스 로직 수행 (Service <>-> DAO <>-> DB) [회원 DB의 ID를 java / PW를 qwert라 하고, 이를 모두 만족하면 세션에 정보를 저장]
+			// 둘중 하나라도 불일치하면, ID 또는 PWD가 불일치함을 표시
+			String db_id = "java";
+			String db_pwd = "qwert";
+
+			//	3. Model - Session 이용
+			if(db_id.equals(id) && db_pwd.equals(pwd)) {
+				session.setAttribute("AUTH_USER_ID", (String)request.getParameter("id"));
+				session.setAttribute("AUTH_USER_PWD", (String)request.getParameter("password")); // Session에서 비밀번호를 포함하지 않는 것이 웹 보안 관행
+			%>
+			<ol>
+ 			<li> session에 저장된 ID : <%=session.getAttribute("AUTH_USER_ID") %></li>
+ 			<li> <%=session.getAttribute("AUTH_USER_ID")%>님 <a href = "/logOut.jsp">Log-out</a></li> <!-- ../index.jsp -->
+ 			</ol>
+			<% 
+			} 	
+			else {
+				//	3. Model - request 이용
+				//	4. View 지정
+				request.setAttribute("errMSG", "ID or PassWord Mismatch");
+				RequestDispatcher rd = request.getRequestDispatcher("loginForm.jsp"); // 2번. forward : 본래 요청 주소 존속 (요청 주소 : loginForm.jsp)
+				rd.forward(request, response);
+				System.out.println(request.getAttribute("errMSG"));
+
+				// redirect의 경우 model은 session으로 전달 
+				//session.setAttribute("errMSG", "ID or PassWord Mismatch");
+				//response.sendRedirect(request.getContextPath()+"/ch10/loginForm.jsp"); //1번. redirect : 본래 요청 주소 소멸  마지막 응답 주소 (주소 : loginForm.jsp)
+			}
+			
+			long ct = session.getCreationTime();
+			Date session_date = new Date(ct);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");		
+	 	%>
+ 		<ul>
+ 			<li> session ID 출력 : <%=session.getId() %></li>
+ 			<li> session 생성 시간 : <%=session.getCreationTime() %></li>
+ 			<li> session 생성 시간 : <%=session_date %></li>
+ 			<li> session 생성 시간 : <%=sdf.format(session_date) %></li>
+ 			<li> session 접근 시간 : <%=sdf.format(new Date(session.getLastAccessedTime())) %> </li>
+ 			<li> request ID : <%=request.getParameter("id") %>
+ 		</ul>
+ 		
+	</body>
+</html>
+```
+
+3. LogOut
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+
+	<body>
+		<%
+		session.invalidate(); // session의 정보를 유지하고 싶지 않다면 실행 (로그아웃 의미에서는 이 부분이 반드시 포함)
+		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+		rd.forward(request, response);
+		out.print("Log-Out");
+		%>	
+		<!-- <jsp:forward page = "../index.jsp"></jsp:forward> // 세션 유지한 상태(로그아웃 개념이 아닌 그냥 메인 페이지로 가는 것)-->
+		<h4>로그아웃 기능 구현을 담당하는 LogoutHandler 작업</h4>
+	</body>
+</html>
+```
+
+4. Main
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+	<body>
+	<%-- 로그인 전 화면 --%>
+	<%
+		if(session.getAttribute("AUTH_USER_ID") == null) {
+	%>	
+		<h1>Main Page(index.jsp)</h1>
+		http://localhost:8081<%=request.getContextPath()%>/index.jsp
+		<ul>
+			<li><a href = "<%=request.getContextPath()%>/ch10/loginForm.jsp">로그인 폼</a></li>
+			<li><input button = "button" value = "회원가입" id = "user_join"></li>
+		</ul>	
+	<%
+		} else {
+	%> 
+	<%-- 로그인 후 화면 --%>
+			<li><%=(String)session.getAttribute("AUTH_USER_ID")%>님 어서오세요.
+			<a href = "<%=request.getContextPath()%>/ch10/logOut.jsp">Log-out</a></li>
+	<%
+		}
+	 %>
+	</body>
+</html>
+```
