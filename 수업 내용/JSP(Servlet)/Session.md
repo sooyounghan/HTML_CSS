@@ -67,7 +67,7 @@
 -----
 1. Login Form
 ```jsp
-<%@ page language="java" co7ntentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<html>
@@ -87,7 +87,7 @@
 		 %>
 		<fieldset style = "width:400px;height:150px">
 		<legend> Login </legend>
-		<form action = "loginOk.jsp" method = "post" id = "loginForm" name = "loginForm">
+		<form action = "<%=request.getContextPath() %>/ch10/loginOk.jsp" method = "post" id = "loginForm" name = "loginForm">
 		
 		<div>
 			<div>
@@ -140,7 +140,7 @@
 			%>
 			<ol>
  			<li> session에 저장된 ID : <%=session.getAttribute("AUTH_USER_ID") %></li>
- 			<li> <%=session.getAttribute("AUTH_USER_ID")%>님 <a href = "/logOut.jsp">Log-out</a></li> <!-- ../index.jsp -->
+ 			<li> <%=session.getAttribute("AUTH_USER_ID")%>님 <a href = "<%=request.getContextPath() %>/index.jsp">Log-out</a></li> <!-- ../index.jsp -->
  			</ol>
 			<% 
 			} 	
@@ -192,7 +192,6 @@
 		rd.forward(request, response);
 		out.print("Log-Out");
 		%>	
-		<!-- <jsp:forward page = "../index.jsp"></jsp:forward> // 세션 유지한 상태(로그아웃 개념이 아닌 그냥 메인 페이지로 가는 것)-->
 		<h4>로그아웃 기능 구현을 담당하는 LogoutHandler 작업</h4>
 	</body>
 </html>
@@ -225,6 +224,7 @@
 	%> 
 	<%-- 로그인 후 화면 --%>
 			<li><%=(String)session.getAttribute("AUTH_USER_ID")%>님 어서오세요.
+			<%=request.getContextPath() %>
 			<a href = "<%=request.getContextPath()%>/ch10/logOut.jsp">Log-out</a></li>
 	<%
 		}
