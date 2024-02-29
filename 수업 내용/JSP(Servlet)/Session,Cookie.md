@@ -1,4 +1,4 @@
- -----
+-----
 ### Session
 -----
 
@@ -270,6 +270,9 @@ response.addCookie(cookie);
 
     - 클라이언트에 저장된 모든 쿠키 객체를 가져오려면 request 내장 객체의 getCookies() 메서드 사용
     - 쿠키 객체가 여러 개일 때, 배열 형태로 가져옴
+    - 항상, 쿠키 객체를 얻을 때는 쿠키가 존재하는지 확인 (클라이언트나 전송 간 위조 및 소실 여부를 위해)
+  
+      		> cookies != null && cookies.length > 0
 
       		Cooke[] request.getCookies()
       		> Cookie[] cookies = request.getCookies();
@@ -294,7 +297,7 @@ for(int i = 0; i < cookies.length; i++) {
 Cookie cookie = new Cookie("memberId", "admin);
 cookie.setMaxAge(0);
 response.addCookie(cookie);
-```                                                                                                            
+```                                                                                                            쿠키 확인 : F12(개발자 도구) - Application - Cookie
  -----
 ### Session과 Cookie
 -----
