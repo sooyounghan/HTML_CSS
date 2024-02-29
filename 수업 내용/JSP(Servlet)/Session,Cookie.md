@@ -297,10 +297,90 @@ for(int i = 0; i < cookies.length; i++) {
 Cookie cookie = new Cookie("memberId", "admin);
 cookie.setMaxAge(0);
 response.addCookie(cookie);
-```                                                                                                            쿠키 확인 : F12(개발자 도구) - Application - Cookie
- -----
+```
+
+                        쿠키 확인 : F12(개발자 도구) - Application - Cookie
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title> Cookie </title>
+		</head>
+		<!-- 웹 서버에서 Cookie 생성 후 response에 담아 client에게 전달 -->
+		<body>
+		<%
+		// 1.Cookie 생성
+		Cookie cookie = new Cookie("ID", "java");
+		// 2. Path 지정 (Root DIrectory로 설정, 미설정 시 현재 쿠키를 생성한 path로 지정)
+		cookie.setPath("/");
+		// 3. MaxAge 설정 (하루 단위로 지정, 0이면 쿠키 삭제 의미)
+		cookie.setMaxAge(60 * 60 * 24);
+		// 4. 만들어진 Cookie를 Client에게 전달
+		response.addCookie(cookie);
+		
+		Cookie name = new Cookie("NAME", "han");
+		// cookie의 특정 값을 변경 가능
+		name.setValue("nah");
+		response.addCookie(name);
+		%>
+		<a href = "<%=request.getContextPath()%>/ch09/cookieEx02.jsp">Go</a>
+		<p> 쿠키 생성 완료 </p>
+		</body>
+</html>
+```
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title> Cookie Ex </title>
+		</head>
+		<!-- 웹 서버에서 Cookie 생성 후 response에 담아 client에게 전달 -->
+		<body>
+		<%
+		Cookie[] cookies = request.getCookies();
+		
+		if(cookies != null && cookies.length > 0) { // 유효성 검사 : Client의 쿠키 삭제 여부
+			// 쿠키는 존재하지만, Server가 원하는 정보가 없을 수 있음
+			
+			for(int i = 0; i < cookies.length; i++) {
+				Cookie temp = cookies[i];
+				
+				if(cookies[i].getName().equals("nAME")) {
+					out.print(cookies[i].getName() + " : " + cookies[i].getValue() + "<br>");
+				}
+				else if(cookies[i].getName().equals("ID")) {
+					out.print(cookies[i].getName() + " : " + cookies[i].getValue() + "<br>");
+				}
+				else if(cookies[i].getName().equals("JSESSIONID")) continue;
+				
+				else {
+					out.print("Cookie" + cookies[i].getName() + " isn't exist." + "<br>");
+				}
+
+				// out.print(cookies[i].getName() + " : " + cookies[i].getValue() + "<br>");
+			}			
+		}
+		else {
+			out.print("Not Cookie!");
+		}
+		%>
+		<p> 쿠키 생성 완료 </p>
+		</body>
+</html>
+```
+
+-----
 ### Session과 Cookie
 -----
 <div align = "center" >
 <img src="https://github.com/sooyounghan/Web/assets/34672301/63dc715b-e388-48e9-81b7-6844e1b5fde8">
 </div>
+
