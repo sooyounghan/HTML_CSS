@@ -108,6 +108,10 @@ public interface Servlet {
   - Web Application이 갱신되거나 WAS가 종료될 때 호출
   - Servlet 객체를 메모리에서 제거
 
+< private static final long serialVersionUID = 1L >
+  - 직렬화(implements Serializable)를 할 때 사용
+  - Serializable을 상속하는 Class의 경우 Class의 versioning 용도로 사용하는 변수
+ 
 ```java
 import java.util.*;
 
