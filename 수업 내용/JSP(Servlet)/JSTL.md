@@ -7,7 +7,7 @@
 ### JSTL (Java Standard Tag Library)
 -----
 ```jsp
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" %>
 ```
 1. 항상 위의 태그가 붙어있어야 함
 
