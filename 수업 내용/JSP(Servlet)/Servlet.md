@@ -92,7 +92,7 @@ public interface Servlet {
 
 < init() >   
     - 한 번만 수행되며, 클라이언트의 요청에 적절한 Servlet이 생성되고, 이 Servlet이 메모리에 로드되면 호출
-    - Servlet 객체를 초기화
+    - Servlet 객체를 초기화 (환경설정과 같이 초기에 필요한 작업 수행)
 
 < service(request, response) >   
     - 응답에 대한 모든 내용은 service()에 구현
