@@ -1,4 +1,4 @@
------
+ -----
 ### Session
 -----
 
@@ -12,6 +12,7 @@
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/f63dbea0-3390-4f28-90e0-3bb05c65189b">
 </div>
 
+6. Session 메서드
 <div align = "center" >
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/41115fb1-6975-4bb6-a365-ffcd525ce680">
 </div>
@@ -232,3 +233,71 @@
 	</body>
 </html>
 ```
+
+ -----
+### Cookie
+-----
+1. 클라이언트와 웹 서버 간 상태를 지속적 유지하는 방법
+2. 쿠키는 세션과 달리 정보를 웹 서버가 아닌 클라이언트에 저장
+
+   		예) 웹 사이트를 처음 방문한 사용자가 로그인 인증을 하고 나면, 아이디/비밀번호를 기록한 쿠키 생성
+   		    그 다음부터 사용자가 그 웹 사이트에 접속하면 별도의 절차를 거치지 않고 쉽게 접속할 수 있음
+
+3. 장점 : 클라이언트의 일정 폴더에 정보를 저장하므로 웹 서버의 부하를 줄일 수 있음
+4. 단점 : 웹 브라우저가 접속했던 웹 사이트에 대한 정보의 개인정보가 기록되므로 보안 문제 발생
+<div align = "center" >
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/aadfd287-187e-420e-ade7-139bc28287f4">
+</div>
+
+5. Cookie 메서드
+<div align = "center" >
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/196dfaf2-c403-4247-ac93-785b304282a0">
+</div>
+
+6. 쿠키 생성
+   - Cookie() 메서드 사용
+   - 쿠키를 생성한 후에는 반드시 response 내장 객체의 addCookie() 메서드로 쿠키 설정
+
+      		Cookie Cookie(String name, String value)
+     		- name : 쿠키 식별 이름
+     		- value : 쿠키 값
+```jsp
+Cookice cookie = new Cookie("memberId", "admin");
+response.addCookie(cookie);
+```
+
+7. 쿠키 객체 얻기
+
+    - 클라이언트에 저장된 모든 쿠키 객체를 가져오려면 request 내장 객체의 getCookies() 메서드 사용
+    - 쿠키 객체가 여러 개일 때, 배열 형태로 가져옴
+
+      		Cooke[] request.getCookies()
+      		> Cookie[] cookies = request.getCookies();
+
+8. 쿠키 객체 정보 얻기
+
+	- 쿠키 객체에 저장된 쿠키 이름과 값을 가져오기 위해 getName(), getValue() 메서드 사용
+
+ 		  String getName()
+   		  String getValue()
+```jsp
+Cookie[] cookies = request.getCookies();
+for(int i = 0; i < cookies.length; i++) {
+	out.println(cookies[i].getName() + " : " + cookies[i].getValue() + "<br>");
+}
+```
+
+9. 쿠키 삭제
+
+   - 쿠키의 유효 기간을 결정 : setMaxAge() 메서드에 유효 기간을 0으로 설정하면, 쿠키 삭제 가능
+```jsp
+Cookie cookie = new Cookie("memberId", "admin);
+cookie.setMaxAge(0);
+response.addCookie(cookie);
+```                                                                                                            
+ -----
+### Session과 Cookie
+-----
+<div align = "center" >
+<img src="https://github.com/sooyounghan/Web/assets/34672301/63dc715b-e388-48e9-81b7-6844e1b5fde8">
+</div>
