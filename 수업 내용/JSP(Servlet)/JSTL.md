@@ -50,10 +50,10 @@
 </c:if>
 ```
 
-  + < c:choose test = "조건식" > ~ < /c : choose > : 조건식에 일치하면 진입 (if) = switch문
+  + < c:choose > ~ < /c : choose > : switch문
  
-      - < c:when test = "조건식2" > ~ < /c:when > : 조건식에 해당하고, 그 또 다른 조건에 충족하는 식 (else if)
-      - < c:otherwise > ~ < /c:otherwise > : 어떠한 조건식에도 일치하지 않으면, 출력 (else)
+      - < c:when test = "조건식" > ~ < /c:when > : 조건식에 해당하면 진입
+      - < c:otherwise > ~ < /c:otherwise > : 어떠한 조건식에도 일치하지 않으면, 진입 (else)
   ```jsp
 <c:choose>
          
