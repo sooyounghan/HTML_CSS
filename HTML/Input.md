@@ -178,7 +178,7 @@ Age : 0<input type = "range" id = "age" name = "age" min = "0" max = "100" step 
 	: 색상표에서 사용자가 색상을 선택할 수 있도록 제공
 
 ```html
-<li> color : <input type = "color" name = "color" id = "color"></li>
+color : <input type = "color" name = "color" id = "color"></li>
 ```
 ```html
 http://localhost:8081/webPro/html/ok.jsp?...&color=%23000000
