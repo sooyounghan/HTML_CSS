@@ -41,14 +41,14 @@
 
 ```html
 <html>
-	<body>
+<body>
     <ul id = "menu">
     	<li><a href = "#content">메뉴1</a></li>
     </ul>
 
       <h2 id = "content">내용1</h2>
       <a href = "#menu">[메뉴로]</a>
-	</body>
+</body>
 </html>
 
 ```
