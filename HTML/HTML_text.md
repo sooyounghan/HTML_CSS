@@ -72,32 +72,7 @@
 ```
 
 -----
-### HTML 텍스트의 특징
------
-1. 일반적인 'Enter'는 줄바꿈이지만, HTML에서는 이를 무시
-2. 스페이스를 통한 공백도 한 번씩만 저장
-
-<div align = "center">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/75935ac9-a913-423e-995f-501f8b83d87a">
-</div>
-
------
-### 줄바꿈 태그 : br
------
-1. 강제 개행(link break)로, 단일 태그
-2. 공백을 두 번 이상 표현하고자 할 때는 &nbsp(;) 사용
-
-```html
-<!DOCTYPE html>
-<html>
-  <body>
-     <p>개행<br/>공백 &nbsp;&nbsp; 두 칸 표현</p>
-   </body>
-</html>
-```
-
------
-### 형식화 태그 : pre
+### 형식화 태그 (pre)
 -----
   - 형식화(Preformatted)된 텍스트를 출력
   - pre 태그 내 content는 작성된 그대로 브라우저에 표시
@@ -117,6 +92,47 @@
 	</body>
 	</html>
 ```
+
+-----
+### HTML 태그도 무시하고 출력 하는 태그 (xmp)
+-----
+: html 태그를 실행안하고 문장 소스 그대로 보여주는 태그
+```html
+<!DOCTYPE html>
+<html>	
+	<body> 
+		<xmp>
+			<a href = ""> Text 또는 이미지 등 가능한 형태 </a> // 태그 무시하고 그대로 출력
+		</xmp>		
+	</body>
+</html>
+```
+
+-----
+### HTML 텍스트의 특징
+-----
+1. 일반적인 'Enter'는 줄바꿈이지만, HTML에서는 이를 무시
+2. 스페이스를 통한 공백도 한 번씩만 저장
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/75935ac9-a913-423e-995f-501f8b83d87a">
+</div>
+
+-----
+### 줄바꿈 태그 (br)
+-----
+1. 강제 개행(link break)로, 단일 태그
+2. 공백을 두 번 이상 표현하고자 할 때는 &nbsp(;) 사용
+
+```html
+<!DOCTYPE html>
+<html>
+  <body>
+     <p>개행<br/>공백 &nbsp;&nbsp; 두 칸 표현</p>
+   </body>
+</html>
+```
+
 -----
 ### 인라인 요소
 -----
