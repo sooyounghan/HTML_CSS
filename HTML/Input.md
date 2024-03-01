@@ -59,7 +59,7 @@
 	- 그 필드를 클릭하면 내용이 사라지도록 함
 
 ```html
-<input type = "text" id = "subj" value = "오전 9시 ~ 11시" readonly = "true" placeholder = "수업시간">
+<input type = "text" id = "sub_time" value = "sub_time" placeholder = "수업시간">
 ```
 
 -----
