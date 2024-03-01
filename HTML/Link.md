@@ -16,21 +16,21 @@
    
 ```html
 <html>
-	<body>
-	  <a href = "tel:000-000-0000" target = "_self"> 전화걸기 </a>
-	  <a href = "mailto:aa@naver.com target = "_blank> 메일쓰기 </a>
-	  <a href = "https://www.w3schools.com/html/html_forms.asp" target = "_blank"> 네이버로 이동 (새로운 창) </a>
-	  <a href = "https://www.w3schools.com/html/html_forms.asp" target = "_self"> 네이버로 이동 (기존 창) </a>
-	  <a href = "https://www.w3schools.com/html/html_forms.asp" target = "blank"> 네이버로 이동 (기존 창) </a>
-	</body>
+<body>
+	<a href = "tel:000-000-0000" target = "_self"> 전화걸기 </a>
+	<a href = "mailto:aa@naver.com target = "_blank> 메일쓰기 </a>
+	<a href = "https://www.w3schools.com/html/html_forms.asp" target = "_blank"> 네이버로 이동 (새로운 창) </a>
+	<a href = "https://www.w3schools.com/html/html_forms.asp" target = "_self"> 네이버로 이동 (기존 창) </a>
+	<a href = "https://www.w3schools.com/html/html_forms.asp" target = "blank"> 네이버로 이동 (기존 창) </a>
+</body>
 </html>
 ```
 
 ```html
 <html>
-	<body>
-	  <a href = "www.naver.com" target = "_self"><img src = "./a.png" alt = "그림 설명" width = "300" height = "600"></a>
-	</body>
+<body>
+	<a href = "www.naver.com" target = "_self"><img src = "./a.png" alt = "그림 설명" width = "300" height = "600"></a>
+</body>
 </html>
 ```
 
