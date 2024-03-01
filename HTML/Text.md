@@ -17,14 +17,13 @@
    
 ```html
 <!DOCTYPE html>
-
-	<html>
-		<body>
-			<p> 문단 태그 </p>
-			<!-- <p>~</p> 후 자동 개행 -->
-			<p> 문단과 문단 사이에는 공백 </p>
-		</body>
-	</html>
+<html>
+<body>
+	<p> 문단 태그 </p>
+	<!-- <p>~</p> 후 자동 개행 -->
+	<p> 문단과 문단 사이에는 공백 </p>
+</body>
+</html>
 ```
 
 -----
@@ -37,18 +36,14 @@
 <!DOCTYPE HTML>
 
 <html>
-
   <body>
-
     <h1> Heading 1 </h1>
     <h2> Heading 2 </h2>
     <h3> Heading 3 </h3> 
     <h4> Heading 4 </h4>
     <h5> Heading 5 </h5>
     <h6> Heading 6 </h6>
-
 </body>
-
 </html>
 ```
 
@@ -60,14 +55,14 @@
    
 ```html
 <!DOCTYPE html>
-	<html>	
-		<body>        
-		<p> Paragraph 1 </p>
+<html>	
+<body>        
+	<p> Paragraph 1 </p>
         
-		<hr/>
+	<hr/>
                 
-		<p> Paragraph 2</p>
-		</body>
+	<p> Paragraph 2</p>
+</body>
 </html>
 ```
 
@@ -79,18 +74,18 @@
 
 ```html
 <!DOCTYPE html>
-	<html>
-	<body>
-		<pre>
+<html>
+<body>
+	<pre>
 		var myArray = [];
 		console.log(myArray.length); // 0
 
 		myArray[1000] = true; // [ , , ... , , true ]
 		console.log(myArray.length); // 1001
 		console.log(myArray[0]); // undefined
-		</pre>
-	</body>
-	</html>
+	</pre>
+</body>
+</html>
 ```
 
 -----
@@ -100,11 +95,11 @@
 ```html
 <!DOCTYPE html>
 <html>	
-	<body> 
-		<xmp>
-			<a href = ""> Text 또는 이미지 등 가능한 형태 </a> // 태그 무시하고 그대로 출력
-		</xmp>		
-	</body>
+<body> 
+	<xmp>
+	<a href = ""> Text 또는 이미지 등 가능한 형태 </a> // 태그 무시하고 그대로 출력
+	</xmp>		
+</body>
 </html>
 ```
 
@@ -127,9 +122,9 @@
 ```html
 <!DOCTYPE html>
 <html>
-  <body>
+<body>
      <p>개행<br/>공백 &nbsp;&nbsp; 두 칸 표현</p>
-   </body>
+</body>
 </html>
 ```
 
@@ -143,12 +138,12 @@
 
 ```html
 <!DOCTYPE html>
-	<html>
-	<body>
-		<b>강조1</b>
-    <strong>강조2</strong>
-	</body>
-	</html>
+<html>
+<body>
+	<b>강조1</b>
+	<strong>강조2</strong>
+</body>
+</html>
 ```
 
 -----
@@ -158,12 +153,12 @@
 
 ```html
 <!DOCTYPE html>
-	<html>
-	<body>
-		<em>이탤릭체 표기1</em>
-    <i>이탤릭체 표기2</i>
-	</body>
-	</html>
+<html>
+<body>
+	<em>이탤릭체 표기1</em>
+	<i>이탤릭체 표기2</i>
+</body>
+</html>
 ```
 -----
 ### 강조 태그 : mark
@@ -172,11 +167,11 @@
 
 ```html
 <!DOCTYPE html>
-	<html>
-	<body>
-		<mark>이 부분</mark>이 중요합니다.
-	</body>
-	</html>
+<html>
+<body>
+	<mark>이 부분</mark>이 중요합니다.
+</body>
+</html>
 ```
 
 -----
@@ -191,10 +186,10 @@
 
 ```html
 <!DOCTYPE html>
-	<html>
-	<body>
-		<blockquote>이 곳은 인용하는 태그를 사용하는 곳입니다.</blockquote>
-    나는 <q cite = "www.naver.com">이 부분</q>을 인용합니다.
-	</body>
-	</html>
+<html>
+<body>
+	<blockquote>이 곳은 인용하는 태그를 사용하는 곳입니다.</blockquote>
+    	나는 <q cite = "www.naver.com">이 부분</q>을 인용합니다.
+</body>
+</html>
 ```
