@@ -53,3 +53,19 @@
     - 이미지가 저작권 보호를 받는 이미지인지 확인 후 사용해야함
     
           <img src="https://image.beansdrawer.com/short-hair/mackerel/n00-08.jpg" />
+-----
+### figure
+-----
+1. figure 태그 : 설명 글을 붙일 대상 지정
+	- 웹 문서 안에서 한 단위가 되는 요소를 묶을 때 사용
+	- 한 단위가 되는 요소를 나타내기 위해 사용
+	- 설명 글을 사용하기 위해서는 <figure> 태그 안에 <figcaption> 태그로 설명 글 표시
+
+2. figcaption : 설명 글 붙이기
+
+```html
+<figure>
+	<img src = "/pic.jpg" alt = "사진">
+	<figcaption>사진</figcaption>
+</figure>
+```
