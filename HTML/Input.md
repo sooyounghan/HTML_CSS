@@ -244,7 +244,7 @@ URL : <input type = "url" name = "url" id = "url"></li>
 
 5. image
 	- 텍스트가 아닌 이미지 형태로 된 제출 버튼을 생성
-  - 제출 버튼(submit button)으로 사용될 이미지를 정의
+  	- 제출 버튼(submit button)으로 사용될 이미지를 정의
 	- 크기 조정 가능
 
           webapp/imgs에 저장
@@ -259,8 +259,7 @@ URL : <input type = "url" name = "url" id = "url"></li>
 <div align = "center">
 <img width="148" alt="20240226_124413" src="https://github.com/sooyounghan/Web/assets/34672301/43c1d257-d388-40b3-9e33-4fca49bccda0">
 </div>  
-
-  - 파일 전송 : 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
+	 - 파일 전송 : 문자열 데이터를 받아서 클라이언트에게 속한 파일을 복사해 서버에 저장 (복사본 저장) : 인코딩 설정을 다르게 해야함
 
 		* File 업로드 기능 구현 시 form 태그의 method 방식은 post 방식, enctype = "multipart/form-data" 속성 값 설정
  
