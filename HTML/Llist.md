@@ -45,27 +45,28 @@
 ```html
 <!DOCTYPE HTML>
 <HTML>
-	<HEAD>
-		<meta charset = "UTF-8"> 
-		<title> Title </title>
-	</HEAD>
-	<BODY>
-			<ul> 
-				<li> ul : unordered list : 순서가 없는 목록 (무순서 목록) </li>
-			 	<li type = "disc">  </li>
-			 	<li type = "circle">  </li>
-			 	<li type = "square">  </li>
-			</ul>
-			<ol>
-				<li> ol : ordered list : 순서가 있는 목록 (순서 목록) </li>
-				<li type = "1">  </li>
-				<ol>
-					<li type = "A">  </li>
-					<li type = "a">  </li>
-					<li type = "I">  </li>
-					<li type = "i">  </li>
-				</ol>
-			</ol>
-	</BODY>
+   <HEAD>
+     <meta charset = "UTF-8"> 
+     <title> Title </title>
+   </HEAD>
+   <BODY>
+	<ul> 
+	   <li> ul : unordered list : 순서가 없는 목록 (무순서 목록) </li>
+	   <li type = "disc">  </li>
+	   <li type = "circle">  </li>
+	   <li type = "square">  </li>
+	</ul>
+
+	<ol>
+	   <li> ol : ordered list : 순서가 있는 목록 (순서 목록) </li>
+	   <li type = "1">  </li>
+	   <ol>
+		<li type = "A">  </li>
+		<li type = "a">  </li>
+		<li type = "I">  </li>
+		<li type = "i">  </li>
+	   </ol>
+	</ol>
+   </BODY>
 </HTML>
 ```
