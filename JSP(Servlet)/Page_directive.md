@@ -72,3 +72,33 @@
 
       * 현재 페이지에서 에러가 발생하면 /error.jsp로 이동하도록 설정 (isErrorpage = "true"이어야 함을 주의)
 
+
+-----
+### JSP Page Include Directive
+-----
+1. < jsp : include > 액션 태그와 동일하게 지정한 페이지를 현재 위치에 포함시킴
+2. WAS는 다른 파일의 내용을 현재 위치에 삽입 후 JSP 파일을 자바 파일로 변환 후 컴파일
+3. <%@ include file = "포함할 파일"%>
+   - file 속성은 include 디렉티브를 사용해서 포함할 파일의 경로
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/64bb03f7-f941-48b2-a71b-1c906cf710fa">
+</div>
+
+4. 모든 JSP 페이지에서 사용하는 변수 지정 / 모든 페이지에서 중복되는 간단한 문장 삽입에 사용
+5. 코드 조각 자동 포함 기능
+   - web.xml에서의 설정
+```jsp
+<jsp-config>
+  <jsp-property-group> // JSP의 프로퍼티 포함
+       <url-pattern>/view/*</url-pattern> // 프로퍼티를 적용할 JSP 파일의 URL 패턴 지정
+       <include-prelude>/common/variable.jspf</include-prelude> // URL 패턴에 적용하는 JSP 파일 앞에 삽입할 파일 지정
+       <include-coda>/common/footer.jspf</include-coda> // URL 패턴에 적용하는 JSP 파일 뒤에 삽입할 파일 지정
+  </jsp-property-group>
+
+  <jsp-property-group>
+       <url-pattern>*.jsp</url-pattern>  // URL 패턴에 모두 일치하는 패턴이면,
+       <include-prelude>/common/variable2.jspf</include-prelude> // 위 삽입 - 아래 삽입 순서
+       <include-coda>/common/footer2.jspf</include-coda>
+  </jsp-property-group>
+</jsp-config>
