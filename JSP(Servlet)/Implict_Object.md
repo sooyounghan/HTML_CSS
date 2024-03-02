@@ -89,16 +89,4 @@
 <img src="https://github.com/sooyounghan/Web/assets/34672301/b4884425-7833-4994-9e91-047db1df0e6f">
 </div>
 
------
-### JSP 기본 객체의 속성 사용
------
-1. 기본 객체가 존재하는 동안은 기본 객체 속성 사용 가능 (정보 공유 목적)
-2. 속성은 <속성이름, 값>의 형태
-
-<div align = "center">
-<img src= "https://github.com/sooyounghan/Web/assets/34672301/b64fecd1-3b8b-47f6-a550-6f66db2e6642">
-</div>
-
-3. 속성의 값의 반환 타입은 Object 이므로 형 변환 필요
-
 
