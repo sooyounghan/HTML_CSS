@@ -58,6 +58,10 @@
 -----
 ### request 내장 객체 Paramter Method
 -----
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/d507d626-efda-4b03-9d58-2b5e8adcd623">
+</div>
+
 1. 단일 파라미터 조회 : String getParameter("parameter_name")
   : 요청 파라미터의 값을 얻을 수 있음
 
@@ -303,9 +307,13 @@ ID : <%=id>, PassWord : <%=password>
 -----
 ### request 기본 객체의 Header 관련 메서드
 -----
+<div align = "center">
+<img src = "https://github.com/sooyounghan/JAVA/assets/34672301/07ddffe9-5415-44f2-ab45-fd87877eb349">
+</div>
+
 1. 지정한 이름의 헤더 값 : String getHeader(String name)
 2. 지정한 이름의 헤더 목록 : Enumeration getHeaders(String name)
 3. 모든 헤더의 이름 목록 : Enumeration getHeaderNames()
 4. 지정한 헤더의 값을 정수 값 : int getIntHeader(String name)
 5. 지정한 헤더 값을 시간 값 : long getDateHeader(String name)
-
+6. 모든 쿠기 값을 가져옴 : Cookies[] getCookies()
