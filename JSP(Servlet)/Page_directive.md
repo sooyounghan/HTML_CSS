@@ -21,14 +21,15 @@
 </div>
 
 2. 스크립트 요소
-         - 사용자 폼에 입력한 정보를 데이터 베이스에 저장할 수 있음
-         - 표현식 (Expression) : 값을 출력
-         - 스크립틀릿 (Scriptlet) : 자바 코드를 실행
-         - 선언부 (Declaration) : 자바 메서드(함수) 선언
+   
+     - 사용자 폼에 입력한 정보를 데이터 베이스에 저장할 수 있음
+     - 표현식 (Expression) : 값을 출력
+     - 스크립틀릿 (Scriptlet) : 자바 코드를 실행
+     - 선언부 (Declaration) : 자바 메서드(함수) 선언
 
-3. 기본 객체 : request, response, session, application
+4. 기본 객체 : request, response, session, application
   
-4. 표현 언어 : Java, EL
+5. 표현 언어 : Java, EL
 
 -----
 ### Page Directvie
