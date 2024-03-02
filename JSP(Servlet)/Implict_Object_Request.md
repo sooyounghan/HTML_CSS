@@ -24,6 +24,29 @@
 3. 속성의 값의 반환 타입은 Object 이므로 형 변환 필요
 
 -----
+### JSP 기본 객체와 영역
+-----
+<div align = "center">
+<img src="https://github.com/sooyounghan/JAVA/assets/34672301/64082401-d310-4abc-9794-ff1bbac3b951">
+</div>
+
+1. page 영역 : 한 번의 클라이언트 요청에 대해서 하나의 JSP 페이지를 범위로 가짐
+ 
+2. request 영역 : 한 번의 웹 브라우저의 요청과 관련
+   - 웹 브라우저가 웹 서버에 전송하는 하나의 요청이 request 영역
+   - 웹 브라우저의 요청을 보낼 때 마다 새로운 request 영역 생성
+   - 하나의 요청을 처리하는데 사용되는 모든 JSP페이지를 포함
+
+3. session 영역 : 하나의 웹 브라우저와 관련된 영역
+    - 한 웹 브라우저와 관련된 모든 요청은 이 영역에 포함
+  
+4. application 영역 : 하나의 웹 어플리케이션과 관련된 전체 영역
+   
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/b4884425-7833-4994-9e91-047db1df0e6f">
+</div>
+
+-----
 ### Query String
 -----
 1. 사용자가 입력 데이터를 전달하는 방법중의 하나
