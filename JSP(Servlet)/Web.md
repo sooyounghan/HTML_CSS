@@ -140,3 +140,40 @@
         <async-supported>true</async-supported>
     </filter>
 ```
+-----
+### Context Path 변경
+-----
+1. Context Path 변경 (Servers - Tomcat - server.xml 진입)
+```jsp
+...
+<Context docBase="webPro" path="/webPro" reloadable="true" source="org.eclipse.jst.jee.server:webPro"/></Host>
+// Context docBase : 현재 진행중 프로젝트 / path : context Path
+...
+```
+   : 현재 Context Path은 /webPro
+
+```jsp
+http://localhost:8081/webPro/ch03/link.jsp
+// request.getContextPath() : /webPro
+```
+
+2. 
+```jsp
+...
+     <Context docBase="webPro" path="/Pro" reloadable="true" source="org.eclipse.jst.jee.server:webPro"/></Host>
+// Context docBase : 현재 진행중 프로젝트 / path : context Path
+...
+```
+   : 현재 Context Path는 /Pro
+   
+```jsp
+http://localhost:8081/pro/ch03/link.jsp
+// 진입방법은 위와 같이 context path가 변경되었으므로 pro로 진입해야함
+// request.getContextPath() : /pro
+```
+
+3. <Context path=" "docBase=" "> 
+
+       A. path 는 URL상의 주소
+       B. docBase 는 어플리케이션의 서버상 위치\
+          (만일 docBase가 상대경로면 appBase 부터의 상대경로가 되며, 절대경로로 설정되면 서버의 절대경로)
