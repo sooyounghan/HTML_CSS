@@ -169,11 +169,86 @@
 -----
 ### jsp : useBean
 -----
+1. 자바빈 (JavaBeans)
+   - 속성(데이터), 이벤트 변경, 객체 직렬화를 위한 표준 : JSP에서는 속성을 표현하기 위한 용도
+   - 자바빈 규약을 따르는 클래스
+     
+```java
+public class BeanClassName imeplements java.io.Serializable {
+      /* 값을 저장하는 필드 */
+      private String value;
 
+      /* BeanClassName 기본 생성자 */
+      public BeanClassNmae() { }
+
+      /* 필드의 값을 가져오는 값 */
+      public String getValue() {
+            return value;
+      }
+
+      /* 필드의 값을 변경하는 값
+      public void setValue()  {
+            this.value = value;
+      }
+}
+```
+
+2. 자바빈 프로퍼티
+   - Property : 자바빈에 저장되는 값
+   - Property의 값을 변경하는 메서드 : set + Property명
+   - Porperty의 값을 읽어오는 메서드 : get + Property명
+
+         property 타입이 boolean : is / set
+     
+   - 프로퍼티 이름과 필드 이름이 항상 같을 필요는 없음
+
+3. < jsp : useBeans > 액션 태그
+   - JSP 페이지의 주된 기능은 데이터를 보여주는 것인데, 일반적으로 클래스에 담아서 값을 보여줌
+   - JSP 페이지에서 사용할 자바빈 객체를 지정할 때 사용
+
+```jsp
+<jsp:beans id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
+
+<jsp:gbeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request/>
+<%-- MembeInfo 클래스의 객체 생성 : 이름이 info인 변수에 할당 -> request 기본 객체의 info 속성을 값으로 생성된 객체를 저장-->
+```
+   - id 속성 : JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름
+   - class 속성 : 패키지 이름을 포함한 자바빈 클래스의 완전한 이름
+   - type 속성 : 지정한 영역에 이미 객체가 존재한다고 가정하고, 존재하지 않으면 객체를 생성하지 않고 에러 발생
+   - scope : 자바빈 객체를 저장할 영역(page, request, session, application
+
+4. < jsp: useBeans > 액션 태그는 지정한 영역에 이미 id 속성에 지정한 이름의 객체가 존재하면, 객체를 생성하지 않고 기존 존재한 객체 그대로 사용   
+   : 즉, 같은 영역을 사용하는 JSP 페이지 내에서 공유
+   
 -----
 ### jsp : setProperty
 -----
+1. 생성한 자바빈 객체의 Property 값을 변경
+
+```jsp
+<jsp:setProperty name = "[자바빈]" property = "이름" value = "[값]"/>
+```
+   - name 속성 : 프로퍼티의 값을 변경할 자바빈 객체의 이름 (= useBeans 액션 태그에서 id)
+   - property 속성 : 값을 지정할 프로퍼티 이름 지정
+   - value 속성 : 프로퍼티의 값 지정 (표현식<%= %> / EL(${}) 가능)
+   - param 속성 : value와 동시에 사용할 수 없으며, 파라미터 값을 프로퍼티 값으로 지정할 때 사용
+
+2. property = "*"
+   : 각 Property의 값을 같은 이름을 갖는 Parameter의 값으로 설정
 
 -----
 ### jsp : getProperty
 -----
+1. 자바빈 객체의 Property 값을 출력
+```jsp
+<jsp:setProperty name = "[자바빈]" property = "이름"/>
+```
+   - name 속성 : < jsp:useBeans >의 id 속성에서 지정한 자바빈 객체의 이름
+   - proeprty 속성 : 출력할 프로퍼티의 이름
+
+ 2. property 값은 그 타입에 맞게 자동으로 값이 변환 (값이 ""이면 기본값)
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/b3d09780-4543-4545-9a56-057b2fd0a361">
+</div>
+
