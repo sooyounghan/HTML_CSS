@@ -42,7 +42,7 @@
 </jsp:include>
 ````
 
-3. 이미 동일한 이름의 파라미터가 존재하면 기존 파라미터 값을 유지하며 새로운 값을 추가
+3. 이미 동일한 이름의 파라미터가 존재하면 기존 파라미터 값을 유지하며 새로운 값을 추가 (include directive와의 차이점)
 <div align = "center">
 <img width="808" alt="image (5)" src="https://github.com/sooyounghan/Web/assets/34672301/2c75beeb-bf0f-4c78-ad57-9fbff77780f5">
 </div>
