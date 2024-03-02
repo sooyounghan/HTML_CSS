@@ -90,4 +90,53 @@
 2. 이에 대한 Model 역할을 하는 JavaBeans에 의해 DB에 접근해 데이터를 접근하여 가져옴
 3. Model에 가져온 데이터를 Controller에 의해 보여질 View(JSP)와 함께 처리하여 Client의 Browser에게 응답
 
+-----
+### JSP 기본 실행 환경
+-----
+1. 자바 웹 작업 환경 : project - src - webapp - JSP 파일
+2. [서버 내 프로젝트 탑재 (add and remove)
 
+       Tomcat - webPro (Synchronized) : 프로젝트를 서버 내에 탑재
+   
+3. Run as - Run on server (현재 프로젝트 서버 내 실행) -> http://ip주소(localhost):8081/webPro/hello.html (예측 URL) 
+
+          ** 프로토콜://IP주소(도메인네임):Port번호/Context Path/파일명.확장자 
+              = 프로토콜://IP주소:Port번호/Directory(경로)
+              (http://ip주소:8081/webPro/파일.확장자)
+              (Localhost = 나의 Host 주소 = 내 IP 주소)
+
+4. Port Number 및 URIEncoding 설정 (server.xml)
+   - port : Tomcat의 server.xml의 커넥터 설정 중 Port Number를 변경
+   - URIEncoding : Tomcat의 server.xml의 커넥터 설정 중 URIEncoding를 UTF-8 설정 (GET 방식 한글 깨짐 문제)
+     
+```jsp
+    <!-- Port Number Change (8080 -> 8081), 기본 방식은 Get 방식이므로 이를 요청 시 한글 깨짐 방지 -->
+    <Connector connectionTimeout="20000" maxParameterCount="1000" URIEncoding ="UTF-8" port="8081" protocol="HTTP/1.1" redirectPort="8443"/>
+```
+
+   - 모든 URL에 대해 아래의 Set Character Encoding Filter를 거치도록 설정 (web.xml 내)
+```jsp
+  <!-- The mapping for the Set Character Encoding Filter -->
+<!-- -->
+    <filter-mapping>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+```
+
+   - Tomcat의 web.xml에서 filter 설정 중 POST 방식 한글 깨짐 문제 해결  	
+    
+```jsp
+  <!-- A filter that sets character encoding that is used to decode -->
+  <!-- parameters in a POST request -->
+ <!-- post 요청 방식일 때, Decoding 과정에서의 character encoding을 처리하는 부분 = 한글 깨짐 문제 방지 -->
+    <filter>
+        <filter-name>setCharacterEncodingFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <async-supported>true</async-supported>
+    </filter>
+```
