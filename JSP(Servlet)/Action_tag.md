@@ -89,7 +89,7 @@
 
             flush한 이후거나, flush = "none"으로 설정하면, 오류 발생
 
-5. < jsp : param > 액션 태그를 이용해 이동할 페이지에 파라미터 추가
+5. < jsp : param > 액션 태그를 이용해 이동할 페이지에 파라미터 추가 [이 경우, request의 값과 중복되면, param이 값이 우선]
 ```jsp
 <jsp:forward page = "/top.jsp" flush = "false">
   <jsp:param name = "param1" value = "value1"/>
