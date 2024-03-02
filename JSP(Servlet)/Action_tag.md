@@ -34,7 +34,8 @@
 -----
 1. < jsp : inlcude > 태그를 이용해 포함할 JSP 페이지에 파라미터 추가 가능
 2. 자식 태그로 추가하는 의미 (name과 value로 이름과 값을 포함 가능)
-
+3. String 타입 값만 전달 가능 (따라서, 다양한 객체 값을 위해서는 기본 객체 속성을 이용하는 것이 좋음)
+   
 ```jsp
 <jsp:include page = "/top.jsp" flush = "false">
   <jsp:param name = "param1" value = "value1"/>
@@ -42,7 +43,7 @@
 </jsp:include>
 ````
 
-3. 이미 동일한 이름의 파라미터가 존재하면 기존 파라미터 값을 유지하며 새로운 값을 추가 (include directive와의 차이점)
+4. 이미 동일한 이름의 파라미터가 존재하면 기존 파라미터 값을 유지하며 새로운 값을 추가 (include directive와의 차이점)
 <div align = "center">
 <img width="808" alt="image (5)" src="https://github.com/sooyounghan/Web/assets/34672301/2c75beeb-bf0f-4c78-ad57-9fbff77780f5">
 </div>
@@ -60,6 +61,110 @@
 -----
 ### jsp : forward
 -----
+1. 하나의 JSP 페이지에서 다른 JSP 페이지로 요청 처리를 전달할 때 사용 (1번의 요청, 1번의 응답)
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/9fb149e8-cf24-4487-a808-261f4df8f9dc">
+</div>
+
+      A. 웹 브라우저의 요청을 from.jsp에 전달
+      B. from.jsp는 <jsp:forward> 액션 태그 실행
+      C. <jsp:forward> 액션 태그를 실행하면 요청 흐름이 to.jsp로 이동
+      D. 요청 흐름이 이동할 때 from.jsp에서 사용한 request 기본 객체와 response 기본 객체가 to.jsp로 전달 (중요)
+      E. to.jsp가 응답 결과를 생성
+      F. to.jsp가 생성한 결과가 웹 브라우저에 전달 (중요)
+        * 주소는 from.jsp 그대로임을 주의
+
+2. < jsp:forward page = "이동할 페이지" />
+3. < jsp:forward >는 웹 컨테이너 내에서 요청 흐름을 이동시키기 때문에, 웹 브라우저는 다른 JSP를 요청 처리했다는 사실을 알지 못함
+
+4. < jsp:forward > 와 출력 버퍼와의 관계
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/15df2bea-2947-4904-9bc7-6f3554398f98">
+</div>    
+
+   - 중요한 점은 < jsp : forward > 가 실행하기 전에 출력 버퍼를 비우므로, 이전에 출력 버퍼에 저장한 내용은 웹 브라우저에 미전송
+   - 따라서, < jsp : forward > 액션 태그에 위치한 코드는 실행조차 되지 않음
+   - 올바르게 동작하기 위해서는 액션 태그를 실행하기 전 웹 브라우저에 데이터가 전송되면 안 됨
+
+            flush한 이후거나, flush = "none"으로 설정하면, 오류 발생
+
+5. < jsp : param > 액션 태그를 이용해 이동할 페이지에 파라미터 추가
+```jsp
+<jsp:forward page = "/top.jsp" flush = "false">
+  <jsp:param name = "param1" value = "value1"/>
+  <jsp:param name = "param2" value = "value2"/>
+</jsp:forward>
+````
+
+-----
+### forward 방식 예제
+-----
+1. link_forward_actionTag.jsp에서 name과 age의 값을 전달 -> c.jsp -> forward d.jsp
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+</head>
+
+<body>
+      <a href = "c.jsp?name=a&age=20" target = "_self">c.jsp</a>
+</body>
+</html>
+```
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+</head>
+
+<body>
+      <%
+      System.out.println("forwarding");
+      out.println("name = " + request.getParameter("name"));
+      out.println("age = " + request.getParameter("age")); // 출력 버퍼에서 사라지므로 미출력
+       %>
+      <jsp:forward page = "d.jsp" /> // d.jsp로 흐름 이동 (request, response 객체 값 같이 전달)
+</body>
+</html>
+```
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+      <title>Insert title here</title>
+</head>
+
+<body>
+      <%
+      out.println(request.getParameter("name")); // 값 출력 ok
+      out.println(request.getParameter("age")); // 값 출력 ok
+       %>
+</body>
+</html>
+```
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/71d068e6-7df3-4f44-b906-65832ec4ac95">
+</div>
+
+2. Servlet에서의 forward 예
+ ```jsp
+<jsp:forward = "URL">
+- pageContext.forward("URL");
+- requestDispatcher rd = request.getRequestDispatcher("URL");
+  rd.forward(reqeust, resopnse);
+```
 
 -----
 ### jsp : useBean
