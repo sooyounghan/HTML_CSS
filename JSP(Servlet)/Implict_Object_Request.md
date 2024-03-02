@@ -233,7 +233,7 @@ ID : <%=id>, PassWord : <%=password>
 </html>
 ```
 < Login 처리 폼 >
-```
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
