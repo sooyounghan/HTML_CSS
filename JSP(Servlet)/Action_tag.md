@@ -209,7 +209,7 @@ public class BeanClassName imeplements java.io.Serializable {
 ```jsp
 <jsp:beans id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
 
-<jsp:gbeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request/>
+<jsp:gbeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request"/>
 <%-- MembeInfo 클래스의 객체 생성 : 이름이 info인 변수에 할당 -> request 기본 객체의 info 속성을 값으로 생성된 객체를 저장-->
 ```
    - id 속성 : JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름
