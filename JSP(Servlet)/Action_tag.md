@@ -206,11 +206,12 @@ public class BeanClassName imeplements java.io.Serializable {
 3. < jsp : useBeans > 액션 태그
    - JSP 페이지의 주된 기능은 데이터를 보여주는 것인데, 일반적으로 클래스에 담아서 값을 보여줌
    - JSP 페이지에서 사용할 자바빈 객체를 지정할 때 사용
-
+   - JavaBeans과 일치하는 클래스를 제작해야 하며, JSP 페이지의 값들과 일치되어야함
+   
 ```jsp
-<jsp:beans id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
+<jsp:useBeans id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
 
-<jsp:gbeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request"/>
+<jsp:useBeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request"/>
 <%-- MembeInfo 클래스의 객체 생성 : 이름이 info인 변수에 할당 -> request 기본 객체의 info 속성을 값으로 생성된 객체를 저장-->
 ```
    - id 속성 : JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름
@@ -220,7 +221,86 @@ public class BeanClassName imeplements java.io.Serializable {
 
 4. < jsp: useBeans > 액션 태그는 지정한 영역에 이미 id 속성에 지정한 이름의 객체가 존재하면, 객체를 생성하지 않고 기존 존재한 객체 그대로 사용   
    : 즉, 같은 영역을 사용하는 JSP 페이지 내에서 공유
-   
+
+< 예제 - Member>
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+<h2 align = "center"> 회원 가입 </h2>
+<form action = "<%=request.getContextPath()%>/ex/RequestJoinProc.jsp" method = "post">
+      <table border = "1" align = "center">
+            <tr height = "50">
+                  <td width = "150" align = "center"> 아이디 </td>
+                  <td width = "150" align = "center"> <input type = "text" name = "id" size = "40"> </td>
+            </tr>
+            <tr height = "50">
+                  <td width = "150" align = "center"> 비밀번호 </td>
+                  <td width = "150" align = "center"> <input type = "password" name = "pwd" size = "40"> </td>
+            </tr>
+            <tr height = "50">
+                  <td width = "150" align = "center"> 비밀번호 확인 </td>
+                  <td width = "150" align = "center"> <input type = "password" name = "pwd_check" size = "40"> </td>
+            </tr>			
+            <tr height = "50">
+                  <td width = "150" align = "center"> E-mail </td>
+                  <td width = "150" align = "center"> <input type = "email" name = "email" size = "40"> </td>
+            </tr>
+            <tr height = "50">
+                  <td width = "150" align = "center"> 전화번호 </td>
+                  <td width = "150" align = "center"> <input type = "tel" name = "tel" size = "40"> </td>
+
+            </tr>
+      </table>
+</form>
+</body>
+</html>
+```
+
+< JavaBeans - Member [Member의 데이터와 일치해야함] >
+```java
+public class MemberBean {
+	private String id;
+	private String pwd;
+	private String email;
+	private String tel;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	
+}
+```
+
+```jsp
+<jsp:useBeans id = member class = bean.MemberBean scope = "request"/>
+<jsp:getProperty name = "member" property = "*"/> <!-- member에 모든 property를 같은 이름을 갖는 parameter와 매핑 -->
+<jsp:setProperty name = "member" property = "id" [value = "id"]/> <!-- id 프로퍼티만 매핑 -->
+<jsp:getProperty name = "member" property = "pwd"/>
+```
+
 -----
 ### jsp : setProperty
 -----
@@ -242,7 +322,7 @@ public class BeanClassName imeplements java.io.Serializable {
 -----
 1. 자바빈 객체의 Property 값을 출력
 ```jsp
-<jsp:setProperty name = "[자바빈]" property = "이름"/>
+<jsp:getProperty name = "[자바빈]" property = "이름"/>
 ```
    - name 속성 : < jsp:useBeans >의 id 속성에서 지정한 자바빈 객체의 이름
    - proeprty 속성 : 출력할 프로퍼티의 이름
