@@ -172,7 +172,8 @@
 1. 자바빈 (JavaBeans)
    - 속성(데이터), 이벤트 변경, 객체 직렬화를 위한 표준 : JSP에서는 속성을 표현하기 위한 용도
    - 자바빈 규약을 따르는 클래스
-   - 즉, 여러 개의 데이터를 하나의 클래스에 저장한 뒤, 그 클래스를 다양한 방법으로 데이터를 가지는 것
+   - JSP와 DataBase 간의 데이터를 쉽게 접근하고, 전달할 수 있도록 설정한 클래스
+     
 ```java
 public class BeanClassName imeplements java.io.Serializable {
       /* 값을 저장하는 필드 */
