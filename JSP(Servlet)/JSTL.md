@@ -89,7 +89,7 @@
 ### Core Tag - 흐름 지원 태그
 -----
 1. < c:if > 태그
-   - < c:if test = "조건식" > 조건식이 참 < /c:if >: if문에 해당
+   - < c:if test = "조건식" > 조건식이 참 < /c:if >: if문에 해당 
    - 조건식에는 EL이나 정적 문자열만 가능하며, Deferred Expression은 불가능
    
 ```jsp
@@ -144,6 +144,37 @@
    <c:forEach var = "j" begin = "1" end = "5">
       Item <c:out value = "${i, j}"/><p>
    </c:forEach>
+</c:forEach>
+```
+
+<1부터 10까지의 합 구하기>
+```jsp
+<c:set var = "sum" value = "0"/>
+
+<c:forEach var = "i" start = "1" end = "10">
+<c:set var ="sum" value = "${sum = sum + i}"/>
+</c:forEach>
+```
+
+<1부터 10까지 2씩 건너뛰며 총합 구하기>
+```jsp
+<c:set var = "sum" value = "0"/>
+
+<c:forEach var = "i" start = "1" end = "10" step = "${i = i+2}">
+<c:set var = "sum" value = "${sum = sum + i}"/>
+</c:forEach>
+```
+
+<별 찍기>
+```jsp
+<c:forEach var = "i" begin = "1" end = "5">
+   <c:forEach var = "j" begin = "1" end = "${5 - i}">
+   &nbsp; 
+   </c:forEach>
+   <c:forEach var = "j" begin = "1" end = "${2 * i - 1}">
+   <c:out value = "*"/>     
+   </c:forEach>
+   <br> 
 </c:forEach>
 ```
 
