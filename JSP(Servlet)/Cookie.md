@@ -74,6 +74,7 @@ response.addCookie(cookie);
 -----
 1. 쿠키 객체 얻기 : Cookie[] request.getCookies()
     - 항상 쿠키 객체를 얻을 때는 쿠키가 존재하는지 확인 (클라이언트나 전송 간 위조 및 소실 여부를 위해) (중요!)
+    - 쿠키 객체가 여러 개일 때, 배열 형태로 가져옴
     - 읽어올 쿠키가 없으면 null 반환 (null 반환된 쿠키 사용 : NullPointerException 발생)
 ```jsp
 <%
@@ -87,13 +88,7 @@ if(cookies != null && cookies.length > 0) { // 유효성 검사
 %>
 ```
 
-   - 클라이언트에 저장된 모든 쿠키 객체를 가져오려면 request 내장 객체의 getCookies() 메서드 사용
-   - 쿠키 객체가 여러 개일 때, 배열 형태로 가져옴
-
-2. 쿠키 객체 정보 얻기
-	- 쿠키 객체에 저장된 쿠키 이름과 값을 가져오기 위해 getName(), getValue() 메서드 사용
-  - 쿠키 이름 가져오기 : String getName()
-  - 쿠키 값 가져오기 : String getValue()
+2. 쿠키 객체 정보 얻기 : 쿠키 객체에 저장된 쿠키 이름과 값을 가져오기 위해 getName(), getValue() 메서드 사용
 
 ```jsp
 <%
