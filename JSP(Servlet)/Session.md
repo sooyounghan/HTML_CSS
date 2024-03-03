@@ -50,7 +50,7 @@
 
 2. 세션 속성 값 가져오기 : Object getAttribute(String name)
    - 세션에 저장된 하나의 세션 속성 이름에 대한 속성 값 가져오기
-   - 반환 타입은 Object형 : 형변환 필요
+   - 반환 타입은 Object형 : 형변환 필요 (중요!)
    - 해당 속성에 이름이 없는 경우 null 반환
 
 3. 다중 세션 정보 얻기 : java.util.Enumeration getAttributeNames()
@@ -134,3 +134,75 @@ session.setMaxInactiveInterval(60 * 60)
    (세션 삭제했을 때, session.invalidate()를 호출하지 않으면, 세션 속성이 웹 서버에서 제거 되지 않고 유지)
    
 6. session.invaildate() 메서드를 명시적으로 실행하지 않으면, 이 세션 떄문에 메모리 부족현상 발생 가능
+
+
+-----
+### Session을 이용한 다른 페이지 이동 시에도 아이디와 비밀번호 정보 유지
+-----
+< Login Form >
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<form action = "<%=request.getContextPath()%>/ex/SessionLoginProc.jsp" method = "post">
+		<table border = "1" align = "center">
+			<tr height = "50">
+				<td width = "150" align = "center"> 아이디 </td>
+				<td width = "150" align = "center"> <input type = "text" name = "id" size = "40"> </td>
+			</tr>
+			<tr height = "50">
+				<td width = "150" align = "center"> 비밀번호 </td>
+				<td width = "150" align = "center"> <input type = "password" name = "pwd" size = "40"> </td>
+			</tr>
+			<tr height = "50">
+				<td colspan = "2" width = "150" align = "center"> 
+					<input type = "submit" name = "submit" value = "가입">
+					<input type = "reset" name = "reset" value = "취소">
+				</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+```
+
+< 화면 1에서 정보 확인 >
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<%
+	String id = request.getParameter("id");
+	session.setAttribute("id", id);
+	String pwd = request.getParameter("pwd");
+	session.setAttribute("pwd", pwd);
+	session.setMaxInactiveInterval(60);
+	%>
+	
+	<h2>ID = <%=id%> </h2><br>
+	<h2>Password = <%=pwd%></h2>
+	
+	<a href = "<%=request.getContextPath()%>/ex/CookieLoginProc2.jsp">다음 페이지로 이동</a> 
+</body>
+</html>
+```
+< 화면 2에서 정보 확인 > : 여기에서는 request getParameter() 사용 시, null 값 반환
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<%
+	String id = (String)session.getAttribute("id");
+	String pwd = (String)session.getAttribute("pwd");
+	%>
+	
+	<h2>ID = <%=id%> </h2><br>
+	<h2>Password = <%=pwd%></h2>
+</body>
+</html>
+```
