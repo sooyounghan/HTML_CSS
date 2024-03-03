@@ -68,9 +68,11 @@
 ```jsp
 <% Member member = new Member(); %>
 <c:set target="<%=member%>" property="name" value = "값1"/> <!--member.setName("값1")과 동일-->
+<!-- target 설정 : 스크립틀릿에서 선언한 변수를 바로 받아옴 -->
 
 <c:set var="m" value = <%=member%>/> <!--setName()과 동일-->
 <c:set target="${m}" property="name" value = "값1"/> <!--member.setName("값1")과 동일-->
+<!-- var로 변수에 대해 받아오고, 그 다음 target 설정 : set을 통해 받아왔으므로 EL 적용 -->
 
 <% Map<String, String> prop = new HashMap<String, String>();
 <c:set target="<%=prop%>" property="host" value = localhost"/> <!--prop.set("host", "localhost")와 동일-->
