@@ -170,3 +170,136 @@ ${cookie.ID.value}
    pageScope, requestScope, sessionScope, applicationScope 기본 객체 사용
 
         예를 들어, ${name}으로만 지정하면, 위의 네 영역에 name 속성이 존재하는지 확인하고, 존재하면 그 속성 값 사용
+
+
+
+-----
+### EL 예제
+-----
+<계산기 폼>
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<h2>계산기</h2>
+	<form action = "ElCulProc.jsp" method = "post">
+		<table>
+			<tr height = "40">
+				<td align = "center" width = "10"><input type = "text" name = "exp1"></td>
+				<td><select name = "exp2">
+					<option value = "+">+</option>
+					<option value = "-">-</option>
+					<option value = "*">*</option>
+					<option value = "/">/</option>					
+				</select>
+				</td>
+				<td align = "center" width = "10"><input type = "text" name = "exp3"></td>
+				<td align = "center" width = "10"> = </td>
+				<td align = "center" width = "10"><input type = "text" name = "exp4"></td>					
+				<td align = "center" width = "10"><input type = "submit" value = "결과보기"></td>				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+```
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+	<h2> 결과보기 </h2>
+<%
+	String exp2 = request.getParameter("exp2");
+
+	switch(exp2) {
+		case "+" : 
+%>
+	결과는 ${param.exp1} ${param.exp2} ${param.exp3} = ${param.exp1 + param.exp3}
+<%
+		break;
+		case "-" :
+%>
+	결과는 ${param.exp1} ${param.exp2} ${param.exp3} = ${param.exp1 - param.exp3}
+<%
+		break;
+		case "*" :
+%>
+	결과는 ${param.exp1} ${param.exp2} ${param.exp3} = ${param.exp1 * param.exp3}
+<%
+		break;
+		case "/" :
+%>
+	결과는 ${param.exp1} ${param.exp2} ${param.exp3} = ${param.exp1 div param.exp3} 
+<%
+		break;
+		default : break;
+	}
+%>
+</body>
+</html>
+```
+
+< 계산 홈페이지에서 피 연산자의 값과 결과값 유지 >
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+<h2>계산기</h2>
+<form action = "ElCul.jsp" method = "post">
+<table>
+   <tr height = "40">
+      <td align = "center" width = "10"><input type = "text" name = "exp1" value = "${param.exp1}"></td> <!-- 값을 입력받으면 유지 -->
+      <td><select name = "exp2">
+         <option value = "+">+</option>
+         <option value = "-">-</option>
+         <option value = "*">*</option>
+         <option value = "/">/</option>					
+      </select>
+      </td>
+      <td align = "center" width = "10"><input type = "text" name = "exp3" value = "${param.exp1}"></td> <!-- 값을 입력받으면 유지 -->
+      <td align = "center" width = "10"> = </td>
+	<%
+	String exp2 = request.getParameter("exp2");
+	
+	if(exp2 == null) { <!-- exp2의 값이 없으면 입력 칸 유지 -->
+	%>
+		<td align = "center" width = "10"> <input type = "text" name = "exp4"></td>
+	<%
+	}
+	else { <!-- epx2 값을 입력받으면 맞는 사칙연산 수행 -->
+		switch(exp2) {
+			case "+" : 
+		%>
+			<td align = "center" width = "10"><input type = "text" name = "exp4" value = "${param.exp1 + param.exp3}"></td>
+		<%
+			break;
+			case "-" :
+		%>
+			<td align = "center" width = "10"><input type = "text" name = "exp4" value = "${param.exp1 - param.exp3}"></td>
+		<%
+			break;
+			case "*" :
+		%>
+			<td align = "center" width = "10"><input type = "text" name = "exp4" value = "${param.exp1 * param.exp3}"></td>
+		<%
+			break;
+			case "/" :
+		%>
+			<td align = "center" width = "10"><input type = "text" name = "exp4" value = "${param.exp1 div param.exp3}"></td>
+		<%
+			break;
+		}
+	}
+	%>
+				
+   <td align = "center" width = "10"><input type = "submit" value = "결과보기"></td>				
+</tr>
+</table>
+</form>
+</body>
+</html>
+```
