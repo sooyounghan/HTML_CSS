@@ -221,3 +221,68 @@ response.addCookie(cookie);
   </body>
 </html>
 ```
+
+-----
+### Cookie를 이용한 ID 정보 기억하기
+-----
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<body>
+<%
+	Cookie[] cookies = request.getCookies();
+	String id = "";
+	
+	if(cookies != null && cookies.length > 0) {
+		for(int i = 0; i < cookies.length; i++) {
+			if(cookies[i].getName().equals("id")) {
+				id = cookies[i].getValue();
+				break;
+			}
+		}
+	}
+%>
+
+<form action = "<%=request.getContextPath()%>/ex/CookieLoginProc.jsp" method = "post">
+	<table border = "1" align = "center">
+		<tr height = "50">
+			<td width = "150" align = "center"> 아이디 </td>
+			<td width = "150" align = "center"> <input type = "text" name = "id" size = "40" value = "<%=id%>"> </td> // Cookie로 부터 받은 ID가 있다면 그 정보 저장
+		</tr>
+		<tr height = "50">
+			<td width = "150" align = "center"> 비밀번호 </td>
+			<td width = "150" align = "center"> <input type = "password" name = "pwd" size = "40"> </td>
+		</tr>
+		<tr height = "50">
+			<td colspan = "2" align = "center"><input type = "checkbox" id = "save" name = "save" value = "save"> ID 저장 </td>
+			<td></td>
+		</tr>	
+		<tr height = "50">
+			<td colspan = "2" width = "150" align = "center"> 
+				<input type = "submit" name = "submit" value = "가입">
+				<input type = "reset" name = "reset" value = "취소">
+			</td>
+			<td></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
+```
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<body>
+<%
+	String id = request.getParameter("id");
+	Cookie cookie = new Cookie("id", id);
+	response.addCookie(cookie);
+	cookie.setMaxAge(60 * 60);
+	out.println("ID = " + id);
+%>
+</body>
+</html>
+```
