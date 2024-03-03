@@ -296,9 +296,14 @@ public class MemberBean {
 
 ```jsp
 <jsp:useBeans id = member class = bean.MemberBean scope = "request"/>
-<jsp:getProperty name = "member" property = "*"/> <!-- member에 모든 property를 같은 이름을 갖는 parameter와 매핑 -->
-<jsp:setProperty name = "member" property = "id" [value = "id"]/> <!-- id 프로퍼티만 매핑 -->
-<jsp:getProperty name = "member" property = "pwd"/>
+<jsp:setProperty name = "member" property = "*"/> <!-- member에 모든 property를 같은 이름을 갖는 parameter와 매핑하여 저장-->
+<jsp:setProperty name = "member" property = "id" value = <%=member.getId()%>/> <!-- id 프로퍼티만 매핑 -->
+
+<%=member.getId()%>
+<jsp:getProperty name = "member" property = "id"/> <!--같은 문장 -->
+
+<%=member.getPwd()%>
+<jsp:getProperty name = "member" property = "pwd"/> <!--같은 문장 -->
 ```
 
 -----
