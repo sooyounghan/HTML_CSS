@@ -25,6 +25,10 @@ i = ${i_a > 4};
 i = ${i_a ne 4};
 ```
 
+```jsp
+${param.id}, $[param.password} // Parameter에서의 id와 password 값을 받아올 수 있음
+```
+
 4. EL 연산자
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/fd58faa0-b098-495f-b7a4-60453c75bece">
