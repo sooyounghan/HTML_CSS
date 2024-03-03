@@ -312,10 +312,10 @@ public class LoginProc extends HttpServlet {
 	
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // service()
 		String id = request.getParameter("id");
-		String pwd = request.getParameter("pwd");
+		String pwd = request.getParameter("pwd"); // 요청 정보를 받아왔음 (더 나아가, DB에서 데이터를 가져올 수 있음)
 		
 		request.setAttribute("id", id);
-		request.setAttribute("pwd", pwd);
+		request.setAttribute("pwd", pwd); // request에 setAttribute를 통해 값을 전달할 준비
 		RequestDispatcher rd = request.getRequestDispatcher("LoginProc.jsp"); // LoginProc.jsp 즉, JSP페이지에 forward 방식으로 reuqest의 parameter를 전달
 		rd.forward(request, response);
 	}
