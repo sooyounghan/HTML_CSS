@@ -152,13 +152,10 @@ response.addCookie(cookie);
 2. 쿠키 경로를 지정하지 않으면, 실행한 URL의 경로 부분으로 사용
 
 3. void setPath(String path) : URL에서 도메인 이후 부분이 path에 해당
-  - .somehost.com : .으로 시작하는 경우 관련 도메인에 모든 쿠키를 전송 (mail/www/javacan 등 모두 전송)
-  - www.somehost.com : 특정 도메인에 대해서만 전송
-
 4. 쿠키는 웹 어플리케이션과 포함된 다수의 JSP와 Servlet에서 사용되므로 쿠키 경로를 일반적으로 '/'로 설정
 5. 예제
 <div align = "center" >
-<img src = "20240303_151512](https://github.com/sooyounghan/Web/assets/34672301/8c98140e-0d09-46d8-8960-5f313f00e0ff">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/8c98140e-0d09-46d8-8960-5f313f00e0ff">
 </div>
 
   - 현재 JSP 실행 경로 : /chap09/path1 경로에 위치
