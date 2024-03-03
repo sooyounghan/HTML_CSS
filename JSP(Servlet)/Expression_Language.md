@@ -260,7 +260,7 @@ ${cookie.ID.value}
          <option value = "/">/</option>					
       </select>
       </td>
-      <td align = "center" width = "10"><input type = "text" name = "exp3" value = "${param.exp1}"></td> <!-- 값을 입력받으면 유지 -->
+      <td align = "center" width = "10"><input type = "text" name = "exp3" value = "${param.exp3}"></td> <!-- 값을 입력받으면 유지 -->
       <td align = "center" width = "10"> = </td>
 	<%
 	String exp2 = request.getParameter("exp2");
