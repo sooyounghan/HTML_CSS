@@ -283,6 +283,45 @@ public class servlet_Ex extends HttpServlet {
        </servletp-mapping>
 
 -----
+### RequestDispatcher
+-----
+1. Servlet에서 JSP페이지를 호출과 동시에 데이터를 동시에 JSP 페이지에 전송(Forward 방식)
+2. 예제 코드
+```java
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/LoginProc")
+public class LoginProc extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		process(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		process(request, response);
+	}
+	
+	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { // service()
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		
+		request.setAttribute("id", id);
+		request.setAttribute("pwd", pwd);
+		RequestDispatcher rd = request.getRequestDispatcher("LoginProc.jsp"); // LoginProc.jsp 즉, JSP페이지에 forward 방식으로 reuqest의 parameter를 전달
+		rd.forward(request, response);
+	}
+}
+```
+-----
 ### URL 패턴 매핑 규칙 
 -----
 1. /로 시작하고, /*로 끝나는 URL-Pattern : 경로 매핑을 위해 사용
