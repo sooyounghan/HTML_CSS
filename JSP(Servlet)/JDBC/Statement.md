@@ -120,7 +120,7 @@ try {
     - getDate(String name(or int index)) : 저장한 컬럼 값을 Date 타입으로 읽어옴
     - getTime(String name(or int index)) : 저장한 컬럼 값을 Time 타입으로 읽어옴
 
-```
+```jsp
 <%
 Connection conn = null;
 
