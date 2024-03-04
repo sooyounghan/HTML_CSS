@@ -141,3 +141,41 @@ try {
   - DriverManager.getConnection() 메서드가 예외를 발생시킬 경우 conn은 Connection 객체가 생성되지 않음
   - 유효성 검사 필요 (null 여부 확인) 후, close() 메서드 호출
 
+-----
+### 웹 어플리케이션 구동 시 JDBC (Java DataBase Connectivity) 드라이버 로딩
+-----
+1. JDBC 드라이버는 한 번만 로딩되면 이후로 계속 사용 가능하므로, 로딩하기 가장 좋은 시점은 웹 어플리케이션 시작 시점
+2. 서블릿 클래스 이용
+```java
+import java.io.IOException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/MySQLDriverLoader")
+public class MySQLDriverLoader extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (Exception ex) {
+			throw new ServletException(ex);
+		}
+	}
+}
+```
+3. 서블릿은 init() 메서드를 제공하므로 이 메서드를 통해 서블릿을 초기화할 떄 최초 한 번 실행
+4. 서블릿을 사용하기 전 초기화를 수행하므로 JDBC 드라이버를 로딩하도록 구현하면 컨테이너 실행 시 JDBC 드라이버 로딩 가능
+```jsp
+<servlet>
+  <servlet-name>mysqlDriverLoader</servlet-name>
+  <servlet-class>jdbc.MySQLDriverLoader</servlet-class>
+  <load-on-startup>1</load-up-startup>
+</servlet>
+```
+  - 이와 같이 추가하면 웹 어플리케이션 구동시 서블릿 클래스의 init() 메서드가 실행되면서, JDBC 드라이버 로딩
