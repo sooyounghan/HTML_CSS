@@ -84,6 +84,7 @@ ResultSet rs = pstmt.executeQuery(sql);
 1. setCharacterStream(int index, Reader reader, int length) : Reader로부터 length 글자 수 만큼 데이터를 읽어와 저장
   - String 타입을 저장하고 싶으면, StringReader 사용
 ```jsp
+<%
 PreparedStatment pstmt = null;
 
 try {
@@ -98,10 +99,12 @@ try {
 ...
    if(pstmt != null) try { pstmt.close(); } catch(SQLException ex) { }
 }
+%>
 ```
 
 2. 텍스트 파일로부터 데이터를 읽어와 저장하고 싶으면, FileReader 사용
 ```jsp
+<%
 PreparedStatment pstmt = null;
 
 try {
@@ -117,4 +120,5 @@ try {
    if(pstmt != null) try { pstmt.close(); } catch(SQLException ex) { }
    if(reader != null) try { reader.close(); } catch(SQLException ex) { }
 }
+%>
 ```
