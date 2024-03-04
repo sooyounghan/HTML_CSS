@@ -21,7 +21,7 @@
 ### 선택자 (Selector)
 -----
 1. 태그 선택자
-```<html>
+```css
 tag {
   property : value
 }
@@ -33,23 +33,23 @@ tag {
   <p> 내용입니다. </p>
 </div>
 ```
-```html
+```css
 div {
-  background-color : #f9f9f9;
+  background-color : #f9f9f9
 }
 
 h1 {
-  font-size : 28px;
-  color : red;
+  font-size : 28px
+  color : red
 }
 
 p {
-  color : blue;
+  color : blue
 }
 ```
 
 2. id 선택자
-```html
+```css
 #id {
     property : value
 }
@@ -64,7 +64,7 @@ p {
 </body>
 ```
 
-```html
+```css
 #title {
   font-size : 28px;
   color = red;
@@ -72,7 +72,7 @@ p {
 ```
 
 3. class 선택자 : 여러 개의 요소에 중복 지정 가능
-```html
+```css
 .class {
     property : value
 }
@@ -86,7 +86,7 @@ p {
 </body>
 ```
 
-```html
+```css
 .contents {
   font-size : 28px;
   color = red;
@@ -95,7 +95,7 @@ p {
 
 4. 자손 선택자
   - HTML 태그에는 부모-자식 관계 존재
-```html
+```css
 .parent .child {
     property : value
 }
@@ -115,7 +115,7 @@ p {
 </body>
 ```
 
-```html
+```css
 .box1 .title {
   color = yellow;
 }
@@ -126,7 +126,7 @@ p {
 ```
 
 5. 다중 선택자
-```html
+```css
 .class#id{ <!-- 혼용해서 사용 가능 -->
   property : value
 }
@@ -146,7 +146,7 @@ p {
 </body>
 ```
 
-```html
+```css
 .title#headline {
   color : violet
 }
