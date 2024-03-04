@@ -13,6 +13,7 @@
 3. 분리된 CSS 파일 연결
    
    : HTML 파일 & CSS 파일을 따로 만든 뒤, <link> 태그를 이용해 연결해주는 방식
+   
    : 파일을 분리하여 보관하므로 유지보수가 편리하고 소스코드를 관리하기 좋음
 
              <link rel = "stylesheet" href = "./index.css">
