@@ -139,3 +139,44 @@ while(rs.next()) {
 if(stmt != null) try { stmt.close() } catch(SQLException ex) { }
 if(conn != null) try { conn.close() } catch(SQLException ex) { }
 }
+```
+-----
+### ResultSet에서 LONG VARCHAR 타입 값 읽어오기
+-----
+1. SQL의 LONG VARCHAR 타입은 대량의 텍스트를 저장할 때 사용
+
+       - Oracle에서는 LONG VARCHAR를 LONG형으로 표시함을 주의
+       - 하지만, 다수의 JDBC 드라이버는 getString() 메서드를 사용해 읽어올 수 있도록 함 (스트림 사용 이유가 없으면 사용)
+
+2. getCharacterStream() 이용 : ReturnType이 java.io.Reader
+3. 사용 방법
+```jsp
+String data = null;
+java.io.Reader reader = null;
+
+try {
+  // 1. ResultSet의 getCharcteStream()을 통해 Reader를 구함
+  reader = rs.getCharacterStream("FIELD");
+
+  if(reader != null) {
+    // 2. 스트림에서 읽어온 데이터를 저장할 버퍼를 생성
+    StringBuilder buff = new StringBuilder();
+    char[] ch = new char[512];
+    int len = -1;
+
+    // 3. 스트림에서 데이터를 읽어와 버퍼에 저장
+    while((len == reader.read(ch)) != -1) {
+        buff.append(ch, 0, len);
+    }
+
+    // 4. 버퍼에 저장한 내용을 String으로 반환
+    data = buff.toString();
+}
+catch (IOException ex) {
+// 5. IO 관련 처리 도중 문제가 있으면 IOException 발생
+// 예외 발생
+} finally {
+// 6. Reader를 종료
+  if(reader != null) try { redaer.close(); } catch(IOException ex) { }
+}
+```
