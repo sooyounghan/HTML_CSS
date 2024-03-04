@@ -92,3 +92,50 @@ try {
 
 - 변경된 레코드의 개수를 Return
 - 지정한 아이디가 존재하지 않으면 0을 리턴 = 즉, 레코드의 개수를 사용해 지정한 아이디가 존재하는지 여부 판단
+
+-----
+### ResultSet에서 값 얻어오기
+-----
+1. Statement 또는 PreparedStatment 객체로 SELECT 문을 이용해 얻어온 레코드 값을 테이블 형태로 가진 객체
+
+         Statement : ResultSet executeQuery(String sql) throws SQLException
+         PreparedStatement : Result executeQuery(String sql) thros SQLException
+   
+2. next() 메서드 : SELECT 결과의 존재 여부 확인 가능
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/4ab90eb0-2505-4371-bcd8-436706747e97">
+</div>
+ - SELECT 쿼리 결과를 같은 행으로 저장하며 커서를 통해 각 행의 데이터에 접근
+ - 최초의 커서는 1행 이전에 존재
+ - 다음 행이 존재하면 true Return, 커서를 그 행으로 이동
+ - 마지막 커서에 도달하면 next() 메서드는 false를 Return
+
+3. 주요 데이터 읽기 메서드
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/d8b9eb64-808c-4eff-94e7-53615368bbb5">
+</div>
+
+    - getTimestamp(String name(or int index)) : 저장한 컬럼 값을 Timestamp 타입으로 읽어옴
+    - getDate(String name(or int index)) : 저장한 컬럼 값을 Date 타입으로 읽어옴
+    - getTime(String name(or int index)) : 저장한 컬럼 값을 Time 타입으로 읽어옴
+
+```
+<%
+Connection conn = null;
+
+try {
+...
+
+Statement stmt = conn.createStatement():
+String sql = "SELECT * FROM Member WHERE id = '1'";
+ResultSet rs = stmt.executeQuery(sql);
+
+while(rs.next()) {
+  out.println(rs.getString(2) + ", " + rs.getString(3) + "<br/>");
+}
+
+} catch (SQLException ex) { // 예외처리
+} finally {
+if(stmt != null) try { stmt.close() } catch(SQLException ex) { }
+if(conn != null) try { conn.close() } catch(SQLException ex) { }
+}
