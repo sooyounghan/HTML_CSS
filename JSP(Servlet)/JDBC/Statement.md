@@ -151,7 +151,7 @@ if(conn != null) try { conn.close() } catch(SQLException ex) { }
 
 2. getCharacterStream() 이용 : ReturnType이 java.io.Reader
 3. 사용 방법
-```jsp
+```java
 String data = null;
 java.io.Reader reader = null;
 
