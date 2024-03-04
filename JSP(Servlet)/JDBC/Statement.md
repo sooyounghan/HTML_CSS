@@ -104,7 +104,8 @@ try {
 2. next() 메서드 : SELECT 결과의 존재 여부 확인 가능
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/4ab90eb0-2505-4371-bcd8-436706747e97">
-</div>
+</div>   
+
  - SELECT 쿼리 결과를 같은 행으로 저장하며 커서를 통해 각 행의 데이터에 접근
  - 최초의 커서는 1행 이전에 존재
  - 다음 행이 존재하면 true Return, 커서를 그 행으로 이동
