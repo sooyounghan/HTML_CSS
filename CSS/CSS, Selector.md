@@ -108,7 +108,7 @@ p {
 <body>
 <h1 class ="title"> 전체 제목입니다. </h1>
 <div class = "box1"> <!-- 부모 요소 -->
-  <h1 id = "title"> 제목입니다. </h1> <!-- 자식 요소 1-->
+  <h1 class = "title"> 제목입니다. </h1> <!-- 자식 요소 1-->
   <p class = "contents"> 내용입니다. </p> <!-- 자식 요소 2-->
 </div>
 <div class = "box2">
