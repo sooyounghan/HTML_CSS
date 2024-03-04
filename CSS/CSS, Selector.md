@@ -26,7 +26,7 @@
 1. 태그 선택자
 ```css
 tag {
-  property : value
+  property : value;
 }
 ```
 
@@ -38,23 +38,23 @@ tag {
 ```
 ```css
 div {
-  background-color : #f9f9f9
+  background-color : #f9f9f9;
 }
 
 h1 {
-  font-size : 28px
-  color : red
+  font-size : 28px;
+  color : red;
 }
 
 p {
-  color : blue
+  color : blue;
 }
 ```
 
 2. id 선택자
 ```css
 #id {
-    property : value
+    property : value;
 }
 ```
 
@@ -70,14 +70,14 @@ p {
 ```css
 #title {
   font-size : 28px;
-  color = red;
+  color : red;
 }
 ```
 
 3. class 선택자 : 여러 개의 요소에 중복 지정 가능
 ```css
 .class {
-    property : value
+    property : value;
 }
 ```
 ```html
@@ -92,7 +92,7 @@ p {
 ```css
 .contents {
   font-size : 28px;
-  color = red;
+  color : red;
 }
 ```
 
@@ -100,7 +100,7 @@ p {
   - HTML 태그에는 부모-자식 관계 존재
 ```css
 .parent .child {
-    property : value
+    property : value;
 }
 ```
 
@@ -120,18 +120,18 @@ p {
 
 ```css
 .box1 .title {
-  color = yellow;
+  color : yellow;
 }
 
 .box2 .text1 {
-  color = green
+  color : green
 }
 ```
 
 5. 다중 선택자
 ```css
 .class#id{ <!-- 혼용해서 사용 가능 -->
-  property : value
+  property : value;
 }
 ```
 
@@ -151,6 +151,6 @@ p {
 
 ```css
 .title#headline {
-  color : violet
+  color : violet;
 }
 ```
