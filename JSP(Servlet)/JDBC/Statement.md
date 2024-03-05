@@ -140,6 +140,7 @@ while(rs.next()) {
 if(stmt != null) try { stmt.close() } catch(SQLException ex) { }
 if(conn != null) try { conn.close() } catch(SQLException ex) { }
 }
+%>
 ```
 -----
 ### ResultSet에서 LONG VARCHAR 타입 값 읽어오기
