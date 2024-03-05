@@ -151,8 +151,8 @@
 }
 ```
 
-<div>
-<img width="443" alt="20240305_165334" src="https://github.com/sooyounghan/Data-Structure/assets/34672301/c01ce1b3-6dd1-454f-b941-a286a168496b">
+<div align = "center">
+<img src="https://github.com/sooyounghan/Data-Structure/assets/34672301/c01ce1b3-6dd1-454f-b941-a286a168496b">
 </div>
 
 -----
