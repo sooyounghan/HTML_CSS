@@ -169,7 +169,7 @@
 -----
 ### jsp : useBean
 -----
-1. 자바빈 (JavaBeans)
+1. 자바빈 (JavaBean)
    - 속성(데이터), 이벤트 변경, 객체 직렬화를 위한 표준 : JSP에서는 속성을 표현하기 위한 용도
    - 자바빈 규약을 따르는 클래스
    - JSP와 DataBase 간의 데이터를 쉽게 접근하고, 전달할 수 있도록 설정한 클래스
@@ -203,15 +203,15 @@ public class BeanClassName imeplements java.io.Serializable {
      
    - 프로퍼티 이름과 필드 이름이 항상 같을 필요는 없음
 
-3. < jsp : useBeans > 액션 태그
+3. < jsp : useBean > 액션 태그
    - JSP 페이지의 주된 기능은 데이터를 보여주는 것인데, 일반적으로 클래스에 담아서 값을 보여줌
    - JSP 페이지에서 사용할 자바빈 객체를 지정할 때 사용
-   - JavaBeans과 일치하는 클래스를 제작해야 하며, JSP 페이지의 값들과 일치되어야함
+   - JavaBean과 일치하는 클래스를 제작해야 하며, JSP 페이지의 값들과 일치되어야함
    
 ```jsp
-<jsp:useBeans id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
+<jsp:useBean id = ["빈이름"] class = ["자바빈 클래스 이름"] scope = "[범위]"/>
 
-<jsp:useBeans id = "info" class[type] = "ch09.member.MemberInfo" scope = "request"/>
+<jsp:useBean id = "info" class[type] = "ch09.member.MemberInfo" scope = "request"/>
 <%-- MembeInfo 클래스의 객체 생성 : 이름이 info인 변수에 할당 -> request 기본 객체의 info 속성을 값으로 생성된 객체를 저장-->
 ```
    - id 속성 : JSP 페이지에서 자바빈 객체에 접근할 때 사용할 이름
@@ -219,7 +219,7 @@ public class BeanClassName imeplements java.io.Serializable {
    - type 속성 : 지정한 영역에 이미 객체가 존재한다고 가정하고, 존재하지 않으면 객체를 생성하지 않고 에러 발생
    - scope : 자바빈 객체를 저장할 영역(page, request, session, application
 
-4. < jsp: useBeans > 액션 태그는 지정한 영역에 이미 id 속성에 지정한 이름의 객체가 존재하면, 객체를 생성하지 않고 기존 존재한 객체 그대로 사용   
+4. < jsp: useBean > 액션 태그는 지정한 영역에 이미 id 속성에 지정한 이름의 객체가 존재하면, 객체를 생성하지 않고 기존 존재한 객체 그대로 사용   
    : 즉, 같은 영역을 사용하는 JSP 페이지 내에서 공유
 
 < 예제 - Member>
@@ -258,7 +258,7 @@ public class BeanClassName imeplements java.io.Serializable {
 </html>
 ```
 
-< JavaBeans - Member [Member의 데이터와 일치해야함] >
+< JavaBean - Member [Member의 데이터와 일치해야함] >
 ```java
 public class MemberBean {
 	private String id;
@@ -295,7 +295,7 @@ public class MemberBean {
 ```
 
 ```jsp
-<jsp:useBeans id = member class = bean.MemberBean scope = "request"/>
+<jsp:useBean id = member class = bean.MemberBean scope = "request"/>
 <jsp:setProperty name = "member" property = "*"/> <!-- member에 모든 property를 같은 이름을 갖는 parameter와 매핑하여 저장-->
 <jsp:setProperty name = "member" property = "id" value = <%=member.getId()%>/> <!-- id 프로퍼티만 매핑 -->
 
