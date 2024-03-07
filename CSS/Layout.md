@@ -77,3 +77,17 @@
 <div align = "center">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/7a48d18c-65a3-4d25-b2fc-1705834671b2">
 </div>
+
+-----
+### CSS Layout
+-----
+1. Float : 모바일 웹 개념 전, PC로만 사용했던 웹 페이지 구성
+2. Flex : FLEX 속성을 이용해 레이아웃을 구성, 오직 레이아웃 구현을 위해 제작된 속성 (Float보다 편리)
+3. Grid : 레이아웃 구현을 목적으로 FLEX와 목적이 비슷
+4. flex와 grid는 상황에 따라 혼용
+
+-----
+### Float가 사용되지 않는 이유
+-----
+1. 반응형 웹에 적합하지 않음
+2. 반응형 웹 : 모바일, 태블릿, PC 등 접속하는 기기의 너비에 맞춰 레이아웃이 변하는 웹 페이지
