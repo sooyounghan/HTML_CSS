@@ -69,6 +69,7 @@
     text-decoration:none;
     color:orange;
 }
+
 .menu {
     float:left;
     width:calc(100% - 200px);
