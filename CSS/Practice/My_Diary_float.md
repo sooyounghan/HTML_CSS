@@ -124,3 +124,7 @@
 5. display:inline-block
    - Block 요소에 대해 Inline 요소를 적용
    - 그러나, Block 요소처럼 크기 설정이 가능하도록, 즉 두 개의 요소가 중첩되도록 설정
+
+<div align = "center">
+<img width="960" alt="20240309_231748" src="https://github.com/sooyounghan/DataBase/assets/34672301/a374c3dc-9a47-4fb4-9ce0-21b9412d9227">
+</div>
