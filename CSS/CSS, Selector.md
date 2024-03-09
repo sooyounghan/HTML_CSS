@@ -153,24 +153,23 @@ p {
 .title#headline {
   color : violet;
 }
-```-----
-### Selector
------
-1. 전체 선택자 : HTML 내 모든 요소를 선택하는 선택자
+```
+
+6. 전체 선택자 : HTML 내 모든 요소를 선택하는 선택자
 ```css
 * {
   property : value;
 }
 ````
 
-6. 그룹 선택자 : 원하는 선택자 여러 가지를 콤마를 통해 연결
+7. 그룹 선택자 : 원하는 선택자 여러 가지를 콤마를 통해 연결
 ```css
 .class1, .class2 {
   proprty : value;
 }
 ```
 
-7. 가상 선택자 : 실제로 HTML 요소를 수정하지 않고, CSS만을 가상 요소로 추가해 선택
+8. 가상 선택자 : 실제로 HTML 요소를 수정하지 않고, CSS만을 가상 요소로 추가해 선택
 ```css
 선택자 : 가상 클래스 {
    property : value;
