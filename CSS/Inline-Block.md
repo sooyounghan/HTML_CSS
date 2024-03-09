@@ -7,7 +7,7 @@
 1. 블록 요소를 여러개 연속으로 쌓을 경우, 자동으로 다음 줄로 넘어감
 2. 좌/우 양쪽으로 늘어나 부모 요소의 너비를 가득 채움
    - 너비와 높이를 조절하는 width, height 적용 가능
-4. 예시 : div, p, ul, dl, p, h1~h6, session, article 등등
+4. 예시 : div, p, ul, dl, h1~h6, session, article 등등
 
 < div 태그의 예 >
 <div align = "center">
