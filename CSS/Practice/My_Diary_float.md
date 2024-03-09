@@ -108,7 +108,7 @@
 ```
 
 1. margin:0 auto
-   - 위와 같이 설정하면 자연스럽게 가운데 정렬 가능
+   - float:left가 적용된 상태에서 위와 같이 설정하면 자연스럽게 가운데 정렬 가능
 
 2. float 설정이 적용된 logo / menu / user로 인해 전체 header가 left까지 영향을 받음
    - clearfix div 설정을 통해 이후 영역에 영향을 받지 않도록 clear:both 설정
