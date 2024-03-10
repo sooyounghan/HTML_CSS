@@ -96,11 +96,75 @@
 -----
 ### flex-item 속성
 -----
-1. flex-order : item의 순서를 지정 (HTML에 작성한 요소의 순서를 무시하고, 원하는 순서대로 배치 가능)
+1. order : item의 순서를 지정 (HTML에 작성한 요소의 순서를 무시하고, 원하는 순서대로 배치 가능) [초기값 : 0]
 2. flex-basis : item의 기본 사이즈를 지정
 3. flex-shrink : 설정된 숫자값에 따라 flex-container 요소 내부에서 flex-item요소의 크기가 축소
 4. flex-grow : flex-container 요소 내부에서 flex-item 요소가 할당 가능한 공간의 정도를 선언
 5. 그 외 여러가지 존재
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-03-flex-wra</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <div>box1</div>
+        <div>box2</div>
+        <div>box3</div>
+        <div class="box4">box4</div>
+        <div class="box5">box5</div>
+        <div>box6</div>
+        <div>box7</div>
+        <div>box8</div>
+    </div>
+</body>
+</html>
+```
+
+```css
+* {
+    box-sizing:border-box;
+}
+
+.container {
+    width:600px;
+    height:500px;
+
+    background-color:#eeeeee;
+    border:2px solid red;
+    padding:10px;
+    
+    display:flex;
+    flex-wrap:wrap;
+    align-content:space-evenly;
+}
+
+.container div {
+    background-color:blue;
+    color:white;
+
+    margin:5px;
+
+    width:200px;
+}
+
+.box4 {
+    order:3;
+}
+
+.box5 {
+    order:1
+}
+```
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/50de4166-5f84-4413-8ca6-01961fb16f35">
+</div>
 
 -----
 ### MDN : CSS 속성 참조
