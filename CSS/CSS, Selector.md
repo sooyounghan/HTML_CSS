@@ -366,6 +366,7 @@ p {
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/6e989506-16f9-4c64-b84d-64dd214fb62a">
 </div>
+
    - 가상의 div를 :after를 통해 생성 (본질적으로 HTML에 존재하지 않으므로, 채워줘야함)
    - content를 사용하지 않더라도, content:""를 명시해야 가상 요소가 화면에 보여짐
 
