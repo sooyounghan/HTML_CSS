@@ -125,3 +125,76 @@ display:flex
       추가적으로, flex-direction:row-reverse | column-reverse의 경우라면,
       - flex-start, flex-end의 방향이 변경될 수 있음
 
+
+-----
+### 예제
+-----
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-04-flex</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="flex-container">
+        <div>Item 1</div>
+        <div>Item 2<br>테스트 문구<br>박스 사이즈를 키워봅시다.</div>
+        <div>Item 3</div>
+        <div>Item 4<br>중간 사이즈 박스</div>
+        <div>Item 5</div>
+    </div>
+</body>
+</html>
+```
+```css
+* {
+    box-sizing:border-box;
+}
+
+.flex-container {
+    height:300px;
+    background-color:gray;
+    padding:10px;
+
+    display:flex;
+}
+
+.flex-container div {
+    background-color:white;
+    border:1px solid red;
+}
+```
+: display:flex 설정으로, 각각 기본값 설정 (justify-contetn:flex-start / align-itmes:stretch)
+
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/065ee411-0407-41b5-a8a8-d9caceaa17c9">
+</div>
+
+
+```css
+* {
+    box-sizing:border-box;
+}
+
+.flex-container {
+    height:300px;
+    background-color:gray;
+    padding:10px;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.flex-container div {
+    background-color:white;
+    border:1px solid red;
+}
+```
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/a27f4cfa-6b75-4288-961d-30cf111ecc02">
+</div>
