@@ -8,6 +8,7 @@
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/dcf43fb1-c990-46a0-9f05-6af46744bd72">
 </div>
+
   - flex-items의 가로 사이즈가 커져도, 무조건 한 줄에 들어가도록 강제성을 부여
   - flex-items들의 찌그러짐이 발생
 
@@ -15,6 +16,7 @@
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/746e347c-1d49-4512-8333-122ec0925c9c">
 </div>
+
   - flex-items가 가로 사이즈의 이상으로 커지면, 자연스럽게 다음줄로 넘어감
   - 규격이 강제로 변경되지 않고, 자연스럽게 넘어감
 
