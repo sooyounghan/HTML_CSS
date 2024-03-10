@@ -96,7 +96,7 @@
 -----
 ### flex-item 속성
 -----
-1. order : item의 순서를 지정 (HTML에 작성한 요소의 순서를 무시하고, 원하는 순서대로 배치 가능)
+1. flex-order : item의 순서를 지정 (HTML에 작성한 요소의 순서를 무시하고, 원하는 순서대로 배치 가능)
 2. flex-basis : item의 기본 사이즈를 지정
 3. flex-shrink : 설정된 숫자값에 따라 flex-container 요소 내부에서 flex-item요소의 크기가 축소
 4. flex-grow : flex-container 요소 내부에서 flex-item 요소가 할당 가능한 공간의 정도를 선언
