@@ -80,7 +80,7 @@
   - 모든 여백을 균일하게 적용
 
 -----
-### flex-low
+### flex-flow
 -----
 1. flex-direction과 flex-wrap을 합쳐놓은 단축 속성
 
