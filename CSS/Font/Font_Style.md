@@ -1,10 +1,74 @@
 -----
 ### font-size : 글자 사이즈
 -----
+1. 텍스트의 크기를 지정
+2. Pixel, Point와 같은 절대 단위와 상대 단위 모두 가능
+3. 예시
+```css
+font-size:18px;
+```
+<div align = "center">>
+<img src="https://github.com/sooyounghan/Web/assets/34672301/db834b70-37c9-4552-98a9-2358d7a31208">
+</div>
 
 -----
 ### font-weight : 글자 두께
 -----
+1. 텍스트의 두께를 지정 (regular : 400을 기준으로 아래는 얇고, 위는 굵음)
+2. 폰트에서는 weight 속성 값을 지원하지 않는 경우가 존재하는데, 이 경우에는 적용 불가
+3. 예시
+```css
+font-weight:600;
+```
+<div align = "center">>
+<img src="https://github.com/sooyounghan/Web/assets/34672301/442d89fc-6cf3-4c3c-98e6-d21a581c5e02">
+</div>
+
+-----
+### line-height : 텍스트 행간 설정
+-----
+1. 텍스트의 행간을 설정
+2. 단위가 없으면 숫자로 설정하면, 1을 기준으로 폰트 사이즈의 배율로 설정
+   (단위 설정 시, 단위 표기 필요)
+3. 예시
+```css
+ling-height:1.8;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/e87a685a-0c5b-422b-a919-a93ffebd2496">
+</div>
+    - 첫 번째는 폰트 사이즈의 1배
+    - 두 번째는 폰트 사이즈의 2배
+    - 세 번째는 52px 크기로 행간 설정
+
+-----
+### letter-spacing : 텍스트 자간 설정
+-----
+1. 텍스트의 자간을 설정
+2. 다양한 단위를 부여 가능
+3. 예시
+```css
+letter-spacing:0.1rem
+```
+<div align = "center">>
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/6ad55068-0cd6-407f-bc27-3f8a99576013">
+</div>
+
+- normal : 기준값 (디폴트 값)
+- 양수 : normal의 해당 수치만큼 더해진 값으로 자간 설정
+- 음수 : normal의 해당 수치만큼 감소된 값으로 자간 설정
+
+-----
+### word-spacing : 단어 간 자간 설정
+-----
+1. 텍스트의 단어(어절) 간 간격 지정
+2. 예시
+```css
+word-spacing:2px;
+```
+<div align = "center">>
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/6d448b88-2b48-4989-a886-d696651a8f29">
+</div>
 
 -----
 ### font-style : 글자 기울임
@@ -13,10 +77,165 @@
 -----
 ### text-decoration : 글자 꾸밈 (밑줄, 취소선 등)
 -----
+1. 텍스트에 장식용 선을 추가
+2. 밑줄을 긋거나, 밑줄 제거 등의 용도로 사용
+3. 예시
+```css
+text-decoration:underline;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/b8890b46-b1f7-4388-af1b-4fa7f2fad2f7">
+</div>
+
+- text-decoration:line-through (취소선)
+- text-decoration:overline (텍스트 상단을 가로지르는 선)
+- text-decoration:underline (밑줄)
+- text-decoration:none (줄을 없앰)
+
+-----
+### text-align : 블록요소나 표 가로 정렬
+-----
+1. 블록요소나 표 안에서 텍스트의 가로 정렬 방식 지정
+2. 예시
+```css
+text-align:center;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/46abc3dd-1b6a-4daa-b8cc-4c60fb6d03bd">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/37a45145-2d6d-4cc7-a101-bd76a7dfa411">
+</div>
+    - text-align : justify (양쪽 정렬)
+
+-----
+### vertical-align : 인라인요소나 표 세로 정렬
+-----
+1. 인라인 요소나 표 안에서 텍스트의 세로 방식 지정
+2. 예시
+```css
+vertical-align:middle;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/cadf0275-544e-40d2-95fb-66e47795c022">
+</div>
+
+-----
+### text-indent : 텍스트의 들여쓰기
+-----
+1. 텍스트의 들여쓰기 설정 (단위(절대단위, 상대단위(% 등) 설정 가능)
+2. 기본값은 0이며, 양수면 들여쓰기와 같은 기능이며, 음수면 내어쓰기 같은 기능
+3. 예시
+```css
+text-indent:10%
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/12cdcd08-8dff-4134-a510-379b3d36b5ad">
+</div>
+
+-----
+### text-trnasform : 영문 텍스트의 대/소문자 변경
+-----
+1. 영문 텍스트의 대/소문자를 변경
+2. 예시
+```css
+text-transform:captialize;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/3782f9fa-7a56-4163-8798-658c3c7183af">
+</div>
+
+- text-transform : none; (기본값)
+- text-transform : captialize; (각 단어 어절의 첫 문자를 대문자로 변경)
+- text-transform : uppercase; (대문자로 변경) 
+- text-transform : lowercase; (소문자로 변경)
+
+-----
+### word-break : 줄 변경에 대한 설정
+-----
+1. 텍스트가 콘텐츠 박스 영역 밖으로 넘칠 때, 개행 방법 설정
+2. 예시
+```css
+word-break:keep-all | break-all;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/587f8189-328a-440e-ba7a-de6658dc5bca">
+</div>
+
+- word-break:keep-all; : 어절 단위로 개행 (띄어쓰기 기준)
+- word-break:break-all; : 음절 단위로 개행 (단어 음절 기준)
+
+-----
+### overflow-wrap
+-----
+1. 단어가 콘텐츠 박스 영역 밖으로 넘쳤을 때, 줄바꿈 여부 설정
+2. 예시
+```css
+overflow-wrap:normal|break-word;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/f264c87d-99bf-47bb-9e44-d1e098f62313">
+</div>
+
+- word-break:keep-all 는 중간의 단어를 끊지 못해 콘텐츠 박스 영역 밖으로 초과
+- overflow-wrap:break-word 는 중간의 단어를 끊고, 다음줄로 개행시켜줌 (단어 분할 가능)
+- overflow-wrap:break-word 는 단어 단위로 끊어 개행
+- overflow-wrap:break-all 는 단어 단위가 아닌 바로 개행
+
+-----
+### overflow
+-----
+1. 컨텐츠가 커서 요소 안에서 내용을 다 보여주기 힘들 때, 어떤 방식으로 보여줄지 설정
+2. 예시
+```css
+overflow:visible|hidden|scroll|auto;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/a31f617e-60c7-44c5-9806-6a1319f0b0f7">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/4c2b59d4-4182-4108-b30d-ec26da25345c">
+</div>
+
+- overflow:visible 는 콘텐츠가 영역 밖을 벗어나더라도 표시
+- overflow:hidden 은 넘쳐나는 영역은 잘라서 안보이도록 설정
+- overflow:scroll 은 해당 요소 안 강제로 무조건 Scroll bar 생성 (무조건 노출)
+- overflow:auto 은 무조건 노출이 아닌 콘텐츠 규격을 인식해 노출 여부를 자동으로 결정
+
+-----
+### text-overflow
+-----
+1. 줄바꿈을 하지 않을 때, 요소 밖으로 넘치는 text를 어떻게 표기할 것인지 설정
+2. text-overflow를 적용하고 싶은 요소에는 반드시 다음 선언들도 함께 적용 필요
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/c060ff55-ec1d-4243-8b52-109d03167232">
+</div>
+
+- white-space:nowrap; (기존에는 텍스트가 화면 밖으로 넘쳐나면, 자동으로 개행)
+- 즉, 텍스트가 화면 밖으로 넘쳐나도 자동으로 개행되지 않도록 함
+    
+3. 예시
+```css
+text-overflow:clip|ellipsis;
+```
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/9f782ed3-7246-41dd-879d-ddc8dcf37682">
+</div>
 
 -----
 ### color : 글자 색 (font, text 접두어가 붙지 않음)
 -----
+1. 텍스트의 색을 지정
+2. 색을 지정하는 방법
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/06c32fd8-9bca-4941-bc61-a4c6382d6fa2">
+</div>
+
+- A. 색상 이름을 직접 지정 (red, blue, aqua 등)
+- B. HEXA 코드 이용 : 각 색상이 가진 고유의 값이 16진수로 저장
+- C. RGB 이용 : Red / Green / Blue 색상의 조합으로 표현 
+
+2. 예시
+```css
+color:#000000;
+```
 
 <예제>
 ```html
