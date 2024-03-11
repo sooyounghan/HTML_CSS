@@ -37,9 +37,10 @@ ling-height:1.8;
 <div align = "center">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/e87a685a-0c5b-422b-a919-a93ffebd2496">
 </div>
-    - 첫 번째는 폰트 사이즈의 1배
-    - 두 번째는 폰트 사이즈의 2배
-    - 세 번째는 52px 크기로 행간 설정
+
+- 첫 번째는 폰트 사이즈의 1배
+- 두 번째는 폰트 사이즈의 2배
+- 세 번째는 52px 크기로 행간 설정
 
 -----
 ### letter-spacing : 텍스트 자간 설정
