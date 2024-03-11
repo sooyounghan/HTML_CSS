@@ -92,3 +92,56 @@ background-repear:no-repeat;
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/aacac26c-f22e-4a80-945a-2b8cd4767115">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/cbcf3e7f-e2ec-411c-837a-be6eb6045daf">
 </div>
+
+-----
+### background-size
+-----
+1. 요소의 배경 이미지의 크기를 지정
+```css
+background-size:cover;
+```
+
+2. background-size:auto(기본값)
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/bdde9796-0122-4436-9b8b-45fe51bb3fa4">
+</div>
+
+  - image가 가진 고유한 값으로 설정
+
+3. background-size:cover
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/c0cc3d14-816b-4618-a514-eb5ae21c1c9d">
+</div>
+
+  - 이미지를 늘려서, 찌그러지지 않도록 이미지를 채움
+  - 빈틈없이 꽉 채워서 늘림
+
+4. background-size:contain
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/a94cd5fd-cad6-450c-bcaa-ed3699781dbd">
+</div>
+
+  - 빈틈이 있어도 괜찮으며, 이미지 전체가 보이는 것이 중요함
+
+5. background-size:x축 y축 수치
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/7cce1db2-4b18-405b-ad02-7af5e9129b78">
+</div>
+
+-----
+### background-attachment
+-----
+1. 요소의 배경 이미지의 스크롤 여부를 지정
+```css
+background-attachment:fixed;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/ac9707f5-3d38-476e-95f3-53f9dbfd352b">
+</div>
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/d5bc0f98-04c5-44d5-b246-56ad1f733c25">
+</div>
+
+  - scroll와 local은 스크롤이 내려감
+  - 하지만, fixed는 고정되어 내려가지 않음
