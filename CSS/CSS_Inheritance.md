@@ -29,3 +29,49 @@
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/82f0643d-6dcd-431d-ac86-c13b777c1470">
 </div> 
 
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01-inheritance</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        안녕하세요. 처음 뵙겠습니다.
+        <div class="inner-box">
+            <p>제 이름은 다람쥐입니다.</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+```css
+* {
+    box-sizing:border-box;
+}
+
+.container {
+    color:blue;
+    font-size:38px;
+
+    border:4px solid orange;
+}
+
+.inner-box {
+    color:red;
+}
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/69f94c11-570f-4592-9047-202865ce0892">
+</div>
+  - color와 font-size는 상속하는 요소이므로 자식 요소까지 영향
+  - border의 경우 상속되지 않는 속성이므로 부모 요소에서만 적용
+  - 상속받는 자식 요소의 경우에도 중첩되는 요소에 대해 다시 설정 가능
+
+-----
+### CSS 상속 우선 순위
+-----
+: Cacading이라는 룰에 의해 그 우선순위가 결정
