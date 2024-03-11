@@ -1,4 +1,7 @@
 -----
+### font 관련
+-----
+-----
 ### font-size : 글자 사이즈
 -----
 1. 텍스트의 크기를 지정
@@ -24,6 +27,79 @@ font-weight:600;
 <img src="https://github.com/sooyounghan/Web/assets/34672301/442d89fc-6cf3-4c3c-98e6-d21a581c5e02">
 </div>
 
+-----
+### font-style : 글자 기울임
+-----
+
+-----
+### text-decoration : 글자 꾸밈 (밑줄, 취소선 등)
+-----
+1. 텍스트에 장식용 선을 추가
+2. 밑줄을 긋거나, 밑줄 제거 등의 용도로 사용
+3. 예시
+```css
+text-decoration:underline;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/b8890b46-b1f7-4388-af1b-4fa7f2fad2f7">
+</div>
+
+- text-decoration:line-through (취소선)
+- text-decoration:overline (텍스트 상단을 가로지르는 선)
+- text-decoration:underline (밑줄)
+- text-decoration:none (줄을 없앰)
+
+-----
+### text-indent : 텍스트의 들여쓰기
+-----
+1. 텍스트의 들여쓰기 설정 (단위(절대단위, 상대단위(% 등) 설정 가능)
+2. 기본값은 0이며, 양수면 들여쓰기와 같은 기능이며, 음수면 내어쓰기 같은 기능
+3. 예시
+```css
+text-indent:10%
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/12cdcd08-8dff-4134-a510-379b3d36b5ad">
+</div>
+
+-----
+### text-trnasform : 영문 텍스트의 대/소문자 변경
+-----
+1. 영문 텍스트의 대/소문자를 변경
+2. 예시
+```css
+text-transform:captialize;
+```
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/3782f9fa-7a56-4163-8798-658c3c7183af">
+</div>
+
+- text-transform : none; (기본값)
+- text-transform : captialize; (각 단어 어절의 첫 문자를 대문자로 변경)
+- text-transform : uppercase; (대문자로 변경) 
+- text-transform : lowercase; (소문자로 변경)
+
+-----
+### color : 글자 색 (font, text 접두어가 붙지 않음)
+-----
+1. 텍스트의 색을 지정
+2. 색을 지정하는 방법
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/06c32fd8-9bca-4941-bc61-a4c6382d6fa2">
+</div>
+
+- A. 색상 이름을 직접 지정 (red, blue, aqua 등)
+- B. HEXA 코드 이용 : 각 색상이 가진 고유의 값이 16진수로 저장
+- C. RGB 이용 : Red / Green / Blue 색상의 조합으로 표현 
+
+2. 예시
+```css
+color:#000000;
+```
+
+-----
+### 간격 관련
+-----
 -----
 ### line-height : 텍스트 행간 설정
 -----
@@ -72,27 +148,8 @@ word-spacing:2px;
 </div>
 
 -----
-### font-style : 글자 기울임
+### 정렬 관련
 -----
-
------
-### text-decoration : 글자 꾸밈 (밑줄, 취소선 등)
------
-1. 텍스트에 장식용 선을 추가
-2. 밑줄을 긋거나, 밑줄 제거 등의 용도로 사용
-3. 예시
-```css
-text-decoration:underline;
-```
-<div align = "center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/b8890b46-b1f7-4388-af1b-4fa7f2fad2f7">
-</div>
-
-- text-decoration:line-through (취소선)
-- text-decoration:overline (텍스트 상단을 가로지르는 선)
-- text-decoration:underline (밑줄)
-- text-decoration:none (줄을 없앰)
-
 -----
 ### text-align : 블록요소나 표 가로 정렬
 -----
@@ -120,35 +177,8 @@ vertical-align:middle;
 </div>
 
 -----
-### text-indent : 텍스트의 들여쓰기
+### 개행 관련
 -----
-1. 텍스트의 들여쓰기 설정 (단위(절대단위, 상대단위(% 등) 설정 가능)
-2. 기본값은 0이며, 양수면 들여쓰기와 같은 기능이며, 음수면 내어쓰기 같은 기능
-3. 예시
-```css
-text-indent:10%
-```
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/12cdcd08-8dff-4134-a510-379b3d36b5ad">
-</div>
-
------
-### text-trnasform : 영문 텍스트의 대/소문자 변경
------
-1. 영문 텍스트의 대/소문자를 변경
-2. 예시
-```css
-text-transform:captialize;
-```
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/3782f9fa-7a56-4163-8798-658c3c7183af">
-</div>
-
-- text-transform : none; (기본값)
-- text-transform : captialize; (각 단어 어절의 첫 문자를 대문자로 변경)
-- text-transform : uppercase; (대문자로 변경) 
-- text-transform : lowercase; (소문자로 변경)
-
 -----
 ### word-break : 줄 변경에 대한 설정
 -----
@@ -221,22 +251,8 @@ text-overflow:clip|ellipsis;
 </div>
 
 -----
-### color : 글자 색 (font, text 접두어가 붙지 않음)
+### 예제
 -----
-1. 텍스트의 색을 지정
-2. 색을 지정하는 방법
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/06c32fd8-9bca-4941-bc61-a4c6382d6fa2">
-</div>
-
-- A. 색상 이름을 직접 지정 (red, blue, aqua 등)
-- B. HEXA 코드 이용 : 각 색상이 가진 고유의 값이 16진수로 저장
-- C. RGB 이용 : Red / Green / Blue 색상의 조합으로 표현 
-
-2. 예시
-```css
-color:#000000;
-```
 
 <예제>
 ```html
