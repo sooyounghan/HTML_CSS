@@ -66,7 +66,8 @@
 ```
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/69f94c11-570f-4592-9047-202865ce0892">
-</div>
+</div>   
+
   - color와 font-size는 상속하는 요소이므로 자식 요소까지 영향
   - border의 경우 상속되지 않는 속성이므로 부모 요소에서만 적용
   - 상속받는 자식 요소의 경우에도 중첩되는 요소에 대해 다시 설정 가능
