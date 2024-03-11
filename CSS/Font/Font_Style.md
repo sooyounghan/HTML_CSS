@@ -207,9 +207,8 @@ overflow-wrap:normal|break-word;
 </div>
 
 - word-break:keep-all 는 중간의 단어를 끊지 못해 콘텐츠 박스 영역 밖으로 초과
+- word-wrap:break-all 는 단어 단위가 아닌 바로 개행
 - overflow-wrap:break-word 는 중간의 단어를 끊고, 다음줄로 개행시켜줌 (단어 분할 가능)
-- overflow-wrap:break-word 는 단어 단위로 끊어 개행
-- overflow-wrap:break-all 는 단어 단위가 아닌 바로 개행
 
 -----
 ### overflow
