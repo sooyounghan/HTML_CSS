@@ -143,5 +143,54 @@ background-attachment:fixed;
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/d5bc0f98-04c5-44d5-b246-56ad1f733c25">
 </div>
 
-  - scroll와 local은 스크롤이 내려감
+  - 기본값 : background-attachment:scroll
+  - scroll와 local은 스크롤이 생성 (기본 scroll은 내부 scroll를 내려도 내려가지 않으며, local은 scroll이 적용)
   - 하지만, fixed는 고정되어 내려가지 않음
+
+-----
+### background 단축 속성
+-----
+1. background 관련 속성들을 한 번에 지정 가능
+2. 가능 속성 : background-color / background-image / background-position / background-repeat / background-size
+3. 단축 속성 형식 (순서 주의)
+```css
+background:color image repeat position/size attachment
+background:red url("../star.png") no-repeat cetner/cover fixed;
+```
+
+-----
+### object-fit
+-----
+1. < img >나 < video > 등 대체 요소의 내용이 지정된 너비와 높이에 맞춰지는 방식 지정
+```css
+object-fit:cover;
+```
+
+2. 기본값 : object-fit:fill
+   - img / video 태그를 꽉 채우는 것
+
+3. object-fit:cover
+   - 빈틈이 생기지 않도록 화면 요소의 영역을 꽉 채움
+
+4. object-fit:contain
+   - 빈틈이 생기지만, 원본이 다 보이도록 설정
+  
+5. object-fit:none
+   - 원본 그대로 화면 요소에 보여줌
+
+-----
+### object-position
+-----
+1. < img >나 < video > 등 대체 요소의 콘텐츠 정렬 방식 지정
+2. 형식
+```css
+object-position:center top;
+```
+
+3. 단위, left/right/center/top/bottom 그리고 top right과 다중 속성 가능
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/6ee7e9e2-cb91-4592-b55a-90e1a6fe5273">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/5f454459-b4ed-4a25-85db-e46a69e4d4ea">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/5d96b2d9-67ee-4a35-b5e4-bcb5bfe56e6b">
+</div>
+
