@@ -87,7 +87,9 @@ transition-delay:2s;
 ----
 1. https://codepen.io/joogumi/full/VwXpwwq
 2. https://codepen.io/joogumi/full/NWYpWPx
-3. https://codepen.io/joogumi/full/JjLWjoZ
+   - 먼저 크기 전환 후, 배경색 전환
+4. https://codepen.io/joogumi/full/JjLWjoZ
+   - 둘이 동시에 전환
    
 ```html
 <!DOCTYPE html>
