@@ -46,8 +46,6 @@
     font-size:36px;
     color:white;
     font-weight:600;
-    
-    transition:transform 0.4s ease-in-out;
 }
 
 .box:hover span{
