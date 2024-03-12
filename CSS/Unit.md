@@ -34,3 +34,20 @@
 <div align = "center">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/370b4384-6cd8-486d-81b8-a585e3a66c11">
 </div>
+
+
+4. vv / vh
+   - 요소의 규격을 viewport의 너비값과 높이값에 비례하여 결정
+   - viewport : 브라우저 안에서 실제로 화면이 그려지는 영역
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/90592d16-f8c1-4ec2-bc6a-cfa76d37d1de">
+</div>
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/24fdb4ef-9931-4310-bc16-ae6fd015a0d6">
+</div>
+
+   - 100vw/vh가 1의 기준으로 잡히며, 아래는 0~1까지의 값으로 곱함
+<div align = "center">
+<img src="https://github.com/sooyounghan/DataBase/assets/34672301/7b4b2cb2-0c50-4d7b-9169-b160bb53e179">
+</div>
