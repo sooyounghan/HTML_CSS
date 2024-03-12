@@ -85,6 +85,10 @@ transition-delay:2s;
 ----
 ### transition 예제
 ----
+1. https://codepen.io/joogumi/full/VwXpwwq
+2. https://codepen.io/joogumi/full/NWYpWPx
+3. https://codepen.io/joogumi/full/JjLWjoZ
+   
 ```html
 <!DOCTYPE html>
 <html lang="en">
