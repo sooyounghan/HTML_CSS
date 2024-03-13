@@ -52,7 +52,7 @@ animation-name:moveRight;
 -----
 ### animation-duration
 -----
-1. 애니메이션을 한 번 재생(from ~ to로 재생) 하는데 걸리는 시간 설정
+1. 애니메이션을 한 번 재생(from - to로 재생) 하는데 걸리는 시간 설정
 2. 예시
 ```css
 animation-duration:2s;
@@ -61,7 +61,7 @@ animation-duration:2s;
 -----
 ### animation-direction
 -----
-1. 애니메이션 재생 방향 정의 (정방향[from~to]/역방향[to~from])
+1. 애니메이션 재생 방향 정의 (정방향[from - to]/역방향[to - from])
 2. 예시
 ```css
 animation-direction:alternate;
