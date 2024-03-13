@@ -10,7 +10,7 @@
 -----
 1. 회원가입 JSP 페이지 생성
 2. 회원가입 관련 DB TABLE 생성
-3. 처리해주는 DAO 클래스 생성 - DB와 연동 후 저장
+3. 처리해주는 DAO 클래스 생성 - DB와 연동 후 저장 (MemberDAO 패턴 적용)
 4. response.sendRedirect()를 통한 회원 전체 보기 구성
 5. 회원 수정 및 삭제
 
@@ -240,4 +240,49 @@ INFO VARCHAR(500)
 
 </div>
 
-   
+4. JSP 페이지 내 DB 연동
+
+   		Oracle JDBC URL : "jdbc:oracle:thin:@localhost:1521:xe"
+```jsp
+<%
+	// Oracle 접속 소스 작성
+	String id = "dbPractice"; // ID
+	String password = "1234"; // 비밀번호
+	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 접속 URL
+	
+	try {
+		// 1. 해당 데이터 베이스 사용하는 것을 선언 (클래스 등록 = 오라클 사용)
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		// 2. 해당 데이터 베이스에 접속
+		Connection conn = DriverManager.getConnection(url, id, password);
+		
+		// 3. 접속 후 쿼리를 준비
+		String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		// 4. 쿼리를 사용하도록 설정
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		// 5. ?에 맞게 데이터를 변경
+		pstmt.setString(1, memberBean.getId());
+		pstmt.setString(2, memberBean.getPass1());
+		pstmt.setString(3, memberBean.getEmail());
+		pstmt.setString(4, memberBean.getTel());
+		pstmt.setString(5, memberBean.getHobby());
+		pstmt.setString(6, memberBean.getJob());
+		pstmt.setString(7, memberBean.getAge());
+		pstmt.setString(8, memberBean.getInfo());
+		
+		
+		// 9. 오라클에서 쿼리 실행
+		pstmt.executeUpdate(); // Insert, Update, Delete에서 사용 메서드
+		
+		// 10. 자원 반납
+		conn.close();
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+%>
+```
+
