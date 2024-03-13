@@ -318,12 +318,9 @@ html, body {
 }
 
 .sidebar_item:hover span {
-    transition:transform 1s ease-in-out;
-}
-
-.sidebar_item:hover span {
     color:black;
-    transform:translateX(calc(100% - 5px)); 
+    transform:translateX(calc(100% - 5px));
+    transition:transform 1s ease-in-out; 
 }
 
 .wrap {
