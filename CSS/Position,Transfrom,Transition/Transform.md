@@ -4,11 +4,12 @@
 1. '변형시킨다'는 의미
 2. 요소에 이동, 회전, 확대 및 축소, 비틀기 등의 변형 효과를 줄 수 있음
 3. transform의 속성값
-4. transform은 transition이나 animation과 함께 사용하여 더 다채로운 애니메이션 효과를 만들 수 있음
 <div align = "center">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/00ab1b22-b0da-43a1-a926-3f1c9b9cfa24">
 </div>
 
+4. transform은 transition이나 animation과 함께 사용하여 더 다채로운 애니메이션 효과를 만들 수 있음
+   
 -----
 ### translate(x, y)
 -----
