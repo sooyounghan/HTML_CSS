@@ -69,3 +69,13 @@ html, body {
     }
 }
 ```
+
+1. text-shadow(offset-x, offset-y, blur-radius, color) : 텍스트에 그림자 지정
+    - offset-x, offset-y : 그림자의 위치를 지정 / 양수면 글자 오른쪽, 음수면 글자 왼쪽
+    - blur-radius : 숫자가 커질 수록, 그림자가 흐릿해짐 (px 단위)
+    - color : 그림자의 색 지정
+
+2. 예시
+```css
+text-shadow:10px 10px 10px rgba(0, 0, 0, 0.2);
+```
