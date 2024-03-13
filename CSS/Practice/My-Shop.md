@@ -52,6 +52,83 @@
                 <p class="textBox__price">260,000원</p>
             </div>
         </div>
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item2.png" alt="머그컵">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">머그컵</p>
+                <p class="textBox__price">32,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">거실용 슬리퍼</p>
+                <p class="textBox__price">28,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item1.jpeg" alt="탁상용 조명">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">탁상용 조명</p>
+                <p class="textBox__price">260,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item2.png" alt="머그컵">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">머그컵</p>
+                <p class="textBox__price">32,000원</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">거실용 슬리퍼</p>
+                <p class="textBox__price">28,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item1.jpeg" alt="탁상용 조명">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">탁상용 조명</p>
+                <p class="textBox__price">260,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item2.png" alt="머그컵">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">머그컵</p>
+                <p class="textBox__price">32,000원</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="imagebox">
+                <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+            </div>
+            <div class="textbox">
+                <p class="textBox__name">거실용 슬리퍼</p>
+                <p class="textBox__price">28,000원</p>
+            </div>
     </div>    
 </body>
 </html>
@@ -70,6 +147,7 @@ html, body {
 
 .wrap {
     display:flex;
+    flex-wrap:wrap;
     flex-direction:row;
     justify-content:space-between;
     align-items:flex-start;
@@ -83,6 +161,7 @@ html, body {
     overflow:hidden;
 
     border-radius:10px;
+    margin-bottom:7px;
 }
 
 .imagebox {
@@ -126,6 +205,7 @@ html, body {
     font-size:20px;
     font-weight:500;
 
+    transform:translateY(50px);
     opacity:0;
 }
 
@@ -133,6 +213,7 @@ html, body {
     font-size:16px;
     font-weight:400;
 
+    transform:translateY(50px);
     opacity:0;
 }
 
@@ -162,17 +243,24 @@ html, body {
 
 .item:hover .textBox__name {
     opacity:1;
+    
+    transform:translateY(0px);
 }
 
 .item:hover .textBox__price {
     opacity:1;
+
+    transform:translateY(0px);
 }
 
 .item:after,
-.item .imagebox img,
-.item .textBox__name,
-.item .textBox__price {
+.item .imagebox img, 
+.item .textBox__name {
     transition:all 0.4s ease-in-out;
+}
+
+.item .textBox__price {
+    transition:all 0.4s ease-in-out 0.15s;
 }
 ```
 
