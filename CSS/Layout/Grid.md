@@ -140,7 +140,8 @@ grid-template-rows:3fr 1fr 200px 1fr 200px
 2. grid-shell 가장자리에 공백(buffer)을 주는 것
 3. 주의사항
   - 인터넷 익스플로러의 경우에는 아예 기능 불가하므로 주의
- 4. 예시
+4. 단일 속성값 : 전체 / top(bottom) left(right) 가능
+5. 예시
 ```css
 grid-gap:5px;
 ```
