@@ -52,7 +52,7 @@ transition-duration:0.2s;
 1. transition의 속도 패턴을 지정
 2. 예시
 ```css
-transition-duration:ease-in-out;
+transition-timing-fuction:ease-in-out;
 ```
 3. 형식
 <div align = "center">
@@ -168,39 +168,4 @@ transition-delay:2s;
     width: 260px;
     background-color: #002398;
 }
-```
-
------
-### transform 중첩 적용
------
-1. transform은 변환 함수를 중첩 적용 시키는 것이 가능
-2. 예제 : 요소를 75도 회전 시키고, y축 방향으로 120px 이동하려면?
-
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/3c4afb27-8db8-4c63-a5c4-938f68bfa836">
-</div>
-
-  - 첫 번째로 75도 회전
-  - 두 번째로 y축 방향으로 120px 요소를 중첩 적용
-
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/5783ca60-0aaf-4e4e-a198-b7472dc9bac7">
-</div>
-
-3. 예제 : 요소를 x축 방향으로 30도, y축 방향으로 10도 기울이고, 45도 회전하려면?
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/e0c82d3a-4c74-469e-87e7-e06e9b0d25f5">
-</div>
-
-  - 첫 번째로 x축 방향으로 30도, y축 방향으로 10도 기울임
-  - 두 번째로 45도 회전
-
-<div align = "center">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/4791e0ae-6f20-424a-80a4-be81d62b3433">
-</div>
-
-
-4. 예제 : 요소를 y축 방향으로 0.75 축소, x축 방향으로 20도 기울이려면?
-```css
-transform:scaleY(0.75) skewX(20deg)
 ```
