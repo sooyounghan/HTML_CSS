@@ -14,7 +14,8 @@
 -----
 1. Viewport의 너비에 따라 웹 사이트의 스타일 시트를 수정할 수 있음
 2. Viewport 너비 이외에도 단말기 종류, 해상도 등 기준으로 설정 가능
-
+3. 배율이 100%로 유지되어야 함(배율에 따라 달라질 수 있으므로, 주의)
+   
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/ccc7b5dd-3095-476a-8f59-a7736c2fb99b">
 </div>
