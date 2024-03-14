@@ -23,119 +23,142 @@
 1. MemberJoin.jsp
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title> Member Join</title>
+	<title>Join</title>
 	<style>
-	
-	h2 {
-	display:flex;
-	flex-direction:row;
-	justify-content:center; 
-	align-items:center;
-	}
-	
+		
+		td, input{
+			font-size:13px;	
+		}
+		
+		h2 {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		form {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		table {
+			width:600px;
+			height:450px;
+			text-align:center;
+			border:1px solid black;
+		}
+		
+		td, tr {
+			border:1px solid black;
+		}
+		
+		.menu {
+			text-align:center;
+		}
+		
+		.menu input {
+			display:inline-block;
+		}
+		
 	</style>
 </head>
+
 <body>
-		<h2>회원 가입</h2>
-		<form action="MemberJoinProc.jsp" method = "post">
-			<table border="1">
-				<tr height="50">
-					<td width="150" align="center">아이디 </td>
-					<td width="350" align="center">
-						<input type="text" name="id" size="40" placeholder="id를 넣으세요">						
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">패스워드</td>
-					<td width="350" align="center">
-						<input type="password" name="pass1" size="40"
-						placeholder="비밀번호는 숫자와 영어만 넣어주세요">						
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">패스워드 확인</td>
-					<td width="350" align="center">
-						<input type="password" name="pass2" size="40"
-						placeholder="비밀번호는 숫자와 영어만 넣어주세요">						
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">이메일</td>
-					<td width="350" align="center">
-						<input type="email" name="email" size="40">						
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">전화 번호 </td>
-					<td width="350" align="center">
-						<input type="tel" name="tel" size="40">				
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">당신의 관심 분야</td>
-					<td width="350" align="center">
-						<input type="checkbox" name="hobby" value="캠핑">캠핑&nbsp;
-						<input type="checkbox" name="hobby" value="등산">등산&nbsp;
-						<input type="checkbox" name="hobby" value="독서">독서&nbsp;
-						<input type="checkbox" name="hobby" value="음악">음악&nbsp;				
-					</td>
-				</tr>
-				
-			   <tr height="50">
-					<td width="150" align="center">당신의 직업은</td>
-					<td width="350" align="center">
-						<select name="job">
-						<option value="교사">교사</option>
-						<option value="의사">의사</option>
-						<option value="변호사">변호사</option>
-						<option value="기술사">기술사</option>
-						</select>				
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">당신의 연령은</td>
-					<td width="350" align="center">
-						<input type="radio" name="age" value="10">10대&nbsp;
-						<input type="radio" name="age" value="20">20대&nbsp;
-						<input type="radio" name="age" value="30">30대&nbsp;
-						<input type="radio" name="age" value="40">40대&nbsp;			
-					</td>
-				</tr>
-				
-				<tr height="50">
-					<td width="150" align="center">하고 싶은말</td>
-					<td width="350" align="center">
-							<textarea rows="5" cols="40" name="info"></textarea>	
-					</td>
-				</tr>
-					
-				<tr height="50">
-					<td width="150" colspan="2">
-						<input type="submit" value="회원 가입">	
-						<input type="reset" value="취소">			
-					</td>
-				</tr>	
-			</table>
-		</form>	
+
+	<h2>회원 가입</h2>
+	<form action="MemberJoinProc.jsp" method = "post">
+	<table>
+		<tr>
+			<td>ID</td>
+			<td><input type="text" name="id" size="40" placeholder="ID" required = "required"></td>
+		</tr>
+		
+		<tr>
+			<td>Password</td>
+			<td> <input type="password" name="pass1" size="40" placeholder="Passwrod : Only Number and English" required = "required"></td>
+		</tr>
+		
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="pass1" size="40" placeholder="Passwrod : Only Number and English" required = "required"></td>
+		</tr>
+		
+		<tr>
+			<td>E-Mail</td>
+			<td><input type="email" name="email" size="40" placeholder="Ex) abc@naver.com"></td>
+		</tr>
+		
+		<tr>
+			<td>H.P.</td>
+			<td><input type="tel" name="tel" size="40" placeholder="Ex) 010-1234-5678"></td>
+		</tr>
+		
+		<tr>
+			<td>Hobby</td>
+			<td>
+				<input type="checkbox" name="hobby" value="camping">Camping 
+				<input type="checkbox" name="hobby" value="hiking">Hiking 
+				<input type="checkbox" name="hobby" value="book">Book 
+				<input type="checkbox" name="hobby" value="etc">etc  	
+			</td>
+		</tr>
+		
+	   <tr>
+			<td>Job</td>
+			<td>
+				<select name="job">
+				<option value="teacher">Teacher</option>
+				<option value="doctor">Doctor</option>
+				<option value="lawyer">Lawyer</option>
+				<option value="etc">etc</option>
+				</select>				
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Age</td>
+			<td>
+				<input type="radio" name="age" value="10">10's
+				<input type="radio" name="age" value="20">20's
+				<input type="radio" name="age" value="30">30's
+				<input type="radio" name="age" value="40">40's			
+			</td>
+		</tr>
+		
+		<tr>
+			<td>Info.</td>
+			<td><textarea rows="2" cols="40" name="info" placeholder = "Write Your Information."></textarea></td>
+		</tr>
+			
+		<tr class = "menu">
+			<td colspan="2">
+				<input type="submit" value="Join">	
+				<input type="reset" value="Cancel">			
+			</td>
+		</tr>	
+	</table>
+	</form>	
 </body>
 </html>
 ```
 
-2. MemberBean Class 생성
+2. Member Class 생성
 ```java
 package Model;
 
-public class MemberBean {
+/* 
+ * Member(회원)의 정보를 가지고 있는 클래스
+ */
+
+public class Member {
 	private String id;
 	private String pass1;
 	private String pass2;
@@ -218,6 +241,7 @@ public class MemberBean {
 		this.info = info;
 	}
 }
+
 ```
 
 3. MemberJoin 관련 Table 생성
