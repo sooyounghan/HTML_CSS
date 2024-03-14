@@ -167,7 +167,7 @@ try {
     int len = -1;
 
     // 3. 스트림에서 데이터를 읽어와 버퍼에 저장
-    while((len == reader.read(ch)) != -1) {
+    while((len = reader.read(ch)) != -1) {
         buff.append(ch, 0, len);
     }
 
