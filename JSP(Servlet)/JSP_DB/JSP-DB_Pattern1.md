@@ -8,9 +8,9 @@
 -----
 ### 순서
 -----
-1. 회원가입 JSP 페이지 생성
+1. 회원가입 JSP Page 생성
 2. 회원가입 관련 DB TABLE 생성
-3. 처리해주는 DAO 클래스 생성 - DB와 연동 후 저장 (MemberDAO 패턴 적용)
+3. 처리해주는 DAO Class 생성 - DB와 연동 후 저장 (MemberDAO Pattern 적용)
 4. response.sendRedirect()를 통한 회원 전체 보기 구성
 5. 회원 수정 및 삭제
 
@@ -20,7 +20,7 @@
     * DB TABLE 구성 : 아이디(id) / 비밀번호 (pwd) [비밀번호 확인(repwd)은 중복되므로 제외] / 이메일(email) / 전화번호(tel) / 관심분야 (hobby) / 직업 (job) / 연령(age) / 하고싶은 말 (info)
     * 여기서 관심 분야 (hobby)는 다중 선택이 가능하므로, 해당 값을 배열로 받을 것
 
-1. MemberJoin.jsp
+1. MemberJoin JSP Page
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -244,7 +244,7 @@ public class Member {
 
 ```
 
-3. MemberJoin 관련 Table 생성
+3. MemberJoin Table 생성
 ```sql
 CREATE TABLE MEMBER (
 ID VARCHAR2(10) CONSTARINT MEMBER_ID_PK PRIMARY KEY,
@@ -265,7 +265,7 @@ INFO VARCHAR(500)
 
 </div>
 
-4. JSP 페이지 내 DB 연동
+4. JSP Page 내에서 DB 연동
 
    		Oracle JDBC URL : "jdbc:oracle:thin:@localhost:1521:xe"
 ```jsp
