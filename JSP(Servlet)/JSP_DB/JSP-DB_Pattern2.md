@@ -321,7 +321,7 @@ public class MemberDAO {
 	
 	%>
 	
-	<h2>모든 회원 보기</h2>
+	<h2>All Member Information</h2>
 	
 	<div>
 	<table>
@@ -422,7 +422,7 @@ public class MemberDAO {
 	
 	%>
 	
-	<h2>모든 회원 보기</h2>
+	<h2>All Member Information</h2>
 	
 	<div>
 	<table>
@@ -681,7 +681,7 @@ public class MemberDAO {
 	%>
 	<!-- 3. Table 태그를 이용해 화면에 회원의 정보 출력 -->
 	
-	<h2>회원 정보 보기</h2>
+	<h2>Member Information</h2>
 	
 	<div>
 	<table>
