@@ -218,8 +218,6 @@ public class MemberDAO {
 			// 1. Connection 연결
 			getConn();
 			
-			conn = DriverManager.getConnection(url, id, password);
-			
 			// 2. SELECT Query 작성
 			String sql = "SELECT * FROM MEMBER";
 			pstmt = conn.prepareStatement(sql);
