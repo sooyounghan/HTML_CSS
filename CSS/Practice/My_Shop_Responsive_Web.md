@@ -1,0 +1,539 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Shop</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <section class="mainBanner">
+        <h1 class="text">Welcome to My Shop</h1>
+    </section>
+
+    <div class="container">
+        <section class="wrapper">
+            <div class="sidebar">
+                <nav class="mainMenu">
+                    <ul>
+                        <li><a href="">New Item</a></li>
+                        <li><a href="">Best Item</a></li>
+                        <li><a href="">상품 등록</a></li>
+                        <li><a href="">중고 마켓</a></li>
+                    </ul>
+                </nav>
+                <div class="writeButtonBox">
+                    <button class="writeButton">
+                        상품 등록 <span class = "arrow">></span>
+                    </button>
+                </div>
+            </div>
+            <div class="itemWrap">
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item1.jpeg" alt="탁상용 조명">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">탁상용 조명</p>
+                        <p class="textBox__price">260,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item2.png" alt="머그컵">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">머그컵</p>
+                        <p class="textBox__price">32,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">거실용 슬리퍼</p>
+                        <p class="textBox__price">28,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item1.jpeg" alt="탁상용 조명">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">탁상용 조명</p>
+                        <p class="textBox__price">260,000원</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item2.png" alt="머그컵">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">머그컵</p>
+                        <p class="textBox__price">32,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">거실용 슬리퍼</p>
+                        <p class="textBox__price">28,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item1.jpeg" alt="탁상용 조명">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">탁상용 조명</p>
+                        <p class="textBox__price">260,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item2.png" alt="머그컵">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">머그컵</p>
+                        <p class="textBox__price">32,000원</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">거실용 슬리퍼</p>
+                        <p class="textBox__price">28,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item1.jpeg" alt="탁상용 조명">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">탁상용 조명</p>
+                        <p class="textBox__price">260,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item2.png" alt="머그컵">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">머그컵</p>
+                        <p class="textBox__price">32,000원</p>
+                    </div>
+                </div>
+        
+                <div class="item">
+                    <div class="imagebox">
+                        <img src="./img/item3.jpeg" alt="거실용 슬리퍼">
+                    </div>
+                    <div class="textbox">
+                        <p class="textBox__name">거실용 슬리퍼</p>
+                        <p class="textBox__price">28,000원</p>
+                    </div>
+            </div>    
+        </section>
+    </div>
+</body>
+</html>
+```
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+    box-sizing:border-box;
+    font-family:"Noto Sans KR", "돋움", sans-serif;
+}
+
+html, body {
+    margin:0;
+    padding:0;
+}
+
+a {
+    text-decoration:none;
+}
+
+.mainBanner {
+    width:100%;
+    height:280px;
+    background-image:url("./img/banner.jpg");
+    background-size:cover;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.text {
+    color:white;
+    font-size:42px;
+    font-weight:700;
+
+    text-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);
+
+    animation:title_text 3s ease-in-out;
+}
+
+@keyframes title_text {
+    0% {
+        transform:translateY(70px);
+        opacity:0;
+    }
+
+    92% {
+        transform:translateY(-10px);
+    }
+
+    100% {
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.container {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+.wrapper {
+    width:100%;
+    max-width:1320px;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    padding:10px;
+}
+
+.sidebar {
+    width:170px;
+}
+
+.mainMenu {
+    background-color:orange;
+    border-radius:5px;
+    padding:10px 15px;
+}
+
+.mainMenu ul {
+    display:block;
+    padding:0;
+}
+
+.mainMenu ul li {
+    list-style:none;
+    display:block;
+}
+
+.mainMenu ul li a {
+    display:block;
+    padding:10px;
+    color:white;
+
+    border-radius:20px;
+
+    transition:all 0.3s ease-in-out;
+}
+
+.writeButtonBox {
+    margin-top:10px;
+}
+
+.writeButton {
+    width:100%;
+    background-color:black;
+    border:1px solid black;
+    color:#ffffff;
+
+    padding:10px 20px;
+    text-align:left;
+    font-size:16px;
+
+    transition:all 0.3s ease-in-out;
+}
+
+.writeButton .arrow {
+    display:inline-block;
+    padding-left:10px;
+
+    transition:all 0.3s ease-in-out;
+}
+
+.writeButton:hover {
+    background:white;
+    color:#333333;
+}
+
+.writeButton:hover .arrow {
+    transform:translateX(50px);
+}
+
+.itemWrap {
+    width:calc(100% - 170px);
+
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:flex-start;
+    
+    padding-left:15px;
+}
+
+.item {
+    width:calc(25% - 7px);
+    aspect-ratio:6 / 5;
+
+    position:relative;
+    overflow:hidden;
+    
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.imagebox {
+    width:100%;
+    height:100%;
+
+    z-index:1;
+}
+
+.imagebox img {
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.textbox {
+    width:100%;
+    height:100%;
+
+    position:absolute;
+    top:0;
+    left:0;
+    
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:flex-start;
+
+    padding:20px;
+
+    z-index:3;
+}
+
+.textbox p {
+    color:white;
+    margin:5px 0 0;
+}
+
+.textBox__name {
+    font-size:20px;
+    font-weight:500;
+
+    transform:translateY(50px);
+    opacity:0;
+}
+
+.textBox__price {
+    font-size:16px;
+    font-weight:400;
+
+    transform:translateY(50px);
+    opacity:0;
+}
+
+.item:after {
+    content:"";
+    display:block;
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0, 0.2);
+
+    position:absolute;
+    top:0;
+    left:0;
+
+    z-index:2;
+    opacity:0;
+}
+
+.item:after,
+.item .imagebox img, 
+.item .textBox__name {
+    transition:all 0.4s ease-in-out;
+}
+
+.item .textBox__price {
+    transition:all 0.4s ease-in-out 0.15s;
+}
+
+@media screen and (max-width:767px) {
+    /* Mobile */
+    .mainBanner {
+        height:160px;
+        margin-bottom:0;
+    }
+    
+    .mainMenu {
+        padding:0;
+        border-radius:0;
+    }
+
+    .mainMenu ul {
+        margin:0;
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .mainMenu ul li a {
+        font-size:14px;
+        padding:15px 10px;
+    }
+
+    .mainBanner .text {
+        font-size:26px;
+    }
+
+    .wrapper {
+        flex-direction:column;
+        padding:0;
+    }
+
+    .sidebar {
+        width:100%;
+    }
+
+    .itemWrap {
+        width:100%;
+        margin-top:12px;
+    }
+
+    .writeButtonBox {
+        display:none;
+    }
+
+    .item{
+        width:calc(50% - 7px);
+        overflow:visible;
+        border:1px solid #dddddd;
+    }
+
+    .textbox {
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .textbox p {
+        color:black;
+    }
+    
+    .textBox__name {
+        font-size:18px;
+        font-weight:500;
+    
+        transform:translateY(0);
+        opacity:1;
+    }
+    
+    .textBox__price {
+        font-size:12px;
+        font-weight:400;
+    
+        transform:translateY(0px);
+        opacity:1;
+    }    
+}
+
+@media screen and (min-width:768px) and (max-width:1023px){
+    /* Tablet */
+    .item{
+        overflow:visible;
+        border:1px solid #dddddd;
+    }
+
+    .textbox {
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .textbox p {
+        color:black;
+    }
+    
+    .textBox__name {
+        font-size:18px;
+        font-weight:500;
+    
+        transform:translateY(0);
+        opacity:1;
+    }
+    
+    .textBox__price {
+        font-size:12px;
+        font-weight:400;
+    
+        transform:translateY(0px);
+        opacity:1;
+    }    
+}
+
+/* 이 외는 PC : hover 기능 */
+@media screen and (min-width:1024px) {
+    .mainMenu ul li a:hover {
+        background-color:rgb(255, 145, 0);
+        padding-left:20px;
+    }
+
+    .item:hover:after {
+        opacity:1;
+    }
+
+    .item:hover .imagebox img {
+        transform:scale(1.1);
+        filter:blur(3px);
+    }
+    
+    .item:hover .textBox__name {
+        opacity:1;
+        
+        transform:translateY(0px);
+    }
+    
+    .item:hover .textBox__price {
+        opacity:1;
+    
+        transform:translateY(0px);
+    }
+}
+```
