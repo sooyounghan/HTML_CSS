@@ -73,7 +73,7 @@
 
 <body>
 
-	<h2>회원 가입</h2>
+	<h2>Member Join</h2>
 	<form action="MemberJoinProc.jsp" method = "post">
 	<table>
 		<tr>
