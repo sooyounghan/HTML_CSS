@@ -1,14 +1,13 @@
 -----
 ### JSB-DB Pattern 2 : DAO(Data Access Object) 패턴 적용
 -----
-1. MemberDAO 패턴 적용
-   - 데이터베이스에 접근할 memberDAO 자바 클래스를 생성
-   - JSP가 이 클래스의 객체를 호출해서 하도록 설정
+1. MemberDAO Pattern 적용
+   - 데이터베이스 작업을 처리할 MemberDAO Class를 생성
+   - JSP는 MemberDAO Class 객체를 통해 DB 작업을 처리 하도록 설정
 
-         - 현재, JSP 페이지 내에서 JAVA 코드를 삽입해 구현
-         - memberBean이라는 외부 클래스를 통해서 JSP 페이지 내 데이터를 DB에 삽입
-
-2. MemberDAO 클래스 생성
+         - Pattern1은 JSP 페이지 내에서 JAVA 코드를 삽입해 구현
+      
+2. MemberDAO Class 생성
 ```java
 package Model;
 
@@ -16,116 +15,118 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 /*
- * Oracle DB에 연결하고, SELECT, INSERT, DELETE, UPDATE 작업을 실행할 클래스
+ * Oracle DB 연결 및 SELECT, INSERT, DELETE, UPDATE 작업, 즉 DB에 접근하고 처리할 DAO 클래스
  */
 
 public class MemberDAO {
-	// Oracle 접속 소스 작성
-	String id = "dbPractice"; // ID
-	String password = "1234"; // 비밀번호
-	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 접속 URL
+	// Oracle 접속 
+	String id = "dbPractice"; // DB ID
+	String password = "1234"; // DB Password
+	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // DB Connect URL
 	
-	// DB에 접근할 수 있도록 도와주는 클래스의 객체
+	// DB에 접근 클래스 객체
 	Connection conn = null;
 	
-	// 데이터베이스에서 쿼리를 실행시켜줄 클래스의 객체
+	// 데이터베이스 쿼리 처리 클래스 객체
 	PreparedStatement pstmt = null;
 	
-	// 데이터베이스에서 쿼리를 질의하여 받은 결과를 Return하여 이를 저장할 클래스의 객체
+	// 데이터베이스에서 쿼리 질의 후, 받은 결과에 대해 클래스 객체
 	ResultSet rs = null;
 	
 	/*
-	 * DB에 접근할 수 있도록 도와주는 메서드 
+	 * DB 연결
 	 */
-	public void getConn() {
+	public void getConnection() {
 		try {
-			// 1. 해당 데이터 베이스 사용하는 것을 선언 (클래스 등록 = 오라클 사용)
+			
+			// 1. 데이터 베이스 사용 선언
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			// 2. 해당 데이터 베이스에 접속
+			// 2. 데이터 베이스 접속
 			conn = DriverManager.getConnection(url, id, password);
 			
 		} catch(Exception e) {
 			
+			e.printStackTrace();
+			
 		}
 	}
 	
-	// DB에 한 사람의 회원 정보를 저장하는 메서드
-	public void insertMember(MemberBean memberBean) {
-		// 3. 접속 후 쿼리를 준비
+	/*
+	 *  DB에 한 사람의 회원 정보 삽입
+	 */
+	public void insertMember(Member member) {
 		try {
-			// getConn() 메서드 호출
-			getConn();
+			
+			getConnection();
 			
 			String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		
-			// 4. 쿼리를 사용하도록 설정
 			pstmt = conn.prepareStatement(sql);
 			
-			// 5. ?에 맞게 데이터를 변경
-			pstmt.setString(1, memberBean.getId());
-			pstmt.setString(2, memberBean.getPass1());
-			pstmt.setString(3, memberBean.getEmail());
-			pstmt.setString(4, memberBean.getTel());
-			pstmt.setString(5, memberBean.getHobby());
-			pstmt.setString(6, memberBean.getJob());
-			pstmt.setString(7, memberBean.getAge());
-			pstmt.setString(8, memberBean.getInfo());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPass1());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getTel());
+			pstmt.setString(5, member.getHobby());
+			pstmt.setString(6, member.getJob());
+			pstmt.setString(7, member.getAge());
+			pstmt.setString(8, member.getInfo());
 		
 			pstmt.executeUpdate();
 			
 			conn.close();
+			
 		} catch(Exception e) { 
-		 	e.printStackTrace();
+			
+			e.printStackTrace();
+			
 		}
 	}
 }
 ```
 
-3. MemberJoinProc.jsp 페이지 변경 (SQL 처리 문장 간소화)
+3. MemberJoinProc JSP Page (SQL 처리 문장 간소화)
 ```jsp
-<%@page import="Model.MemberDAO"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="Model.MemberDAO, java.sql.PreparedStatement, java.sql.DriverManager, java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Member Join Processing</title>
 </head>
 
 <body>
 <%
-	String[] hobby = request.getParameterValues("hobby"); // hobby는 배열 단위로 받으므로 이를 처리
+	String[] hobby = request.getParameterValues("hobby"); // Hobby : Multi-choice, 배열 단위
 	
-	String text_hobby = ""; // String 하나로 처리
+	String text_hobby = ""; // Hobby를 하나의 String으로 결합
 	for(int i = 0; i < hobby.length; i++) {
 		text_hobby += hobby[i] + " ";
 	}
 %>
 
-<!-- useBean을 이용해 한꺼번에 데이터를 받음 -->
-<jsp:useBean id="memberBean" class = "Model.MemberBean">
-	<jsp:setProperty name = "memberBean" property ="*"/>
+<!-- useBean : MemberJoin Data 저장 -->
+<jsp:useBean id="member" class = "Model.Member">
+	<jsp:setProperty name = "member" property ="*"/>
 </jsp:useBean>
 
 <%
-	memberBean.setHobby(text_hobby); // String형으로 완성된 hobby를 다시 MemberBean 객체에 저장
+	member.setHobby(text_hobby); // 하나의 String으로 결합된 Hobby를 Member 객체에 저장
 
 	// 1. 데이터베이스 객체 생성
 	MemberDAO mDAO = new MemberDAO();
 		
 	// 2. DB에 데이터 삽입
-	mDAO.insertMember(memberBean);
+	mDAO.insertMember(member);
+	
+	// 3. 회원 가입이 되었으면, 회원 정보 페이지로 이동 시킴
+	response.sendRedirect("MemberList.jsp");
 %>
-
-	오라클 접속 완료
 </body>
 </html>
 ```
@@ -133,7 +134,7 @@ public class MemberDAO {
 -----
 ### MemberList 작성 (SELECT 활용)
 -----
-1. MemberDAO클래스 (allMemberList (모든 유저 정보 가져오는 메서드) 추가)
+1. MemberDAO Class (allMemberList : 모든 유저 정보 데이터를 가져오는 메서드)
 ```java
 package Model;
 
@@ -142,190 +143,584 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.*;
-import Model.MemberBean;
 
 /*
- * Oracle DB에 연결하고, SELECT, INSERT, DELETE, UPDATE 작업을 실행할 클래스
+ * Oracle DB 연결 및 SELECT, INSERT, DELETE, UPDATE 작업, 즉 DB에 접근하고 처리할 DAO 클래스
  */
 
 public class MemberDAO {
-	// Oracle 접속 소스 작성
-	String id = "dbPractice"; // ID
-	String password = "1234"; // 비밀번호
-	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 접속 URL
+	// Oracle 접속 
+	String id = "dbPractice"; // DB ID
+	String password = "1234"; // DB Password
+	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // DB Connect URL
 	
-	// DB에 접근할 수 있도록 도와주는 클래스의 객체
+	// DB에 접근 클래스 객체
 	Connection conn = null;
 	
-	// 데이터베이스에서 쿼리를 실행시켜줄 클래스의 객체
+	// 데이터베이스 쿼리 처리 클래스 객체
 	PreparedStatement pstmt = null;
 	
-	// 데이터베이스에서 쿼리를 질의하여 받은 결과를 Return하여 이를 저장할 클래스의 객체
+	// 데이터베이스에서 쿼리 질의 후, 받은 결과에 대해 클래스 객체
 	ResultSet rs = null;
 	
 	/*
-	 * DB에 접근할 수 있도록 도와주는 메서드 
+	 * DB 연결
 	 */
-	public void getConn() {
+	public void getConnection() {
 		try {
-			// 1. 해당 데이터 베이스 사용하는 것을 선언 (클래스 등록 = 오라클 사용)
+			
+			// 1. 데이터 베이스 사용 선언
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			// 2. 해당 데이터 베이스에 접속
+			// 2. 데이터 베이스 접속
 			conn = DriverManager.getConnection(url, id, password);
 			
 		} catch(Exception e) {
+			
 			e.printStackTrace();
+			
 		}
 	}
 	
-	// DB에 한 사람의 회원 정보를 저장하는 메서드
-	public void insertMember(MemberBean memberBean) {
-		// 3. 접속 후 쿼리를 준비
+	/*
+	 *  DB에 한 사람의 회원 정보 삽입
+	 */
+	public void insertMember(Member member) {
 		try {
-			// getConn() 메서드 호출
-			getConn();
+			
+			getConnection();
 			
 			String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 		
-			// 4. 쿼리를 사용하도록 설정
 			pstmt = conn.prepareStatement(sql);
 			
-			// 5. ?에 맞게 데이터를 변경
-			pstmt.setString(1, memberBean.getId());
-			pstmt.setString(2, memberBean.getPass1());
-			pstmt.setString(3, memberBean.getEmail());
-			pstmt.setString(4, memberBean.getTel());
-			pstmt.setString(5, memberBean.getHobby());
-			pstmt.setString(6, memberBean.getJob());
-			pstmt.setString(7, memberBean.getAge());
-			pstmt.setString(8, memberBean.getInfo());
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPass1());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getTel());
+			pstmt.setString(5, member.getHobby());
+			pstmt.setString(6, member.getJob());
+			pstmt.setString(7, member.getAge());
+			pstmt.setString(8, member.getInfo());
 		
 			pstmt.executeUpdate();
 			
 			conn.close();
-		} catch(Exception ex) { 
+			
+		} catch(Exception e) { 
+			
 			e.printStackTrace();
+			
 		}
 	}
 	
-	// 모든 회원의 정보를 Return해주는 메서드
-	public List<MemberBean> allMemberList() {
-		List<MemberBean> memberList = new ArrayList<MemberBean>();
+	/*
+	 * 모든 회원 정보 확인
+	 */
+	public List<Member> allMemberList() {
+		List<Member> memberList = new ArrayList<Member>();
 		
 		try {
 			
-			// 1. Connection 연결
-			getConn();
+			getConnection();
 			
-			// 2. SELECT Query 작성
 			String sql = "SELECT * FROM MEMBER";
 			pstmt = conn.prepareStatement(sql);
 			
-			// 3. SELECT Query의 결과를 ResultSet 객체로 받음
 			rs = pstmt.executeQuery();
 			
-			// 4. ResultSet에 저장된 데이터를 추출 
-			while(rs.next()) { // 4-1. 저장된 데이터만큼 까지 반복문 실행
+			while(rs.next()) { // 1. 저장된 데이터만큼 까지 반복문 실행
 				
-				// 4-2. ArrayList memberList에 저장할 MemberBean 객체 생성
-				MemberBean memberBean = new MemberBean();
+				// 2. memberList에 저장할 Member 객체 생성
+				Member member = new Member();
 				
-				// 4-3. DB에서 받아온 값들을 Setter 함수를 통해 저장
-				memberBean.setId(rs.getString(1));
-				memberBean.setPass1(rs.getString(2));
-				memberBean.setEmail(rs.getString(3));
-				memberBean.setTel(rs.getString(4));
-				memberBean.setHobby(rs.getString(5));
-				memberBean.setJob(rs.getString(6));
-				memberBean.setAge(rs.getString(7));
-				memberBean.setInfo(rs.getString(8));
+				// 3. DB 처리 결과를 Member Setter로 DB 처리 결과 저장
+				member.setId(rs.getString(1));
+				member.setPass1(rs.getString(2));
+				member.setEmail(rs.getString(3));
+				member.setTel(rs.getString(4));
+				member.setHobby(rs.getString(5));
+				member.setJob(rs.getString(6));
+				member.setAge(rs.getString(7));
+				member.setInfo(rs.getString(8));
 				
-				// 4-4. ArrayList에 저장
-				memberList.add(memberBean);
+				memberList.add(member);
 			}
 			
 			conn.close();
+			
 		} catch(Exception e) {
+			
 			e.printStackTrace();
+			
 		}
+		
 		return memberList;
 	}
 }
 ```
 
-2. MemberList.jsp (MemberList 출력 페이지)
+2. MemberList JSP Page
 ```jsp
-<%@ page import="Model.MemberBean, Model.MemberDAO, java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="Model.Member, Model.MemberDAO, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Member List</title>
 	
-	<style>
+	<style>	
 	
-	h2 {
-	display:flex;
-	flex-direction:row;
-	justify-content:center; 
-	align-items:center;
-	}
+		h2 {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		div {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		table {
+			width:600px;
+			height:150px;
+			text-align:center;
+			border:1px solid black;
+		}
+		
+		td, tr {
+			border:1px solid black;
+			font-size:13px;
+		}
+		
+		a {
+			color:black;
+			font-weight:600;
+			text-decoration:none;
+		}
 	
 	</style>
 	
 </head>
 
 <body>
-	<!-- 1. DB에서 모든 회원의 정보를 가져옴
-		 2. HTML 태그를 이용해 화면에 회원정보 출력 -->
 
-				
+	<!-- 1. DB에서 모든 회원의 정보
+		 2. 화면에 회원정보 출력 -->
 	<%
 	MemberDAO mDAO = new MemberDAO();
 	
-	// 회원들의 정보가 얼마나 저장되어있는지 모르기에, 가변길이인 ArrayList 또는 Vector 이용
-	List<MemberBean> memberList = mDAO.allMemberList();
+	// ArrayList 또는 Vector 이용
+	List<Member> memberList = mDAO.allMemberList();
+	
 	%>
 	
-	<h2>회원 가입</h2>
-	<table border="1">
-		<tr height="50">
-			<td width="150" align="center">아이디</td>
-			<td width="150" align="center">패스워드</td>
-			<td width="150" align="center">이메일</td>
-			<td width="150" align="center">전화 번호 </td>
-			<td width="150" align="center">관심 분야</td>
-			<td width="150" align="center">직업</td>
-			<td width="150" align="center">연령</td>
-			<td width="150" align="center">소개</td>
+	<h2>모든 회원 보기</h2>
+	
+	<div>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>Password</td>
+			<td>Email</td>
+			<td>H.P.</td>
 		</tr>
+		
 	<%
+	
 	for(int i = 0; i < memberList.size(); i++) {
-		MemberBean member = memberList.get(i);
+		Member member = memberList.get(i);
 
 	%>
-		<tr height="50">
-			<td width="350" align="center"><%=member.getId()%></td>
-			<td width="350" align="center"><%=member.getPass1()%></td>
-			<td width="350" align="center"><%=member.getEmail()%></td>
-			<td width="350" align="center"><%=member.getTel()%></td>
-			<td width="350" align="center"><%=member.getHobby()%></td>				
-			<td width="350" align="center"><%=member.getJob()%></td>
-			<td width="350" align="center"><%=member.getAge()%></td>
-			<td width="350" align="center"><%=member.getInfo()%></td>
+		<tr>
+			<td>
+			<td><%=member.getPass1()%></td>
+			<td><%=member.getEmail()%></td>
+			<td><%=member.getTel()%></td>
 		</tr>
 		<%
+		
 	}
+	
 		%>
 		
 	</table>
+	</div>
+		
 </body>
 </html>
 ```
 -----
 ### 회원 상세보기 설정
 -----
-1. 회원의 아이디를 클릭하면, 그 회원에 대한 정보 출력
+1. 회원의 아이디를 클릭하면, 그 회원에 대한 정보 출력 (MemberList → MemberInfo)
+   
+2. MemberList JSP Page
+```jsp
+<%@ page import="Model.Member, Model.MemberDAO, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Member List</title>
+	
+	<style>	
+	
+		h2 {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		div {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		table {
+			width:600px;
+			height:150px;
+			text-align:center;
+			border:1px solid black;
+		}
+		
+		td, tr {
+			border:1px solid black;
+			font-size:13px;
+		}
+		
+		a {
+			color:black;
+			font-weight:600;
+			text-decoration:none;
+		}
+	
+	</style>
+	
+</head>
+
+<body>
+
+	<!-- 1. DB에서 모든 회원의 정보
+		 2. 화면에 회원정보 출력 -->
+	<%
+	MemberDAO mDAO = new MemberDAO();
+	
+	// ArrayList 또는 Vector 이용
+	List<Member> memberList = mDAO.allMemberList();
+	
+	%>
+	
+	<h2>모든 회원 보기</h2>
+	
+	<div>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td>Password</td>
+			<td>Email</td>
+			<td>H.P.</td>
+		</tr>
+		
+	<%
+	
+	for(int i = 0; i < memberList.size(); i++) {
+		Member member = memberList.get(i);
+
+	%>
+		<tr>
+			<td>
+			<!-- 회원 ID를 클릭하면, 그 회원의 정보 페잊지로 이동 -->
+			<a href = "MemberInfo.jsp?id=<%=member.getId()%>"><%=member.getId()%></a></td>
+			<td><%=member.getPass1()%></td>
+			<td><%=member.getEmail()%></td>
+			<td><%=member.getTel()%></td>
+		</tr>
+		<%
+		
+	}
+	
+		%>
+		
+	</table>
+	</div>
+		
+</body>
+</html>
+```
+
+3. MemberDAO Class에 한 회원에 대한 정보를 볼 수 있는 oneMemberList 구현
+```java
+package Model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+
+/*
+ * Oracle DB 연결 및 SELECT, INSERT, DELETE, UPDATE 작업, 즉 DB에 접근하고 처리할 DAO 클래스
+ */
+
+public class MemberDAO {
+	// Oracle 접속 
+	String id = "dbPractice"; // DB ID
+	String password = "1234"; // DB Password
+	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // DB Connect URL
+	
+	// DB에 접근 클래스 객체
+	Connection conn = null;
+	
+	// 데이터베이스 쿼리 처리 클래스 객체
+	PreparedStatement pstmt = null;
+	
+	// 데이터베이스에서 쿼리 질의 후, 받은 결과에 대해 클래스 객체
+	ResultSet rs = null;
+	
+	/*
+	 * DB 연결
+	 */
+	public void getConnection() {
+		try {
+			
+			// 1. 데이터 베이스 사용 선언
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// 2. 데이터 베이스 접속
+			conn = DriverManager.getConnection(url, id, password);
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	/*
+	 *  DB에 한 사람의 회원 정보 삽입
+	 */
+	public void insertMember(Member member) {
+		try {
+			
+			getConnection();
+			
+			String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+		
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPass1());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getTel());
+			pstmt.setString(5, member.getHobby());
+			pstmt.setString(6, member.getJob());
+			pstmt.setString(7, member.getAge());
+			pstmt.setString(8, member.getInfo());
+		
+			pstmt.executeUpdate();
+			
+			conn.close();
+			
+		} catch(Exception e) { 
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	/*
+	 * 모든 회원 정보 확인
+	 */
+	public List<Member> allMemberList() {
+		List<Member> memberList = new ArrayList<Member>();
+		
+		try {
+			
+			getConnection();
+			
+			String sql = "SELECT * FROM MEMBER";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) { // 1. 저장된 데이터만큼 까지 반복문 실행
+				
+				// 2. memberList에 저장할 Member 객체 생성
+				Member member = new Member();
+				
+				// 3. DB 처리 결과를 Member Setter로 DB 처리 결과 저장
+				member.setId(rs.getString(1));
+				member.setPass1(rs.getString(2));
+				member.setEmail(rs.getString(3));
+				member.setTel(rs.getString(4));
+				member.setHobby(rs.getString(5));
+				member.setJob(rs.getString(6));
+				member.setAge(rs.getString(7));
+				member.setInfo(rs.getString(8));
+				
+				memberList.add(member);
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return memberList;
+	}
+	
+	/*
+	 * 한 회원 정보 확인
+	 */
+	public Member oneMemberList(String id) {
+		Member member = new Member();
+		
+		try {
+			
+			getConnection();
+			
+			String sql = "SELECT * FROM MEMBER WHERE ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member.setId(rs.getString(1));
+				member.setPass1(rs.getString(2));
+				member.setEmail(rs.getString(3));
+				member.setTel(rs.getString(4));
+				member.setHobby(rs.getString(5));
+				member.setJob(rs.getString(6));
+				member.setAge(rs.getString(7));
+				member.setInfo(rs.getString(8));
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return member;
+	}
+}
+```
+
+4. 한 회원 정보를 볼 수 있는 MemberInfo JSP Page 생성
+```jsp
+<%@page import="Model.Member, Model.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Member Information</title>
+
+	<style>
+	
+		h2 {
+		display:flex;
+		flex-direction:row;
+		justify-content:center; 
+		align-items:center;
+		}
+		
+		div {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		table {
+			width:600px;
+			height:300px;
+			text-align:center;
+			border:1px solid black;
+		}
+		
+		td, tr {
+			border:1px solid black;
+			font-size:13px;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+
+	<%
+	// 1. MemberList에서 통해 전달받은 ID 값 받기
+	String id = request.getParameter("id");
+	
+	// 2. 데이터베이스에서 한 회원의 정보를 가져옴
+	MemberDAO mDAO = new MemberDAO();
+	
+	// 3. 해당하는 ID의 회원 정보 반환
+	Member member = mDAO.oneMemberList(id); 
+	%>
+	<!-- 3. Table 태그를 이용해 화면에 회원의 정보 출력 -->
+	
+	<h2>회원 정보 보기</h2>
+	
+	<div>
+	<table>
+		<tr>
+			<td>ID</td>
+			<td><%=member.getId() %></td>
+		</tr>
+		<tr>
+			<td>PassWord</td>
+			<td><%=member.getPass1() %></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><%=member.getEmail() %></td>
+		</tr>
+		<tr>
+			<td>H.P.</td>
+			<td><%=member.getTel() %></td>
+		</tr>
+		<tr>
+			<td>Hobby</td>
+			<td><%=member.getHobby() %></td>
+		</tr>
+		<tr>
+			<td>Job</td>
+			<td><%=member.getJob() %></td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td><%=member.getAge() %></td>
+		</tr>
+		<tr>
+			<td>Info.</td>
+			<td><%=member.getInfo() %></td>
+		</tr>
+	</table>
+	</div>
+	
+</body>
+</html>
+```
+
