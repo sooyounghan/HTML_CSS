@@ -78,8 +78,8 @@ public class MemberDAO {
 			pstmt.executeUpdate();
 			
 			conn.close();
-		} catch(Exception ex) { 
-		
+		} catch(Exception e) { 
+		 	e.printStackTrace();
 		}
 	}
 }
@@ -175,7 +175,7 @@ public class MemberDAO {
 			conn = DriverManager.getConnection(url, id, password);
 			
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
@@ -205,7 +205,7 @@ public class MemberDAO {
 			
 			conn.close();
 		} catch(Exception ex) { 
-		
+			e.printStackTrace();
 		}
 	}
 	
@@ -247,7 +247,7 @@ public class MemberDAO {
 			
 			conn.close();
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 		return memberList;
 	}
