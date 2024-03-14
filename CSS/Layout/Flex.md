@@ -43,7 +43,7 @@ display:flex
 </div>
 
 ----
-### flex-justify
+### justify-content
 -----
 1. 중심축 방향 정렬 결정
   - flex-direction : row이면, 중심축이 가로이므로 가로 방향에 대한 정렬
