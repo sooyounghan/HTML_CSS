@@ -138,7 +138,7 @@ package Model;
 public class MemberBean {
 	private String id;
 	private String pass1;
-	private String repwd;
+	private String pass2;
 	private String email;
 	private String tel;
 	private String hobby;
@@ -149,24 +149,25 @@ public class MemberBean {
 	public String getId() {
 		return id;
 	}
+	
 	public void setId(String id) {
 		this.id = id;
 	}
 	
 	public String getPass1() {
-		return pwd;
+		return pass1;
 	}
 	
 	public void setPass1(String pass1) {
-		this.pwd = pwd;
+		this.pass1 = pass1;
 	}
 	
-	public String getRepwd() {
-		return repwd;
+	public String getPass2() {
+		return pass2;
 	}
 	
-	public void setRepwd(String repwd) {
-		this.repwd = repwd;
+	public void setPass2(String pass2) {
+		this.pass2 = pass2;
 	}
 	
 	public String getEmail() {
@@ -222,7 +223,7 @@ public class MemberBean {
 3. MemberJoin 관련 Table 생성
 ```sql
 CREATE TABLE MEMBER (
-ID VARCHAR2(10) CONSTARINT MEMBER_ID_PK PRIMARY KEY(ID),
+ID VARCHAR2(10) CONSTARINT MEMBER_ID_PK PRIMARY KEY,
 PASS1 VARCHAR2(20) NOT NULL,
 EMAIL VARCHAR2(50),
 TEL VARCHAR2(20),
