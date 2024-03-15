@@ -10,11 +10,12 @@
    - Member Join
 
 -----
-### Member Update 구현
+### Member Update / Delete 구현
 -----
 
       Button onclick = "location.href='이동할 페이지명'"
       Update Page에서 기본 회원 정보 유지 : 결국 value 값에 저장된 값 선언
+      ID 정보는 처리 JSP페이지로 이동 할 때, input hidden 이용
     
 1. MemberUpdate JSP Page 생성
 ```jsp
@@ -234,4 +235,409 @@
 	
 </body>
 </html>
+```
+
+3. MemberUpdateProc JSP Web Page
+```jsp
+<%@page import="Model.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Member Update Processing</title>
+</head>
+
+<body>
+
+<!-- useBean 이용 Member 객체를 선언 후, UpdateForm에 작성된 정보 받아옴 -->
+<jsp:useBean id = "member" class = "Model.Member">
+	<jsp:setProperty name = "member" property = "*"/>
+</jsp:useBean>
+
+<%
+	MemberDAO mDAO = new MemberDAO();
+	
+	// Password 값 받아오기
+	String password = mDAO.getPass(member.getId());
+	
+	// DB에 저장된 Password와 입력된 Password 비교
+	if(member.getPass1().equals(password)) {
+		// 회원 정보 수정
+		mDAO.updateMember(member);
+		
+		// 완료되면, MemberList 페이지로 이동
+		response.sendRedirect("MemberList.jsp");
+		
+	} else {
+		// 일치하지않으면, 오류창 발생 후 전 페이지로 이동
+%>
+	<script>
+		alert("Not Match Password!");
+		history.go(-1);
+	</script>
+<%
+	}
+%>
+</body>
+</html>
+```
+
+4. MemberDelete JSP Page
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8">
+	<title>Member Delete Processing</title>
+	<style>
+	
+		h2 {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		div {
+			display:flex;
+			flex-direction:row;
+			justify-content:center; 
+			align-items:center;
+		}
+		
+		table {
+			width:600px;
+			height:150px;
+			text-align:center;
+			border:1px solid black;
+		}
+		
+		td, tr {
+			border:1px solid black;
+			font-size:13px;
+		}
+		
+		.menu input {
+			display:inline-block;
+		}
+		
+	</style>
+
+</head>
+<body>
+
+	<h2>Member Delete</h2>
+	
+	<div>
+	<table>
+	<form action = "MemberDeleteProc.jsp" method = "post">
+		<tr>
+			<td>ID</td>
+			<td><%=request.getParameter("id")%></td>
+		</tr>
+		
+		<tr>
+			<td>PassWord</td>
+			<td> <input type="password" name="pass1" size="40" required = "required"></td>
+		</tr>
+		
+		<tr class = "menu">
+			<td colspan="2">
+				<input type="hidden" name = "id" value="<%=request.getParameter("id")%>">
+				<input type="submit" value="Member Delete"></form>
+				<button name="memberList" onclick="location.href='MemberList.jsp'">Member List</button>
+			</td>
+		</tr>	
+	</table>
+	</div>
+</body>
+</html>
+```
+
+5. MemberDeleteProc JSP Page
+```jsp
+<%@page import="Model.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Member Delete Processing</title>
+</head>
+<body>
+
+<!-- useBean 이용 Member 객체를 선언 후, UpdateForm에 작성된 정보 받아옴 -->
+<jsp:useBean id = "member" class = "Model.Member">
+	<jsp:setProperty name = "member" property = "*"/>
+</jsp:useBean>
+
+<%
+	MemberDAO mDAO = new MemberDAO();
+	
+	// Password 값 받아오기
+	String password = mDAO.getPass(member.getId());
+	
+	// DB에 저장된 Password와 입력된 Password 비교
+	if(member.getPass1().equals(password)) {
+		// 회원 정보 삭제 (아이디만을 비교해서 삭제)
+		mDAO.deleteMember(member.getId());
+		
+		// 완료되면, MemberList 페이지로 이동
+		response.sendRedirect("MemberList.jsp");
+		
+	} else {
+		// 일치하지않으면, 오류창 발생 후 전 페이지로 이동
+%>
+	<script>
+		alert("Not Match Password!");
+		history.go(-1);
+	</script>
+<%
+	}
+%>
+
+</body>
+</html>
+```
+
+6. MemberDAO 클래스 전체
+```java
+package Model;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.*;
+
+/*
+ * Oracle DB 연결 및 SELECT, INSERT, DELETE, UPDATE 작업, 즉 DB에 접근하고 처리할 DAO 클래스
+ */
+
+public class MemberDAO {
+	// Oracle 접속 
+	String id = "dbPractice"; // DB ID
+	String password = "1234"; // DB Password
+	String url = "jdbc:oracle:thin:@localhost:1521:xe"; // DB Connect URL
+	
+	// DB에 접근 클래스 객체
+	Connection conn = null;
+	
+	// 데이터베이스 쿼리 처리 클래스 객체
+	PreparedStatement pstmt = null;
+	
+	// 데이터베이스에서 쿼리 질의 후, 받은 결과에 대해 클래스 객체
+	ResultSet rs = null;
+	
+	/*
+	 * DB 연결
+	 */
+	public void getConnection() {
+		try {
+			
+			// 1. 데이터 베이스 사용 선언
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// 2. 데이터 베이스 접속
+			conn = DriverManager.getConnection(url, id, password);
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	/*
+	 *  DB에 한 사람의 회원 정보 삽입
+	 */
+	public void insertMember(Member member) {
+		try {
+			
+			getConnection();
+			
+			String sql = "INSERT INTO MEMBER VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+		
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPass1());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getTel());
+			pstmt.setString(5, member.getHobby());
+			pstmt.setString(6, member.getJob());
+			pstmt.setString(7, member.getAge());
+			pstmt.setString(8, member.getInfo());
+		
+			pstmt.executeUpdate();
+			
+			conn.close();
+			
+		} catch(Exception e) { 
+			
+			e.printStackTrace();
+			
+		}
+	}
+	
+	/*
+	 * 모든 회원 정보 확인
+	 */
+	public List<Member> allMemberList() {
+		List<Member> memberList = new ArrayList<Member>();
+		
+		try {
+			
+			getConnection();
+			
+			String sql = "SELECT * FROM MEMBER";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) { // 1. 저장된 데이터만큼 까지 반복문 실행
+				
+				// 2. memberList에 저장할 Member 객체 생성
+				Member member = new Member();
+				
+				// 3. DB 처리 결과를 Member Setter로 DB 처리 결과 저장
+				member.setId(rs.getString(1));
+				member.setPass1(rs.getString(2));
+				member.setEmail(rs.getString(3));
+				member.setTel(rs.getString(4));
+				member.setHobby(rs.getString(5));
+				member.setJob(rs.getString(6));
+				member.setAge(rs.getString(7));
+				member.setInfo(rs.getString(8));
+				
+				memberList.add(member);
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return memberList;
+	}
+	
+	/*
+	 * 한 회원 정보 확인
+	 */
+	public Member oneMemberList(String id) {
+		Member member = new Member();
+		
+		try {
+			
+			getConnection();
+			
+			String sql = "SELECT * FROM MEMBER WHERE ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member.setId(rs.getString(1));
+				member.setPass1(rs.getString(2));
+				member.setEmail(rs.getString(3));
+				member.setTel(rs.getString(4));
+				member.setHobby(rs.getString(5));
+				member.setJob(rs.getString(6));
+				member.setAge(rs.getString(7));
+				member.setInfo(rs.getString(8));
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return member;
+	}
+	
+	/*
+	 * 회원의 ID 값을 입력 받아, 그 회원의 PassWord 반환 
+	 */
+	public String getPass(String id) {
+		String password = "";
+		
+		try {
+			
+			getConnection();
+			
+			String sql = "SELECT PASS1 FROM MEMBER WHERE ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				password = rs.getString(1);
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+		
+		return password;
+	}
+	
+	/*
+	 * 회원정보를 수정하는 메서드
+	 */
+	public void updateMember(Member member) {
+		try {
+			getConnection();
+			
+			String sql = "UPDATE MEMBER SET EMAIL = ?, TEL = ?, INFO = ? WHERE ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, member.getEmail());
+			pstmt.setString(2, member.getTel());
+			pstmt.setString(3, member.getInfo());
+			pstmt.setString(4, member.getId());
+			
+			pstmt.executeUpdate();
+			
+			conn.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/*
+	 * 한 회원을 삭제하는 메서드 (ID 정보를 받아서 삭제)
+	 */
+	public void deleteMember(String id) {
+		try {
+			getConnection();
+			
+			String sql = "DELETE FROM MEMBER WHERE ID = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			
+			pstmt.executeUpdate();
+			
+			conn.close();
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+	}
+}
 ```
