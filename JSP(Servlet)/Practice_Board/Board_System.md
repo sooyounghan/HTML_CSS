@@ -4,6 +4,7 @@
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/3a2d3840-8ac2-48e6-8584-4dca95d28ee5">
 </div>
+
   - 답변형 게사판이므로, 글 읽기 다음에 답변형이라는 기능을 추가
 
 1. Board Table 구성 
