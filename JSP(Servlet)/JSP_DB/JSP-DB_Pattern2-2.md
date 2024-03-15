@@ -84,7 +84,7 @@
 		</tr>
 		<tr>
 			<td>PassWord</td>
-			<td><%=member.getPass1() %></td>
+			<td> <input type="password" name="pass1" size="40" required = "required"></td>
 		</tr>
 		<tr>
 			<td>Email</td>
