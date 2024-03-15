@@ -69,7 +69,7 @@
 
     
 3. Java 혹은 JSP Page에서 설정
-```jsp
+```java
 import javax.naming.Context; 
 import javax.naming.InitialContext; // Web Container의 초기 Context를 가져오기 위해 Import
 import javax.sql.DataSource; //  java.sql 패키지의 기능을 보조하기 위해 Import
