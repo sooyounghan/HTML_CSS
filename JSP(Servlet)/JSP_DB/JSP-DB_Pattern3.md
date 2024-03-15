@@ -37,7 +37,7 @@
       					username = "dbPractice" password = "1234" url="jdbc:oracle:thin:@localhost:1521:xe"/>   			
       </Context>
 ```
-  - <Resource></Resoure> : 자원을 할당하는 것을 의미
+  - < Resource >~< /Resoure > : 자원을 할당하는 것을 의미
   - Resource 태그 내 속성 설명
     + name : 자원을 사용할 이름
     + auth : 자원 관리자 (Web Container Connection Pool을 이용할 것이기 때문에 Container로 설정)
