@@ -114,6 +114,7 @@
 		<tr class = "menu">
 			<td colspan="2">
 				<input type="submit" value="Member Update"></form>
+				<button name="memberList" onclick="location.href='MemberList.jsp'">Member List</button>
 			</td>
 		</tr>	
 	</table>
