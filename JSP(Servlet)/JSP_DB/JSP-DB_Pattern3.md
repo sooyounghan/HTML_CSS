@@ -57,7 +57,7 @@
 ```jsp
 <resource-ref>
      <description>connection</description>
-     <res-ref-name>jdbc/oracle</res-ref-name>
+     <res-ref-name>jdbc/pool</res-ref-name>
      <res-type>javax.sql.DataSource</res-type>
      <res-auth>Container</res-auth>
 </resource-ref>
