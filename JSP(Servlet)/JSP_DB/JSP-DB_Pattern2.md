@@ -356,6 +356,10 @@ public class MemberDAO {
 </body>
 </html>
 ```
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/9dcafc25-3f91-44f0-ad95-571f3421c4ca">
+</div>
+
 -----
 ### 회원 상세보기 설정
 -----
@@ -723,4 +727,6 @@ public class MemberDAO {
 </body>
 </html>
 ```
-
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/cc257690-c351-4f30-8a78-ac2f7e1a05b5">
+</div>
