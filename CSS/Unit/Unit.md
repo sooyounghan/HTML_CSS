@@ -36,7 +36,7 @@
 </div>
 
 
-4. vv / vh
+4. vw / vh
    - 요소의 규격을 viewport의 너비값과 높이값에 비례하여 결정
    - viewport : 브라우저 안에서 실제로 화면이 그려지는 영역
 <div align = "center">
