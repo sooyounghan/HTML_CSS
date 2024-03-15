@@ -11,6 +11,7 @@
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/1cfca3d3-8bb1-4aee-9eec-c3b6def2f8b3">
 </div>
+
   - NUM : Auto-Increment(Sequence)
 
 
