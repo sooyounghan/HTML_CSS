@@ -40,7 +40,7 @@ background-image:linear-gradient(to top, red, blue);
 </div>
 
   - linear-gradient : 선형 그라데이션
-  - radical-gradient : 원형 그라데이션
+  - radial-gradient : 원형 그라데이션
   - conic-gradient : 콘형 그라데이션
 
 4. 다중 이미지 삽입 및 이미지-그라데이션 삽입
