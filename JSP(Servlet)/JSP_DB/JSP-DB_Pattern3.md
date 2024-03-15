@@ -19,6 +19,7 @@
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/39fa8ccb-d54e-43d8-8af9-7a5f10560dd7">
 </div>
+
   - 사용자가 요청을 함
   - 요청은 Contorl을 거쳐서 Model로 전달
   - Model로 넘어간 요청은 JNDI에 등록된 데이터베이스 객체(Type : DataSource)를 검색
