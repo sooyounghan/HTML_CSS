@@ -730,3 +730,4 @@ public class MemberDAO {
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/cc257690-c351-4f30-8a78-ac2f7e1a05b5">
 </div>
+
