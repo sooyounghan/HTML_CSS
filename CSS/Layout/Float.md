@@ -168,7 +168,7 @@ p {
     clear:both;
 }
 ```
-  - clearfix의 설정 때문에 float가 적용된 요소를 clear 시킬 수 있음
+  - clearset의 설정 때문에 float가 적용된 요소를 clear 시킬 수 있음
   - 따라서, float 요소 속성에 대해 영향을 받는 요소에 대해 clearfix 속성이라는 빈 div를 먼저 생성
   - clearset 클래스로 설정해 항상 영향을 받지 않도록 설정 가능
 
