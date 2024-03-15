@@ -180,8 +180,6 @@ public class BoardDAO {
 			DataSource ds = (DataSource)envcnx.lookup("jdbc/pool");
 			
 			conn = ds.getConnection();
-			
-			conn.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
