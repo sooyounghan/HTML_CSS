@@ -379,9 +379,17 @@ public class BoardDAO {
 		    border-right:1px solid black;
 		}
 		
-		.name {
+		.menu .name {
 		    width:calc(100% - 400px);
 		    border-right:1px solid black;
+		   	display:flex;
+		    flex-direction:row;
+		    justify-content:flex-start;
+		    align-content:center;
+		}
+				
+		.menu_name b {
+			transform:translateX(265px);
 		}
 		
 		.name a {
@@ -390,6 +398,7 @@ public class BoardDAO {
 			font-weight:600;
 			text-decoration:none;
 		}
+		
 		.writer {
 		    width:100px;
 		    border-right:1px solid black;
@@ -444,11 +453,11 @@ public class BoardDAO {
    <div class = "container">
        <div class = "wrapper">
            <div class = "menu">
-               <div class="no">번호</div>
-               <div class="name">제목</div>
-               <div class="writer">작성자</div>
-               <div class="date">작성일</div>
-               <div class="count">조회수</div>
+               <div class="no"><b>No.</b></div>
+               <div class="name menu_name"><b>Title</b></div>
+               <div class="writer"><b>Writer</b></div>
+               <div class="date"><b>Date</b></div>
+               <div class="count"><b>Count</b></div>
            </div>
        </div>
    </div>
@@ -464,7 +473,7 @@ public class BoardDAO {
                <div class="no"><%=i+1%></div>
                
                <div class="name">
-               <a href="BoardInfo.jsp?board_num=<%=board.getBoard_num()%>"><%=board.getSubject()%></a>
+	               <a href="BoardInfo.jsp?board_num=<%=board.getBoard_num()%>"><%=board.getSubject()%></a>
                </div>
                
                <div class="writer"><%=board.getWriter()%></div>
