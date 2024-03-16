@@ -490,6 +490,7 @@ public class BoardDAO {
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/84a84325-0020-4d1c-91df-cec5ac208c14">
 </div>
+
 ---
 ### 주의사항
 ---
