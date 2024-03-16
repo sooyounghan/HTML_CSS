@@ -198,7 +198,7 @@
 ```
 
 -----
-### BoardDAO (insertBoard만 구현)
+### BoardDAO (insertBoard & allBoardList까지 구현)
 -----
 ```java
 package Board;
@@ -273,6 +273,229 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
+
+	public List<Board> allBoardList() {
+		List<Board> boardList = new ArrayList<Board>();
+		
+		try {
+			getConnection();
+			
+			// 답변형 게시판이므로 REF 순으로 오름차순 정렬 후, RE_STEP 순으로 오름차순 정렬한 후 RE_LEVEL순으로 오름차순 정렬  
+			String sql = "SELECT * FROM BOARD ORDER BY REF DESC, RE_STEP ASC, RE_LEVEL ASC";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				//DB에서 받은 데이터에 대한 Packaging 작업 
+				Board board = new Board();
+				
+				board.setBoard_num(rs.getInt(1));
+				board.setWriter(rs.getString(2));
+				board.setEmail(rs.getString(3));
+				board.setSubject(rs.getString(4));
+				board.setContent_password(rs.getString(5));
+				board.setReg_date(rs.getDate(6).toString());
+				board.setRef(rs.getInt(7));
+				board.setRe_step(rs.getInt(8));
+				board.setRe_level(rs.getInt(9));
+				board.setRead_count(rs.getInt(10));
+				board.setContent(rs.getString(11));
+				
+				boardList.add(board);
+			}
+			
+			conn.close();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
 }
 
 ```
+
+-----
+### BoardList JSP Page
+-----
+```jsp
+<%@page import="Board.BoardDAO, Board.Board, java.util.*"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Board List</title>
+	
+	<style>
+		* {
+		    box-sizing:border-box;
+		}
+		.title {
+		    text-align:center;
+		    font-size:20px;
+		    font-weight:600;
+		}
+		
+		.container {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.wrapper {
+		    width:90%;
+		    border:3px solid black;
+		
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.wrapper .menu {
+		    padding:10px;
+		    width:100%;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.menu div {
+		    padding:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:space-around;
+		    align-content:center;
+		}
+		
+		.no {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.name {
+		    width:calc(100% - 400px);
+		    border-right:1px solid black;
+		}
+		
+		.name a {
+			color:black;
+			font-size:18px;
+			font-weight:600;
+			text-decoration:none;
+		}
+		.writer {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.date {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.date_data {
+			font-size:14px;
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.count {
+		    width:100px;
+		}
+		
+		footer {
+		    margin:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-items:flex;
+		}
+		
+		footer div button {
+		    padding:10px;
+		    margin:10px;
+		
+		    font-size:16px;
+		    font-weight:600;
+		    border:2px solid black;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<%
+	// 전체 게시굴 내용이 해당 페이지로 출력
+	BoardDAO boardDAO = new BoardDAO();
+
+	List<Board> boardList = boardDAO.allBoardList();	
+%>
+
+  <header class="title"><h2>Board List</h2></header>
+
+   <div class = "container">
+       <div class = "wrapper">
+           <div class = "menu">
+               <div class="no">번호</div>
+               <div class="name">제목</div>
+               <div class="writer">작성자</div>
+               <div class="date">작성일</div>
+               <div class="count">조회수</div>
+           </div>
+       </div>
+   </div>
+   
+ <%
+ 	for(int i = 0; i < boardList.size(); i++) {
+ 		Board board = boardList.get(i);
+ 		
+ %>
+    <div class = "container">
+       <div class = "wrapper">
+           <div class = "menu">
+               <div class="no"><%=i+1%></div>
+               
+               <div class="name">
+               <a href="BoardInfo.jsp?board_num=<%=board.getBoard_num()%>"><%=board.getSubject()%></a>
+               </div>
+               
+               <div class="writer"><%=board.getWriter()%></div>
+               
+               <div class="date_data"><%=board.getReg_date()%></div>
+               
+               <div class="count"><%=board.getRead_count()%></div>
+           </div>
+       </div>
+   </div>
+ <%
+ 	}
+ %>
+ 
+ 	<footer>
+ 		<div><button onclick="location.href='BoardWriteForm.jsp'">Write</button> </div>
+ 	</footer>
+</body>
+
+</html>
+```
+---
+### 주의사항
+---
+1. BOARD_NUM으로 게시판 번호를 하지 않는 이유?
+   - 추후에 수많은 글인 적힌 전체 게시글에 대해서 데이터를 가져와야 함
+   - 이는 처리 시간이 무수히 증가 및 BOARD_NUM의 답변형 게시판으로 인해 그 번호가 다랄짐
+   - 해결 방법 : 카운터링 (예정)
+
+2. 즉, BOARD_NUM은 답변항 게시판으로 글 번호로 사용하기 부적합
+   - 기본적으로, PK로 사용하는 것이 효율적
+   - 즉, 글 제목에 대한 그 정보를 보고 싶을 때 사용하기에 적합
+
+3. 그러므로, 글번호는 i+1로 설정해주는 것이 좋음
