@@ -437,3 +437,7 @@ public class BoardDAO {
 3. re_level의 경우 새로운 글이 추가 되었을 때,
 	- 기존 re_level은 부모글보다 큰 숫자를 전부 1씩 증가
 	- 가장 최근에 입력된 re_level은 부모글의 1증가
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/574c89ee-debe-49b3-a414-091a0198d495">
+</div>
