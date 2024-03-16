@@ -438,6 +438,193 @@ public class BoardDAO {
 	- 기존 re_level은 부모글보다 큰 숫자를 전부 1씩 증가
 	- 가장 최근에 입력된 re_level은 부모글의 1증가
 
+-----
+#### BoardList의 답변 구분 (공백 추가)
+-----
+```jsp
+<%@page import="Board.BoardDAO, Board.Board, java.util.*"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Board List</title>
+	
+	<style>
+		* {
+		    box-sizing:border-box;
+		}
+		.title {
+		    text-align:center;
+		    font-size:20px;
+		    font-weight:600;
+		}
+		
+		.container {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.wrapper {
+		    width:90%;
+		    border:3px solid black;
+		
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.wrapper .menu {
+		    padding:10px;
+		    width:100%;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.menu div {
+		    padding:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:space-around;
+		    align-content:center;
+		}
+		
+		.no {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.menu .name {
+		    width:calc(100% - 400px);
+		    border-right:1px solid black;
+		   	display:flex;
+		    flex-direction:row;
+		    justify-content:flex-start;
+		    align-content:center;
+		}
+				
+		.menu_name b {
+			transform:translateX(265px);
+		}
+		
+		.name a {
+			color:black;
+			font-size:18px;
+			font-weight:600;
+			text-decoration:none;
+		}
+		
+		.writer {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.date {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.date_data {
+			font-size:14px;
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.count {
+		    width:100px;
+		}
+		
+		footer {
+		    margin:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-items:flex;
+		}
+		
+		footer div button {
+		    padding:10px;
+		    margin:10px;
+		
+		    font-size:16px;
+		    font-weight:600;
+		    border:2px solid black;
+		}
+
+	</style>
+</head>
+
+<body>
+
+<%
+	// 전체 게시굴 내용이 해당 페이지로 출력
+	BoardDAO boardDAO = new BoardDAO();
+
+	List<Board> boardList = boardDAO.allBoardList();	
+%>
+
+  <header class="title"><h2>Board List</h2></header>
+
+   <div class = "container">
+       <div class = "wrapper">
+           <div class = "menu">
+               <div class="no"><b>No.</b></div>
+               <div class="name menu_name"><b>Title</b></div>
+               <div class="writer"><b>Writer</b></div>
+               <div class="date"><b>Date</b></div>
+               <div class="count"><b>Count</b></div>
+           </div>
+       </div>
+   </div>
+   
+ <%
+ 	for(int i = 0; i < boardList.size(); i++) {
+ 		Board board = boardList.get(i);
+ 		
+ %>
+    <div class = "container">
+       <div class = "wrapper">
+           <div class = "menu">
+               <div class="no"><%=i+1%></div>
+               
+               <div class="name">
+	               <a href="BoardInfo.jsp?board_num=<%=board.getBoard_num()%>">
+	               <%
+	               		if(board.getRe_step() > 1) {
+							for(int j = 0; j < (board.getRe_step() - 1) * 5; j++) {
+					%>
+											&nbsp;
+					<%
+							}
+	               		}
+	                %>
+	               <%=board.getSubject()%></a>
+               </div>
+               
+               <div class="writer"><%=board.getWriter()%></div>
+               
+               <div class="date_data"><%=board.getReg_date()%></div>
+               
+               <div class="count"><%=board.getRead_count()%></div>
+           </div>
+       </div>
+   </div>
+ <%
+ 	}
+ %>
+ 
+ 	<footer>
+ 		<div><button onclick="location.href='BoardWriteForm.jsp'">Write</button> </div>
+ 	</footer>
+</body>
+
+</html>
+```
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/574c89ee-debe-49b3-a414-091a0198d495">
 </div>
