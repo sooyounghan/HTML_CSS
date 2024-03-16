@@ -34,7 +34,7 @@ CONSTRAINT BOARD_BOARD_NUM_PK PRIMARY KEY(BOARD_NUM)
 3. 테이블 및 ERD, 제약조건 현황
 <div align = "center">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/5bfcfcba-1c46-47ad-8db3-65d7ab75a58b">
-<img src="https://github.com/sooyounghan/DataBase/assets/34672301/02d8abc1-5b8b-4d3e-9768-be697d62fafd">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/8e52cf62-66fc-4ef2-b968-0eca3d5d88bd">
 <img src="https://github.com/sooyounghan/DataBase/assets/34672301/08296f65-262e-4293-9541-e0c471c7cf06">
 </div>
 
