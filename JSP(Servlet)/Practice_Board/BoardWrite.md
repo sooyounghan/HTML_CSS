@@ -18,95 +18,108 @@
 
 	<style>
 		* {
-			box-sizing:border-box;
+		    box-sizing:border-box;
+		}
+		.title {
+		    text-align:center;
+		    font-size:20px;
+		    font-weight:600;
 		}
 		
-		h2 {
-			text-align:center;
-			font-size:20px;
-			font-weight:600;
+		.container {
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
 		}
-
+		
 		.wrapper {
-			width:100%;
-			display:flex;
-			flex-direction:row;
-			justify-content:center;
-			align-items:center;
-						
+		    width:90%;
+		    border:3px solid black;
+		
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.wrapper .menu {
+		    padding:10px;
+		    width:100%;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-content:center;
+		}
+		
+		.menu div {
+		    padding:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:space-around;
+		    align-content:center;
+		}
+		
+		.no {
+		    width:100px;
+		    border-right:1px solid black;
+		}
+		
+		.menu .name {
+		    width:calc(100% - 400px);
+		    border-right:1px solid black;
+		   	display:flex;
+		    flex-direction:row;
+		    justify-content:flex-start;
+		    align-content:center;
 		}
 				
-		.container {
-			width:600px;
-			display:flex;
-			flex-direction:column;
-			justify-content:center;
-			align-items:center;
-			
-			border:3px solid black;
+		.menu_name b {
+			transform:translateX(265px);
 		}
 		
-		.form {
-			width:100%;		
-			height:50px;
-			
-			display:flex;
-			flex-direction:row;
-			justify-content:flex-start;
-			align-items:center;
-			
-			border:1px solid black;
+		.name a {
+			color:black;
+			font-size:18px;
+			font-weight:600;
+			text-decoration:none;
 		}
 		
-		.writer_name, .password_name, .email_name, .title_name, .content_name {
-			padding:10px;
-			width:100px;
-			display:flex;
-			flex-direction:row;
-			justify-content:center;
-			align-items:center;
+		.writer {
+		    width:100px;
+		    border-right:1px solid black;
 		}
 		
-		.content_form {
-			height:200px;
+		.date {
+		    width:100px;
+		    border-right:1px solid black;
 		}
 		
-		.writer, .password, .email, .title, .content {
-			width:100%;
-			text-area:center;
-			
-			display:flex;
-			flex-direction:row;
-			justify-content:center;
-			align-items:center;
+		.date_data {
+			font-size:14px;
+		    width:100px;
+		    border-right:1px solid black;
 		}
 		
-		input {
-			width:50%;
-			border:none;
-			border-bottom:1px solid black;
+		.count {
+		    width:100px;
 		}
 		
-		textarea {
-			width:75%;
-			height:50%;
-			resize:none;
-			border:1px solid black;
+		footer {
+		    margin:10px;
+		    display:flex;
+		    flex-direction:row;
+		    justify-content:center;
+		    align-items:flex;
 		}
 		
-		.button_zip {
-			display:flex;
-			flex-direction:row;
-			justify-content:center;
-			align-items:center;
-		}
+		footer div button {
+		    padding:10px;
+		    margin:10px;
 		
-		.button {
-			margin:10px;
-			display:inline-block;
-			width:100px;
-			height:30px;
-			border:2px solid black;
+		    font-size:16px;
+		    font-weight:600;
+		    border:2px solid black;
 		}
 	</style>
 </head>
