@@ -361,6 +361,10 @@ public class BoardDAO {
 </html>
 ```
 
+1. 해당 글에 답변을 달기 위한 조건을 생각해보자.
+2. Reply 페이지로 이동 시, Reply를 달기 위한 조건인 board_num / ref / re_step / re_level에 대해 QueryString으로 넘기는 방법이 존재
+3. 또는, board_num정보만을 넘긴 후, Reply 페이지에서 이에 해당하는 정보를 DB에서 가져와 ref / re_step / re_level을 처리하는 방법이 존재
+
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/d8e6a9d3-cdbe-4ab1-81e6-e3e2284d7da6">
 </div>
