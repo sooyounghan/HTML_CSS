@@ -235,6 +235,7 @@
 -----
 ### BoardDAO - updateOneBoard, getPass, updateBoard 구현
 -----
+```java
 package Board;
 
 import java.sql.Connection;
