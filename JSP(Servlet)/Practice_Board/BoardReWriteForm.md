@@ -175,3 +175,15 @@
 </body>
 </html>
 ```
+
+1. 해당 페이지가 어느 특정 글에 답변 페이지 이므로 title 부분에 [reply] 초기값 입력
+
+2. 답변에 대해서는 ref / re_step / re_level 정보가 중요
+   - 어떤 부모 글에 대한 답변인지?
+   - 부모 글의 몇 번째 답변인지?
+   - 최신순으로 되어있는지?
+   - 이러한 정보가 중요하므로 정보가 중요한데, 이를 사용자로부터 입력받지 않고, hidden 속성을 통해 DB가 받을 수 있도록 처리
+
+<div align = "center">
+<img  src="https://github.com/sooyounghan/Web/assets/34672301/a0ea4b0e-f3b9-471e-95a4-8a0479be404c">
+</div>
