@@ -187,7 +187,7 @@ public class RentCarDAO {
 				
 				conn.close();
 			} catch(SQLException e) {
-				e.printStackTrace();;
+				e.printStackTrace();
 			}
 		return carList;
 	}
