@@ -116,6 +116,82 @@
 ```
 
 -----
+### RentCarDAO - 차량 3개 정보 가져오기 구현
+-----
+```java
+package RentCar;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
+public class RentCarDAO {
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	public void getConnection() {
+		try {
+			Context initcnx = new InitialContext();
+			Context envcnx = (Context)initcnx.lookup("java:comp/env");
+			DataSource ds = (DataSource)envcnx.lookup("jdbc/pool");
+			
+			conn = ds.getConnection();
+		} catch(NamingException e) {
+			e.printStackTrace();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public List<CarList> getSelectCar() {
+		List<CarList> carList = new ArrayList<CarList>();
+		
+		try {
+			getConnection();
+			
+			String sql = "SELECT * FROM RENTCAR ORDER BY NO DESC";
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+
+			int count = 0; // 상위 3개 상품 출력을 위해 설정
+			while(rs.next()) {	
+				CarList car = new CarList();
+				
+				car.setNo(rs.getInt(1));
+				car.setName(rs.getString(2));
+				car.setCategory(rs.getInt(3));
+				car.setPrice(rs.getInt(4));
+				car.setUsepeople(rs.getInt(5));
+				car.setCompany(rs.getString(6));
+				car.setImg(rs.getString(7));
+				car.setInfo(rs.getString(8));
+				
+				carList.add(car);
+				
+				count++;
+				if(count >= 3) break;
+			}
+			
+			conn.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return carList;
+	}
+}
+```
+
+-----
 ### CarReserveMain 
 -----
 ```jsp
