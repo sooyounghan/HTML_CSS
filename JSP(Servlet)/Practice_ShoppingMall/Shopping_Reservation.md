@@ -312,7 +312,7 @@ public class RentCarDAO {
 		    	
 		    	<div class="categroy_car_submit">
 		    	<input type="submit" value="Search"/>
-		    	<input type="button" onclick="location.href='CarAllList.jsp'" value="All Search">
+		    	<input type="button" onclick="location.href='RentCarMain.jsp?center=CarAllList.jsp'" value="All Search">
 		    	</div>
     		</div>
     	</form>
