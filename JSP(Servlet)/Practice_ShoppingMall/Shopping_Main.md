@@ -131,7 +131,7 @@
 	footer {
 	    height:100px;
 	    display:flex;
-	    flex-wrap:wrap;
+	    flex-direction:column;
 	    justify-content:center;
 	    align-items:center;
 	}
@@ -142,8 +142,11 @@
 	    font-style: italic;
 	}
 	
-	hr {
-	    width:100%;
+	.line_bottom {
+		width:calc(100% - 50px);
+		height:5px;
+		border-top:2px solid black;	
+		margin-bottom:20px;
 	}
 
 	</style>
@@ -151,7 +154,7 @@
 
 <body>
     <footer>
-        <hr>
+    	<div class="line_bottom"></div>
         <div class="description">
             <p>RentCar에 오신걸 환영합니다!</p>
         </div>
@@ -159,6 +162,7 @@
 </body>
 </html>
 ```
+
 <div align="center">
 <img width="943" alt="20240317_200535" src="https://github.com/sooyounghan/Web/assets/34672301/d730e558-9671-4137-a5c7-0450342d9d32">
 </div>
