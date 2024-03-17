@@ -266,6 +266,12 @@ public class RentCarDAO {
 		width:100px;
 		border:2px solid black;
 	}
+	
+	.line {
+		width:100%;
+		height:5px;
+		border-top:2px solid black;	
+	}
 	</style>
 </head>
 
@@ -291,7 +297,7 @@ public class RentCarDAO {
     </div>
     
     <div class="choice">
-    	<hr>
+    	<div class="line"></div>
     	<p> 차량 검색 하기 </p>
     	<form action="CarCategoryList.jsp" method="post">
   			<div class="category_car">
