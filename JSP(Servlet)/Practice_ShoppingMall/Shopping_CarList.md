@@ -48,9 +48,6 @@
 		font-weight:600;
 	}
 
-	.choice {
-		margin:20px;
-	}
 	</style>
 </head>
 
