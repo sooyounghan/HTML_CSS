@@ -81,10 +81,18 @@
 </head>
 
 <body>
+<%
+	// Session을 이용한 로그인 처리
+	String id = (String)session.getAttribute("id");
+
+	if(id == null) {
+		id = "Guest";
+	}
+%>
     <header class="top">
         <div class="top_logo_user">
             <div class="top_logo"><img src = "./img/logo.png"></div>
-            <div class="top_user"><p>님 어서오세요!</p></div>
+            <div class="top_user"><p><%=id%>님 어서오세요!</p></div>
         </div>
         <div class="top_menu">
             <div class="menu1 menu"><a href = "#">Reservation</a></div>
