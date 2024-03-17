@@ -91,7 +91,7 @@
 %>
     <header class="top">
         <div class="top_logo_user">
-            <div class="top_logo"><img src = "./img/logo.png"></div>
+            <div class="top_logo"><a href = "RentCarMain.jsp"><img src = "./img/logo.png"></a></div>
             <div class="top_user"><p><%=id%>님 어서오세요!</p></div>
         </div>
         <div class="top_menu">
