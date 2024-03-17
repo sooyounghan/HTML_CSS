@@ -2,7 +2,7 @@
 ### Countering
 -----
 1. 게시판에서 전체글에 대해서 일종의 인덱스 작업을 하는 것
-2. BoardList JSP Page (한 Counter 당 최대 10개의 글이 보이도록 설정
+2. BoardList JSP Page (한 Counter 당 최대 10개의 글이 보이도록 설정)
 ```jsp
 <%@page import="Board.BoardDAO, Board.Board, java.util.*"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
