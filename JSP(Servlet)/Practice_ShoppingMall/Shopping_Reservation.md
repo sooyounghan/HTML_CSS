@@ -12,20 +12,233 @@
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-...
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>RentCar Main Top</title>
+	<style>
+	
+	* {
+	    box-sizing:border-box;
+	    margin:0;
+	    padding:0;
+	}
+	
+	header {
+	    height:170px;
+	
+	    display:flex;
+	    flex-direction:column;
+	    justify-content:flex-start;
+	    align-items:space-around;
+	}
+	
+	.top_logo_user {
+	    height:50%;
+	    display:flex;
+	    flex-direction:row;
+	    justify-content:space-between;
+	    align-items:center;
+	}
+	
+	.top_logo {
+	    width:20%;
+	    height:100%;
+	    position:relative;
+	}
+	
+	.top_user  {
+		padding:20px;
+	    width:30%;
+	    text-align:right;
+	}
+	
+	.top_menu {
+	    padding:10px;
+	    height:40%;
+	    
+	    display:flex;
+	    flex-direction:row;
+	    justify-content:space-between;
+	    align-items:center;
+	}
+	
+	.menu1, .menu2, .menu3, .menu4, .menu5 {
+	    width:calc(20% - 15px);
+	    height:100%;
+	
+	    display:flex;
+	    flex-direction:row;
+	    justify-content:center;
+	    align-items:center;
+	}
+	
+	.menu a {
+	    display:inline-block;
+	    font-size:15px;
+	    font-weight:600;
+	    text-decoration:none;
+	    color:black;
+	}
+	
+	.top_logo img {
+		position:absolute;
+		over-fit:cover;
+	}
+	</style>
+</head>
 
+<body>
+<%
+	// Session을 이용한 로그인 처리
+	String id = (String)session.getAttribute("id");
+
+	if(id == null) {
+		id = "Guest";
+	}
+%>
     <header class="top">
         <div class="top_logo_user">
-            <div class="top_logo"><img src = "./img/logo.png"></div>
+            <div class="top_logo"><a href = "RentCarMain.jsp"><img src = "./img/logo.png"></a></div>
             <div class="top_user"><p><%=id%>님 어서오세요!</p></div>
         </div>
         <div class="top_menu">
-            <div class="menu1 menu"><a href = "CarReserveMain.jsp">Reservation</a></div>
-...
-
+            <div class="menu1 menu"><a href = "RentCarMain.jsp?center=CarReserveMain.jsp">Reservation</a></div>
+            <div class="menu2 menu"><a href = "#">Reserved Check</a></div>
+            <div class="menu3 menu"><a href = "#">Board</a></div>
+            <div class="menu4 menu"><a href = "#">Event</a></div>
+            <div class="menu5 menu"><a href = "#">Q&A</a></div>
         </div>
     </header>
 </body>
 
 </html>
 ```
+
+-----
+### CarReserveMain 
+-----
+```jsp
+<%@page import="RentCar.RentCarDAO, RentCar.CarList, java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Car Reservation Main</title>
+	<style>
+	* {
+	    box-sizing:border-box;
+	    padding:0;
+	    margin:0;
+	}
+	
+	.wrapper {
+	    width:100%;
+	    height:200px;
+	    padding:20px;
+		display:flex;
+	    flex-direction:row;
+	    justify-content:space-around;
+	    align-items:center;
+	}
+	
+	.item {
+	    width:calc(30% - 10px);
+	    height:100%;
+	}
+	
+	.item img {
+		width:100%;
+		height:100%;
+		object-fit:fill;
+	}
+	
+	.item p {
+		text-align:center;
+	}
+
+	.choice {
+		margin:20px;
+	}
+	
+	.choice p {
+		margin:20px;
+		text-align:center;
+	}
+	
+	.choice .category_car {
+		display:flex;
+		flex-direction:row;
+		justify-content:center;
+		align-items:center;
+	}
+	
+	.category_car_select, .category_car_sumbit {
+		margin:0 10px;
+	}
+	
+	select {
+		width:100px;
+		height:30px;
+		border:2px solid black;
+		background-color:white;
+	}
+	
+	input {
+		padding:7px;
+		width:100px;
+		border:2px solid black;
+	}
+	</style>
+</head>
+
+<body>
+<!-- 상위 상품 3개만 가져오도록 설정 -->
+<%
+	RentCarDAO rentcarDAO = new RentCarDAO();
+	
+	List<CarList> carList = rentcarDAO.getSelectCar();
+%>
+    <div class="wrapper">
+<%
+			for(int i = 0; i < carList.size(); i++) {
+				CarList car = carList.get(i);
+%>
+        	<div class="item">
+				<a href="CarReserveInfo.jsp?no=<%=car.getNo()%>"><img src="./img/<%=car.getImg()%>"></a>
+				<p> 차량명 : <%=car.getName()%> </p>
+			</div>
+<%
+	}
+%>
+    </div>
+    
+    <div class="choice">
+    	<hr>
+    	<p> 차량 검색 하기 </p>
+    	<form action="CarCategoryList.jsp" method="post">
+  			<div class="category_car">
+		    	<p>차량 종류 : </p>
+		    	<div class="category_car_select">
+		    		<select name="category">
+		    		<option value="1">소형</option>
+		    		<option value="2">중형</option>
+		    		<option value="3">대형</option>
+		    		</select>
+		    	</div>
+		    	
+		    	<div class="categroy_car_submit">
+		    	<input type="submit" value="Search"/>
+		    	<input type="button" onclick="location.href='CarAllList.jsp'" value="All Search">
+		    	</div>
+    		</div>
+    	</form>
+    </div>
+</body>
+</html>
+```
+
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/36b257b2-4817-4586-82e1-bd5587d0b939">
+</div>
