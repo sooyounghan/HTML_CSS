@@ -608,3 +608,44 @@ public class BoardDAO {
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/493d0d98-d569-4355-a678-cec27f3167db">
 </div>
+
+-----
+### Countering 이해
+-----
+1. 총 게시물이 184개라고 하자.
+   - 기본 설정 : pageSize = 10 / String pageNum = "1"
+   - count = 1 -> 184 / number = 0 / currentPage = 1
+   - start_num = 1  / end_num = 10
+   - number = 184 - (1 - 1) * 10 = 184
+
+2. 하단 부분 (이해 중요)
+   - pageCount = 18 + 1 = 19
+   - startPage = 1 -> 1
+   - pageBlock = 10
+   - endPage = 1 + 10 - 1 = 10
+   - endPage > pageCount 인가? 10 < 19이면 실행되지 않음
+   - startPage > 10 인가? 1 < 10이므로 실행되지 않음
+   - for문을 통해 startPage ~ endPage까지 출력
+   - endPage < pageCount 인가? 10 < 19이므로 해당 부분 실행
+  
+3. 결과 : 1 2 3 4 5 6 7 8 9 10 [다음]
+
+4. 위 결과에서 [다음]버튼을 누른다면?
+   - 다시 1번부터 시작! (BoardList.jsp?pageNum=<%startPage+10%> 호출
+   - startPage = 11
+   - pageSize = 10 / String pageNum = "11"
+   - count = 1 -> 184 / number = 0 / currentPage = 11
+   - start_num = 101 / end_num = 110
+   - number = 184 - (11 - 1) * 10 = 84
+
+5. 하단 부분 (이해 중요)
+   - pageCount = 19
+   - startPage = 1 -> 11
+   - endPage = 20
+   - endPage > pageCount 인가? 20 > 19이므로, endPage는 19
+   - startPage > 10인가? 19 > 10이므로 이전 칸 생성
+   - for문을 통해 startPage ~ endPage(11 ~ 19)까지 생성
+   - endPage < pageCount 인가? 20 < 19이므로, 해당 부분 미실행
+
+6. 결과 : [이전] 11 12 13 14 15 16 17 18 19
+   
