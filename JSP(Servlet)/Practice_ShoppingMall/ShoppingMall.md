@@ -65,3 +65,6 @@ public class RentCarDAO {
 	}
 }
 ```
+
+1. Context 및 InitialContext : NamingException 발생 가능
+2. DataSource에서 Connection 과정 : SQLException 발생 가능
