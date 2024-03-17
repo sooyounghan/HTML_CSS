@@ -106,13 +106,12 @@
 ### Bottom 부분 구현
 -----
 ```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>RentCar Main Bottom</title>
 	
 	<style>
 	* {
@@ -155,3 +154,43 @@
 <div align="center">
 <img width="943" alt="20240317_200535" src="https://github.com/sooyounghan/Web/assets/34672301/d730e558-9671-4137-a5c7-0450342d9d32">
 </div>
+
+-----
+### Center 부분 구현
+-----
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>RentCar Main Center</title>
+	<style>
+	* {
+	    box-sizing:border-box;
+	    padding:0;
+	    margin:0;
+	}
+	
+	section {
+		height:calc(100% - 280px);
+	}
+	img {
+		object-fit:cover;
+	}
+	</style>
+</head>
+
+<body>
+    <section>
+        <div class="mainImg">
+            <img src="./img/Main.jpg">
+        </div>
+    </section>
+</body>
+</html>
+```
+
+-----
+### RentCarMain 구현 : Top / Bottom / Center Include
+-----
