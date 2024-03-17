@@ -262,7 +262,7 @@
 </html>
 ```
 
-3. BoardDAO - allBoardListi 수정 / allCountBoard 추가
+3. BoardDAO - allBoardList 수정 / allCountBoard 추가
 ```java
 package Board;
 
