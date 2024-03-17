@@ -260,7 +260,8 @@
 </body>
 </html>
 ```
-<div align="center"
+
+<div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/1ac2602e-1cff-483e-b8cb-b70e625ae1d1">
 </div>
 
