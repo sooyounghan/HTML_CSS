@@ -299,7 +299,7 @@ public class RentCarDAO {
     <div class="choice">
     	<div class="line"></div>
     	<p> 차량 검색 하기 </p>
-    	<form action="CarCategoryList.jsp" method="post">
+    	<form action="RentCarMain.jsp?center=CarCategoryList.jsp" method="post">
   			<div class="category_car">
 		    	<p>차량 종류 : </p>
 		    	<div class="category_car_select">
