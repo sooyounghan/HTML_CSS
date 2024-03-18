@@ -39,9 +39,9 @@ INFO VARCHAR(500)
 	<title>Member Login Page</title>
 	<style>
 	* {
-    box-sizing:border-box;
-    padding:0;
-    margin:0;
+	    box-sizing:border-box;
+	    padding:0;
+	    margin:0;
 	}
 	
 	.login_div {
