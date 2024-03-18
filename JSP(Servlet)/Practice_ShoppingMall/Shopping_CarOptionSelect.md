@@ -197,6 +197,7 @@ package RentCar;
  */
 public class CarReserve {
 	private int reserve_no; // 예약번호
+	private String id; // 예약 회원 ID
 	private int no; // 차 식별자
 	private int car_num; // 차 수량
 	private int duration_day; // 대여 기간
