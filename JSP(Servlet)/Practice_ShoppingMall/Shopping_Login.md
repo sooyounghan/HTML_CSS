@@ -217,7 +217,7 @@ INFO VARCHAR(500)
 	        <%
 	        	} else {
 	        %>
-	           	<button class="login" onclick="location.href='RentCarMain.jsp'">Logout</button>
+	           	<button class="login" onclick="location.href='RentCarMain.jsp?center=MemberLogOut.jsp'">Logout</button>
 	        <%
 	        	}
 	        %>
