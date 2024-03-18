@@ -13,6 +13,7 @@ package RentCar;
  */
 public class CarReserve {
 	private int reserve_no; // 예약번호
+	private String id; // 예약 회원 ID
 	private int no; // 차 식별자
 	private int car_num; // 차 수량
 	private int duration_day; // 대여 기간
@@ -28,6 +29,14 @@ public class CarReserve {
 
 	public void setReserve_no(int reserve_no) {
 		this.reserve_no = reserve_no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getNo() {
