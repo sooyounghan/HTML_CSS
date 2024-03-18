@@ -196,6 +196,7 @@ package RentCar;
  * 차량에 대한 예약 정보 클래스
  */
 public class CarReserve {
+	private int reserve_no; // 예약번호
 	private int no; // 차 식별자
 	private int car_num; // 차 수량
 	private int duration_day; // 대여 기간
@@ -205,6 +206,14 @@ public class CarReserve {
 	private int navigation; // Navigation 이용
 	private int baby_sheet; // BabySheet 이용
 	
+	public int getReserve_no() {
+		return reserve_no;
+	}
+
+	public void setReserve_no(int reserve_no) {
+		this.reserve_no = reserve_no;
+	}
+
 	public int getNo() {
 		return no;
 	}
