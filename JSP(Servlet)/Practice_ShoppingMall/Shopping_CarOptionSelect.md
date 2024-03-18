@@ -314,8 +314,11 @@ public class CarReserve {
 </body>
 </html>
 ```
-* alert 창 이후 CarReserveResult JSP Page에 출력 버퍼에 의해 씌여지므로, response의 sendRedirect가 무시 되는 현상 발생
+1. alert 창 이후 CarReserveResult JSP Page에 출력 버퍼에 의해 씌여지므로, response의 sendRedirect가 무시 되는 현상 발생
   : alert 이후 JS의 location.href를 통해 바로 이동시키는 방법 적용
+2. JS 코드는 클라이언트 측에서 실행되는 언어이며, sendRedirect는 서버 측에서 실행되는 언어 이므로 서로 다른 환경에서 실행
+   - 그러므로 서로 영향을 주지 못하는 상황 발생
+   - 따라서, 사용자 측인 alert 이후에 location.href를 통해 사용자 측에서 이동이 되도록 설정
 
 <Top.jsp>
 ```jsp
