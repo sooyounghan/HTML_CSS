@@ -211,7 +211,7 @@ public class RentCarDAO {
 	
 	.wrapper {
 	    width:100%;
-	    height:200px;
+	    height:300px;
 	    padding:20px;
 		display:flex;
 	    flex-direction:row;
