@@ -191,6 +191,28 @@ INFO VARCHAR(500)
 </body>
 </html>
 ```
+-----
+### MemberLogOut JSP Page
+-----
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Member LogOut</title>
+</head>
+
+<body>
+<%
+	session.invalidate();
+
+	response.sendRedirect("RentCarMain.jsp");
+%>
+</body>
+</html>
+```
 
 -----
 ### Login 처리에 따른 Top.jsp 일부 수정
