@@ -284,9 +284,10 @@ public class CarReserve {
 -----
 ### CarReserveResult JSP Page : 예약에 관련 정보를 처리하는 Page
 -----
-1. 회원에 대한 처리가 필요하므로 이에 따른 처리 필요
+1. 회원에 대한 처리가 필요하므로 이에 따른 처리 필요 및 오늘보다 이전 날짜에 대한 잘못된 값 처리
 2. 따라서 Top.jsp도 로그인 창 생성
 ```jsp
+<%@ page import ="java.util.*, java.text.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -312,11 +313,38 @@ public class CarReserve {
 		</script>
 	<%
 		}
+		
+		// 날짜 비교
+		Date d1 = new Date();
+		Date d2 = new Date();
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		d1 = sdf.parse(car_reserve.getReserve_day());
+		d2 = sdf.parse(sdf.format(d2));
+		
+		int compare = d1.compareTo(d2);
+		
+		// 예약일자 < 현재 일자 : -1
+		// 예약일자 = 현재 일자 : 0
+		// 예약일자 > 현재 일자 : 1
+		
+		if(compare < 0) {
+	%>			
+			<script>
+				alert("Wrong Date!");
+				history.go(-1);
+			</script>
+	<%	
+		}
 	%>
-
 </body>
 </html>
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/fe5bf30b-589d-401f-a54c-8013970602b3">
+</div>
+
 1. alert 창 이후 CarReserveResult JSP Page에 출력 버퍼에 의해 씌여지므로, response의 sendRedirect가 무시 되는 현상 발생
   : alert 이후 JS의 location.href를 통해 바로 이동시키는 방법 적용
 2. JS 코드는 클라이언트 측에서 실행되는 언어이며, sendRedirect는 서버 측에서 실행되는 언어 이므로 서로 다른 환경에서 실행
