@@ -28,14 +28,14 @@ CONSTRAINT CAR_RESERVE_FK_FK FOREIGN KEY(ID) REFERENCES MEMBER(ID)
 
 - 테이블 구조 및 제약조건
 <div align = "center">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/ba827e12-3b99-456e-b42d-6139e021b00e">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/cc43d42a-6ba2-4e2d-9dee-e4e29daa1f6c">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/a9a4cce4-9b7c-496e-9ce2-5822e8653855">
 </div>
 
 
 - 총 3개의 테이블의 ERD
 <div align = "center">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/2d8fd3f6-1bac-47fa-9a5a-de07aac2db77">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/c9625903-5727-409d-8dc5-7972f7bcedf4">
 </div>
 
 
