@@ -42,14 +42,15 @@
 	}
 	
 	.content_text {
-	    width:60%;
+	    width:30%;
 	}
 	
 	.text_car {
-	    font-size:12px;
+		width:60%;
+	    font-size:13px;
 	    font-weight:600;
-	    padding:5px;
-	    margin:3px 0;
+	    padding:15px;
+	    margin:20px;
 	}
 	
 	.previous, .choice {
@@ -73,10 +74,15 @@
 	    text-align:center;
 	}
 	
-	.content_image .car_img {
+	.content_image {
+		width:50%;
+		height:50%;
+	}
+	
+	.car_img {
 		object-fit:fill;
-		width:90%;
-		height:90%;
+		width:100%;
+		height:100%;
 	}
 	</style>
 </head>
