@@ -267,6 +267,17 @@ public class CarReserve {
 }
 ```
 
+<고려사항>
+1. 예약 건에 대해서는 CarOptionSelect Form에서 Select 태그를 통해 오직 하나의 값만 받으므로, 여러 값을 받을 필요가 없으므로, Bean Class 이용
+2. 예약일을 String으로 받을 것인가? Date형으로 받을 것인가?
+3. Date 타입으로 설정하여, useBean 이용 시 다음과 같은 상황이 발생
+    - form 태그에서 입력받은 Date가 bean의 Date형으로 받지 못함
+
+			org.apache.jasper.JasperException: org.apache.jasper.JasperException:
+			속성 [reserve_day]에 설정된 문자열 [2024-03-19]을(를), 클래스 [java.sql.Date](으)로 변환할 수 없습니다: 					[PropertyEditorManager에 PropertyEditor가 등록되어 있지 않습니다.]
+
+4. 즉, SQL로 추후 쿼리를 전달할 때, 타입이 맞지 않아 오류가 발생할 수 있음. 따라서 String형으로 받은 뒤, 날짜 계산등의 작업은 추후에 필요
+   
 -----
 ### CarReserveResult JSP Page : 예약에 관련 정보를 처리하는 Page
 -----
