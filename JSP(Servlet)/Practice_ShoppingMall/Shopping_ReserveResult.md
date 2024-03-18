@@ -2,7 +2,10 @@
 ### 예약 관련 TABLE
 -----
 1. CarReserve Class에 대한 CAR_RESERVE TABLE 생성
-   
+<div align = "center">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/3869ef5a-cd7b-41ab-9610-dc1a4af7e733">
+</div>
+
 ```sql
 CREATE TABLE CAR_RESERVE (
 RESERVE_NO NUMBER CONSTRAINT CAR_RESERVE_RESERVE_NO_PK PRIMARY KEY,
