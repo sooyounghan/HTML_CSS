@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<title>Car Option Select</title>
 	<style>
-		* {
+	* {
     box-sizing:border-box;
     padding:0;
     margin:0;
@@ -38,20 +38,20 @@
 	    width:80%;
 	    display:flex;
 	    flex-direction:row;
-	    justify-content:space-between;
+	    justify-content:center;
 	    align-items:center;
 	    margin-top:20px;
 	}
 	
 	.content_text {
-	    width:70%;
+	    width:40%;
 	}
 	
 	.text_car {
-	    font-size:12px;
+		width:100%;
+	    font-size:13px;
 	    font-weight:600;
-	    padding:5px;
-	    margin-left:5px 0;
+	    padding:15px;
 	}
 	
 	.previous, .choice {
@@ -77,9 +77,8 @@
 	
 		
 	.content_image {
-		width:100%;
-		height:100%;
-		margin-right:10px;
+		width:40%;
+		height:40%;
 	}
 	
 	.car_img {
@@ -96,6 +95,10 @@
 		width:100px;
 		height:20px;
 		margin-left:5px;
+	}
+	
+	.car_reserve {
+		width:50%;
 	}
 	</style>
 </head>
