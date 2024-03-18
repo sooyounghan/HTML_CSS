@@ -94,7 +94,7 @@
     <div class="content_main">
         <div class="car_info_box"><p class="car_info">차량 정보보기</p></div>
         
-    	<form action="RentCarMain.jsp?center=CarOptionSelect.jsp" method = "post"></form>
+    	<form action="RentCarMain.jsp?center=CarOptionSelect.jsp" method = "post">
         <div class="content_section_box">
             <div class="content_image"><img class="car_img" src="./img/<%=car.getImg()%>"></div>
             <div class="content_text">
