@@ -19,7 +19,7 @@ INFO VARCHAR(500)
 <img src="https://github.com/sooyounghan/Web/assets/34672301/410843ba-a97e-452a-828e-4c6873b073af">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/f9d7a9a2-3b5b-42af-bbc7-5a8653eb8346">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/9e1b9584-3055-499e-a214-498a8e480463">
-
+</div>
 
 2. 기존 MEMBER 정보
 <div align = "center">
