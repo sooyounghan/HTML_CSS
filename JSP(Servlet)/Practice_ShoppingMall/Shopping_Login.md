@@ -193,6 +193,49 @@ INFO VARCHAR(500)
 ```
 
 -----
+### Login 처리에 따른 Top.jsp 일부 수정
+-----
+```jsp
+...
+<body>
+<%
+	// Session을 이용한 로그인 처리
+	String id = (String)session.getAttribute("id");
+
+	if(id == null) {
+		id = "Guest";
+	}
+%>
+    <header class="top">
+        <div class="top_logo_user">
+            <div class="top_logo"><a href = "RentCarMain.jsp"><img src = "./img/logo.png"></a></div>
+            <div class="top_user"><p><%=id%>님 어서오세요!
+            <%
+	        	if(id.equals("Guest")) {
+	        %>
+	        	<button class="login" onclick="location.href='RentCarMain.jsp?center=MemberLogin.jsp'">Login</button>
+	        <%
+	        	} else {
+	        %>
+	           	<button class="login" onclick="location.href='RentCarMain.jsp'">Logout</button>
+	        <%
+	        	}
+	        %>
+	        </p>
+            </div>
+        </div>
+        <div class="top_menu">
+            <div class="menu1 menu"><a href = "RentCarMain.jsp?center=CarReserveMain.jsp">Reservation</a></div>
+            <div class="menu2 menu"><a href = "#">Reserved Check</a></div>
+            <div class="menu3 menu"><a href = "#">Board</a></div>
+            <div class="menu4 menu"><a href = "#">Event</a></div>
+            <div class="menu5 menu"><a href = "#">Q&A</a></div>
+        </div>
+    </header>
+</body>
+...
+```
+-----
 ### RentCarDAO Class - getMember 구현
 -----
 ```java
@@ -407,5 +450,5 @@ public class RentCarDAO {
 
 <로그인 정보 일치>
 <div align = "center">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/afea2306-9f88-4d54-825d-b2535b7a6eff">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/18c1e216-88fe-49fe-958c-8e8a11f2e7d7">
 </div>
