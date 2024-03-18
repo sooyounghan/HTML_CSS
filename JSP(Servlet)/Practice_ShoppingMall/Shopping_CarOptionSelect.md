@@ -346,4 +346,7 @@ public class CarReserve {
 
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/b1c261a4-6e82-46dc-b8c6-8888769651ec">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/1629d794-cfab-4327-a2d1-07c795510a39">
 </div>
+
+: 회원이 아닐 경우, 결제를 실패한다는 Script 태그 처리
