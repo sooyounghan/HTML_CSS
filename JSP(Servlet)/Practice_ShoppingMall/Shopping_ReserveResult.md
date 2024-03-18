@@ -19,7 +19,7 @@ USE_NAVIGATION NUMBER CONSTRAINT CAR_RESERVE_USE_NAVGATION_NN NOT NULL,
 USE_BABY_SHEET NUMBER CONSTRAINT CAR_RESERVE_USE_BABY_SHEET_NN NOT NULL,
 
 CONSTRAINT CAR_RESERVE_NO_FK FOREIGN KEY(NO) REFERENCES RENTCAR(NO),
-CONSTRAINT CAR_RESERVE_FK_FK FOREIGN KEY(ID) REFERENCES MEMBER(ID)
+CONSTRAINT CAR_RESERVE_ID_FK FOREIGN KEY(ID) REFERENCES MEMBER(ID)
 );
 ```
 - RESERVE_NO는 PK
@@ -29,13 +29,13 @@ CONSTRAINT CAR_RESERVE_FK_FK FOREIGN KEY(ID) REFERENCES MEMBER(ID)
 - 테이블 구조 및 제약조건
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/cc43d42a-6ba2-4e2d-9dee-e4e29daa1f6c">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/a9a4cce4-9b7c-496e-9ce2-5822e8653855">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/fad78184-ff70-436f-8af8-c8b94d8bfb04">
 </div>
 
 
 - 총 3개의 테이블의 ERD
 <div align = "center">
-<img src = "https://github.com/sooyounghan/Web/assets/34672301/10bb843b-55a9-407a-bbdb-eab5989788ae">
+<img src = "https://github.com/sooyounghan/Web/assets/34672301/4ddde6ce-1ce9-4586-9de6-2292734eca4b">
 </div>
 
 
