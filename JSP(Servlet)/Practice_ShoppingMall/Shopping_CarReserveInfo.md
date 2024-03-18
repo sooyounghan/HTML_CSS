@@ -12,9 +12,9 @@
 	<title>Car Reserve Info</title>
 	<style>
 	* {
-    box-sizing:border-box;
-    padding:0;
-    margin:0;
+	    box-sizing:border-box;
+	    padding:0;
+	    margin:0;
 	}
 	
 	.content_main {
@@ -24,11 +24,19 @@
 	    align-items:center;
 	}
 	
+	.select_form {
+		display:flex;
+	    flex-direction:row;
+	    justify-content:center;
+	    align-items:center;
+	    margin-top:20px;
+	}
+	
 	.content_main .content_section_box {
 	    width:70%;
 	    display:flex;
 	    flex-direction:row;
-	    justify-content:space-between;
+	    justify-content:center;
 	    align-items:center;
 	    margin-top:20px;
 	}
@@ -92,9 +100,9 @@
 
 <body>
     <div class="content_main">
-        <div class="car_info_box"><p class="car_info">차량 정보보기</p></div>
+        <div class="car_info_box"><p class="car_info">차량 정보 보기</p></div>
         
-    	<form action="RentCarMain.jsp?center=CarOptionSelect.jsp" method = "post">
+    	<form action="RentCarMain.jsp?center=CarOptionSelect.jsp" method = "post" class="select_form">
         <div class="content_section_box">
             <div class="content_image"><img class="car_img" src="./img/<%=car.getImg()%>"></div>
             <div class="content_text">
@@ -112,13 +120,13 @@
                 <div class="car_company"><p class="text_car">제조 회사 : <%=car.getCompany()%></p></div>
                 <div class="menu_bar">
                 	<input type="hidden" name="no" value="<%=car.getNo()%>">
+                	<input type="hidden" name="img" value="<%=car.getImg()%>">
                     <input type="submit" value="Choice" class="choice">
                     <input type="button" value="Previous" class="choice" onclick="location.href='RentCarMain.jsp?center=CarReserveMain.jsp'">
                 </div>
             </div>
             </div>
          </form>
-         
         <div class="car_info_box">
         	<p class="car_info">차량 정보</p>
         	<p class="car_info"><%=car.getInfo()%></p>
