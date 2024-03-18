@@ -210,14 +210,14 @@ INFO VARCHAR(500)
         <div class="top_logo_user">
             <div class="top_logo"><a href = "RentCarMain.jsp"><img src = "./img/logo.png"></a></div>
             <div class="top_user"><p><%=id%>님 어서오세요!
-            <%
+                <%
 	        	if(id.equals("Guest")) {
 	        %>
 	        	<button class="login" onclick="location.href='RentCarMain.jsp?center=MemberLogin.jsp'">Login</button>
 	        <%
 	        	} else {
 	        %>
-	           	<button class="login" onclick="location.href='RentCarMain.jsp?center=MemberLogOut.jsp'">Logout</button>
+	           	<button class="login" onclick="location.href='MemberLogOut.jsp'">Logout</button>
 	        <%
 	        	}
 	        %>
