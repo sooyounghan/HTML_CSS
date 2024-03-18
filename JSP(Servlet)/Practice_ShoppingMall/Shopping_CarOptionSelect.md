@@ -305,16 +305,17 @@ public class CarReserve {
 	%>			
 		<script>
 			alert("Require Login!");
+			location.href="RentCarMain.jsp?center=MemberLogin.jsp"
 		</script>
 	<%
-
-		response.sendRedirect("RentCarMain.jsp?center=MemberLogin.jsp");
 		}
 	%>
 
 </body>
 </html>
 ```
+* alert 창 이후 CarReserveResult JSP Page에 출력 버퍼에 의해 씌여지므로, response의 sendRedirect가 무시 되는 현상 발생
+  : alert 이후 JS의 location.href를 통해 바로 이동시키는 방법 적용
 
 <Top.jsp>
 ```jsp
