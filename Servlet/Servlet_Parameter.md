@@ -236,13 +236,12 @@ public class MemberJoinProc extends HttpServlet {
 ### 회원정보를 처리하여 보여줄 페이지 : MemberView JSP Page
 -----
 ```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Member View</title>
 	<style>
 		* {
 	    box-sizing:border-box;
@@ -287,16 +286,7 @@ public class MemberJoinProc extends HttpServlet {
 	    justify-content:space-around;
 	    align-items:center;
 	}
-	
-	.input {
-	    margin:10px;
-	}
-	
-	.submit {
-	    width:100px;
-	    height:30px;
-	    border:2px solid black;
-	}
+
 	</style>
 </head>
 
@@ -329,10 +319,6 @@ public class MemberJoinProc extends HttpServlet {
                     <div class="name"><p>Address : </p></div>
                     <div class="input">${member.getAddress()}</div>
                 </div>
-
-                <div class="submit_button">
-                    <input type="submit" value="Join" class="submit">
-                </div>      
             </div>
         </div>
     </div>
@@ -342,5 +328,5 @@ public class MemberJoinProc extends HttpServlet {
 : Servlet에서 선언한 Model의 Bean Class 객체에 대해 EL(Expression Language) 가능
 
 <div align="center">
-<img src=https://github.com/sooyounghan/Web/assets/34672301/ec356db2-9010-464a-a6f2-aef35fddd20b">
+<img src= "https://github.com/sooyounghan/Web/assets/34672301/08532fa9-96d1-464f-b2bf-79203deea9e2">
 </div>
