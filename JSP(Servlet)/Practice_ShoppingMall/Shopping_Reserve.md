@@ -288,7 +288,7 @@ public class RentCarDAO {
 				CarList car = carList.get(i);
 %>
         	<div class="item">
-				<a href="CarReserveInfo.jsp?no=<%=car.getNo()%>"><img src="./img/<%=car.getImg()%>"></a>
+				<a href="RentCarMain.jsp?center=CarReserveInfo.jsp?no=<%=car.getNo()%>"><img src="./img/<%=car.getImg()%>"></a>
 				<p> 차량명 : <%=car.getName()%> </p>
 			</div>
 <%
