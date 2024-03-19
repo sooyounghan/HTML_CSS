@@ -76,9 +76,9 @@
 				CarList car = carList.get(i);
 %>
         	<div class="item">
-				<a href="CarReserveInfo.jsp?no=<%=car.getNo()%>"><img src="./img/<%=car.getImg()%>"></a>
+				<a href="RentCarMain.jsp?center=CarReserveInfo.jsp?no=<%=car.getNo()%>"><img src="./img/<%=car.getImg()%>"></a>
 				<p> Car : <%=car.getName()%> </p>
-				<p> Price : <%=car.getPrice()%>만원 </p>
+				<p> Price : <%=car.getPrice()%>원 </p>
 			</div>
 <%
 	}
