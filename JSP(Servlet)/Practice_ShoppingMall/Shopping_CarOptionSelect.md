@@ -14,9 +14,9 @@
 	<title>Car Option Select</title>
 	<style>
 	* {
-    box-sizing:border-box;
-    padding:0;
-    margin:0;
+	    box-sizing:border-box;
+	    padding:0;
+	    margin:0;
 	}
 	
 	.content_main {
