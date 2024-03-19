@@ -318,7 +318,7 @@ WHERE C.ID = ?  AND SYSDATE < TO_DATE(C.RESERVE_DAY, 'YYYY-MM-DD');
                 <p class="result_content">Navigation : <%=navigation%></p>
                 <p class="result_content">Baby-Sheet : <%=baby_sheet%></p>
                 <div class="result_menu">
-                    <input type="button" class="delete_button" value="Delete">
+                    <button class="delete_button" onclick="location.href='CarReserveDelete.jsp?id=<%=id%>&reserve_day=<%=car.getReserve_day()%>'">Delete</button>
                 </div>
             </div>
     <%
