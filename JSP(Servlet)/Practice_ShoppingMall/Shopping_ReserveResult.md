@@ -266,7 +266,7 @@ public class CarReserve {
 		// CarReserve 객체인 car_reserve 객체에 reserve_no (Sequence 이용)과 회원 ID 입력되지 않았으므로 처리
 		// 위의 id는 null 값에 대비한 경우, 현재부분은 login이 되었을 때 id
 		String login_id = (String)session.getAttribute("id"); 
-		car_reserve.setId(id);
+		car_reserve.setId(login_id);
 		
 		RentCarDAO rentCarDAO = new RentCarDAO();
 		rentCarDAO.setReserveCar(car_reserve);
