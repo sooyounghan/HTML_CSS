@@ -117,7 +117,7 @@
 1. 기존 Model1 : form의 액션은 JSP 웹 페이지로 바로 Action
 2. Model2 (MVC) : 해당 일을 처리할 Controller가 존재하는 Servlet으로 전달
    - 단, action을 취할 Servlet의 URL과 일치해야함 (Servlet Class 이름과 무관)
-   - 단, 해당 Controller가 위치한 ContextPath까지 명시 필요
+   - 단, 해당 Controller가 위치한 ContextPath까지 명시 필요 (이 과정이 귀찮다면, Context Path 설정을 /로 변경하는 것도 좋은 방법!)
 
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/7a94c018-f9ab-4721-8cb3-becec9cd3008">
