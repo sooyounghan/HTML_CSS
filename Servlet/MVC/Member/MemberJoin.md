@@ -121,7 +121,7 @@
    <div class="wrapper">
         <div class="container">
             <div class="title"><p>회원 가입</p></div>
-            <form action="<%=request.getContextPath()%>/MemberJoinProc.do" method="post">
+            <form action="MemberJoinProc.do" method="post">
             <div class="content">
                 <div class="id">
                     <div class="name"><p>ID : </p></div>
