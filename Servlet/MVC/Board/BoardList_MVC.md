@@ -252,6 +252,8 @@ public class BoardListController extends HttpServlet {
 
 </html>
 ```
+ - BoardWriteForm JSP VIEW PAGE로 이동 시, 처리할 자바 코드가 있으면 이를 처리할 BoardWriteFORM Controller로 Handling이 정석
+ - 그러나, 현재 해당 JSP PAGE에서는 크게 처리할 자바 코드가 없으므로 바로 이동
 
 -----
 ### BoardDAO (Model) : getAllCount 및 getAllBoard 구현
