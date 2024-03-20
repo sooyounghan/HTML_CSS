@@ -361,6 +361,7 @@ public class BoardDAO {
 	}
 }
 ```
+- SQL문을 String으로 적을 때, 띄어쓰기에 유의할 것
 
 <div align="center">
 <img width="894" alt="20240320_211441" src="https://github.com/sooyounghan/DataBase/assets/34672301/ba9f5f16-5c93-48ae-a782-a8e99061856a">
