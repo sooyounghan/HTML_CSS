@@ -548,11 +548,11 @@ public class BoardDAO {
 	 			<c:set var="pageCount" value="${(count / pageSize) + (count % pageSize == 0 ? 0 : 1)}"/>
 	 			<c:set var="startPage" value ="${1}"/>
 	 			
-	 			<c:if test="${currentPage % 10 != 0}">
+	 			<c:if test="${currentPage % pageSize != 0}">
 	 				<fmt:parseNumber var="result" value="${currentPage / pageSize}" integerOnly="true"/>
 	 				<c:set var="startPage" value="${result * pageSize + 1}"/>
 	 			</c:if>
-	 			<c:if test="${currentPage % 10 == 0}">
+	 			<c:if test="${currentPage % pageSize == 0}">
 	 				<c:set var="startPage" value="${(result - 1) * pagSize + 1}"/>
 	 			</c:if>
 				
