@@ -275,7 +275,7 @@ public class BoardUpdateFormProcController extends HttpServlet {
 ```
 
 -----
-### BoardDAO : getOneUpadteBoard / upDateBoard 구현
+### BoardDAO : getOneUpadteBoard / updateBoard 구현
 ----
 ```java
 package Model;
