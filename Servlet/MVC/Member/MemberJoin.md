@@ -410,7 +410,7 @@ public class MemberJoinProc extends HttpServlet {
 		Member member = new Member();
 		
 		String[] hobbys = request.getParameterValues("hobby");
-		String hobby = null;
+		String hobby = "";
 		
 		for(String hobbies : hobbys) {
 			hobby += hobbies + " ";
