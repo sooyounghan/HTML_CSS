@@ -41,7 +41,7 @@ CONSTRAINT BOARD_BOARD_NUM_PK PRIMARY KEY(BOARD_NUM)
 4. Server의 web.xml에 DBCP를 위한 설정
 ```jsp
 <Context docBase="Board" path="/Board" reloadable="true" source="org.eclipse.jst.jee.server:Board">
-  <Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" type="javax.sql.DataSource" loginTimeout="10" maxWaits="5000" name="jdbc/pool" username="dbPractice" password="1234" url="jdbc:oracle:thin:@localhost:1521:xe"/>
+  <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" type="javax.sql.DataSource" loginTimeout="10" maxWaits="5000" name="jdbc/pool" username="dbPractice" password="1234" url="jdbc:oracle:thin:@localhost:1521:xe"/>
 </Context> 
 ```
 
