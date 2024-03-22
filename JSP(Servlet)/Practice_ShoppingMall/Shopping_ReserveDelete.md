@@ -2,7 +2,7 @@
 ### 예약 정보 삭제
 -----
 1. 정석 방법
-   - 예약 정보를 담는 CarrView BeanClass에 대해 reserve_no이라는 값을 저장한 후, id값과 reserve_no를 통해 삭제하는 것이 정석
+   - 예약 정보를 담는 CarView BeanClass에 대해 reserve_no이라는 값을 저장한 후, id값과 reserve_no를 통해 삭제하는 것이 정석
    - 실제로도 해당 방법을 이용
    
 2. 여기에서는 간단하게 id와 reserve_day 값으로 삭제 예정
