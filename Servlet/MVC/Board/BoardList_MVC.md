@@ -74,6 +74,7 @@ public class BoardListController extends HttpServlet {
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,7 +226,7 @@ public class BoardListController extends HttpServlet {
 	               			&nbsp;
 	              	   </c:forEach>
 	              </c:if>
-	               <a href="BoardInfoControl.do?num=${number}">${board.subject}</a>
+	               <a href="BoardInfoProcController.do?board_num=${board.board_num}">${board.subject}</a>
                </div>
                
                <div class="writer">${board.writer}</div>
@@ -242,9 +243,38 @@ public class BoardListController extends HttpServlet {
 	<footer>
  		<div class="box"></div>
 	 	<div class="countering">
-	 				<!-- <a href = "">[Previous]</a>
-					<a href = ""></a>
-				<a href = "">[Next]</a> -->
+	 		<c:if test="${count > 0}">
+	 			<c:set var="pageCount" value="${(count / pageSize) + (count % pageSize == 0 ? 0 : 1)}"/>
+	 			<c:set var="startPage" value ="${1}"/>
+	 			
+	 			<c:if test="${currentPage % pageSize != 0}">
+	 				<fmt:parseNumber var="result" value="${currentPage / pageSize}" integerOnly="true"/>
+	 				<c:set var="startPage" value="${result * pageSize + 1}"/>
+	 			</c:if>
+	 			<c:if test="${currentPage % pageSize == 0}">
+	 				<c:set var="startPage" value="${(result - 1) * pagSize + 1}"/>
+	 			</c:if>
+				
+				<c:set var="pageBlock" value="${pageSize}"/>
+				
+				<c:set var="endPage" value="${startPage + pageBlock - 1}"/>	
+				
+				<c:if test="${endPage > pageCount}">
+					<c:set var="endPage" value="${endPage = pageCount}"/>
+				</c:if>
+
+				<c:if test="${startPage > pageSize}">
+					<a href = "BoardListController.do?pageNum=${startPage - 10}">[Previous]</a>
+				</c:if>
+				
+				<c:forEach var="i" begin="${startPage}" end="${endPage}">
+					<a href = "BoardListController.do?pageNum=${i}">${i}</a>
+				</c:forEach>
+				
+				<c:if test="${endPage < pageCount}">
+					<a href = "BoardListController.do?pageNum=${startPage + 10}">[Next]</a>
+				</c:if>
+	 		</c:if>
 	 	</div>
  		<div><button onclick="location.href='BoardWriteForm.jsp'">Write</button> </div>
  	</footer>
