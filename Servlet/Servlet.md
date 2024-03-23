@@ -6,7 +6,7 @@
 3. MVC에 대한 표준이 없어서 등장한 것 : MVC FrameWork(Spring, SpringBoot)
 
 -----
-### Servlet
+### Servlet (Server Application Let)
 -----
 참고 자료 : https://github.com/sksrpf1126/study/blob/main/Spring(Spring%20Boot)/Servlet.md
 
@@ -321,6 +321,18 @@ public class LoginProc extends HttpServlet {
 	}
 }
 ```
+
+-----
+### Context 사이트 추가 (server.xml)
+-----
+```jsp
+<Host name="localhost"  appBase="webapps" unpackWARs="true" autoDeploy="true">
+	<Context path="it" docBase="해당 Resoucres에 대한 전체 절대경로" privileged="true"/>
+```
+ 1. Context 내 docBase에 설정된 디렉토리를 가상 디렉토리인 it로 연결
+ 2. 이 가상 디렉토리를 webapps 이하로 연결되는 형태가 되는 것
+ 3. 즉, localhost:portNumber/it/resources 로 연결
+
 -----
 ### URL 패턴 매핑 규칙 
 -----
