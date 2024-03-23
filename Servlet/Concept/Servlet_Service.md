@@ -1,8 +1,8 @@
 -----
 ### Service method
 -----
-1. JSP PAGE 내에서 FORM을 통해 GET / POST 방식으로 받게 되었을 때, doGet()과 doPost() 방식으로 처리할 수 있음
-2. 하지만, service() 내에서 GET / POST 방식에 대해 처리도 가능
+1. JSP PAGE 내에서 FORM을 통해 GET / POST 방식으로 받게 되었을 때, doGet(request, response)과 doPost(request, response) 방식으로 처리할 수 있음
+2. 하지만, service(request, response) 내에서 GET / POST 방식에 대해 처리도 가능
 ```java
 package ServletEx;
 
@@ -35,7 +35,7 @@ public class ServletEx extends HttpServlet {
    - equalsIgnoreCase() 메서드를 사용 : 대 / 소문자 구분 없이 처리 가능
 
 -----
-### super.service(reqeust, response) = httpServlet.service의 동작 순서
+### super.service(reqeust, response) = HttpServlet.service의 동작 순서
 -----
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/b04175a1-a123-49a4-a480-0800f4a1e20f">
@@ -53,7 +53,7 @@ public class ServletEx extends HttpServlet {
 1. 해당 메서드를 지원할 수 없다는 의미 = 즉, 클라이언트로부터 받은 요청을 처리할 수 없다는 의미
 2. 즉, 만약 서블릿이 특정 HTTP 메서드에 대한 요청을 처리할 준비가 되어있지 않다면, 해당 메서드를 제공하지 않는다는 의미
 3. 그러므로, 클라이언트가 특정 HTTP 메서드로 요청을 보내면, 해당하는 서블릿이 그 요청을 처리할 수 있는 적절한 메서드를 제공해야 함
-4. 예를 들어, 클라이언트가 GET 요청을 보냈는데 서블릿이 doGet() 메서드를 오버라이딩하지 않았다면, 이는 해당 서블릿이 GET 요청을 처리할 수 없다는 것을 의미하며, 따라서 서블릿 컨테이너는 클라이언트에게 "Method Not Allowed(405)" 오류를 반환
+4. 예를 들어, 클라이언트가 GET 요청을 보냈는데 서블릿이 doGet(request, response) 메서드를 오버라이딩하지 않았다면, 이는 해당 서블릿이 GET 요청을 처리할 수 없다는 것을 의미하며, 따라서 서블릿 컨테이너는 클라이언트에게 "Method Not Allowed(405)" 오류를 반환
    
 -----
 ### super.service(reqeust, response)
@@ -61,7 +61,7 @@ public class ServletEx extends HttpServlet {
 1. 위의 코드의 경우에는 service Method를 HttpServlet으로부터 상속받아 오버라이딩 한 것
 2. 그렇다면, 오버라이딩을 하지 않고 사용한다면? (즉, super.service(request, response) 호출)
    - 사용자로부터 request가 발생하면, doGet / doPost 방식만을 오버라이딩을 하면, 해당 오버라이딩 부분에 대해 처리가 가능
-   - 하지만, doGet / doPost 방식을 오버라이딩 하지 않는다면, 오류가 발생 (http status 405 - 허용되지 않는 메서드 오류 발생)
+   - 하지만, doGet / doPost 방식을 오버라이딩 하지 않는다면, 오류가 발생 (Http status 405 - 허용되지 않는 메서드 오류 발생)
 
 ```java
 package ServletEx;
@@ -89,10 +89,10 @@ public class ServletEx extends HttpServlet {
 	}
 }
 ```
-   - 즉, 위와 같이 service를 통해 get / post 방식에 대해 처리했으나, super.service()를 만나게 되면, 오버라이딩된 doGet()과 doPost()를 확인 (오버라이딩이 되지 않은 doGet()과 doPost()는 기본적으로 아무런 동작을 수행하지 않으나 호출은 가능)
+   - 즉, 위와 같이 service를 통해 get / post 방식에 대해 처리했으나, super.service()를 만나게 되면, 오버라이딩된 doGet()과 doPost()를 확인 (오버라이딩이 되지 않은 doGet(request, response)과 doPost(request, response)는 기본적으로 아무런 동작을 수행하지 않으나 호출은 가능)
    - 하지만, 오버라이딩된 메서드가 없으므로, http status 405 오류 발생
 
-5. 다음과 같이, doGet(), doPost()를 오버라이딩하면, 오류 미발생
+5. 다음과 같이, doGet(request, response), doPost(request, response)를 오버라이딩하면, 오류 미발생
 ```java
 package ServletEx;
 
@@ -127,4 +127,4 @@ public class ServletEx extends HttpServlet {
 	}
 }
 ```
-   - super.service()는 get / post 방식에 따라 오버라이딩된 doGet() / doPost() 방식에 맞춰 처리
+   - super.service(request, response)는 get / post 방식에 따라 오버라이딩된 doGet(request, response) / doPost(request, response) 방식에 맞춰 처리
