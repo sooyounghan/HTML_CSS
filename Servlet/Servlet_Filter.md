@@ -17,9 +17,9 @@
 <img src="https://github.com/sooyounghan/Web/assets/34672301/02225e7f-08ac-482a-bc96-dc271cc2d751">
 </div>
 
-1. Servler Container로 request가 진입되기 전, 일종의 Filter 역할을 통해 먼저 그 조건에 대해 확인 
+1. Servler Container로 request가 진입되기 전, Filter 역할을 통해 먼저 그 조건에 대해 확인 
 2. 실행된 후에, 해당 Servlet이 실행될 여부까지 유효성 검사 까지 가능
-3. 또한, Servlet이 처리된 후 response로 전송되기 전에도 다시 한 번 유효성 검사까지 가능
+3. Servlet이 처리된 후 response로 전송되기 전에도 다시 한 번 유효성 검사까지 가능
 
 -----
 ### Servlet Filter
@@ -82,7 +82,7 @@ public class MyFilter implements Filter {
 ```
 
 3. Filter 설정을 하면, request에 대해 Filter 처리를 위해 실행
-4. WAS가 처음 실행될 때, 해당 WAS Continaer에 Fitler가 적재
+4. WAS가 처음 실행될 때, 해당 WAS Continaer에 Fitler 적재
 
 -----
 ### Servlet Filter 설정 - Web.xml
@@ -107,9 +107,10 @@ public class MyFilter implements Filter {
 + filter 태그 내에는 해당 Filter의 이름, 속한 패키지명.클래스명을 명시
 + filter-mapping은 해당 Filter의 이름에 대해 어떠한 URL의 요청을 받았을 때, Filter가 적용될 지 결정
 
-2. 해당 Servlet Filter가 설정되어 실행되면, 어떠한 URL에 대해 요청해도 Filter가 실행되나, 현재 Filter에는 어떠한 Servlet으로 전이시킬지 표시하지 않았으므로, 해당 Filter에서 계속 존재
+2. 해당 Servlet Filter가 설정되어 실행되면, 어떠한 URL에 대해 요청해도 Filter가 실행되나, 현재 Filter에는 특정 Filter 또는 Servlet으로 전이시킬지 표시하지 않았으므로, 해당 Filter에서 계속 유지
 
 3. FilterChain : Servlet의 흐름을 결정하는 역할
+   
 4. 다음과 같이 FilterChain chain에 대해 설정하면,
 ```java
 package ServletEx.MyFilter;
