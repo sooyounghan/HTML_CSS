@@ -14,7 +14,10 @@
 
           <%= %> : 데이터, 변수 등 화면에 출력하는 용도로 사용
           ${ } : Attribute, Parameter 등 객체의 값을 얻어와 출력하는 용도로 사용
-     
+
+4. 즉, View를 위한 데이터 추출 표현식
+5. 저장 객체에서 값을 추출해서 출력하는 표현식
+
 ```jsp
 <%
 i = 3
@@ -29,7 +32,7 @@ i = ${i_a ne 4};
 ${param.id}, $[param.password} // Parameter에서의 id와 password 값을 받아올 수 있음
 ```
 
-4. EL 연산자
+6. EL 연산자
 <div align = "center">
 <img src = "https://github.com/sooyounghan/Web/assets/34672301/fd58faa0-b098-495f-b7a4-60453c75bece">
 </div>
@@ -149,6 +152,11 @@ ${"제목 : " += title} : 제목 : JSP
 ```jsp
 ${cookie.ID.value}
 ```
+< 예 : pageContext.getRequest().getMethod() >
+```jsp
+${pageContext.request.method}
+```
+
 1. 객체에 저장된 값에 접근 할 떄 점(.)이나 대괄호([]) 사용 (동일한 연산자)
    : cookie.name은 cookie['name']과 동일
    
