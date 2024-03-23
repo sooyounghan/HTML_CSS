@@ -1,5 +1,5 @@
 -----
-### out 기본 객체
+### out 기본 객체 (javax.servlet.jsp.JspWriter)
 -----
 1. JSP 페이지가 생성하는 모든 내용은 out 객체를 통해 전송
 2. JSP 컨테이너는 JSP 페이지에 사용되는 모든 표현문 태그와 HTML, 일반 텍스트 등을 out 내장 객체를 통해 웹 브라우저에 그대로 전달
@@ -23,7 +23,7 @@
 </div>
 
 -----
-### application 기본 객체
+### application 기본 객체 (javax.servlet.ServletContext)
 -----
 1. 모든 JSP 페이지는 하나의 Application 기본 객체를 공유 
 2. 웹 어플리케이션 전반에 사용되는 정보 포함
