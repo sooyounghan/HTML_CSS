@@ -85,7 +85,7 @@
 2.  URL (Uniform Resource Locator) : 웹주소로서, 컴퓨터 네트워크 상에서 리소스가 어디있는지 알려주기 위한 규약
 
 -----
-### request 내장 객체
+### request 내장 객체 (HttpServletRequest)
 -----
 1. JSP 페이지에서 가장 많이 사용되는 기본 객체로 웹 브라우저의 요청과 관련
 2. 웹 브라우저에서 서버의 JSP 페이지로 전달하는 정보 저장
