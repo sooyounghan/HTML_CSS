@@ -3,7 +3,7 @@
 -----
 1. JSP에서의 appliocation 내장 객체와 동일
 2. Servlet에서는 서블릿 컨택스트 (Servlet Context)라는 저장 공간을 의미
-3. request.getContextPath()를 통해 application 객체 받아올 수 있음
+3. request.getServletContext()를 통해 application 객체 받아올 수 있음
 4. 예시
 ```java
 package ServletEx;
