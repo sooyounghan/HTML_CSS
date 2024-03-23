@@ -34,15 +34,15 @@ import javax.servlet.http.HttpServletResponse;
 public class servlet_Ex extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.setCharacterEncoding("UTF-8");
-    response.setContentType("text/html; charset=UTF-8");
-    request.setCharacterEncoding("UTF-8");
+	    response.setCharacterEncoding("UTF-8");
+	    response.setContentType("text/html; charset=UTF-8");
+	    request.setCharacterEncoding("UTF-8");
 
-		PrintWriter out = response.getWriter();
+	    PrintWriter out = response.getWriter();
 
-    for(int i = 0; i < 100; i++) {
+	    for(int i = 0; i < 100; i++) {
   		  out.println((i+1) + ": 안녕 Servlet!");
-    }
+	    }
 	}
 }
 ```
