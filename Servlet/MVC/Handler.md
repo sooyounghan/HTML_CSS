@@ -67,7 +67,7 @@ String viewPage = handler.process(request, response);
 
 1. CommandHandler를 인터페이스로 구현
 2. NullHandler, BoardListHandler 등의 클래스는 각 명령어에 해당하는 로직 실행 코드를 담고 있는 클래스
-3. 로직을 수행하기 위해 process() 메서드를 호출하고 결과를 보여줄 뷰 페이지의 정보를 return
+3. 로직을 수행하기 위해 service() 메서드를 호출하고 결과를 보여줄 뷰 페이지의 정보를 return
 4. 즉, Controller Servlet은 명령어에 해당하는 CommandHandler 인스턴스를 생성하고, 실제 로직 처리는 생성한 CommanHandler 인스턴스에서 실행되는 구조
 
 <div align="center">
