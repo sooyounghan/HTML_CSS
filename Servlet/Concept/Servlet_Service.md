@@ -21,15 +21,15 @@ public class ServletEx extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    if(request.getMethod().equals("GET") {
-        ...
-      } else if(request.getMothod().equals("POST") {
-        ...
-      }
+	        ...
+	    } else if(request.getMothod().equals("POST") {
+	        ...
+	    }
 	}
 }
 ```
 
-3. service 메서드 내에서 request에 대해 getMethod()를 호출하면, request로 전달받은 FORM에 대한 method 방식에 대한 String 값을 얻을 숭 ㅣㅆ음
+3. service 메서드 내에서 request에 대해 getMethod()를 호출하면, request로 전달받은 FORM에 대한 method 방식에 대한 String 값을 얻을 수 있음
 4. 이에 대해 equals() 함수를 이용해 GET / POST 방식을 확인하여 나눠서 처리 가능
    - 단, GET / POST는 대문자로 작성
    - equalsIgnoreCase() 메서드를 사용 : 대 / 소문자 구분 없이 처리 가능
