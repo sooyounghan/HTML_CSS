@@ -84,7 +84,7 @@ public class MyFilter implements Filter {
 4. WAS가 처음 실행될 때, 해당 WAS Continaer에 Fitler가 적재
 
 -----
-### Servlet Filter 설정
+### Servlet Filter 설정 - Web.xml
 -----
 1. web.xml 설정
    - 전체적으로 설정해야 할 Filter라면, Servers의 web.xml에 설정
@@ -105,7 +105,117 @@ public class MyFilter implements Filter {
 
 + filter 태그 내에는 해당 Filter의 이름, 속한 패키지명.클래스명을 명시
 + filter-mapping은 해당 Filter의 이름에 대해 어떠한 URL의 요청을 받았을 때, Filter가 적용될 지 결정
-  
-3. Annotation 설정
 
-   
+2. 해당 Servlet Filter가 설정되어 실행되면, 어떠한 URL에 대해 요청해도 Filter가 실행되나, 현재 Filter에는 어떠한 Servlet으로 전이시킬지 표시하지 않았으므로, 해당 Filter에서 계속 존재
+
+3. FilterChain : Servlet의 흐름을 결정하는 역할
+4. 다음과 같이 FilterChain chain에 대해 설정하면,
+```java
+package ServletEx.MyFilter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class MyFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		chain.doFilter(request, response);
+		System.out.println("Filter!");
+	}
+}
+```
+
++ Filter의 흐름을 다음 filter나 Servlet이 실행되도록 설정하는 것이며, 해당 페이지로 request를 전달 (즉, 조건을 통해 설정 부분 설정 가능)
++ 이에 따라 처리 후 그 결과를 response로 다시 전달받음
++ 그리고 다음 문장인 콘솔 출력 문장 실행
+
+5. 조금 더 명확한 흐름을 보기 위해 다음과 같이 설정하면,
+```java
+package ServletEx.MyFilter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class MyFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		System.out.println("Before Filter!");
+		chain.doFilter(request, response);
+		System.out.println("After Filter!");
+	}
+}
+```
++ Before Filter! 출력 - 다음 Filter 또는 Servlet으로 request 전달 - 처리 후 response 전달 - After Filter! 출력
+  
+
+-----
+### Servlet Filter 예제
+-----
+1. Encoding 작업 Filter를 통해서 하고 싶다면, 다음과 같이 가능
+```java
+package ServletEx.MyFilter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class MyFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		request.setCharcterEncoding("UTF-8");
+		chain.doFilter(request, response);
+	}
+}
+```
+
+2. 즉, 다음 Servlet 또는 Filter로 이동하기 전에 request에 해당 characterEncoding 타입을 결정하여 전달
+
+-----
+### Servlet Filter 설정 - Annotation
+-----
+1. web.xml에 설정하지 않고도, Annotation을 이용해 가능한데, 다음과 같이 설정
+```java
+package ServletEx.MyFilter;
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+
+@WebFilter("/*")
+public class MyFilter implements Filter {
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		request.setCharacterEncoding("UTF-8");
+		chain.doFilter(request, response);
+	}
+}
+```
+
+2. Annotation을 설정하면 web.xml을 통해 설정한 방법과 동일
