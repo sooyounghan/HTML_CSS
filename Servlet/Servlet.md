@@ -146,7 +146,39 @@ public init() throws ServletException {
         * 서블릿 클래스 : httpServlet 클래스를 상속
         * httpServlet에는 do.. 메서드가 다수 존재하는데, 여기에서는 그 중 doGet 메서드를 오버라이딩
 
- < PrintStream out = resp.getWriter()의 동작 원리 >   
+-----
+### Response를 이용한 웹 출력 방법 (Stream / Writer방법)
+-----
+```java
+import java.util.*;
+
+import java.io.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/*
+ * Browser에 문자열 출력 웹 문서 (@WebServlet)
+ */
+
+// http://localhost:8081/webPro/hello
+@WebServlet(urlPatterns = "/hello")
+public class servlet_Ex extends HttpServlet {
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		OutputStream os = response.getOutputStream();
+		PrintStream out = new PrintStream(os, true);
+		out.println("Hello Servlet!");
+
+		PrintWriter out = response.getWriter();
+		out.println("Hello Servlet!");
+	}
+}
+```
+ < PrintStream out = response.getWriter()의 동작 원리 (문자열 계열)>   
  
     - 클라이언트로부터 Servlet으로 요청이 들어오면 요청(Request)을 파악한 후 응답(Response)을 전달
     - Servlet으로 들어온 요청을 텍스트(HTML) 형태로 응답을 보내려면 아래와 같이 응답으로 내보낼 출력 스트림을 얻어야함
@@ -158,7 +190,7 @@ public init() throws ServletException {
       텍스트를 기록
     - 어떤 타입의 문서를 보낸다고 설정해주는 부분이 없다면, 그러면 웹 브라우저는 기본값으로 처리
     - 기본값 : text/html → 웹 브라우저는 응답받은 문자열을 모두 HTML 태그로 인식하여 처리
-
+    
 -----
 ### Annotation을 통한 매핑 : @WebServlet(urlPatterns = "/hello")
 -----
@@ -281,6 +313,7 @@ public class servlet_Ex extends HttpServlet {
               <servlet-name>서블릿 이름</servlet-name>
               <url-pattern>URL 주소</url-pattern>
        </servletp-mapping>
+
 
 -----
 ### RequestDispatcher
