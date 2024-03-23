@@ -29,3 +29,16 @@
 -----
 1. ECMA International : JavaScript의 표준안을 제작
 2. ECAM Script : 자바스크립트의 표준안 (사실상, 자바스크립트의 다른 이름)
+
+-----
+### Broswer Console 설정 
+-----
+1. 개발자 도구 열기 : Ctrl + Shift + i
+2. 콘솔 설정
+   - 개발자 도구 - 콘솔 - 도크 축으로 콘솔 창 이동 가능
+   - 필요시 메뉴의 톱니바퀴를 통해 테마 설정 가능
+3. 콘솔 비우기 : Ctrl + l
+4. 브라우저 스크롤 바
+   - 주소창에 chrome://flags 입력하여 접속
+   - scrollbar 검색
+   - Overlay scrollbars 찾아 Enabled로 변경
