@@ -58,7 +58,18 @@
     -  파라미터가 여러개일 경우 &를 붙여 여러개의 파라미터를 넘기기 가능
 
            엔드포인트주소/엔드포인트주소(서버 측의 페이지)?파라미터명(변수)=값&파라미터명=값
-       
+
+5. 경우의 종류
+   - http://.../hello?cnt=3 (request에 cnt라는 parameter에 "3"이라는 값이 전달)
+   - http://.../hello?cnt=  (request에 cnt라는 parameter에 ""이라는 값이 전달)
+   - http://.../hello? (null 값이 전달) 
+   - http://.../hello (null 값이 전달)
+   - 따라서, 2/3/4번의 경우는 아래와 같이 처리가 필요
+
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/25e432e3-3111-415d-a3df-198f0d84c456">
+</div>
+
 -----
 ### URL과 URI
 -----
