@@ -1,13 +1,24 @@
 -----
-### MVC MODEL 2
+### MVC 
 -----
 
 <div align = "center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/22b17049-6089-4d31-a9a3-43e21d6f4933">
 </div>
 
-<간단한 로그인 데이터 받기>
+1. Model : 비즈니스 영역의 로직을 처리 (JavaBean, Logic 처리 Class)
+2. View : 비즈니스 영역에 대한 사용자가 보게 될 결과 화면을 담당 (JSP Page)
+3. Controller : 사용자의 입력 처리와 흐름 제어를 담당 (Controller)
+4. 비즈니스 로직을 처리하는 Model과 결과 화면을 보여주는 View를 분리
+   - Model의 내부 로직이 변경되더라도 View의 영향을 받지 않음
+   - View와 Model이 직접 연결되어 있지 않으므로 내부 구현 로직에 상관없이 View 변경 가능
+5. 어플리케이션의 흐름 제어나 사용자의 처리 요청은 Controller에 집중
+   - Controller는 사용자의 요청에 대해 알맞은 Model을 사용
+   - 사용자에게 보여줄 View를 선택 
 
+-----
+### 간단한 로그인 데이터 받기
+-----
 1. 로그인 폼 (Request)
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
