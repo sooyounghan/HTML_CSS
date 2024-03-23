@@ -1,5 +1,5 @@
 -----
-### service 함수
+### service method
 -----
 1. JSP PAGE 내에서 FORM을 통해 GET / POST 방식으로 받게 되었을 때, doGet()과 doPost() 방식으로 처리할 수 있음
 2. 하지만, service() 내에서 GET / POST 방식에 대해 처리도 가능
