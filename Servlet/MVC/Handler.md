@@ -80,11 +80,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface CommandHandler {
-  public String process(HttpServletRequest request, HttpServletResponse response) throws Excpetion;
+  public String service(HttpServletRequest request, HttpServletResponse response) throws Excpetion;
 }
 ```
   - 즉, 모든 CommandHandler Class가 공통으로 구현해야 할 메서드를 선언
-  - CommandHandler Class는 process() 메서드를 이용해 알맞은 Logic 코드를 구현하고 결과를 보여줄 JSP View Page를 Return
+  - CommandHandler Class는 service() 메서드를 이용해 알맞은 Logic 코드를 구현하고 결과를 보여줄 JSP View Page를 Return
 
 ```java
 public class SomeHandler implements CommandHandler {
