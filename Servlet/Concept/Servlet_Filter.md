@@ -82,7 +82,7 @@ public class MyFilter implements Filter {
 ```
 
 3. Filter 설정을 하면, request에 대해 Filter 처리를 위해 실행
-4. WAS가 처음 실행될 때, 해당 WAS Continaer에 Fitler 적재
+4. WAS가 처음 실행될 때, 해당 WAS Continaer에 Filter 적재
 
 -----
 ### Servlet Filter 설정 - Web.xml
