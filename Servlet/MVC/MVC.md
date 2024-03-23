@@ -31,7 +31,7 @@ public class SimpleController extends HttpServlet {
   	}
   	
   	@Override
-  	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   		  service(request, response);
   	}
   	
