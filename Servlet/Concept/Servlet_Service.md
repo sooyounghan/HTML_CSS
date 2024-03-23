@@ -64,11 +64,11 @@ public class ServletEx extends HttpServlet {
        
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	    if(request.getMethod().equals("GET") {
-        ...
-      } else if(request.getMothod().equals("POST") {
-        ...
-      }
-      super.service(request, response);
+	        ...
+	    } else if(request.getMothod().equals("POST") {
+	        ...
+	    }
+      	    super.service(request, response);
 	}
 }
 ```
