@@ -35,12 +35,28 @@ public class ServletEx extends HttpServlet {
    - equalsIgnoreCase() 메서드를 사용 : 대 / 소문자 구분 없이 처리 가능
 
 -----
-### super.service(reqeust, response)
+### super.service(reqeust, response) = httpServlet.service의 동작 순서
 -----
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/b04175a1-a123-49a4-a480-0800f4a1e20f">
 </div>
+1. 클라이언트로부터 들어오는 HTTP 요청을 처리하는 메서드
+2. 클라이언트의 HTTP 요청을 분석해 요청 메서드(GET, POST, PUT, DELETE 등)을 확인
+3. 요청 메서드에 따라 doXXX() 메서드를 호출
+4. 만약, 해당하는 doXXX() 메서드가 존재하지 않거나 오버라이딩 되지 않은 경우, 해당 요청에 대해 405 오류 발생
+5. doXXX가 호출되면, 클라이언트의 요청에 대한 실제 처리가 이루어짐
 
+-----
+### http Status 405의 의미
+-----
+1. 해당 메서드를 지원할 수 없다는 의미 = 즉, 클라이언트로부터 받은 요청을 처리할 수 없다는 의미
+2. 즉, 만약 서블릿이 특정 HTTP 메서드에 대한 요청을 처리할 준비가 되어있지 않다면, 해당 메서드를 제공하지 않는다는 의미
+3. 그러므로, 클라이언트가 특정 HTTP 메서드로 요청을 보내면, 해당하는 서블릿이 그 요청을 처리할 수 있는 적절한 메서드를 제공해야 함
+4. 예를 들어, 클라이언트가 GET 요청을 보냈는데 서블릿이 doGet() 메서드를 오버라이딩하지 않았다면, 이는 해당 서블릿이 GET 요청을 처리할 수 없다는 것을 의미하며, 따라서 서블릿 컨테이너는 클라이언트에게 "Method Not Allowed(405)" 오류를 반환
+   
+-----
+### super.service(reqeust, response)
+-----
 1. 위의 코드의 경우에는 service Method를 HttpServlet으로부터 상속받아 오버라이딩 한 것
 2. 그렇다면, 오버라이딩을 하지 않고 사용한다면? (즉, super.service(request, response) 호출)
    - 사용자로부터 request가 발생하면, doGet / doPost 방식만을 오버라이딩을 하면, 해당 오버라이딩 부분에 대해 처리가 가능
