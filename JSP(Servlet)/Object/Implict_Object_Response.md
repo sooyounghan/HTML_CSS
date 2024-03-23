@@ -1,5 +1,5 @@
 -----
-### response 기본 객체 (HttpServletResponse)
+### response 기본 객체 (javax.servlet.http.HttpServletResponse)
 -----
 1. response  내장 객체
 	- request 기본 객체와 반대의 기능 수행
