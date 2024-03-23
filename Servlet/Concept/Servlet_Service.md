@@ -90,7 +90,7 @@ public class ServletEx extends HttpServlet {
 }
 ```
    - 즉, 위와 같이 service를 통해 GET / POST 방식에 대해 처리했으나, super.service(request, response)를 만나게 되면, 오버라이딩된 doGet(request, response)과 doPost(request, response)를 확인 (오버라이딩이 되지 않은 doGet(request, response)과 doPost(request, response)는 기본적으로 아무런 동작을 수행하지 않으나 호출은 가능)
-   - 하지만, 오버라이딩된 메서드가 없으므로, http status 405 오류 발생
+   - 하지만, 오버라이딩된 메서드가 없으므로, Http status 405 오류 발생
 
 5. 다음과 같이, doGet(request, response), doPost(request, response)를 오버라이딩하면, 오류 미발생
 ```java
