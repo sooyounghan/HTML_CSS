@@ -60,6 +60,12 @@ public interface Servlet {
     - 즉, 여러 요청이 들어오면 각각 요청마다 쓰레드를 만들기 때문에 서블릿 컨테이너는 멀티 쓰레드 방식으로 동작
     - 단 하나의 서블릿 인스턴스만을 사용하므로 쓰레드 동기화를 고려해 만들어야함
 
+6. 기본적인 흐름
+<div align = "center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/ebcbf8fe-7a2e-40dd-af03-8a2920ae9c7f">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/d6170a2c-a50c-414a-8ead-277578c380d7">
+</div>
+
 -----
 ### Servlet 과정
 -----
