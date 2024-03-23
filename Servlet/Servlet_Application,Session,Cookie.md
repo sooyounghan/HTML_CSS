@@ -39,7 +39,7 @@ public class ServletEx extends HttpServlet {
 -----
 1. JSP에서의 Session 내장 객체와 동일
 2. Session은 Servlet에서 HttpSession Interface 내에 존재
-3. request.getSession()를 통해 application 객체 받아올 수 있음
+3. request.getSession()를 통해 session 객체 받아올 수 있음
 4. 예시
 ```java
 package ServletEx;
