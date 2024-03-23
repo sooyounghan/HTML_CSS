@@ -42,3 +42,23 @@
    - 주소창에 chrome://flags 입력하여 접속
    - scrollbar 검색
    - Overlay scrollbars 찾아 Enabled로 변경
+  
+
+-----
+### IDE - Visual Code
+-----
+: 탭 사이즈 및 자동 줄바꿈 설정
+   - VS Code 설정 창 열기 : Ctrl + ,
+   - Tab Size 항목 2로 설정
+   - Word Wrap 항목 on으로 설정
+   - Quote Style 항목 single로 설정
+
+-----
+### Node.js : 자바스크립트 런타임 환경
+-----
+- 주소 : https://nodejs.org
+
+-----
+### VS Code Terminal : Git Bash로 설정
+-----
+- 주소 : https://www.yalco.kr/@git-github/1-2/#vsCodeGitBash
