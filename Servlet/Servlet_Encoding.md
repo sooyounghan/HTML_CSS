@@ -11,8 +11,9 @@
 1. 기본적인 인코딩 형식 : ISO-8859-1
    - 한글을 지원하지 않는 인코딩 형식
    - 클라이언트로 전송 시 1byte단위로 전송하게 되어 한글의 기본 단위인 2byte에 대해서는 문자가 깨지는 오류 발생
-
-2. 서버에서는 UTF-8로 설정해서 보냈으나 브라우저에서 다른 환경에서 설정하여 받는 경우에도 깨지는 오류 발생
+   - Tomcat의 경우 request, response 모두 이 인코딩 형식을 기본으로 설정이었으나 UTF-8로 모두 변경
+     
+2. 서버에서는 UTF-8로 설정해서 보냈으나 브라우저에서 다른 환경에서 설정하여 받는 경우에도 깨지는 오류 발생한다면, 다음과 같이 처리
 ```java
 import java.util.*;
 
@@ -35,6 +36,7 @@ public class servlet_Ex extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     response.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
+    request.setCharacterEncoding("UTF-8");
 
 		PrintWriter out = response.getWriter();
 
