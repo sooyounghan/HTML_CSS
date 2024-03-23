@@ -65,3 +65,8 @@
     * URL 클래스 
      - URL 추상화 클래스로, 상속 불가(final Class)
      - InputStream openStream() : 사이트의 정보를 불러오는 메서드
+
+
+    * 상태 유지를 위한 5가지 방법
+        - Application, Session, Cookie
+        - Input Hidden, Query String
