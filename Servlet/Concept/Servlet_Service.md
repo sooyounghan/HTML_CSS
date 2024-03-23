@@ -40,6 +40,7 @@ public class ServletEx extends HttpServlet {
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/b04175a1-a123-49a4-a480-0800f4a1e20f">
 </div>
+
 1. 클라이언트로부터 들어오는 HTTP 요청을 처리하는 메서드
 2. 클라이언트의 HTTP 요청을 분석해 요청 메서드(GET, POST, PUT, DELETE 등)을 확인
 3. 요청 메서드에 따라 doXXX() 메서드를 호출
