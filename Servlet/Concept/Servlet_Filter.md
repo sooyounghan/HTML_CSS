@@ -2,7 +2,7 @@
 ### Filter
 -----
 <div align="center">
-<img src ="https://github.com/sooyounghan/Web/assets/34672301/4123a38d-a98f-4a26-9c3c-783b7154d460">
+<img src ="https://github.com/sooyounghan/Web/assets/34672301/668fa0db-8e4f-479d-b1fa-7224dd79a0d7">
 </div>
 
 1. HTTP Requst와 Response을 변경할 수 있는 재사용 가능한 클래스
@@ -18,8 +18,9 @@
 ### Filter Chain
 -----
 <div align="center">
-<img src ="https://github.com/sooyounghan/Web/assets/34672301/668fa0db-8e4f-479d-b1fa-7224dd79a0d7">
+<img src ="https://github.com/sooyounghan/Web/assets/34672301/4123a38d-a98f-4a26-9c3c-783b7154d460">
 </div>
+
 
 1. 여러 개의 Filter가 모여서 하나의 Chain을 형성할 때, 첫 번째 Filter가 변경하는 요청 정보는 클라이언트의 Request 정보가 됨
 2. Chain의 두 번째 Filter가 변경하는 요청 정보는 첫 번째 Filter를 통해 변경된 요청 정보
