@@ -118,8 +118,8 @@ public class MyFilter implements Filter {
 -----
 1. inti() 메서드의 FilterConfig 매개변수는 필터의 초기화 파라미터를 읽어올 때 사용
 2. 제공 메서드
-   - String getFilterName() : 설정 파일에서 <filter-name>에 지정한 필터의 이름 return
-   - String getInitParameter() : 설정 파일의 <init-param>에서 지정한 초기화 파라미터 값을 읽어옴 (존재하지 않으면 null 반환)
+   - String getFilterName() : 설정 파일에서 < filter-name >에 지정한 필터의 이름 return
+   - String getInitParameter() : 설정 파일의 < init-param >에서 지정한 초기화 파라미터 값을 읽어옴 (존재하지 않으면 null 반환)
    - Enumeration<String> getInitparamterNames() : 초기화 파라미터 이름 목록을 구함
    - ServletContext getServletContext() : ServletContext 객체를 구함
    
