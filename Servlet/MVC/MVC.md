@@ -10,7 +10,7 @@
 3. Model을 사용해 요청한 기능을 수행
 4. Model로부터 전달받은 결과물을 알맞게 가공한 후, request나 session의 setAttribute() 메서드를 사용해 결과값을 속성에 저장 (JSP에서 사용)
 5. 웹 브라우저에 결과를 전송할 JSP를 선택한 후, 해당 JSP View Page로 Forwarding 또는 Redirect
-
+6. View Page 내 Controller 호출 : 절대경로 사용 (/ContextPath/Servelt URL Pattern)
 -----
 ### 전형적인 Controller Servlet의 구현
 -----
@@ -55,7 +55,11 @@ public class SimpleController extends HttpServlet {
 -----
 1. Controller에서 request 또는 session 기본 객체에 저장된 데이터를 사용해 웹 브라우저에 알맞은 결과를 출력
 2. 웹 브라우저가 요청한 결과를 보여주는 역할, Controller에게 전달해주는 매개체 역할
-
+3. View Page 은닉
+   - WEB-INF 디렉토리 : 외부에서 서비스 되지 않는 파일(View Page)들을 저장할 수 있음
+   - WEB-INF 디렉토리 : 설정 파일 / 라이브러리 / 뷰 파일 은닉 목적
+   - Controller Forwarding 예시 : /WEB-INF/view/notice/list.jsp"
+   - 
 -----
 ### MVC Model
 -----
