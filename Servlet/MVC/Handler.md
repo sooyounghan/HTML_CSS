@@ -225,7 +225,7 @@ import javax.servlet.http.HttpServletResponse;
 public class NullHandler implements CommandHandler {
     @Override
     public String service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.sendError(HttpServletResponse.SC_NOT_FOUND);
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
         return null;
     }
 }
