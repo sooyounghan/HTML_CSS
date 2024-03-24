@@ -144,7 +144,7 @@ public class SimpleController extends HttpServlet {
   
         while(it.hasNext()) {
   
-          String command = (String)it.next());
+          String command = (String)it.next();
           String handlerClassName = prop.getProperty(command);
   
         
