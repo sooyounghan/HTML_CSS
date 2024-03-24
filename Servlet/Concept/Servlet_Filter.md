@@ -236,7 +236,7 @@ public class MyFilter implements Filter {
      	+ FORWARD : forward()를 통해 제어 흐름을 이동하는 경우 필터를 적용
      	+ INCLUDE : include()를 통해 포함되는 경우 필터를 적용
 
-   - 하나의 <filter-mapping>에서 한 개 이상의 <url-pattern>r과 <serlvet-name> 태그 설정 가능
+   - 하나의 < filter-mapping >에서 한 개 이상의 < url-pattern >과 < serlvet-name > 태그 설정 가능
 ```jsp
 <filter-mapping>
 	<filter-name>FilterName</filter-name>
