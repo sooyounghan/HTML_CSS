@@ -40,7 +40,7 @@ public class SimpleController extends HttpServlet {
     // 3. 3단계 : Model을 사용해 요청한 기능 수행
   
     // 4. 4단계 : request나 session에 처리 결과를 저장
-  	req.setAttribute("result", resultObject);
+  	request.setAttribute("result", resultObject);
   		
 
     // 5단계 : RequestDispatcher를 사용해 알맞은 View로 Forwarding 또는 Redirect
