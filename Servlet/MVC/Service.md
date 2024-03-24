@@ -30,7 +30,7 @@
   - 사용자 : 공지 목록 조회 / 공지 상세 조회 가능
 
 <div align="center">
-<img src="(https://github.com/sooyounghan/Web/assets/34672301/c6b33904-2b77-494b-84c9-7dcbd4f1c801">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/c6b33904-2b77-494b-84c9-7dcbd4f1c801">
 </div>
 
 2. 공지사항 목록에 대한 사용자가 요청 가능한 서비스의 예와 서비스 메서드 찾아내기
