@@ -325,7 +325,7 @@ public class MyFilter implements Filter {
   
 
 -----
-### Servlet Filter 예제
+### Character Encoding Filter
 -----
 1. Encoding 작업 Filter를 통해서 하고 싶다면, 다음과 같이 가능
 ```java
@@ -340,6 +340,15 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 public class MyFilter implements Filter {
+	private String endcoding;
+
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		encoding = config.getInitParamter("encoding");
+		if(encoding == null) {
+			encoding = "UTF-8";
+		}
+	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -347,10 +356,33 @@ public class MyFilter implements Filter {
 		request.setCharcterEncoding("UTF-8");
 		chain.doFilter(request, response);
 	}
+
+	@Override
+	public void destroy() {
+		
+	}
 }
 ```
 
 2. 즉, 다음 Servlet 또는 Filter로 이동하기 전에 request에 해당 characterEncoding 타입을 결정하여 전달
+
+3. web.xml 설정
+```jsp
+```jsp
+<filter>
+	<filter-name>MyFilter</filter-name>
+	<filter-class>ServletEx.MyFilter.MyFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+</filter>
+
+<filter-mapping>
+	<filter-name>MyFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+```
 
 -----
 ### Servlet Filter 설정 - Annotation
