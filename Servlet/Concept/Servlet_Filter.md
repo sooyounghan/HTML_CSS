@@ -211,7 +211,7 @@ public class MyFilter implements Filter {
    - < filter-mapping > : 특정 자원에 대해 어떤 필터를 사용할지 지정
    - < init-param > : 필터를 초기화할 때, 즉 필터의 init() 메서드를 호출할 때 전달할 Parameter 설정 (주로, 필터 사용 전 초기화 작업에 필요한 정보 제공)
    - < url-pattern > : 클라이언트가 요청한 특정 URI에 대해 Filtering 할 때 사용
-   - < url-pattern > 대신 <servlet-name> 태그를 사용하면, 특정 서블릿에 대한 요청에 대해 Filter 적용
+   - < url-pattern > 대신 < servlet-name > 태그를 사용하면, 특정 서블릿에 대한 요청에 대해 Filter 적용
    - < dispatcher > 태그를 사용하면 필터가 적용되는 시점 설정 가능
      
 ```jsp
