@@ -368,7 +368,6 @@ public class MyFilter implements Filter {
 
 3. web.xml 설정
 ```jsp
-```jsp
 <filter>
 	<filter-name>MyFilter</filter-name>
 	<filter-class>ServletEx.MyFilter.MyFilter</filter-class>
