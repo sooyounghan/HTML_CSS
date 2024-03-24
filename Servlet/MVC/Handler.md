@@ -10,7 +10,7 @@
 ```java
 String command = request.getParameter("cmd");
 
-String viewPage = nul;;
+String viewPage = null;
 
 if(command == null) {
   // 명령어 오류 처리
