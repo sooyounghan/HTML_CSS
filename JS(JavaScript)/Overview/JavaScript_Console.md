@@ -8,19 +8,19 @@
    - 콘솔을 열어 확인하지 않는 이상 보이지 않음
 
 2. 흔히 활용되는 console 기능
-   - console.log()
+- console.log()
 ```js
 console.log('로그 - 기본적인 출력');
 ```
-   - console.info()
+- console.info()
 ```js
 console.info('로그 - 기능적으로는 log와 같으나 사용하기에 따라 용도 구분 가능');
 ```
-   - console.warn()
+- console.warn()
 ```js
 console.warn('경고 - 문제가 될 수 있는 부분');
 ```
-   - console.error()
+- console.error()
 ```js
 console.error('오류 - 에러 발생 상황');
 ```
