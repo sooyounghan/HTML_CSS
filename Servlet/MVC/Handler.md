@@ -270,7 +270,7 @@ if(command.indexOf(request.getContextPath() == 0) {
 
         if(viewPage != null) {
           RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
-          dispatcher.forward(req, res);
+          dispatcher.forward(reqeust, response);
         }
     }
 ```
