@@ -52,7 +52,7 @@ if(command == null) {
   handler = new BoardWriteFormHandler();
 }
 
-String viewPage = handler.process(request, response);
+String viewPage = handler.service(request, response);
 
   RequestDisspatcher rd = request.getRequestDispatcher(viewPage);
   rd.forward(request, response);
