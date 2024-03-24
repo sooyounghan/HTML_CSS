@@ -344,7 +344,7 @@ public class MyFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		encoding = config.getInitParamter("encoding");
+		encoding = filterConfig.getInitParamter("encoding");
 		if(encoding == null) {
 			encoding = "UTF-8";
 		}
