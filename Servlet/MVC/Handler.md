@@ -89,15 +89,16 @@ public interface CommandHandler {
 ```java
 public class SomeHandler implements CommandHandler {
   public String service(HttpServletRequest request, HttpServletResponse response) {
-  // 1. 명령어와 관련된 비즈니스 로직 처리
-
-  // 2. View Page에서 사용할 정보 저장
-  request.setAttribute("someValue", someValue);
-
-  // 3. View Page URL Return
-  return "/view/Someview.jsp";
+     // 1. 명령어와 관련된 비즈니스 로직 처리
+   
+     // 2. View Page에서 사용할 정보 저장
+     request.setAttribute("someValue", someValue);
+   
+     // 3. View Page URL Return
+     return "/view/Someview.jsp";
+   }
+}
 ```
-
 
 -----
 ### Properties를 이용한 Command와 CommandClass 관계 명시
