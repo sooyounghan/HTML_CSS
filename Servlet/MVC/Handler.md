@@ -110,7 +110,7 @@ BoardWriteForm=myjsp.command.BoardWriteFormHandler
 ...
 ```
 3. 즉, Command=HandlerClass의형태로 구성
-4. Controller Servlet은 init() 메서드를 통해 Servlet을 생성하고 초기화할 때, 설정 파일을 이용해 Handler 객체를 미리 생성해두었다가 process() 메서드에서 사용
+4. Controller Servlet은 init() 메서드를 통해 Servlet을 생성하고 초기화할 때, 설정 파일을 이용해 Handler 객체를 미리 생성해두었다가 service() 메서드에서 사용
 ```java
 package mvc.controller;
 
