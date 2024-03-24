@@ -232,7 +232,7 @@ public class MyFilter implements Filter {
 ```
    - < dispatcher > 태그
      	+ 실행되는 자원을 클라이언트가 요청한 것인지, RequestDispatcher의 forward()를 통해서 요청한 것인지, include()를 통해 포함된 것인지에 따라 필터를 적용하도록 지정 가능
-     	+ REQUEST : 클라이언틔 요청인 경구 필터를 적용 (기본값)
+     	+ REQUEST : 클라이언트의 요청인 경우 필터를 적용 (기본값)
      	+ FORWARD : forward()를 통해 제어 흐름을 이동하는 경우 필터를 적용
      	+ INCLUDE : include()를 통해 포함되는 경우 필터를 적용
 
