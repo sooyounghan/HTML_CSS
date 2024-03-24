@@ -43,7 +43,7 @@ public class SimpleController extends HttpServlet {
   	req.setAttribute("result", resultObject);
   		
 
-    // 5단계 : RequestDispatcher를 사용해 알맞은 View로 Forwarind 또는 Redirect
+    // 5단계 : RequestDispatcher를 사용해 알맞은 View로 Forwarding 또는 Redirect
 		RequestDispatcher dispatcher = req.getRequestDispatcher(viewPage);
 		dispatcher.forward(req, res);
 	}
