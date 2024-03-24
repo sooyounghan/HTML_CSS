@@ -353,7 +353,7 @@ public class MyFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		request.setCharcterEncoding("UTF-8");
+		request.setCharcterEncoding(encoding);
 		chain.doFilter(request, response);
 	}
 
