@@ -110,7 +110,7 @@ public class MyFilter implements Filter {
    - 즉, 요청을 Filtering한 객체가 또 다시 응답을 Filtering
 
  	     + request Parameter를 이용해 클라이언트의 요청을 Filtering (1에서 RequestWrapper 클래스를 사용해 클라이언트 요청 변경)
-	     + chain.doFilter() 메서드 호출 (2에서 요청의 Filtering 결과를 다음 필터에 전달)
+	     + chain.doFilter() 메서드 호출 (2에서 요청의 Filtering 결과를 다음 필터에 전달)   
      	     + response Parameter를 이용해 클라이언트로 가는 응답을 Filtering (3에서 Chain을 통해 절달된 응답 데이터를 변경해 그 결과를 클라이언트에게 전송)
 
 -----
