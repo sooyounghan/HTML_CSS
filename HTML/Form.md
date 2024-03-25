@@ -14,7 +14,7 @@
 <img src="https://github.com/sooyounghan/JAVA/assets/34672301/25c9a004-9e7a-44af-86ac-c9f31ac5569c">
 </div>   
 
-4. action 속성 : 입력값을 전송할 서버의 URL 
+4. action 속성 : 입력값을 전송할 서버의 URL (생략하면 자기 자신의 페이지를 호출)
 5. method 속성 : 클라이언트가 입력한 데이터를 어떠한 방식으로 전송할지 결정 [GET 방식, POST 방식 (기본값 : GET 방식)]
 
        - form 태그의 모든 속성은 필수가 아니라 선택적 사용
