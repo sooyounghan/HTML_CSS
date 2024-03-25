@@ -20,10 +20,10 @@
 		</c:forEach>		
 	</ul>
 	<div>
-		<c:if test="${startNum + 5 < 23}">
+		<c:if test="${startNum + 5 < endNum}">
 			<a href="?page=${startNum + 5}&field=&query=" class="btn btn-next">다음</a>
 		</c:if>
-		<c:if test="${startNum + 5 >= 23}">
+		<c:if test="${startNum + 5 >= endNum}">
 			<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
 		</c:if>
 	</div>
