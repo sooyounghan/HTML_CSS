@@ -56,7 +56,7 @@ public class NoticeListController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NoticeService service = new NoticeService();
 
-		// list.do?f=title(or writerId)&q=검색어
+		// list.do?field=title(or writerId)&query=검색어
 		
 		String field = request.getParameter("field");
 		String query = request.getParameter("query");
