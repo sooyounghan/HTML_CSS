@@ -35,7 +35,7 @@
 </ul>
 <div>
 	<c:if test="${startNum + 4 < endNum}">
-		<a href="?page=${startNum + 5}&field=${param.field}&query=${param.query}" class="btn btn-next">다음</a>
+		<a href="?page=${startNum + 4}&field=${param.field}&query=${param.query}" class="btn btn-next">다음</a>
 	</c:if>
 	<c:if test="${startNum + 4 >= endNum}">
 		<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">다음</span>
