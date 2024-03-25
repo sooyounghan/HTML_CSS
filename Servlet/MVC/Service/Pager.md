@@ -42,6 +42,7 @@
 	</c:if>
 </div>
 ```
+- EL 연산자 중 empty 연산자는 null이거나 빈 문자열("")이면, 모두 true 반환
 
 4. NoticeListController
 ```java
