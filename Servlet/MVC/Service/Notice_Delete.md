@@ -139,7 +139,7 @@ public class ListController extends HttpServlet {
 					ids[i] = Integer.parseInt(delIds[i]);
 				}
 				
-				service.deleteNotice(ids);
+				service.removeNoticeAllList(ids);
 				break;
 		}
 		
@@ -164,24 +164,20 @@ import com.newlecture.web.entity.NoticeView;
 public class NoticeService {
 	NoticeDAO noticeDAO = new NoticeDAO();
 	
-	public int removeNoticeAllList(int[] ids) {
-		return 0;
+	public void removeNoticeAllList(int[] ids) {
+		noticeDAO.removeNoticeAllList(ids);
 	}
 
-	public int pubNoticeAllList(int[] ids) {
-		return 0;
+	public void pubNoticeAllList(int[] ids) {
 	}
 	
-	public int insertNotice(Notice notice) {
-		return 0;
+	public void insertNotice(Notice notice) {
 	}
 	
-	public void deleteNotice(int[] ids) {
-		noticeDAO.deleteNotice(ids);
+	public void deleteNotice(int ids) {
 	}
 	
-	public int updateNotice(Notice notice) {
-		return 0;
+	public void updateNotice(Notice notice) {
 	}
 	
 	public List<Notice> getNoticeNewestList() {
@@ -407,7 +403,7 @@ public class NoticeDAO {
 		return count;
 	}
 	
-	public void deleteNotice(int[] ids) {
+	public void removeNoticeAllList(int[] ids) {
 		try {
 			getConnection();
 			
