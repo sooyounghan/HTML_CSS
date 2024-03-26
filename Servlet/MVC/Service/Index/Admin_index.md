@@ -28,24 +28,20 @@ import com.newlecture.web.entity.NoticeView;
 public class NoticeService {
 	NoticeDAO noticeDAO = new NoticeDAO();
 	
-	public int removeNoticeAllList(int[] ids) {
-		return 0;
+	public void removeNoticeAllList(int[] ids) {
+		noticeDAO.removeNoticeAllList(ids);
 	}
 
-	public int pubNoticeAllList(int[] ids) {
-		return 0;
+	public void pubNoticeAllList(int[] ids) {
 	}
 	
-	public int insertNotice(Notice notice) {
-		return 0;
+	public void insertNotice(Notice notice) {
 	}
 	
 	public void deleteNotice(int ids) {
-		noticeDAO.deleteNotice(ids);
 	}
 	
-	public int updateNotice(Notice notice) {
-		return 0;
+	public void updateNotice(Notice notice) {
 	}
 	
 	public List<Notice> getNoticeNewestList() {
@@ -143,9 +139,37 @@ public class ListController extends HttpServlet {
 		request.setAttribute("count", count);
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/admin/board/notice/list.jsp");
 		rd.forward(request, response);
-
 	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String[] openIds = request.getParameterValues("open-id");
+		String[] delIds = request.getParameterValues("del-id");
+		String command = request.getParameter("cmd");
+		
+		switch(command) {
+			case "일괄공개" :
+				for(String openId : openIds) {
+					
+				}
+
+				break;
+			case "일괄삭제" :
+				NoticeService service = new NoticeService();
+				int[] ids = new int[delIds.length];
+				
+				for(int i = 0; i < delIds.length; i++) {
+					ids[i] = Integer.parseInt(delIds[i]);
+				}
+				
+				service.removeNoticeAllList(ids);
+				break;
+		}
+		
+		response.sendRedirect("list");
+	}
+
 }
+
 ```
 
 ------
