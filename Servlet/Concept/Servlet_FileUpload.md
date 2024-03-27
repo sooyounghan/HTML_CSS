@@ -184,7 +184,7 @@ ppt 파일에 대한바이너리 데이터...
 1. 쉽게 생각하면, miltipart/form-data POST 요청으로 수신받은 from 아이템이나 하나의 Part를 의미
 2. HttpServletRequest에서 Part를 받아오는 메서드 (import javax.servlet.http.Part)
    - Part request.getPart(String filName) : 웹 서버로 전송되어진 fileName에 대해 Part 자료형으로 받음 (즉, Binary Content를 얻어옴)
-   - Collection<Part> request.getParts(String fileName) : Part형을 담은 Colleciton으로 반환
+   - Collection< Part > request.getParts(String fileName) : Part형을 담은 Colleciton으로 반환
 
 3. 주요 메서드
   - String getName(): Part의 이름을 반환
