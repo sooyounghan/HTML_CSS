@@ -195,7 +195,7 @@ public class ListController extends HttpServlet {
 	<c:forEach var="notice" items="${noticeList}">
 	<tr> 
 		<td>${notice.id}</td>
-		<td class="title indent text-align-left"><a href="/Project/notice/detail.do?id=${notice.id}">${notice.title}<span>[${notice.comment_count}]</span></a></td>
+		<td class="title indent text-align-left"><a href="/Project/admin/board/notice/detail?id=${notice.id}">${notice.title}<span>[${notice.comment_count}]</span></a></td>
 		<td>${notice.writerId}</td>
 		<td>
 			<fmt:formatDate pattern="yyyy년 MM월 dd일" value="${notice.regdate}"/>	
