@@ -101,9 +101,26 @@ public class RegController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String title = request.getParameter("title");
+	String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String isOpen = request.getParameter("open");
+		
+		Part filePart = request.getPart("file");
+		String fileName =filePart.getSubmittedFileName();
+		
+		InputStream fis = filePart.getInputStream();
+		String realPath = request.getServletContext().getRealPath("/upload");
+		String filePath = realPath + File.separator + fileName;
+		FileOutputStream fos = new FileOutputStream(filePath);
+		
+		byte[] buff = new byte[1024];
+		int size = 0;
+		while((size = fis.read(buff)) != -1) {
+			fos.write(buff, 0, size);
+		}
+		
+		fos.close();
+		fis.close();
 		
 		boolean pub = false;
 		if(isOpen != null) pub = true; 
@@ -121,3 +138,82 @@ public class RegController extends HttpServlet {
 	}
 }
 ```
+
+-----
+### File Upload Logic 
+-----
+1. 일반적인 Form Data로 전송되는 데이터는 단순한 문자열
+   - application/x-www-form-urlencoded라는 형식으로 전송
+   - 예시
+```
+POST http://localhost:8080/jspServletStudy/login HTTP/1.1
+Host: localhost:8080
+Content-Length: 24
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like  Gecko) Chrome/75.0.3770.142 Safari/537.36
+Accept:  text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate, br
+ 
+id=dololak&password=1234
+출처: https://dololak.tistory.com/726 [코끼리를 냉장고에 넣는 방법:티스토리]
+```
+
+3. 첨부파일은 단순한 문자열이 아닌 0과 1로 이루어진 Binary Data이므로 전송시에 'multipart/form-data'형식으로 전송
+   - 따라서, 이를 받을 수 있는 InputStream이 필요한데, request에는 이를 지원 : InputStream request.getInputStream()
+   - 이 스트림을 얻어서, 데이터를 가공해 추출하는 작업 필요
+```
+POST http://localhost:8080/jspServletStudy/fileUpload HTTP/1.1
+Host: localhost:8080
+Connection: keep-alive
+Content-Length: 2049708
+Upgrade-Insecure-Requests: 1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryg3IbmadDo87Bmh2R
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like  Gecko) Chrome/75.0.3770.142 Safari/537.36
+ 
+------WebKitFormBoundaryg3IbmadDo87Bmh2R
+Content-Disposition: form-data; name="file1"; filename="메이븐.pptx"
+Content-Type: application/vnd.openxmlformats-officedocument.presentationml.presentation
+ 
+ppt 파일에 대한바이너리 데이터...
+출처: https://dololak.tistory.com/726 [코끼리를 냉장고에 넣는 방법:티스토리]
+```
+
+-----
+### Part API 
+-----
+1. 쉽게 생각하면, miltipart/form-data POST 요청으로 수신받은 from 아이템이나 하나의 Part를 의미
+2. HttpServletRequest에서 Part를 받아오는 메서드 (import javax.servlet.http.Part)
+   - Part request.getPart(String filName) : 웹 서버로 전송되어진 fileName에 대해 Part 자료형으로 받음 (즉, Binary Content를 얻어옴)
+   - Collection<Part> request.getParts(String fileName) : Part형을 담은 Colleciton으로 반환
+
+3. 주요 메서드
+  - String getName(): Part의 이름을 반환
+  - String getContentType(): 업로드된 파일의 콘텐츠 유형을 반환
+  - long getSize(): 업로드된 파일의 크기를 반환
+  - void write(String fileName): 업로드된 파일을 지정된 파일로 저장
+  - InputStream getInputStream(): 업로드된 파일의 내용을 읽기 위한 InputStream을 반환
+  - String getSubmittedFileName(): 클라이언트가 업로드한 파일의 이름을 반환
+  - void delete(): 업로드된 파일을 삭제
+  - String getHeader(String name): 특정 HTTP 헤더의 값을 반환
+    
+```java
+Part filePart = request.getPart("file");
+String fileName = filePart.getSubmittedFileName();
+
+InputStream fis = filePart.getInputStream();
+String realPath = request.getServletContext().getRealPath("/upload");
+String filePath = realPath + File.separator + fileName;
+FileOutputStream fos = new FileOutputStream(filePath);
+
+byte[] buff = new byte[1024];
+int size = 0;
+while((size = fis.read(buff)) != -1) {
+	fos.write(buff, 0, size);
+}
+
+fos.close();
+fis.close();
+```
+1. ServletContext request.getServletContext() : 현재 웹 서버 루트 기준으로 상대 경로 반환
+2. String ServletContext.getRealPath(String path) : path에 대한 웹 서버 루트 기준 주소에 대해 절대 경로 반환 
+3. File.separator : 현재 운영체제 대한 파일경로 구분자
