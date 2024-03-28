@@ -570,3 +570,26 @@ public class NoticeDAO {
 	}
 }
 ```
+
+-----
+### Upload File 확인과 Download
+-----
+1. 경로는 현재 프로젝트 내 저장된 upload 파일을 찾아갈 수 있도록 설정하면 확인 가능
+```jsp
+<c:forTokens var="fileName" items="${notice.files}" delims="," varStatus="st">
+	<a href="/Project/upload/${fileName}">${fileName}</a>
+	<c:if test="${!st.last}">
+	/
+	</c:if>
+</c:forTokens>
+```
+
+2. 다운로드는 a 태그 download 속성 이용 (HTML5에서부터 지원 시작)
+```jsp
+<c:forTokens var="fileName" items="${notice.files}" delims="," varStatus="st">
+	<a download href="/Project/upload/${fileName}">${fileName}</a>
+	<c:if test="${!st.last}">
+	/
+	</c:if>
+</c:forTokens>
+```
