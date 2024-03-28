@@ -140,3 +140,146 @@ public class ListController extends HttpServlet {
 -----
 ### 3단계 : 해당 조건에 따라 공지사항(pub = 1)이 등록된 경우만 유저에게 출력
 -----
+
+-----
+### 공지사항 일괄 등록
+-----
+1. admin에서의 list.jsp 부분
+```jsp
+<div class="text-align-right margin-top">
+
+<c:set var="ids" value=""/>
+<c:forEach var="notice_check" items="${noticeList}">
+	<c:set var="ids" value="${ids} ${notice_check.id}"/>
+</c:forEach>
+<input type="hidden" name="ids" value="${ids}"/>
+
+	<input type="submit" class="btn-text btn-default" name="cmd" value="일괄공개">
+	<input type="submit" class="btn-text btn-default" name="cmd" value="일괄삭제">
+	<a class="btn-text btn-default" href="reg">글쓰기</a>				
+</div>
+```
+
+2. hidden으로 넘겨받은 id에 대해 ListController에서 처리
+```java
+package com.newlecture.web.controller.admin.notice;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.newlectrue.web.service.NoticeService;
+import com.newlecture.web.entity.NoticeView;
+
+@WebServlet("/admin/board/notice/list")
+public class ListController extends HttpServlet {
+...
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String[] openIds = request.getParameterValues("open-id");
+		String[] delIds = request.getParameterValues("del-id");
+		String command = request.getParameter("cmd");
+		String ids_ = request.getParameter("ids");
+		String[] ids = ids_.trim().split(" ");
+		
+
+		NoticeService service = new NoticeService();
+		switch(command) {
+			case "일괄공개" :
+				List<String> openids = Arrays.asList(openIds);
+				
+				List<String> closeids = new ArrayList(Arrays.asList(ids));
+				closeids.removeAll(openids);
+				
+				// Transaction 처리 (Service 함수를 2개 만들면, 이 두 개를 하나로 실행될 수 있도록 처리)
+				service.pubNoticeAll(openids, closeids);
+				
+				break;
+			case "일괄삭제" :
+				int[] ids1 = new int[delIds.length];
+				
+				for(int i = 0; i < delIds.length; i++) {
+					ids1[i] = Integer.parseInt(delIds[i]);
+				}
+				
+				service.removeNoticeAllList(ids1);
+				break;
+		}
+		
+		response.sendRedirect("list");
+	}
+
+}
+```
+
+3. NoticeSerive Class의 pubNoticeAll Overloading
+```java
+package com.newlectrue.web.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.newlectrue.web.model.NoticeDAO;
+import com.newlecture.web.entity.Notice;
+import com.newlecture.web.entity.NoticeView;
+
+public class NoticeService {
+	NoticeDAO noticeDAO = new NoticeDAO();
+
+...
+
+	public void pubNoticeAll(String opneidCSV, String closeidCSV) {
+		noticeDAO.putNoticeAll(opneidCSV, closeidCSV);
+	}
+	
+	public void pubNoticeAll(int[] openIds, int[] closeIds) {
+		List<String> openidList = new ArrayList<String>();
+		for(int i = 0 ; i < openIds.length; i++) {
+			openidList.add(String.valueOf(openIds[i]));
+		}
+
+		List<String> closeidList = new ArrayList<String>();
+		for(int i = 0 ; i < closeIds.length; i++) {
+			closeidList.add(String.valueOf(closeIds[i]));
+		}
+		pubNoticeAll(openidList, closeidList);
+	}
+	
+	public void pubNoticeAll(List<String> openIds, List<String> closeIds) {
+		String openidCSV = String.join(",", openIds);
+		String closeidCSV = String.join(",", closeIds);
+		
+		pubNoticeAll(openidCSV, closeidCSV);
+	}
+...
+}
+```
+
+4. NoticeDAO에서 공지 일괄 등록 기능 구현
+```java
+public void putNoticeAll(String openidCSV, String closeidCSV) {
+try {
+	getConnection();
+	
+	String openSql = "UPDATE NOTICE SET PUB = 1 WHERE ID IN (" + openidCSV + ")";
+	pstmt = conn.prepareStatement(openSql);
+	pstmt.executeUpdate();
+	
+	String closeSql = "UPDATE NOTICE SET PUB = 0 WHERE ID IN (" + closeidCSV + ")";
+	pstmt = conn.prepareStatement(closeSql);
+	pstmt.executeUpdate();
+	
+	conn.close();
+} catch(SQLException se) {
+	se.printStackTrace();
+}
+}
+```
