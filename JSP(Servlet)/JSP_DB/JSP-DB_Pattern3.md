@@ -53,7 +53,7 @@
           maxIdle : Connection Pool 유지를 위한 최대 대기 Connection 숫자
           testOnBorrow : DB Test 설정
 
-2. 할당된 자원을 Web Project이 web.xml에서 설정하는 방법
+2. 할당된 자원을 Web Project의 web.xml에서 설정하는 방법
 ```jsp
 <resource-ref>
      <description>connection</description>
