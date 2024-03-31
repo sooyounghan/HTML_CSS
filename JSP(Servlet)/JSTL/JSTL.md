@@ -242,14 +242,35 @@
 -----
 ### 국제화 태그
 -----
-1. 특정 지역에 따라 알맞은 메세지를 출력할 때 사용
+1. 숫자, 날짜, 시간을 Formatting 하는 기능과 국제화, 다국어 지원 기능을 제공
 2. 태그 : < fmt >
 
        <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 -----
-### 국제화 태그 - formatNumber
+### formatNumber : 숫자를 양식에 맞춰서 출력
 -----
+1. 기본 양식
+```jsp
+<fmt:formatNumber value="수치 데이터" [type = "{number | currency | percent}"] [pattern = "패턴"] [currencySymbol="화폐 단위"]
+[groupingUsed="{true | false}"] [var="변수 이름"] [scope="{page | request | session | application}"] >
+```
+2. 속성 설명
+   - value : 형식화할 수치 데이터
+   - type : 숫자, 통화, % 중 어느 형식으로 표시할 지정
+   - pattern : 사용자가 지정한 형식 패턴
+   - currencySymbol : 통화 기호, 통화 형식(type = "currency")일 때만 적용
+   - groupingUsed : ,와 같이 단위를 구분할 때 사용하는 기호 표시 여부 결정 (true : 구분 기호 사용 / false : 구분 기호 미사용)
+   - var : 형식 출력 결과 문자열을 담는 변수 이름
+   - scope : 변수의 영역 지정
+
+```jsp
+<fmt:formatNumber value="1234567.89" pattern="#,#00.0#"/> : 결과 : 1,234,567.89
+<fmt:formatNumber value="1234567.89" groupingUsed="false"/> : 결과 : 1234567.89
+<fmt:formatNumber value="10000" type="currency"/> 결과 : \10,000
+<fmt:formatNumber value="10000" type="currency" currencySymbol="$"/> : 결과 : $10,000
+```
+
 ```jsp
       <h3>Number Format:</h3>
       <c:set var = "balance" value = "120000.2309" />
@@ -282,8 +303,29 @@
 ```
 
 -----
-### 국제화 태그 - formatDate
+### formaDate : 날짜 정보를 담고 있는 객체를 Formatting하여 출력할 때 사용 (Date 객체 -> Format)
 -----
+1. value 속성에 date를 넣어 처리하기 위해 java.util.Date 클래스로 객체를 생성하는 것이 필수적
+   
+```jsp
+ <fmt:formatDate value="date" [type = "{time | date | both}"] [dateStyle="{default | short | medium | long | full}"]
+[timeStyle="{default | short | medium | long | full}"] [pattern="customPattern"] [timeZone="timeZone"]
+[var="변수 이름"] [scope="{page | request | session | application}"] >
+```
+
+2. 속성
+   - value : 형식화될 Date와 Time
+   - type : 형식화될 데이터 타입 셋 중 하나 지정 (time / date / 모두)
+   - dateStyle : 미리 정의된 날짜 형식 중 하나 지정
+   - timeStyle : 미리 정의된 날짜 형식 중 하나 지정
+   - pattern : 사용자 지정 형식 스타일
+   - var : 형식 출력 결과 문자열을 담는 변수 이름
+   - scope : 변수의 영역 지정
+
+```jsp
+<fmt:formatNumber value="$ {now}" pattern="yyyy년 MM월 dd일 hh시 mm분 ss초"/> : 결과 : 2016년 03월 15일 07시 52분 24초
+```
+
 ```jsp
       <h3>Date Number Format:</h3>
       <c:set var = "now" value = "<% = new java.util.Date()%>" />
@@ -308,4 +350,41 @@
 
       <!-- pattern에 맞게 출력 -->
       <p>Formatted Date (7): <fmt:formatDate pattern = "yyyy-MM-dd" value = "${now}" /></p>
+```
+
+-----
+### parseDate : 문자열을 날짜로 Parsing (String의 날짜 형식 -> Parsing)
+-----
+1. 문자열로 표시된 날짜 및 시간 값을 java.util.Date로 Parsing
+```jsp
+<fmt:parseDate value = "날짜값" [type = "타입"] [dateStyle = "날짜스타일"] [timeStyle = "시간스타일"] [pattern = "패턴"]
+[timeZone = "타임존"][parseLocale = "로케일"] [var = "변수 명"][scope = "영역"]/>
+```
+
+2. 예시
+```jsp
+<fmt:parseDate value = "2009-03-01 13:00:59" pattern = "yyyy-MM-dd HH:mm:ss" var = "date"/> : 2009-03-01 13:00:59
+<fmt:parseDate value = "2009-03-01 13:00:59" pattern = "yyyy-MM-dd" var = "date"/> : 2009-03-01
+```
+
+-----
+### parseNumber : 문자열을 수치로 Parsing
+-----
+1. 문자열을 숫자(Number) 타입으로 변환해 주는 기능
+```jsp
+<fmt:parseNumber value = "값" [type = "값타입"] [pattern = "패턴"] [parseLocale = "통화코드"] [integerOnly = "true|fasle"]
+[var = "변수명"][scope = "영역"]/>
+```
+
+2. 속성
+   - value : Parsing할 문자열
+   - type : value 속성의 문자열 타입 지정 (number[기본값], currency, percentage가 올 수 있음)
+   - pattern : 직접 parsing할 때 사용 양식
+   - integerOnly : 정수 부분만 파싱할 지 여부 지정 (기본값 : false)
+   - var : Parsing 결과를 지정할 변수명
+   - scope : 변수를 지정할 영역 지정
+     
+```jsp
+ <fmt:parseNumber value = "1,100.12" pattern = "0,000.00" var = "num"/> : 1,100.12
+ <fmt:parseNumber value = "1,100.12" var = "num" integerOnly="true"/> : 1,100
 ```
