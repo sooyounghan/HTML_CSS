@@ -37,6 +37,7 @@ console.log(
 <img src="https://github.com/sooyounghan/Web/assets/34672301/8ebedd19-d593-44ed-99e7-7b4d7a1e045b">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/6e3a64cb-d5d6-4098-901c-48dc1ce56ceb">
 </div>
+
   - 첫 번째 경우에는 타입과 값이 동일하므로 true
   - 두 번째 경우의 왼쪽은 '1'은 문자열 1을 의미, 오른쪽은 숫자 1을 의미 (자동적으로 '1'을 1로 변환)
   - 세 번째 경우는 자료형과 값이 서로 다르므로 false
