@@ -32,7 +32,7 @@ console.log(d, typeof d);
 
 ```js
 const e = Symbol('hello');
-consol.elog(typeof e);
+console.log(typeof e);
 ```
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/e3ea85e7-be6c-4b4e-94bd-faec5eeb5724">
