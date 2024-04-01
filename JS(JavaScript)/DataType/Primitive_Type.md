@@ -115,7 +115,7 @@ console.log(
   - typeof의 반환값은 문자열
   - 즉, typeof true은 'boolean'이라는 문자열 반환
   - typeof 123.45은 'number'라는 문자열 반환
-  - typeof 'Hello'는 'String'이라는 문자열 반호나
+  - typeof 'Hello'는 'String'이라는 문자열 반환
     
 -----
 ### Undefined
