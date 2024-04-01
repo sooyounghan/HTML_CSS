@@ -82,6 +82,7 @@ let longName = '김수한무 거북이와 두루미 \
 // 큰따옴표도 마찬가지
 console.log(longName);
 ```
+   - \ : Escape 문자를 치환하는 의미로 \ 그대로 출력
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/7900f7d5-e538-4c8e-b5d6-0d5e7be66b11">
 </div>
