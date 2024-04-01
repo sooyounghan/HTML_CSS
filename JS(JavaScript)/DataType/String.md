@@ -54,7 +54,7 @@ console.log(word1, word2);
 console.log('안녕하세요.
             반갑습니다.'); // 줄바꿈을 만나면, JS의 입장에서는 끝난 것으로 인식 해 오류 발생
 
-consol.elog('안녕하세요.\n
+console.log('안녕하세요.\n
             반갑습니다.');
 
 let word = '안녕하세요~\t\t반갑습니다!\n저는 \\홍길동\\입니다.';
