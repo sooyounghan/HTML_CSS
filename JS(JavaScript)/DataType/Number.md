@@ -92,6 +92,7 @@ console.log(
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/1ddea934-07ca-4e92-8868-4a125e9e783a">
 </div>
+  - Number.isNaN() : 해당 인자를 숫자를 변환하려고 시도하고, 이 작업에서 숫자로 변환 불가하면, NaN으로 간주
 
 ```js
 console.log(
