@@ -86,7 +86,7 @@ console.log(longName);
 <img src="https://github.com/sooyounghan/Web/assets/34672301/7900f7d5-e538-4c8e-b5d6-0d5e7be66b11">
 </div>
 
-4. 백틱 : `  `
+4. 백틱 :
 ```js
 let word = `헬로헬로~ 🤩`;
 console.log(word);
