@@ -40,7 +40,7 @@ let y = -1 / 0;
 console.log(y, typeof y);
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/6e590ea7-74ba-41ce-8ac6-c5a4162e4c22">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/29850839-7ff3-487b-8f7d-c1ac03adefad">
 </div>
 
 ```js
@@ -48,7 +48,7 @@ let z = Infinity;
 console.log(z, typeof z);
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/4292e294-b8a9-47e5-b7c5-01960cb05936">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/6e590ea7-74ba-41ce-8ac6-c5a4162e4c22">
 </div>
 
 3. 숫자가 아닌 것
@@ -62,7 +62,7 @@ console.log(y, typeof y);
 console.log(z, typeof z);
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/c11c7b8f-ec9e-414a-8ead-df9ca836effe">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/4292e294-b8a9-47e5-b7c5-01960cb05936">
 </div>
 
   - 숫자가 들어와야 하는 자리인데, 들어오지 못하므로 NaN 반환
