@@ -115,3 +115,6 @@ ${married ? '기혼' : '미혼'}입니다.`
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/5b7b23ee-c5fc-4c03-ae92-69a45262940e">
 </div>
+
+   + ${} 안에 상수나 변수, 표현식 등을 삽입 가능
+   + 다른 자료형도 사용 가능
