@@ -112,6 +112,8 @@ console.log(
 `제 이름은 ${NAME}, 나이는 ${age}세구요, \
 ${married ? '기혼' : '미혼'}입니다.`
 );
+
+console.log('일 더하기 이는 ${1 + 2}이다.') // 일 더하기 이는 3이다.
 ```
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/5b7b23ee-c5fc-4c03-ae92-69a45262940e">
