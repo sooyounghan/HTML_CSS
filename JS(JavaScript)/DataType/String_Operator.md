@@ -227,7 +227,7 @@ console.log(lyric2);
 <img src="https://github.com/sooyounghan/Web/assets/34672301/3ebf06bb-7533-4fd0-be19-9e08ec705a70">
 </div>
 
-4. 다른 자료형과 더하면 문자열 변환 (즉, 문자열에서 +나 +=는 다른 타입을 문자열ㄹ로 변환)
+4. 다른 자료형과 더하면 문자열 변환 (즉, 문자열에서 +나 +=는 다른 타입을 문자열로 변환)
 ```js
 let result = '안녕' + 1 + true;
 
