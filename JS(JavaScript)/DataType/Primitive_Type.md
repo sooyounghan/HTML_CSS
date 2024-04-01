@@ -69,7 +69,7 @@ console.log(b, typeof b);
 -----
 ### Number
 -----
-```
+```js
 let integer = 100;
 let real = 12.34;
 let negative = -99;
