@@ -132,7 +132,7 @@ error && console.warn('오류 발생!');
 error || console.log('이상 없음.');
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/92e6e0c4-eb54-4b8c-9592-4f8ccbc38bd0">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/430f884e-d5c4-4470-9092-c3992242113d">
 </div>
 
 ```js
