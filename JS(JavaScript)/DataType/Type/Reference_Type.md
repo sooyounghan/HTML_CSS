@@ -150,7 +150,7 @@ console.log(winners.length, weekdays.length, randoms.length);
 <img src="https://github.com/sooyounghan/Web/assets/34672301/0de21f36-89f9-4fb0-a710-e76da3a762a4">
 </div>
 
-```
+```js
 // 마지막 요소 얻기
 console.log(winners[winners.length - 1]);
 ```
