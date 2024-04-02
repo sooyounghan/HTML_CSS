@@ -50,7 +50,7 @@ console.log (
 console.log(
   person1['name'], // 속성명을 String으로 작성
   person1['age'],
-  person1['married]'
+  person1['married']
 );
 ```
 <div align="center">
