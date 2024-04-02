@@ -67,14 +67,10 @@ console.log(
 );
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/e41d9755-4143-41f3-8c1f-9daf46e478ff">
-</div>
-
-3. 단항 산술 연산자
-<div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/e8a67ba2-ca32-4888-a00a-8b264a6b0a92">
 </div>
 
+3. 단항 산술 연산자
 ```js
 let x = 10;
 
