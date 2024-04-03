@@ -125,6 +125,9 @@ for (const k in lunch) {
   console.log(k, ' : ', lunch[k]);
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/93b1cd05-89d4-4567-bd3d-5c20120bff3e">
+</div>
 
 * 참조 : https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...of
 2. 배열 : for (항목 of 배열명) : 배열의 항목들을 순서대로 반환
@@ -140,12 +143,19 @@ for(const el of list) {
   console.log(el);
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/fb12bba5-ec82-474a-8579-9c100535eca7">
+</div>
+
 ```js
 // 문자열 역시 이터러블이므로 사용 가능
 for(const letter of '안녕하세요~') {
   console.log(letter);
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/908cfe92-d4d8-44cf-bd90-efcc6f92475b">
+</div>
 
 3. for ~ of 문의 장점
 ```js
@@ -157,6 +167,9 @@ for (let i = 0; i < numbers.length; i++) {
   console.log(numbers[i]);
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/c0769104-7727-4eb3-8f15-c2827af86cfc">
+</div>
 
 ```js
 // ⭐️ 변수를 사용하지 않음으로 보다 안전
@@ -164,6 +177,10 @@ for (const num of numbers) {
   console.log(num);
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/4c6dc6d3-48f1-4b27-8dda-6956ecaf6884">
+</div>
+
 
 4. 다른 예시
 ```js
@@ -176,6 +193,10 @@ for (let num of numbers1) {
 }
 console.log(numbers1, numbers2);
 ```
+   - let num은 numbers1의 값을 받아와서, 참조하는 것이 아니라 복사하는 것
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/2785dba1-c887-4c4e-bd39-e810ab731de6">
+</div>
 
 ```js
 for (let i = 0; i < numbers1.length; i++) {
@@ -183,12 +204,14 @@ for (let i = 0; i < numbers1.length; i++) {
 }
 console.log(numbers1, numbers2);
 ```
-
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/a394c4ea-d9e6-4fe3-ab92-034b540db297">
+</div>
 -----
 ### continue와 break
 -----
 1. continue : 한 Loop를 건너뜀
-   - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/continue
+: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/continue
   
 ```js
 for(let i = 1; i <= 10; i ++) {
@@ -198,9 +221,12 @@ for(let i = 1; i <= 10; i ++) {
 
 console.log('for 루프 종료');
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/b35ced7d-5ff3-4494-9422-4138a113d178">
+</div>
 
 2. break : 블록을 종료하고 빠져나옴
-   - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/break
+   : https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/break
 ```js
 for(let i = 1; i <= 10; i ++) {
   if(i === 5) break;
@@ -209,15 +235,18 @@ for(let i = 1; i <= 10; i ++) {
 
 console.log('for 루프 종료');
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/29058b2b-00f9-4d37-954d-30169aff92cc">
+</div>
 
 3. label : 중첩된 반복문을 명명하여 continue 또는 break에 사용
-   - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/label
+: https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/label
    - 널리 사용되지는 않음
 ```js
 outer :
   for(let i = 1; i < 10; i++) {
 
-  ineer :
+  inner :
   for(let j = 1; j < 10; j++) {
     if(j % 2 === 0) continue inner;
     if(i * j >= 30) continue outer;
@@ -229,5 +258,8 @@ outer :
    }
 }
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/33ff98dc-bf26-458f-bf92-ba73ec6955b1">
+</div>
 
 
