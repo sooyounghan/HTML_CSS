@@ -177,3 +177,21 @@ http://localhost:8081/pro/ch03/link.jsp
        A. path 는 URL상의 주소
        B. docBase 는 어플리케이션의 서버상 위치\
           (만일 docBase가 상대경로면 appBase 부터의 상대경로가 되며, 절대경로로 설정되면 서버의 절대경로)
+
+-----
+### Project의 welcome-file
+-----
+```jsp
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ourPro</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+  </welcome-file-list>
+</web-app>
+```
+
+1. 프로젝트의 welcome-file을 설정하면, 일종의 화면의 메인 Page가 됨
+2. 따라서, 추가적인 파일의 이름 없이 Context Path만 설정하면 메인 페이지로 설정
