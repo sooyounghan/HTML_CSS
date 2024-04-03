@@ -207,6 +207,7 @@ console.log(numbers1, numbers2);
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/a394c4ea-d9e6-4fe3-ab92-034b540db297">
 </div>
+
 -----
 ### continue와 break
 -----
