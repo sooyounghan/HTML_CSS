@@ -33,6 +33,7 @@ console.log(y);
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/1f827f5c-7ccd-4e7a-ab8a-232596a6d321">
 </div>
+
   - x, y는 scope 내에서만 선언했기 때문에, scope 밖에서 사용 불가
   - var로 선언한 변수는 밖에서도 접근 가능
 
