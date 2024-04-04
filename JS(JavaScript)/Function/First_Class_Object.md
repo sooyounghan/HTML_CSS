@@ -183,7 +183,7 @@ const mul = (a, b) => a * b;
 const div = (a, b) => a / b;
 
 function comb3ArmFuncs(armFunc1, armFunc2, armFunc3) {
-  return(x, y) => armFun3(armFunc2(armFunc1(x, y), y), y);
+  return (x, y) => armFun3(armFunc2(armFunc1(x, y), y), y);
 }
 
 const add_mul_sub = comb3ArmFuncs(add, mul, sub);
