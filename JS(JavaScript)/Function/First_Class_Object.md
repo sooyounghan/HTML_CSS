@@ -170,7 +170,7 @@ function getIntroFunc(name, formal) {
 }
 
 const hongIntro = getIntroFunc('홍길동', true);
-const jeonIntro = getIntroFunc('전우차', false);
+const jeonIntro = getIntroFunc('전우치', false);
 
 hongIntro();
 jeonIntro();
