@@ -56,6 +56,10 @@ switch (direction) {
 console.log(directionKor);
 ```
   - break; 들을 제거하고 실행하면 ?
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/9fefd99e-cba0-4363-be7b-19ecac931c76">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/60209614-7ed2-4dcc-8352-29be09191b2b">
+</div>
 
 ```js
 // 참고 : 객체를 사용한 방법
@@ -94,6 +98,10 @@ switch  (month) {
 
 console.log(season);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/4a4752b4-c1cd-466d-b00b-3819600f4026">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/a9fc2ebc-0b28-427f-9c3b-7a76d7bca68d">
+</div>
 
 ```js
 const startMonth = 1;
@@ -134,3 +142,8 @@ switch (startMonth) {
 
 console.log(holidays);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/24d83bed-a4c9-477e-b808-301ac9396ab0">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/f05258aa-8142-4622-9b86-6f1bad91ada5">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/c64f86ce-50f3-46e2-a8d9-f70293649360">
+</div>
