@@ -153,7 +153,7 @@ console.log(
 <img src="https://github.com/sooyounghan/Web/assets/34672301/5aaedff5-456c-4064-83fb-296feb2bc0fe">
 </div>
 
-4. 나머지 변수 (Rest Parameters) : ... 변수그룹명
+4. 나머지 변수 (Rest Parameters) : ...변수그룹명
   - 특정 매개변수들 뒤에 정해지지 않은 수의 매개변수들을 받을 때
   - 마지막 인자로만 사용 가능
   - arguments와 달리 실제 배열
