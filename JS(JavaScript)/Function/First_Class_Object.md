@@ -2,7 +2,7 @@
 ### 일급 객체 (First Class Object)
 -----
 1. https://developer.mozilla.org/ko/docs/Glossary/First-class_Function
-2. 함수를 변수와 같이다루는 언어에 있는 개념
+2. 함수를 변수와 같이 다루는 언어에 있는 개념
 3. 자바스크립트의 함수도 일급 객체 (함수는 기본적으로 객체)
 ```js
 function addNumbers(a, b) { return a + b; }
