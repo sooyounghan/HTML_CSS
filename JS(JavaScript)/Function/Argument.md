@@ -148,7 +148,8 @@ console.log(
   add_mul_sub_div_pow(8, 3)
 );
 ```
-  -arguments에는 익명 함수도 가능
+  - arguments에는 익명 함수도 가능
+  
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/5aaedff5-456c-4064-83fb-296feb2bc0fe">
 </div>
