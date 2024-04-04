@@ -246,7 +246,7 @@ console.log(mult(2, 7));
 
     + return문이 없다면 undefined 출력
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/40ea9d49-956b-46c1-84eb-8b553af64dd6">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/26f3174c-5c22-455e-84fe-0e77f546cc32">
 </div>  
 
   - 인자가 하나일 때는 괄호 없이 선언 가능
@@ -255,7 +255,7 @@ const pow = x => x ** 2;
 console.log(pow(3));
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/26f3174c-5c22-455e-84fe-0e77f546cc32">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/40ea9d49-956b-46c1-84eb-8b553af64dd6">
 </div>  
 
 ** 화살표 함수는 function 선언 함수와 기능 차이 존재
