@@ -227,6 +227,7 @@ console.log(x, y, z);
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/1ec7eb51-6ff2-4e97-aab8-beba62ec1251">
 </div>
+
   - x는 원시 타입, y와 z는 참조 타입
   - x는 실제 값이 복사되어 함수가 실행
   - y, z는 주소 값이 전달되어 함수가 실행
