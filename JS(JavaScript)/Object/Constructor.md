@@ -155,14 +155,16 @@ console.log(new YalcoChicken('강남', 17).introEng());
 ### 타 방식으로 만든 객체와의 차이
 -----
 ```js
-function YalcoChicken(name, no) {
+// 생성자 함수
+function YalcoChicken(name, no) { 
   this.name = name;
   this.no = no;
-  this.introduce = fuction() {
+  this.introduce = function() {
     return `안녕하세요, ${this.no}호 ${this.name}점입니다.!`;
   }
 }
 
+// 객체 직접 반환
 function createYalcoChicken(name, no) {
     return {
     name, no,
@@ -171,9 +173,8 @@ function createYalcoChicken(name, no) {
     }
   }
 }
-```
 
-```js
+// 객체 리터럴
 const chain1 = {
   name : '판교', no : 3,
   introduce : function() {
@@ -191,6 +192,11 @@ console.log(chain1, chain1 instanceof YalcoChicken);
 console.log(chain2, chain2 instanceof YalcoChicken);
 console.log(chain3, chain3 instanceof YalcoChicken);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/d09924c7-f8e0-4e19-8d93-29967154abd4">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/5a7536a9-5156-40e8-98e4-cbf5c65f096f">
+</div>
+
 1. 객체 자체의 로그도 상세가 다름 유의(앞에 생성자 함수명이 붙음)
 2. instanceof : 객체가 특정 생성자 함수에 의해 만들어졌는지 여부 반환
 3. 프로토타입의 constructor의 Chain이 해당 생성자 함수 포함하지는지 여부 : 콘솔에서 [[Prototype]] 펼쳐서 확인
@@ -212,14 +218,20 @@ YalcoChicken.contact = function () {
     return `${this.brand}입니다. 무엇을 도와드릴까요?`;
 };
 
-cons chain1 = new YalcoChicken('판교', 3);
+const chain1 = new YalcoChicken('판교', 3);
 ```
-
+  - chain1이라는 인스턴스 생성
+  - 하지만, YalcoChicken에 brand와 contact 추가 (즉, 생성자 함수 자체에 기능 추가) [= Java의 Static 개념]
+  - 따라서, chain이라는 인스턴스에 적용한 것이 아닌, 생성자에 추가한 것이기 때문에, 생성자 함수에만 적용
+    
 ```js
 console.log(YalcoChicken.contact());
 
 consoe.log(chain1.contact());
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/35aeab2f-4099-44ed-9d07-b516f42dcef7">
+</div>
 
 -----
 ### new 생략 실수 방지하기
@@ -242,5 +254,10 @@ const chain2 = YalcoChicken('강남', 17);
 
 console.log(chain1, chain2);
 ```
-: 해당 함수가 new 연산자 없이 호출되었을 경우 재귀호출을 통해 생성해 내보냄
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/f9c4826c-7296-4ee1-a833-8eb25856ed40">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/06250e95-8ef9-451f-8f64-7f08898b2062">
+</div>
+
+  - 해당 함수가 new 연산자 없이 호출되었을 경우 조건 확인(!new.target) 재귀호출을 통해 생성해 내보냄
 
