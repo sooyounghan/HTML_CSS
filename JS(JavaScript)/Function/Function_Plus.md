@@ -68,7 +68,7 @@ upto5(7);
 <img src="https://github.com/sooyounghan/Web/assets/34672301/0a81109d-1d31-4016-a16d-1735ac72ff20">
 </div>
 
-  - 함수들은 한 함수가 다른 함수를 호출할 때 마다 컴퓨xj 메모리 공간에 Call Stack 공간에 해당 함수에 대한 Stack이 쌓임
+  - 함수들은 한 함수가 다른 함수를 호출할 때 마다 컴퓨터 메모리 공간에 Call Stack 공간에 해당 함수에 대한 Stack이 쌓임
   - 즉, 재귀함수는 모든 재귀가 끝날때까지 계속 Call Stack 메모리상 공간 차지
   - Stack이 넘치면, Stack Overflow 발생
     + for문은 Loop를 돌면서 그 루프 하나 하나를 개별적 스택에서 진행
