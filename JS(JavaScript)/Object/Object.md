@@ -88,7 +88,6 @@ console.log(
 ```
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/c5cc0b40-c94d-4d79-a7bd-e6a5e5113ee4">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/2b91e504-501e-44c3-95ff-60f54e9ab08a">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/79dcdac9-b052-47a0-b8b4-78778431d6dd">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/1ed572b7-ec73-42d4-ad2e-06f2f62a2b66">
 </div>
