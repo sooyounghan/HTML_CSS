@@ -196,10 +196,16 @@ delete person1.hobby;
 console.log(person1);
 ```
   : 오류가 발생하지는 않음
+  
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/a5ed6c7e-4d7d-4977-bb57-8e3a512cbbc0">
+</div>
 
 -----
 ### 키의 동적 사용
 -----
+  - 동적으로 사용할 때는, 콤마 연산자가 아닌 대괄호 연산자로 사용
+  - 콤마 연산자로 하면, key라는 키 값을 넣는 것으로 인식
 ```js
 const product1 = {
   name : '노트북',
@@ -208,12 +214,12 @@ const product1 = {
 }
 
 function addModifyProperty (obj, key, value) {
-  // obj.key = value; // 의도와 다른 작업 수행
+  // obj.key = value; // 의도와 다른 작업 수행 (obj 객체의 key라는 이름의 키의 값에 접근하겠다는 뜻)
   obj[key] = value;
 }
 
 function deleteProperty (obj, key) {
-  // delete obj.key; // 의도와 다른 작업 수행
+  // delete obj.key; // 의도와 다른 작업 수행 (obj 객체의 key라는 이름의 키의 값에 접근하겠다는 뜻)
   delete obj[key];
 }
 ```
@@ -232,6 +238,9 @@ console.log(product1);
 deleteProperty(product1, 'color');
 console.log(product1);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/ae6ddfc1-71a1-4d81-b900-dea11127825b">
+</div>
 
 -----
 ### ES6 추가 문법
@@ -247,12 +256,20 @@ const obj1 = {
 
 console.log(obj1);
 ```
+  - obj1 객체에 x, y라는 key
+  - 위에서 언급한 x = 1, y = 2를 value로 삽입 (식별자와 같은 이름이면 단축 가능)
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/c77e6a06-8581-4d77-a614-7c93361c5a92">
+</div>
 
 ```js
-const obj2 = { x, y}
+const obj2 = { x, y }
 
 console.log(obj2);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/e63ba7a6-eea2-4ece-bdf5-c27664dc2a8b">
+</div>
 
 ```js
 function createProduct(name, price, quantity) {
@@ -264,6 +281,9 @@ const product2 = createProduct('청소기', 125000, 32);
 
 console.log(product1, product2);
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/3f7ed8b1-0696-47a2-9a37-ad30a22f95f0">
+</div>
 
 2. 메서드(Method) : 객체에 축약표현으로 정의된 함수 프로퍼티
 ```js
@@ -279,6 +299,9 @@ const person = {
 }
 console.log(person.salutate(true));
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/5fc594c0-9340-4f13-9d6a-d7079b729af0">
+</div>
 
 ```js
 // 메서드 정의
@@ -293,6 +316,9 @@ const person = {
 }
 console.log(person.salutate(true));
 ```
+<div align="center">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/3e733541-d943-4ea1-b628-e9fe24b0dba8">
+</div>
 
   - ES6에서부터는 위의 표현으로 정의된 함수만 메서드라고 부름
   - 일반 함수 프로퍼티와 특성이 다름
