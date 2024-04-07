@@ -27,7 +27,7 @@ const emp1 = new Employee('김복동', 32);
 
 console.log(emp1);
 
-console.log(emp1.#ename); // 일부 브라우저 제외한 오류 발생
+console.log(emp1.#name); // 일부 브라우저 제외한 오류 발생
 
 console.log(emp1['#name']); // undefiend 반환
 ```
