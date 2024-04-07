@@ -255,12 +255,7 @@ console.log(
   (111.234567).toFixed(1),
   (111.234567).toFixed(2)
 );
-```
-<div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/52306ad0-0a92-4cc5-8b1f-156f3065638f">
-</div>
 
-```js
 console.log(
   // 반올림
   (111.234567).toFixed(3),
@@ -268,7 +263,7 @@ console.log(
 );
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/794f6914-2717-43f1-9b9e-027a81a43dc0">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/6198e617-92c9-4e4b-acab-32635a8414f8">
 </div>
 
 4. toPrecision
@@ -280,7 +275,7 @@ console.log(
 );
 ```
 <div align="center">
-<img src="https://github.com/sooyounghan/Web/assets/34672301/b136c273-5659-4972-9837-eab24cb5130c">
+<img src="https://github.com/sooyounghan/Web/assets/34672301/f4cf3b58-5fca-4426-a175-0a1e4a95da6a">
 </div>
 
 ```js
@@ -294,6 +289,7 @@ console.log(
 <div align="center">
 <img src="https://github.com/sooyounghan/Web/assets/34672301/0592a6b6-8ef7-4481-99db-4a211aed9277">
 </div>
+
 
 ```js
 // 반올림
