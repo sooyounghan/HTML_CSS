@@ -80,7 +80,7 @@ console.log(chain1);
 <img src="https://github.com/sooyounghan/Web/assets/34672301/4f851ac4-f702-4cd3-86e0-1fc3c8a273d9">
 </div>
 
-  - 클래스에서는 Prototype이 됨 (콘솔에서 객체의 [[Prototype]]에서 확인해볼 것
+  - 클래스에서는 Prototype이 됨 (콘솔에서 객체의 [[Prototype]]에서 확인해볼 것)
 
 -----
 ### getter
