@@ -1,0 +1,65 @@
+* {
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+
+.wrapper {
+    width:100%;
+    border:3px solid black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:space-between;
+}
+
+.menu, .items {
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.name {
+    padding:10px;
+    margin:2px;
+    border:1px solid black;
+}
+
+.name p {
+    font-size:12px;
+    font-weight:600;
+    text-align:center;
+}
+
+.id {
+    width:10%;
+}
+
+.email {
+    width:15%;
+}
+
+.tel {
+    width:15%;
+}
+
+.address {
+    width:15%;
+}
+
+.hobby {
+    width:15%;
+}
+
+.job {
+    width:10%;
+}
+
+.age {
+    width:10%;
+}
+
+.info {
+    width:10%;
+}
